@@ -1,0 +1,493 @@
+@extends('layouts.app')
+
+@section('title', 'Gentle Living')
+
+@section('content')
+    <!-- Hero Section / Beranda -->
+    <section id="beranda" class="flex flex-col md:flex-row items-center h-screen bg-gray-100 relative">
+        <!-- Background Gradient -->
+        <div
+            class="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-[#444444]/100 via-[#444444]/100 to-transparent z-10">
+        </div>
+
+        <!-- Sisi Kiri - Teks -->
+        <div class="relative z-20 w-full md:w-1/2 flex items-start justify-center flex-col h-full">
+            <div class="px-6 md:px-16 max-w"> <!-- Tambahkan padding kiri & batasi lebar konten -->
+                <h1 style="font-family: 'Fredoka One', cursive;"
+                    class="text-3xl md:text-5xl text-[#528B89] mb-8 leading-tight">
+                    Join Our Baby Wellness Affiliate Program
+                </h1>
+                <p style="font-family: 'Nunito', sans-serif;" class="text-base md:text-lg text-[#528B89] mb-4 md:mb-6">
+                    Kami sedang membuka program affiliate partnership untuk <br />
+                    <span class="font-bold"> 3 produk best-seller </span> kami yang fokus pada wellness bunda
+                    & bayi.
+                </p>
+                <p style="font-family: 'Nunito', sans-serif; font-size: 25px; font-bold;"
+                    class="text-white font-semibold mb-6">
+                    Gentlebaby Massage Oil #TheMiracleofTouch<br />
+                    <span class="text-white font-normal" style="font-size: 20px;">Bantu atasi bayi rewel dan rileks,
+                        juga
+                        media bonding dengan ayah bunda</span>
+                </p>
+                <a href="#"
+                    class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#528B89] hover:text-white transform hover:scale-110 hover:-translate-y-2 transition-all duration-300 ease-in-out">
+                    DAFTAR SEKARANG
+                </a>
+            </div>
+        </div>
+
+        <!-- Sisi Kanan - Gambar -->
+        <div class="relative z-0 w-full md:w-1/2 h-full">
+            <img src="{{ asset('images/banner.png') }}" alt="Banner" class="w-full h-full object-cover object-right">
+        </div>
+    </section>
+
+    <!-- Produk Section -->
+    <section id="products" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <!-- Why Join Us Header -->
+            <div class="text-center mb-16">
+                <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#528B89] mb-4">
+                    Why Join Us
+                </h2>
+                <p style="font-family: 'Nunito', sans-serif;" class="text-lg text-[#528B89] max-w-3xl mx-auto">
+                    Kami percaya produk ini sangat cocok untuk audience kami yang didominasi moms, new parents,
+                    breastfeeding moms, dan pejuang MPASI.
+                </p>
+                <p style="font-family: 'Nunito', sans-serif;" class="text-lg text-[#528B89] italic font-semibold mt-4">
+                    Helping Moms - Earning with Purpose
+                </p>
+            </div>
+
+            <!-- Benefits Grid -->
+            <div class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- Benefit 1 -->
+                <div class="flex items-start space-x-4">
+                    <div class="flex items-center justify-center flex-shrink-0">
+                        <x-heroicon-s-check-badge class="w-12 h-12 text-[#528B89]" />
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Produk yang beneran dipakai & dibutuhkan bunda dan
+                            baby</h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">
+                            Kami tahu dibutuhkan berdasarkan riset & kami sendiri beneran pakai untuk Si Kecil
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="flex items-start space-x-4">
+                    <div class="flex items-center justify-center flex-shrink-0">
+                        <x-heroicon-s-shopping-cart class="w-12 h-12 text-[#528B89]" />
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Repeat order tinggi</h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">
+                            Hasil dirasakan cepat & kebutuhan harian
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="flex items-start space-x-4">
+                    <div class="flex items-center justify-center flex-shrink-0">
+                        <x-heroicon-s-document-text class="w-12 h-12 text-[#528B89]" />
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Full support + edukasi</h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">
+                            Kamu bisa dibantu berkembang secara skill atau kebutuhan konten
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="flex items-start space-x-4">
+                    <div class="flex items-center justify-center flex-shrink-0">
+                        <x-heroicon-s-star class="w-12 h-12 text-[#528B89]" />
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Produk kategori premium</h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">
+                            Bernilai jual cukup tinggi sehingga komisi besar untuk setiap penjualannya
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- What you will get Section -->
+        <div class="mb-16">
+            <h3 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-center text-[#528B89] mb-8">
+                What you will get
+            </h3>
+            <div class="max-w-5xl mx-auto">
+                <!-- Baris pertama - 3 item -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                    <!-- Item 1 -->
+                    <div class="bg-white rounded-lg p-6 text-left border border-gray-200 shadow-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-currency-dollar class="w-6 h-6 text-gray-600" />
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Setup penjualan produk</h4>
+                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">mendapat
+                                    komisi sebesar 30-40%</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 2 -->
+                    <div class="bg-white rounded-lg p-6 text-left border border-gray-200 shadow-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-user-group class="w-6 h-6 text-gray-600" />
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Tim support untuk bantu
+                                    tracking &
+                                    pelaporan</h4>
+                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">hingga
+                                    pengembangan skill</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 3 -->
+                    <div class="bg-white rounded-lg p-6 text-left border border-gray-200 shadow-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-gift class="w-6 h-6 text-gray-600" />
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Produk gratis untuk review
+                                </h4>
+                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">(bisa 1-3
+                                    item)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Baris kedua - 2 item di tengah -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <!-- Item 4 -->
+                    <div class="bg-white rounded-lg p-6 text-left border border-gray-200 shadow-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-banknotes class="w-6 h-6 text-gray-600" />
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Bonus bulanan dan tahunan
+                                </h4>
+                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">untuk
+                                    penjualan terbanyak</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="bg-white rounded-lg p-6 text-left border border-gray-200 shadow-sm">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-photo class="w-6 h-6 text-gray-600" />
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Akses ke media kit</h4>
+                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">(foto, video,
+                                    script)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Perfect for you Section -->
+        <div class="mb-16">
+            <h3 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-center text-[#528B89] mb-8">
+                Perfect for you
+            </h3>
+            <div class="max-w-6xl mx-auto">
+                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <!-- Type 1 -->
+                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
+                        <h4 class="font-bold text-gray-800 text-sm mb-2">Momfluencer</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Sering berbagi daily
+                            life bermama anak</p>
+                    </div>
+
+                    <!-- Type 2 -->
+                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
+                        <h4 class="font-bold text-gray-800 text-sm mb-2">Bidan/Educator MPASI</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Aktif memberikan
+                            edukasi tentang kesehatan bayi/anak</p>
+                    </div>
+
+                    <!-- Type 3 -->
+                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
+                        <h4 class="font-bold text-gray-800 text-sm mb-2">Admin Komunitas Ibu</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Mengelola komunitas
+                            untuk mama dan terlibat diskusi</p>
+                    </div>
+
+                    <!-- Type 4 -->
+                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
+                        <h4 class="font-bold text-gray-800 text-sm mb-2">Content Creator Parenting</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Membuat konten tips,
+                            review terkait tumbuh kembang</p>
+                    </div>
+
+                    <!-- Type 5 -->
+                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
+                        <h4 class="font-bold text-gray-800 text-sm mb-2">Ibu Aktif</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Suka berbagi info dan
+                            recommend ke mama lain</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Meet The Product Section -->
+        <div class="text-center">
+            <h3 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-8">
+                Meet The Product
+            </h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-[#528B89] transition-colors">
+                    <div class="h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-gray-400">Product Image</span>
+                    </div>
+                    <h4 style="font-family: 'Fredoka One', cursive;" class="text-xl text-[#528B89] mb-4">
+                        Gentle Baby
+                    </h4>
+                    <a href="#" class="inline-flex items-center text-[#528B89] font-semibold hover:underline">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                            <path
+                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                        </svg>
+                        Link produk
+                    </a>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-[#528B89] transition-colors">
+                    <div class="h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-gray-400">Product Image</span>
+                    </div>
+                    <h4 style="font-family: 'Fredoka One', cursive;" class="text-xl text-[#528B89] mb-4">
+                        Mamina Seduhan
+                    </h4>
+                    <a href="#" class="inline-flex items-center text-[#528B89] font-semibold hover:underline">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                            <path
+                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                        </svg>
+                        Link produk
+                    </a>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-[#528B89] transition-colors">
+                    <div class="h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
+                        <span class="text-gray-400">Product Image</span>
+                    </div>
+                    <h4 style="font-family: 'Fredoka One', cursive;" class="text-xl text-[#528B89] mb-4">
+                        Nyam! MPASI
+                    </h4>
+                    <a href="#" class="inline-flex items-center text-[#528B89] font-semibold hover:underline">
+                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path
+                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                            <path
+                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                        </svg>
+                        Link produk
+                    </a>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-8">
+                Telah dipercaya >30.000 Ibu
+            </h3>
+
+            <!-- Testimonial Card -->
+            <div class="bg-white rounded-lg p-8 shadow-lg max-w-2xl mx-auto">
+                <div class="flex items-start space-x-4">
+                    <!-- Avatar -->
+                    <div class="bg-gray-300 w-16 h-16 rounded-full flex-shrink-0"></div>
+
+                    <!-- Testimonial Content -->
+                    <div class="text-left">
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-700 mb-4 italic">
+                            "Hari ini Fahiyyah masuk angin, muntah, dan mual. Trus ingat punya Tummy Calmer.
+                            Langsung obles-oles ke perut Alhamdulillah langsung terkendali enggak lagi
+                            batunya. Makasih Gentle Baby!"
+                        </p>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-[#528B89] font-semibold">
+                            Mom Firda Amalia
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Join Section -->
+    <section class="py-20 bg-[#B8E6D9]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Side - Content -->
+                <div>
+                    <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-8">
+                        How to Join
+                    </h2>
+
+                    <div class="bg-white rounded-xl p-8 shadow-lg">
+                        <button class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-bold mb-6 text-left">
+                            DAFTAR SEKARANG
+                        </button>
+
+                        <h3 style="font-family: 'Fredoka One', cursive;" class="text-xl text-[#528B89] mb-3">
+                            Work Easy, Earn More
+                        </h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm leading-relaxed">
+                            Kami bisa bantu rekomendasikan bikin konten/script sesuai gaya kamu
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Side - Steps -->
+                <div class="space-y-6">
+                    <!-- Step 1 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-[#FF6B6B] w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-sm">1</span>
+                        </div>
+                        <div>
+                            <p style="font-family: 'Nunito', sans-serif;" class="text-[#FF6B6B] font-bold text-sm mb-1">
+                                Klik "DAFTAR SEKARANG" dan isi identitas diri
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-[#4ECDC4] w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-sm">2</span>
+                        </div>
+                        <div>
+                            <p style="font-family: 'Nunito', sans-serif;" class="text-[#4ECDC4] font-bold text-sm mb-1">
+                                Tim kami akan kirim:
+                            </p>
+                            <p style="font-family: 'Nunito', sans-serif;" class="text-gray-700 text-xs">
+                                Link affiliate, Product Knowledge, Brief konten & panduan
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-[#FF9F43] w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-sm">3</span>
+                        </div>
+                        <div>
+                            <p style="font-family: 'Nunito', sans-serif;" class="text-[#FF9F43] font-bold text-sm mb-1">
+                                Kamu tinggal sharelink affiliate ke IG Story, TikTok, WA Grup, atau komunitas Ibu
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-[#6C63FF] w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-white font-bold text-sm">4</span>
+                        </div>
+                        <div>
+                            <p style="font-family: 'Nunito', sans-serif;" class="text-[#6C63FF] font-bold text-sm mb-1">
+                                Pantauin dan komisi dicatat otomatis lewat platform
+                            </p>
+                            <p style="font-family: 'Nunito', sans-serif;" class="text-gray-700 text-xs">
+                                (atau Google Sheet kalau manual)
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Belanja Section -->
+    <section id="contact" class="py-20 bg-[#528B89]">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-white mb-8">
+                Mulai Belanja Sekarang
+            </h2>
+            <p style="font-family: 'Nunito', sans-serif;" class="text-xl text-white mb-8">
+                Dapatkan produk terbaik untuk kesehatan dan wellness bayi Anda
+            </p>
+            <a href="#"
+                class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
+                BELANJA SEKARANG
+            </a>
+        </div>
+    </section>
+
+    <!-- Partner Section -->
+    <section id="partner" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-center text-gray-800 mb-12">
+                Bergabung Sebagai Partner
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold text-[#528B89] mb-6">Keuntungan Menjadi Partner</h3>
+                    <ul style="font-family: 'Nunito', sans-serif;" class="space-y-4 text-gray-600">
+                        <li class="flex items-center">
+                            <span class="bg-[#528B89] w-3 h-3 rounded-full mr-3"></span>
+                            Komisi hingga 30% untuk setiap penjualan
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-[#528B89] w-3 h-3 rounded-full mr-3"></span>
+                            Support marketing dan training gratis
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-[#528B89] w-3 h-3 rounded-full mr-3"></span>
+                            Produk berkualitas dengan sertifikasi resmi
+                        </li>
+                        <li class="flex items-center">
+                            <span class="bg-[#528B89] w-3 h-3 rounded-full mr-3"></span>
+                            Sistem pembayaran yang mudah dan cepat
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-center">
+                    <div class="bg-gray-100 p-8 rounded-lg">
+                        <h4 class="text-xl font-bold text-gray-800 mb-4">Siap Memulai?</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 mb-6">
+                            Daftar sekarang dan mulai earning bersama kami
+                        </p>
+                        <a href="#"
+                            class="inline-block px-6 py-3 bg-[#528B89] text-white font-bold rounded-full hover:bg-[#477A77] transition-colors">
+                            DAFTAR PARTNER
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+@endsection
