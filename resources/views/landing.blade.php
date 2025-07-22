@@ -36,11 +36,102 @@
             </div>
         </div>
 
-        <!-- Sisi Kanan - Gambar -->
-        <div class="relative z-0 w-full md:w-1/2 h-full">
-            <img src="{{ asset('images/banner.png') }}" alt="Banner" class="w-full h-full object-cover object-right">
+        <!-- Sisi Kanan - Gambar Carousel -->
+        <div class="relative z-0 w-full md:w-1/2 h-full" id="banner-carousel">
+            <!-- Slides Container -->
+            <div class="h-full overflow-hidden relative">
+                <img src="{{ asset('images/banner.png') }}" alt="Banner 1"
+                    class="banner-slide w-full h-full object-cover object-right absolute transition-all duration-700 opacity-100">
+                <img src="{{ asset('images/banner-2.png') }}" alt="Banner 2"
+                    class="banner-slide w-full h-full object-cover object-right absolute transition-all duration-700 opacity-0">
+                <img src="{{ asset('images/banner-3.png') }}" alt="Banner 3"
+                    class="banner-slide w-full h-full object-cover object-right absolute transition-all duration-700 opacity-0">
+            </div>
+
+            <!-- Navigation Indicators - Larger click target -->
+            <div class="absolute bottom-12 left-0 right-0 flex justify-center gap-5 z-20" id="carousel-indicators">
+                <button class="group relative cursor-pointer" data-slide="0">
+                    <div class="w-20 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                    <div
+                        class="w-20 h-3 bg-white/80 rounded-full indicator-line active transition-all group-hover:bg-white">
+                    </div>
+                </button>
+                <button class="group relative cursor-pointer" data-slide="1">
+                    <div class="w-20 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                    <div class="w-20 h-3 bg-white/40 rounded-full indicator-line transition-all group-hover:bg-white/60">
+                    </div>
+                </button>
+                <button class="group relative cursor-pointer" data-slide="2">
+                    <div class="w-20 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                    <div class="w-20 h-3 bg-white/40 rounded-full indicator-line transition-all group-hover:bg-white/60">
+                    </div>
+                </button>
+            </div>
         </div>
     </section>
+
+    <!-- Carousel Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.banner-slide');
+            const indicators = document.querySelectorAll('#carousel-indicators button');
+            const indicatorLines = document.querySelectorAll('.indicator-line');
+            let currentSlide = 0;
+            let slideInterval;
+
+            // Function to show a specific slide
+            function showSlide(index) {
+                // Hide all slides
+                slides.forEach(slide => {
+                    slide.style.opacity = '0';
+                    slide.style.zIndex = '0';
+                });
+
+                // Show the selected slide
+                slides[index].style.opacity = '1';
+                slides[index].style.zIndex = '1';
+
+                // Update indicators
+                indicatorLines.forEach((line, i) => {
+                    if (i === index) {
+                        line.classList.add('bg-white/80');
+                        line.classList.remove('bg-white/40');
+                        line.classList.add('active');
+                    } else {
+                        line.classList.remove('bg-white/80');
+                        line.classList.add('bg-white/40');
+                        line.classList.remove('active');
+                    }
+                });
+
+                // Update current slide index
+                currentSlide = index;
+            }
+
+            // Next slide function
+            function nextSlide() {
+                const newIndex = (currentSlide + 1) % slides.length;
+                showSlide(newIndex);
+            }
+
+            // Set up indicator buttons with larger clickable area
+            indicators.forEach((indicator, index) => {
+                indicator.addEventListener('click', function() {
+                    clearInterval(slideInterval);
+                    showSlide(index);
+                    startAutoSlide();
+                });
+            });
+
+            // Function to start automatic slideshow
+            function startAutoSlide() {
+                slideInterval = setInterval(nextSlide, 6000); // Change slide every 6 seconds
+            }
+
+            // Initialize slideshow
+            startAutoSlide();
+        });
+    </script>
 
     <!-- Produk Section -->
     <section id="products" class="py-20 bg-white">
@@ -357,30 +448,40 @@
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <!-- Left Side - Content -->
                 <div>
-                    <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-8">
+                    <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-6">
                         How to Join
                     </h2>
 
-                    <div class="bg-white rounded-xl p-8 shadow-lg">
-                        <button class="bg-gray-200 text-gray-800 px-6 py-3 rounded-lg font-bold mb-6 text-left">
-                            DAFTAR SEKARANG
-                        </button>
-
-                        <h3 style="font-family: 'Fredoka One', cursive;" class="text-xl text-[#528B89] mb-3">
+                    <div class="bg-white rounded-2xl border border-[#E5E7EB] p-6 md:p-8 shadow-lg">
+                        <h3 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-3">
                             Work Easy, Earn More
                         </h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm leading-relaxed">
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm leading-relaxed mb-8">
                             Kami bisa bantu rekomendasikan bikin konten/script sesuai gaya kamu
                         </p>
+
+                        <!-- CTA Button -->
+                        <button
+                            class="relative bg-gradient-to-r from-[#FF6B6B] to-[#FF9191] text-white px-8 py-4 rounded-xl font-bold text-center shadow-md overflow-hidden transform transition duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:-translate-y-1 group w-full md:w-auto">
+                            <span class="relative z-10">DAFTAR SEKARANG</span>
+                            <!-- Hover Gradient Overlay -->
+                            <span
+                                class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#D94C4C] to-[#FF6B6B] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0 rounded-xl"></span>
+                            <!-- Shine Effect -->
+                            <span
+                                class="absolute top-0 right-0 w-8 h-full bg-white/20 skew-x-[30deg] transform translate-x-32 group-hover:translate-x-0 transition-all duration-1000 z-0"></span>
+                        </button>
                     </div>
                 </div>
+
 
                 <!-- Right Side - Steps -->
                 <div class="space-y-8">
                     <!-- Step 1 -->
                     <div class="flex items-start space-x-4 relative">
                         <div class="relative">
-                            <div class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg ">
+                            <div
+                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg ">
                                 <span class="text-white font-bold text-lg">1</span>
                             </div>
                             <!-- Line connector -->
