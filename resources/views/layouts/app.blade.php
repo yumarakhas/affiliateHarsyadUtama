@@ -8,23 +8,26 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     </link>
-    
+
 </head>
 
 <body>
     {{-- Top Bar --}}
-    <header class="bg-white" style="font-family: 'Fredoka One', cursive;">
-        <div class="max-w-6xl mx-auto py-4 flex justify-between items-center">
-            <img src="{{ asset('images/logo.png') }}" alt="Gentle Living Logo" class="h-12 ">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50" style="font-family: 'Fredoka One', cursive;">
+        <div class="max-w-6xl mx-auto py-4 px-6 flex justify-between items-center">
+            <img src="{{ asset('images/logo.png') }}" alt="Gentle Living Logo" class="h-12">
             <nav class="space-x-4">
                 <a href="#beranda" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Beranda</a>
-                <a href="#products" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Produk</a>
-                <a href="#contact" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Belanja</a>
-                <a href="#partner" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Partner</a>
-                <a href="#footer" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Tentang Kami</a>
+                <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Produk</a>
+                <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Belanja</a>
+                <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Partner</a>
+                <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Tentang Kami</a>
             </nav>
         </div>
     </header>
+
+    <!-- Spacer untuk menggantikan ruang yang diambil oleh fixed header -->
+    <div class="h-20"></div>
 
     {{-- Main Content  --}}
     <main>
