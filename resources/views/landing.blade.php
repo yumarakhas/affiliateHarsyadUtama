@@ -70,69 +70,6 @@
         </div>
     </section>
 
-    <!-- Carousel Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.banner-slide');
-            const indicators = document.querySelectorAll('#carousel-indicators button');
-            const indicatorLines = document.querySelectorAll('.indicator-line');
-            let currentSlide = 0;
-            let slideInterval;
-
-            // Function to show a specific slide
-            function showSlide(index) {
-                // Hide all slides
-                slides.forEach(slide => {
-                    slide.style.opacity = '0';
-                    slide.style.zIndex = '0';
-                });
-
-                // Show the selected slide
-                slides[index].style.opacity = '1';
-                slides[index].style.zIndex = '1';
-
-                // Update indicators
-                indicatorLines.forEach((line, i) => {
-                    if (i === index) {
-                        line.classList.add('bg-white/80');
-                        line.classList.remove('bg-white/40');
-                        line.classList.add('active');
-                    } else {
-                        line.classList.remove('bg-white/80');
-                        line.classList.add('bg-white/40');
-                        line.classList.remove('active');
-                    }
-                });
-
-                // Update current slide index
-                currentSlide = index;
-            }
-
-            // Next slide function
-            function nextSlide() {
-                const newIndex = (currentSlide + 1) % slides.length;
-                showSlide(newIndex);
-            }
-
-            // Set up indicator buttons with larger clickable area
-            indicators.forEach((indicator, index) => {
-                indicator.addEventListener('click', function() {
-                    clearInterval(slideInterval);
-                    showSlide(index);
-                    startAutoSlide();
-                });
-            });
-
-            // Function to start automatic slideshow
-            function startAutoSlide() {
-                slideInterval = setInterval(nextSlide, 6000); // Change slide every 6 seconds
-            }
-
-            // Initialize slideshow
-            startAutoSlide();
-        });
-    </script>
-
     <!-- Produk Section -->
     <section id="products" class="py-20 bg-white">
         <div class="max-w-6xl mx-auto px-6">

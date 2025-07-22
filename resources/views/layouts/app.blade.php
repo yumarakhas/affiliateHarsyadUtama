@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     </link>
-
+    <script src="{{ asset('js/carousel.js') }}"></script>
 </head>
 
 <body>
