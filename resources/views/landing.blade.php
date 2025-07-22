@@ -418,7 +418,7 @@
                         </div>
                         <div>
                             <p style="font-family: 'Nunito', sans-serif;" class="text-[#6C63FF] font-bold text-sm mb-1">
-                                Pantauin dan komisi dicatat otomatis lewat platform
+                                Pantauan dan komisi dicatat otomatis lewat platform
                             </p>
                             <p style="font-family: 'Nunito', sans-serif;" class="text-gray-700 text-xs">
                                 (atau Google Sheet kalau manual)
@@ -429,65 +429,4 @@
             </div>
         </div>
     </section>
-
-    <!-- Belanja Section -->
-    <section id="contact" class="py-20 bg-[#528B89]">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-white mb-8">
-                Mulai Belanja Sekarang
-            </h2>
-            <p style="font-family: 'Nunito', sans-serif;" class="text-xl text-white mb-8">
-                Dapatkan produk terbaik untuk kesehatan dan wellness bayi Anda
-            </p>
-            <a href="#"
-                class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300">
-                BELANJA SEKARANG
-            </a>
-        </div>
-    </section>
-
-    <!-- Partner Section -->
-    <section id="partner" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-center text-gray-800 mb-12">
-                Bergabung Sebagai Partner
-            </h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h3 class="text-2xl font-bold text-[#528B89] mb-6">Keuntungan Menjadi Partner</h3>
-                    <ul style="font-family: 'Nunito', sans-serif;" class="space-y-4 text-gray-600">
-                        <li class="flex items-center">
-                            <span class="bg-[#528B89] w-3 h-3 rounded-full mr-3"></span>
-                            Komisi hingga 30% untuk setiap penjualan
-                        </li>
-                        <li class="flex items-center">
-                            <span class="bg-[#528B89] w-3 h-3 rounded-full mr-3"></span>
-                            Support marketing dan training gratis
-                        </li>
-                        <li class="flex items-center">
-                            <span class="bg-[#528B89] w-3 h-3 rounded-full mr-3"></span>
-                            Produk berkualitas dengan sertifikasi resmi
-                        </li>
-                        <li class="flex items-center">
-                            <span class="bg-[#528B89] w-3 h-3 rounded-full mr-3"></span>
-                            Sistem pembayaran yang mudah dan cepat
-                        </li>
-                    </ul>
-                </div>
-                <div class="text-center">
-                    <div class="bg-gray-100 p-8 rounded-lg">
-                        <h4 class="text-xl font-bold text-gray-800 mb-4">Siap Memulai?</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 mb-6">
-                            Daftar sekarang dan mulai earning bersama kami
-                        </p>
-                        <a href="#"
-                            class="inline-block px-6 py-3 bg-[#528B89] text-white font-bold rounded-full hover:bg-[#477A77] transition-colors">
-                            DAFTAR PARTNER
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
 @endsection
