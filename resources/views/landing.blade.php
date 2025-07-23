@@ -22,7 +22,7 @@
                     <span class="font-bold"> 3 produk best-seller </span> kami yang fokus pada wellness bunda
                     & bayi.
                 </p>
-                <p style="font-family: 'Nunito', sans-serif; font-size: 25px; font-bold;"
+                <p id ="content"style="font-family: 'Nunito', sans-serif; font-size: 25px; font-bold;"
                     class="text-white font-semibold mb-6">
                     Gentlebaby Massage Oil #TheMiracleofTouch<br />
                     <span class="text-white font-normal" style="font-size: 20px;">Bantu atasi bayi rewel dan rileks,
@@ -284,69 +284,88 @@
         </div>
 
         <!-- Meet The Product Section -->
-        <div class="text-center">
-            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-8">
+        <div class="text-center py-16">
+            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-12">
                 Meet The Product
             </h2>
-            <div class="grid md:grid-cols-3 gap-8">
-                <!-- Product 1 -->
-                <div class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-[#528B89] transition-colors">
-                    <div class="h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-gray-400">Product Image</span>
+            <div class="max-w-6xl mx-auto px-6 md:px-10">
+                <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+                    <!-- Product 1 -->
+                    <div
+                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-[#528B89] transition-colors shadow-sm hover:shadow-lg flex flex-col">
+                        <div class="bg-gray-100 rounded-lg mb-6 flex items-center justify-center" style="height: 280px;">
+                            <img src="{{ asset('images/gentleBaby.png') }}" alt="Gentle Baby"
+                                class="max-h-full max-w-full object-contain"
+                                onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
+                        </div>
+                        <div class="text-center mt-auto">
+                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-3">
+                                Gentle Baby
+                            </h4>
+                            <a href="https://shopee.co.id/GENTLE-BABY-Therapeutic-Oil-10ML-Minyak-Pijat-Aromaterapi-Bayi-Balita-Usia-0-4-Tahun-Bahan-alami-i.400631324.18077793526?sp_atk=fa2355c4-a239-4d5f-ac85-40125edb2198&xptdk=fa2355c4-a239-4d5f-ac85-40125edb2198"
+                                class="inline-flex items-center justify-center text-[#528B89] font-semibold hover:underline text-lg">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                    <path
+                                        d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                                Link produk
+                            </a>
+                        </div>
                     </div>
-                    <h4 style="font-family: 'Fredoka One', cursive;" class="text-xl text-[#528B89] mb-4">
-                        Gentle Baby
-                    </h4>
-                    <a href="#" class="inline-flex items-center text-[#528B89] font-semibold hover:underline">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                            <path
-                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                        </svg>
-                        Link produk
-                    </a>
-                </div>
 
-                <!-- Product 2 -->
-                <div class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-[#528B89] transition-colors">
-                    <div class="h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-gray-400">Product Image</span>
+                    <!-- Product 2 -->
+                    <div
+                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-[#528B89] transition-colors shadow-sm hover:shadow-lg flex flex-col">
+                        <div class="bg-gray-100 rounded-lg mb-6 flex items-center justify-center" style="height: 280px;">
+                            <img src="{{ asset('images/mamina.png') }}" alt="Mamina"
+                                class="max-h-full max-w-full object-contain"
+                                onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
+                        </div>
+                        <div class="text-center mt-auto">
+                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-3">
+                                Mamina Seduhan
+                            </h4>
+                            <a href="https://shopee.co.id/Mamina-Paket-Bundle-Pelancar-Asi-Isi-3-(10-Tebag-per-Paket)-ASI-Booster-Halal-Bahan-Alami-i.1483235365.41704362992?sp_atk=cd7bceae-166b-47bb-8c7c-92efde449b76&xptdk=cd7bceae-166b-47bb-8c7c-92efde449b76"
+                                class="inline-flex items-center justify-center text-[#528B89] font-semibold hover:underline text-lg">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                    <path
+                                        d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                                Link produk
+                            </a>
+                        </div>
                     </div>
-                    <h4 style="font-family: 'Fredoka One', cursive;" class="text-xl text-[#528B89] mb-4">
-                        Mamina Seduhan
-                    </h4>
-                    <a href="#" class="inline-flex items-center text-[#528B89] font-semibold hover:underline">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                            <path
-                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                        </svg>
-                        Link produk
-                    </a>
-                </div>
 
-                <!-- Product 3 -->
-                <div class="bg-white border-2 border-gray-200 rounded-lg p-6 hover:border-[#528B89] transition-colors">
-                    <div class="h-48 bg-gray-100 rounded-lg mb-4 flex items-center justify-center">
-                        <span class="text-gray-400">Product Image</span>
+                    <!-- Product 3 -->
+                    <div
+                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-[#528B89] transition-colors shadow-sm hover:shadow-lg flex flex-col">
+                        <div class="bg-gray-100 rounded-lg mb-6 flex items-center justify-center" style="height: 280px;">
+                            <img src="{{ asset('images/nyam.png') }}" alt="Nyam MPASI"
+                                class="max-h-full max-w-full object-contain"
+                                onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
+                        </div>
+                        <div class="text-center mt-auto">
+                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-3">
+                                Nyam! MPASI
+                            </h4>
+                            <a href="https://shopee.co.id/NYAM-BABY-FOOD-BUNDLING-PAKET-MPASI-10-18-BULAN-HOMEMADE-TANPA-PENGAWET-i.1059596102.43102157461"
+                                class="inline-flex items-center justify-center text-[#528B89] font-semibold hover:underline text-lg">
+                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
+                                    <path
+                                        d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
+                                </svg>
+                                Link produk
+                            </a>
+                        </div>
                     </div>
-                    <h4 style="font-family: 'Fredoka One', cursive;" class="text-xl text-[#528B89] mb-4">
-                        Nyam! MPASI
-                    </h4>
-                    <a href="#" class="inline-flex items-center text-[#528B89] font-semibold hover:underline">
-                        <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                            <path
-                                d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                            <path
-                                d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                        </svg>
-                        Link produk
-                    </a>
                 </div>
             </div>
-        </div>
         </div>
     </section>
 
@@ -400,7 +419,7 @@
                         <!-- CTA Button -->
                         <button
                             class="relative bg-gradient-to-r from-[#FF6B6B] to-[#FF9191] text-white px-8 py-4 rounded-xl font-bold text-center shadow-md overflow-hidden transform transition duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:-translate-y-1 group w-full md:w-auto">
-                            <span class="relative z-10">DAFTAR SEKARANG</span>
+                            <a class="relative z-10" href="{{ route('affiliate.form') }}">DAFTAR SEKARANG</a>
                             <!-- Hover Gradient Overlay -->
                             <span
                                 class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#D94C4C] to-[#FF6B6B] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0 rounded-xl"></span>
