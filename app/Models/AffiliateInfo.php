@@ -10,11 +10,8 @@ class AffiliateInfo extends Model
     
     protected $fillable = [
         'affiliate_registration_id',
-        'info_darimana'
-    ];
-
-    protected $casts = [
-        'info_darimana' => 'array'
+        'akun_instagram',
+        'akun_tiktok'
     ];
 
     public function affiliateRegistration()

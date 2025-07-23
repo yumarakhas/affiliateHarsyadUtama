@@ -7,51 +7,6 @@
 <div class="min-h-screen bg-gray-50">
     <div class="relative z-10 py-12">
         <div class="max-w-2xl mx-auto px-6">
-            <!-- Header -->
-            <!-- <div class="text-center mb-12">
-                <div class="bg-gradient-to-r from-[#528B89] to-[#446b6a] rounded-2xl p-8 shadow-xl">
-                    <h1 style="font-family: 'Fredoka One', cursive;" 
-                        class="text-3xl md:text-4xl text-white mb-4">
-                        Formulir Pendaftaran Affiliator
-                    </h1>
-                    <p style="font-family: 'Nunito', sans-serif;" 
-                       class="text-lg text-white/95 leading-relaxed">
-                        Bergabunglah dengan program affiliate kami dan mulai 
-                        <span class="font-bold text-yellow-300">earning with purpose!</span>
-                    </p>
-                    
-                    Decorative Elements
-                    <div class="flex justify-center mt-6 space-x-2">
-                        <div class="w-3 h-3 bg-yellow-300 rounded-full animate-pulse"></div>
-                        <div class="w-3 h-3 bg-white rounded-full animate-pulse delay-75"></div>
-                        <div class="w-3 h-3 bg-yellow-300 rounded-full animate-pulse delay-150"></div>
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Success/Error Messages -->
-            <!-- @if(session('success'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-6 py-4 rounded-xl mb-6 shadow-lg">
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                        </svg>
-                        {{ session('success') }}
-                    </div>
-                </div>
-            @endif
-
-            @if(session('error'))
-                <div class="bg-red-100 border border-red-400 text-red-700 px-6 py-4 rounded-xl mb-6 shadow-lg">
-                    <div class="flex items-center">
-                        <svg class="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                        </svg>
-                        {{ session('error') }}
-                    </div>
-                </div>
-            @endif -->
-
             <!-- Form -->
             <div class="bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden">
                 <!-- Form Header -->

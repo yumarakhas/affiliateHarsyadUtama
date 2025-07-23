@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('affiliate_info', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('affiliate_registration_id');
-            $table->json('info_darimana'); // Menyimpan array pilihan (Instagram, Tiktok, Iklan, Teman, Yang lain)
+            $table->string('akun_instagram')->nullable();
+            $table->string('akun_tiktok')->nullable();
             $table->timestamps();
             
             $table->foreign('affiliate_registration_id')->references('id')->on('affiliate_registrations')->onDelete('cascade');

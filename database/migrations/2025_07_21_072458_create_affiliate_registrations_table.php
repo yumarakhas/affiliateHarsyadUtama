@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('affiliate_registrations', function (Blueprint $table) {
             $table->id();
-            $table->string('email');
+            $table->string('email')->unique();
             $table->string('nama_lengkap');
             $table->string('kontak_whatsapp');
             $table->string('kota_domisili');
-            $table->string('akun_instagram')->nullable();
-            $table->string('akun_tiktok')->nullable();
             $table->text('profesi_kesibukan');
+            $table->text('info_darimana'); // Menyimpan pilihan info darimana sebagai string
+            $table->text('yang_lain_text')->nullable(); // Untuk keterangan "Yang lain"
+            $table->enum('status', ['Aktif', 'Nonaktif', 'Pending'])->default('Aktif');
             $table->timestamps();
         });
     }

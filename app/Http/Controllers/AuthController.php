@@ -34,7 +34,7 @@ class AuthController extends Controller
 
             // Langsung arahkan ke dashboard
             // Pengecekan admin bisa dilakukan di middleware khusus jika diperlukan nanti
-            return redirect()->intended('/admin/dashboard');
+            return redirect()->intended('/admin/view-data');
         }
 
         return back()->withErrors([

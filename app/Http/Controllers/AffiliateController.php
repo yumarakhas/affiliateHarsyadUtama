@@ -49,29 +49,26 @@ class AffiliateController extends Controller
         try {
             DB::beginTransaction();
 
-            // Proses data info_darimana untuk menggabungkan "Yang lain" dengan teksnya
-            $infoDarimana = $request->info_darimana;
-            if (in_array('Yang lain', $infoDarimana) && !empty($request->yang_lain_text)) {
-                // Ganti "Yang lain" dengan "Yang lain: [teks keterangan]"
-                $key = array_search('Yang lain', $infoDarimana);
-                $infoDarimana[$key] = 'Yang lain: ' . $request->yang_lain_text;
-            }
+            // Proses data info_darimana
+            $infoDarimana = implode(', ', $request->info_darimana);
 
-            // Simpan data registrasi
+            // Simpan data registrasi utama
             $registration = AffiliateRegistration::create([
                 'email' => $request->email,
                 'nama_lengkap' => $request->nama_lengkap,
                 'kontak_whatsapp' => $request->kontak_whatsapp,
                 'kota_domisili' => $request->kota_domisili,
-                'akun_instagram' => $request->akun_instagram,
-                'akun_tiktok' => $request->akun_tiktok,
                 'profesi_kesibukan' => $request->profesi_kesibukan,
+                'info_darimana' => $infoDarimana,
+                'yang_lain_text' => $request->yang_lain_text,
+                'status' => 'Aktif' // Default otomatis aktif
             ]);
 
-            // Simpan info tambahan
+            // Simpan data social media
             AffiliateInfo::create([
                 'affiliate_registration_id' => $registration->id,
-                'info_darimana' => $infoDarimana
+                'akun_instagram' => $request->akun_instagram,
+                'akun_tiktok' => $request->akun_tiktok,
             ]);
 
             DB::commit();

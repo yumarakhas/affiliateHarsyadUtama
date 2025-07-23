@@ -11,9 +11,14 @@ class AffiliateRegistration extends Model
         'nama_lengkap',
         'kontak_whatsapp',
         'kota_domisili',
-        'akun_instagram',
-        'akun_tiktok',
-        'profesi_kesibukan'
+        'profesi_kesibukan',
+        'info_darimana',
+        'yang_lain_text',
+        'status'
+    ];
+    
+    protected $attributes = [
+        'status' => 'Aktif'
     ];
 
     public function affiliateInfo()
