@@ -23,6 +23,8 @@ class User extends Authenticatable
         'password',
     ];
 
+    // Relasi admin dihapus karena tidak diperlukan lagi
+
     /**
      * The attributes that should be hidden for serialization.
      *

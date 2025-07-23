@@ -9,19 +9,19 @@ document.addEventListener("DOMContentLoaded", function () {
     // Content for each slide
     const slideContents = [
         {
-            title: "Gentlebaby Massage Oil #TheMiracleofTouch",
+            title: "Gentlebaby Massage Oil",
             description:
-                "Bantu atasi bayi rewel dan rileks, juga media bonding dengan ayah bunda",
+                "bantu atasi bayi rewel dan rileks, juga media bonding",
         },
         {
-            title: "Gentle Mist Room & Linen Spray",
+            title: "Mamina ASI Booster",
             description:
-                "Semprotkan ke udara, linen, atau bantal bayi untuk menciptakan suasana tenang dan nyaman",
+                "herbal booster ASI alami, tanpa efek samping dan pemanis perisa",
         },
         {
-            title: "Gentle Bath Essentials",
+            title: "Nyam BB Booster",
             description:
-                "Formulasi lembut untuk menjaga kulit sensitif bayi tetap bersih, sehat, dan terlindungi",
+                "MPASI booster untuk berat badan bayi, diformulasi oleh dokter dan konselor MPASI",
         },
     ];
 

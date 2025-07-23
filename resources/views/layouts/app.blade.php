@@ -14,16 +14,23 @@
 
 <body>
     {{-- Top Bar --}}
-    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50" style="font-family: 'Fredoka One', cursive;">
-        <div class="max-w-6xl mx-auto py-4 px-6 flex justify-between items-center">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-6xl mx-auto py-4 flex justify-between items-center">
             <img src="{{ asset('images/logo.png') }}" alt="Gentle Living Logo" class="h-12">
-            <nav class="space-x-4">
-                <a href="#beranda" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Beranda</a>
-                <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Produk</a>
-                <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Belanja</a>
-                <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Partner</a>
-                <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Tentang Kami</a>
-            </nav>
+            <div class="flex items-center">
+                <nav class="space-x-4 mr-16" style="font-family: 'Fredoka One', cursive;">
+                    <a href="#beranda" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Beranda</a>
+                    <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Produk</a>
+                    <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Belanja</a>
+                    <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Partner</a>
+                    <a href="" class="text-[#444444]/50 hover:text-[#614DAC] active:text-[#614DAC]">Tentang
+                        Kami</a>
+                </nav>
+                <a href="{{ route('login') }}" style="font-family: 'Nunito', sans-serif;"
+                    class="font-medium px-8 mr-0 py-2 border border-[#6C63FF] text-[#6C63FF] rounded-full hover:bg-[#6C63FF] hover:text-white transition-colors duration-300 flex items-center space-x-4">
+                    <span>Admin</span>
+                </a>
+            </div>
         </div>
     </header>
 

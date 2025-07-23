@@ -24,10 +24,7 @@
                 </p>
                 <p id ="content"style="font-family: 'Nunito', sans-serif; font-size: 25px; font-bold;"
                     class="text-white font-semibold mb-6">
-                    Gentlebaby Massage Oil #TheMiracleofTouch<br />
-                    <span class="text-white font-normal" style="font-size: 20px;">Bantu atasi bayi rewel dan rileks,
-                        juga
-                        media bonding dengan ayah bunda</span>
+                    
                 </p>
                 <a href="{{ route('affiliate.form') }}"
                     class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#528B89] hover:text-white transform hover:scale-110 hover:-translate-y-2 transition-all duration-300 ease-in-out">
