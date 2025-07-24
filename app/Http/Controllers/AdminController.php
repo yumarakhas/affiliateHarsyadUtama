@@ -48,6 +48,7 @@ class AdminController extends Controller
                 'profesi_kesibukan' => 'required|string',
                 'akun_instagram' => 'nullable|string|max:255',
                 'akun_tiktok' => 'nullable|string|max:255',
+                'status' => 'required|string|in:Aktif,Nonaktif',
             ]);
             
             // Update main data
@@ -57,6 +58,7 @@ class AdminController extends Controller
                 'kontak_whatsapp' => $validatedData['kontak_whatsapp'],
                 'kota_domisili' => $validatedData['kota_domisili'],
                 'profesi_kesibukan' => $validatedData['profesi_kesibukan'],
+                'status' => $validatedData['status'],
             ]);
             
             // Update or create affiliate info
@@ -177,14 +179,77 @@ class AdminController extends Controller
      */
     public function updateStatus(Request $request, $id)
     {
-        $affiliate = AffiliateRegistration::findOrFail($id);
-        $affiliate->status = $request->status;
-        $affiliate->save();
-        
-        return response()->json([
-            'success' => true,
-            'message' => 'Status berhasil diperbarui!'
-        ]);
+        try {
+            \Log::info('UpdateStatus called', [
+                'id' => $id,
+                'request_data' => $request->all(),
+                'content_type' => $request->header('Content-Type'),
+                'method' => $request->method()
+            ]);
+            
+            // Validate input
+            $validated = $request->validate([
+                'status' => 'required|string|in:Aktif,Nonaktif'
+            ]);
+            
+            $affiliate = AffiliateRegistration::findOrFail($id);
+            
+            \Log::info('Found affiliate', [
+                'name' => $affiliate->nama_lengkap,
+                'current_status' => $affiliate->status,
+                'new_status' => $validated['status']
+            ]);
+            
+            $oldStatus = $affiliate->status;
+            $affiliate->status = $validated['status'];
+            $saved = $affiliate->save();
+            
+            \Log::info('Status update completed', [
+                'saved' => $saved,
+                'old_status' => $oldStatus,
+                'new_status' => $affiliate->status
+            ]);
+            
+            return response()->json([
+                'success' => true,
+                'message' => 'Status berhasil diperbarui!',
+                'data' => [
+                    'affiliate_id' => $affiliate->id,
+                    'old_status' => $oldStatus,
+                    'new_status' => $affiliate->status
+                ]
+            ]);
+            
+        } catch (\Illuminate\Validation\ValidationException $e) {
+            \Log::error('Validation failed', ['errors' => $e->errors()]);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Data tidak valid: ' . implode(', ', array_flatten($e->errors())),
+                'errors' => $e->errors()
+            ], 422);
+            
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            \Log::error('Affiliate not found', ['id' => $id]);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Data affiliator tidak ditemukan'
+            ], 404);
+            
+        } catch (\Exception $e) {
+            \Log::error('Unexpected error in updateStatus', [
+                'message' => $e->getMessage(),
+                'file' => $e->getFile(),
+                'line' => $e->getLine(),
+                'trace' => $e->getTraceAsString()
+            ]);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan sistem saat mengubah status'
+            ], 500);
+        }
     }
     
     /**
@@ -232,11 +297,43 @@ class AdminController extends Controller
      */
     public function getDetails($id)
     {
-        $affiliate = AffiliateRegistration::with('affiliateInfo')->findOrFail($id);
-        
-        return response()->json([
-            'success' => true,
-            'data' => $affiliate
-        ]);
+        try {
+            $affiliate = AffiliateRegistration::with('affiliateInfo')->findOrFail($id);
+            
+            return response()->json([
+                'success' => true,
+                'data' => $affiliate
+            ]);
+        } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
+            \Log::error('Affiliate not found: ' . $id);
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Data affiliator tidak ditemukan'
+            ], 404);
+        } catch (\Exception $e) {
+            \Log::error('Error getting affiliate details: ' . $e->getMessage() . ' | Stack: ' . $e->getTraceAsString());
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan saat memuat data'
+            ], 500);
+        }
+    }
+
+    /**
+     * Show affiliate details - alias for getDetails for route compatibility
+     */
+    public function show($id)
+    {
+        return $this->getDetails($id);
+    }
+
+    /**
+     * Delete affiliate data - alias for delete method
+     */
+    public function destroy(Request $request, $id)
+    {
+        return $this->delete($request, $id);
     }
 }

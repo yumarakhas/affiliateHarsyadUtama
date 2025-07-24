@@ -103,8 +103,8 @@
                                     </svg>
                                 </div>
                                 <div class="ml-4">
-                                    <p class="text-sm font-medium text-gray-600">Tidak Aktif</p>
-                                    <p class="text-2xl font-bold text-gray-900">{{ $affiliates->where('status', 'Tidak Aktif')->count() }}</p>
+                                    <p class="text-sm font-medium text-gray-600">Nonaktif</p>
+                                    <p class="text-2xl font-bold text-gray-900">{{ $affiliates->where('status', 'Nonaktif')->count() }}</p>
                                 </div>
                             </div>
                         </div>
@@ -195,24 +195,13 @@
                                                 $status = $affiliate->status ?? 'Aktif';
                                                 $statusClass = match($status) {
                                                     'Aktif' => 'bg-green-100 text-green-800',
-                                                    'Tidak Aktif' => 'bg-red-100 text-red-800',
+                                                    'Nonaktif' => 'bg-red-100 text-red-800',
                                                     default => 'bg-green-100 text-green-800'
                                                 };
                                             @endphp
-                                            <div class="flex items-center space-x-2">
-                                                <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {{ $statusClass }}">
-                                                    {{ $status }}
-                                                </span>
-                                                <div class="relative">
-                                                    <label class="inline-flex items-center cursor-pointer">
-                                                        <input type="checkbox" 
-                                                               class="sr-only peer status-toggle" 
-                                                               data-affiliate-id="{{ $affiliate->id }}"
-                                                               {{ $status == 'Aktif' ? 'checked' : '' }}>
-                                                        <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-green-600"></div>
-                                                    </label>
-                                                </div>
-                                            </div>
+                                            <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {{ $statusClass }}" id="status-badge-{{ $affiliate->id }}">
+                                                {{ $status }}
+                                            </span>
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                             {{ $affiliate->created_at->format('d/m/Y') }}
@@ -413,10 +402,9 @@
                                         <label class="block text-sm font-medium text-gray-600">Status</label>
                                         <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
                                             affiliate.status === 'Aktif' ? 'bg-green-100 text-green-800' :
-                                            'bg-red-100 text-red-800'
-                                        }">
-                                            ${affiliate.status || 'Aktif'}
-                                        </span>
+                                            affiliate.status === 'Nonaktif' ? 'bg-red-100 text-red-800' :
+                                            'bg-gray-100 text-gray-800'
+                                        }">${affiliate.status || 'Aktif'}</span>
                                     </div>
                                 </div>
                             </div>
@@ -582,6 +570,23 @@
                                           required>${affiliate.profesi_kesibukan}</textarea>
                             </div>
 
+                            <!-- Status Section -->
+                            <div class="mt-8">
+                                <label for="edit_status" class="block text-sm font-semibold text-gray-700 mb-3 flex items-center">
+                                    <svg class="w-4 h-4 mr-2 text-[#528B89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                    Status Affiliator <span class="text-red-500">*</span>
+                                </label>
+                                <select id="edit_status" 
+                                        name="status" 
+                                        class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#528B89] focus:border-[#528B89] transition-all duration-300"
+                                        required>
+                                    <option value="Aktif" ${affiliate.status === 'Aktif' ? 'selected' : ''}>Aktif</option>
+                                    <option value="Nonaktif" ${affiliate.status === 'Nonaktif' ? 'selected' : ''}>Nonaktif</option>
+                                </select>
+                            </div>
+
                             <!-- Submit Buttons -->
                             <div class="sticky bottom-0 bg-white flex justify-end space-x-4 mt-8 pt-6 border-t border-gray-200 -mx-6 px-6 pb-4">
                                 <button type="button" 
@@ -679,6 +684,7 @@
                     timerProgressBar: true
                 }).then(() => {
                     closeEditModal();
+                    // Refresh the page to show updated data including status
                     location.reload();
                 });
             } else {
@@ -792,70 +798,6 @@
             }
         });
     }
-    
-    // Status Toggle Function with SweetAlert
-    document.addEventListener('DOMContentLoaded', function() {
-        const statusToggles = document.querySelectorAll('.status-toggle');
-        
-        statusToggles.forEach(toggle => {
-            toggle.addEventListener('change', function() {
-                const affiliateId = this.dataset.affiliateId;
-                const newStatus = this.checked ? 'Aktif' : 'Tidak Aktif';
-                
-                fetch(`/admin/affiliate/${affiliateId}/update-status`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    },
-                    body: JSON.stringify({ status: newStatus })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Update status badge
-                        const statusBadge = this.closest('td').querySelector('span');
-                        statusBadge.textContent = newStatus;
-                        statusBadge.className = `inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                            newStatus === 'Aktif' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-                        }`;
-                        
-                        // Show success message with SweetAlert
-                        const statusText = newStatus === 'Aktif' ? 'diaktifkan' : 'dinonaktifkan';
-                        Swal.fire({
-                            title: 'Berhasil!',
-                            text: `Status berhasil ${statusText}`,
-                            icon: 'success',
-                            confirmButtonColor: '#528B89',
-                            timer: 1500,
-                            timerProgressBar: true,
-                            showConfirmButton: false
-                        });
-                    } else {
-                        // Revert toggle if failed
-                        this.checked = !this.checked;
-                        Swal.fire({
-                            title: 'Error!',
-                            text: 'Terjadi kesalahan saat mengubah status',
-                            icon: 'error',
-                            confirmButtonColor: '#dc2626'
-                        });
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    // Revert toggle if failed
-                    this.checked = !this.checked;
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'Terjadi kesalahan saat mengubah status',
-                        icon: 'error',
-                        confirmButtonColor: '#dc2626'
-                    });
-                });
-            });
-        });
-    });
     
     // Close modal when clicking outside
     document.getElementById('detailModal').addEventListener('click', function(e) {
