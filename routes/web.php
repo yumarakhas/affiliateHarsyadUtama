@@ -20,7 +20,6 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 // Admin Routes (Protected)
 Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/view-data', [AdminController::class, 'viewData'])->name('admin.view-data');
     Route::get('/affiliate/{id}/details', [AdminController::class, 'show'])->name('admin.affiliate.details');
     Route::put('/affiliate/{id}', [AdminController::class, 'update'])->name('admin.affiliate.update');

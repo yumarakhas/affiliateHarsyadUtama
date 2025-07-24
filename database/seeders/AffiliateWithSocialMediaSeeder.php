@@ -85,7 +85,6 @@ class AffiliateWithSocialMediaSeeder extends Seeder
             // Create affiliate info with social media
             AffiliateInfo::create([
                 'affiliate_registration_id' => $affiliate->id,
-                'info_darimana' => json_encode([$affiliateData['info_darimana']]),
                 'akun_instagram' => $affiliateData['social_media']['akun_instagram'],
                 'akun_tiktok' => $affiliateData['social_media']['akun_tiktok']
             ]);

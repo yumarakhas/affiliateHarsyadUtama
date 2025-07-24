@@ -32,21 +32,13 @@ class AuthController extends Controller
             // Regenerate session untuk mencegah session fixation
             $request->session()->regenerate();
 
-            // Langsung arahkan ke dashboard
-            // Pengecekan admin bisa dilakukan di middleware khusus jika diperlukan nanti
+            // Langsung arahkan ke view-data
             return redirect()->intended('/admin/view-data');
         }
 
         return back()->withErrors([
             'email' => 'Email atau password salah.',
         ]);
-    }
-    /**
-     * Menampilkan dashboard admin
-     */
-    public function dashboard()
-    {
-        return view('admin.dashboard');
     }
 
     /**
@@ -59,6 +51,6 @@ class AuthController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/')->with('success', 'Anda berhasil logout!');
     }
 }
