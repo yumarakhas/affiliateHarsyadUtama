@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => bcrypt('admin123'),
         ]);
+
+        // Menjalankan seeder untuk data affiliate dummy
+        $this->call([
+            AffiliateWithSocialMediaSeeder::class,
+        ]);
     }
 }

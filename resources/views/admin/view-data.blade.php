@@ -1,126 +1,156 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
-@section('title', 'Data Affiliator - Admin Panel')
+@section('title', 'View Data Affiliator')
 
 @section('content')
-<!-- SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<style>
-    .swal2-popup-custom {
-        font-family: 'Inter', sans-serif;
-    }
-    .swal2-title {
-        color: #374151 !important;
-        font-weight: 600 !important;
-    }
-    .swal2-html-container {
-        color: #6b7280 !important;
-    }
-    .swal2-confirm {
-        border-radius: 0.5rem !important;
-        font-weight: 500 !important;
-        padding: 0.75rem 1.5rem !important;
-    }
-    .swal2-cancel {
-        border-radius: 0.5rem !important;
-        font-weight: 500 !important;
-        padding: 0.75rem 1.5rem !important;
-    }
-</style>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .swal2-popup-custom {
+            font-family: 'Inter', sans-serif;
+        }
 
-<div class="min-h-screen bg-gray-50">
-    <div class="py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            
-            <!-- Header Section -->
-            <div class="bg-white rounded-xl shadow-lg border border-gray-200 mb-8">
-                <div class="bg-gradient-to-r from-[#528B89] to-[#446b6a] px-8 py-6 rounded-t-xl">
-                    <div class="flex items-center justify-between">
-                        <div>
-                            <h1 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-white flex items-center">
-                                <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a4 4 0 01-4-4V5a4 4 0 014-4h10a4 4 0 014 4v14a4 4 0 01-4 4z"></path>
-                                </svg>
-                                Data Affiliator
-                            </h1>
-                            <p class="text-white/80 mt-1">Kelola data pendaftaran affiliator Gentle Living</p>
-                        </div>
-                        <div class="flex space-x-3">
-                            <a href="{{ route('admin.export-excel') }}" 
-                               class="inline-flex items-center px-4 py-2 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                                </svg>
-                                Export Excel
-                            </a>
-                            <a href="{{ route('landing') }}" 
-                               class="inline-flex items-center px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-medium rounded-lg transition-all duration-300 backdrop-blur-sm border border-white/20">
-                                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-                                </svg>
-                                Beranda
-                            </a>
-                        </div>
-                    </div>
+        .swal2-title {
+            color: #374151 !important;
+            font-weight: 600 !important;
+        }
+
+        .swal2-html-container {
+            color: #6b7280 !important;
+        }
+
+        .swal2-confirm {
+            border-radius: 0.5rem !important;
+            font-weight: 500 !important;
+            padding: 0.75rem 1.5rem !important;
+        }
+
+        .swal2-cancel {
+            border-radius: 0.5rem !important;
+            font-weight: 500 !important;
+            padding: 0.75rem 1.5rem !important;
+        }
+    </style>
+
+    <div class="container mx-auto px-6 py-8 max-w-7xl">
+        <!-- Header Section -->
+        <div class="mb-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                <div class="mb-4 sm:mb-0">
+                    <h1 class="text-3xl font-bold text-gray-800 flex items-center mb-2">
+                        <svg class="w-8 h-8 mr-3 text-[#528B89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                        Data Affiliator
+                    </h1>
+                    <p class="text-gray-600 text-lg ml-11">Kelola data affiliator yang telah mendaftar</p>
                 </div>
-                
-                <!-- Stats Section -->
-                <div class="p-6">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div class="bg-blue-50 rounded-lg p-4 border border-blue-100">
-                            <div class="flex items-center">
-                                <div class="bg-blue-500 rounded-lg p-3">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                                    </svg>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm font-medium text-gray-600">Total Affiliator</p>
-                                    <p class="text-2xl font-bold text-gray-900">{{ $affiliates->total() }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-green-50 rounded-lg p-4 border border-green-100">
-                            <div class="flex items-center">
-                                <div class="bg-green-500 rounded-lg p-3">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm font-medium text-gray-600">Aktif</p>
-                                    <p class="text-2xl font-bold text-gray-900">{{ $affiliates->where('status', 'Aktif')->count() }}</p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="bg-red-50 rounded-lg p-4 border border-red-100">
-                            <div class="flex items-center">
-                                <div class="bg-red-500 rounded-lg p-3">
-                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                                    </svg>
-                                </div>
-                                <div class="ml-4">
-                                    <p class="text-sm font-medium text-gray-600">Nonaktif</p>
-                                    <p class="text-2xl font-bold text-gray-900">{{ $affiliates->where('status', 'Nonaktif')->count() }}</p>
-                                </div>
-                            </div>
-                        </div>
+                <div class="flex gap-3">
+                    <button onclick="exportToExcel()" 
+                            class="inline-flex items-center px-6 py-3 bg-green-600 text-white text-sm font-medium rounded-lg hover:bg-green-700 transition-colors duration-200 shadow-sm">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                        </svg>
+                        Export CSV
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            @php
+                // Get accurate counts from all data, not just current page
+                $allAffiliates = \App\Models\AffiliateRegistration::with('affiliateInfo')->get();
+                $totalAffiliates = $allAffiliates->count();
+                $activeAffiliates = $allAffiliates->filter(function($affiliate) {
+                    return $affiliate->status === 'Aktif';
+                })->count();
+                $inactiveAffiliates = $allAffiliates->filter(function($affiliate) {
+                    return $affiliate->status === 'Nonaktif';
+                })->count();
+            @endphp
+            
+            <!-- Total Affiliator Card -->
+            <div class="bg-gradient-to-r from-[#528B89] to-[#446b6a] rounded-xl p-8 text-white shadow-lg transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-white/80 mb-2">Total Affiliator</p>
+                        <p class="text-4xl font-bold">{{ $totalAffiliates }}</p>
+                    </div>
+                    <div class="bg-white/20 rounded-full p-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                        </svg>
                     </div>
                 </div>
             </div>
 
-            <!-- Success Message -->
-            @if(session('success'))
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
-                    </svg>
-                    {{ session('success') }}
+            <!-- Active Affiliator Card -->
+            <div class="bg-gradient-to-r from-green-500 to-green-600 rounded-xl p-8 text-white shadow-lg transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-white/80 mb-2">Affiliator Aktif</p>
+                        <p class="text-4xl font-bold">{{ $activeAffiliates }}</p>
+                    </div>
+                    <div class="bg-white/20 rounded-full p-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
                 </div>
-            @endif
+            </div>
+
+            <!-- Inactive Affiliator Card -->
+            <div class="bg-gradient-to-r from-red-500 to-red-600 rounded-xl p-8 text-white shadow-lg transform hover:scale-105 transition-all duration-300">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-white/80 mb-2">Affiliator Nonaktif</p>
+                        <p class="text-4xl font-bold">{{ $inactiveAffiliates }}</p>
+                    </div>
+                    <div class="bg-white/20 rounded-full p-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter and Search Section -->
+        <div class="bg-white rounded-xl shadow-md p-8 mb-8">
+            <div class="flex flex-col md:flex-row gap-6">
+                <div class="flex-1">
+                    <div class="relative">
+                        <svg class="absolute left-4 top-4 h-5 w-5 text-gray-400" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                        </svg>
+                        <input type="text" id="searchInput" placeholder="Cari berdasarkan nama atau email..."
+                            class="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#528B89] focus:border-transparent text-sm">
+                    </div>
+                </div>
+                <div class="md:w-56">
+                    <select id="statusFilter" class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#528B89] focus:border-transparent text-sm">
+                        <option value="">Semua Status</option>
+                        <option value="Aktif">Aktif</option>
+                        <option value="Nonaktif">Nonaktif</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        @if(session('success'))
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-6 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+                {{ session('success') }}
+            </div>
+        @endif
 
             <!-- Data Table -->
             <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
@@ -129,37 +159,40 @@
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama & Email</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kontak & Lokasi</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Social Media</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-                                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal Daftar</th>
-                                    <th class="px-6 py-3 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
+                                    <th class="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No</th>
+                                    <th class="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Nama & Email</th>
+                                    <th class="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kontak & Lokasi</th>
+                                    <th class="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Social Media</th>
+                                    <th class="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                                    <th class="px-8 py-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Tanggal Daftar</th>
+                                    <th class="px-8 py-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Aksi</th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
                                 @foreach($affiliates as $index => $affiliate)
-                                    <tr class="hover:bg-gray-50 transition-colors duration-200">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                                    <tr class="hover:bg-gray-50 transition-colors duration-200 affiliate-row"
+                                        data-name="{{ strtolower($affiliate->nama_lengkap) }}"
+                                        data-email="{{ strtolower($affiliate->email) }}"
+                                        data-status="{{ $affiliate->status }}">
+                                        <td class="px-8 py-6 whitespace-nowrap text-sm text-gray-900 font-medium">
                                             {{ ($affiliates->currentPage() - 1) * $affiliates->perPage() + $index + 1 }}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-8 py-6">
                                             <div>
-                                                <div class="text-sm font-medium text-gray-900">{{ $affiliate->nama_lengkap }}</div>
-                                                <div class="text-sm text-gray-500">{{ $affiliate->email }}</div>
+                                                <div class="text-sm font-semibold text-gray-900">{{ $affiliate->nama_lengkap }}</div>
+                                                <div class="text-sm text-gray-500 mt-1">{{ $affiliate->email }}</div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4">
+                                        <td class="px-8 py-6">
                                             <div>
-                                                <div class="text-sm text-gray-900 flex items-center">
-                                                    <svg class="w-4 h-4 mr-1 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                                                <div class="text-sm text-gray-900 flex items-center mb-2">
+                                                    <svg class="w-4 h-4 mr-2 text-green-500" fill="currentColor" viewBox="0 0 24 24">
                                                         <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.130-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
                                                     </svg>
                                                     {{ $affiliate->kontak_whatsapp }}
                                                 </div>
                                                 <div class="text-sm text-gray-500 flex items-center">
-                                                    <svg class="w-4 h-4 mr-1 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <svg class="w-4 h-4 mr-2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                                                     </svg>
@@ -167,11 +200,11 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4">
-                                            <div class="space-y-1">
+                                        <td class="px-8 py-6">
+                                            <div class="space-y-2">
                                                 @if($affiliate->affiliateInfo && $affiliate->affiliateInfo->akun_instagram)
                                                     <div class="text-sm text-gray-900 flex items-center">
-                                                        <svg class="w-4 h-4 mr-1 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
+                                                        <svg class="w-4 h-4 mr-2 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
                                                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
                                                         </svg>
                                                         {{ $affiliate->affiliateInfo->akun_instagram }}
@@ -179,7 +212,7 @@
                                                 @endif
                                                 @if($affiliate->affiliateInfo && $affiliate->affiliateInfo->akun_tiktok)
                                                     <div class="text-sm text-gray-900 flex items-center">
-                                                        <svg class="w-4 h-4 mr-1 text-black" fill="currentColor" viewBox="0 0 24 24">
+                                                        <svg class="w-4 h-4 mr-2 text-black" fill="currentColor" viewBox="0 0 24 24">
                                                             <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
                                                         </svg>
                                                         {{ $affiliate->affiliateInfo->akun_tiktok }}
@@ -190,27 +223,27 @@
                                                 @endif
                                             </div>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap">
+                                        <td class="px-8 py-6 whitespace-nowrap">
                                             @php
-                                                $status = $affiliate->status ?? 'Aktif';
+                                                $status = $affiliate->status;
                                                 $statusClass = match($status) {
                                                     'Aktif' => 'bg-green-100 text-green-800',
                                                     'Nonaktif' => 'bg-red-100 text-red-800',
                                                     default => 'bg-green-100 text-green-800'
                                                 };
                                             @endphp
-                                            <span class="inline-flex px-2 py-1 text-xs font-semibold rounded-full {{ $statusClass }}" id="status-badge-{{ $affiliate->id }}">
+                                            <span class="inline-flex px-3 py-2 text-xs font-semibold rounded-full {{ $statusClass }}">
                                                 {{ $status }}
                                             </span>
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        <td class="px-8 py-6 whitespace-nowrap text-sm text-gray-500 font-medium">
                                             {{ $affiliate->created_at->format('d/m/Y') }}
                                         </td>
-                                        <td class="px-6 py-4 whitespace-nowrap text-center">
-                                            <div class="flex items-center justify-center space-x-3">
+                                        <td class="px-8 py-6 whitespace-nowrap text-center">
+                                            <div class="flex items-center justify-center space-x-4">
                                                 <!-- View Details Button -->
                                                 <button onclick="viewDetails({{ $affiliate->id }})" 
-                                                        class="text-blue-600 hover:text-blue-800 transition-colors duration-200 p-1 rounded-full hover:bg-blue-50"
+                                                        class="text-blue-600 hover:text-blue-800 transition-colors duration-200 p-2 rounded-full hover:bg-blue-50"
                                                         title="Lihat Detail">
                                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
@@ -220,7 +253,7 @@
                                                 
                                                 <!-- Edit Button -->
                                                 <button onclick="editAffiliate({{ $affiliate->id }})" 
-                                                        class="text-yellow-600 hover:text-yellow-800 transition-colors duration-200 p-1 rounded-full hover:bg-yellow-50"
+                                                        class="text-yellow-600 hover:text-yellow-800 transition-colors duration-200 p-2 rounded-full hover:bg-yellow-50"
                                                         title="Edit Data">
                                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
@@ -229,7 +262,7 @@
                                                 
                                                 <!-- Delete Button -->
                                                 <button onclick="deleteAffiliate({{ $affiliate->id }}, '{{ $affiliate->nama_lengkap }}')" 
-                                                        class="text-red-600 hover:text-red-800 transition-colors duration-200 p-1 rounded-full hover:bg-red-50"
+                                                        class="text-red-600 hover:text-red-800 transition-colors duration-200 p-2 rounded-full hover:bg-red-50"
                                                         title="Hapus Data">
                                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
@@ -244,7 +277,7 @@
                     </div>
                     
                     <!-- Pagination -->
-                    <div class="px-6 py-4 border-t border-gray-200">
+                    <div class="px-8 py-6 border-t border-gray-200">
                         {{ $affiliates->links() }}
                     </div>
                 @else
@@ -259,80 +292,84 @@
             </div>
         </div>
     </div>
-</div>
 
-<!-- Detail Modal -->
-<div id="detailModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
-    <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
-        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+    <!-- Detail Modal -->
+    <div id="detailModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="flex items-center justify-center min-h-screen pt-8 px-6 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+
+            <div
+                class="inline-block align-bottom bg-white rounded-xl text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-5xl sm:w-full">
+                <div class="bg-white">
+                    <div class="bg-gradient-to-r from-[#528B89] to-[#446b6a] px-8 py-6">
+                        <div class="flex items-center justify-between">
+                            <h3 class="text-xl font-semibold text-white">Detail Affiliator</h3>
+                            <button onclick="closeModal()" class="text-white hover:text-gray-200 p-1">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="px-8 py-6" id="modalContent">
+                        <!-- Content will be loaded here -->
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-4xl sm:w-full">
-            <div class="bg-white">
-                <div class="bg-gradient-to-r from-[#528B89] to-[#446b6a] px-6 py-4">
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+        <div class="flex items-start justify-center min-h-screen pt-8 px-6 pb-6">
+            <div class="fixed inset-0 transition-opacity" aria-hidden="true">
+                <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
+            </div>
+
+            <div class="relative bg-white rounded-xl shadow-xl w-full max-w-6xl max-h-[95vh] flex flex-col">
+                <!-- Header - Fixed -->
+                <div class="bg-gradient-to-r from-[#528B89] to-[#446b6a] px-8 py-6 rounded-t-xl flex-shrink-0">
                     <div class="flex items-center justify-between">
-                        <h3 class="text-lg font-medium text-white">Detail Affiliator</h3>
-                        <button onclick="closeModal()" class="text-white hover:text-gray-200">
+                        <h3 class="text-xl font-semibold text-white flex items-center">
+                            <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                                </path>
+                            </svg>
+                            Edit Data Affiliator
+                        </h3>
+                        <button onclick="closeEditModal()" class="text-white hover:text-gray-200 p-1">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 18L18 6M6 6l12 12"></path>
                             </svg>
                         </button>
                     </div>
                 </div>
-                
-                <div class="px-6 py-4" id="modalContent">
-                    <!-- Content will be loaded here -->
+
+                <!-- Content - Scrollable -->
+                <div class="flex-1 overflow-y-auto px-8 py-6" id="editModalContent">
+                    <!-- Edit form will be loaded here -->
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<!-- Edit Modal -->
-<div id="editModal" class="fixed inset-0 z-50 overflow-y-auto hidden">
-    <div class="flex items-start justify-center min-h-screen pt-4 px-4 pb-4">
-        <div class="fixed inset-0 transition-opacity" aria-hidden="true">
-            <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
-        </div>
-        
-        <div class="relative bg-white rounded-lg shadow-xl w-full max-w-6xl max-h-[95vh] flex flex-col">
-            <!-- Header - Fixed -->
-            <div class="bg-gradient-to-r from-[#528B89] to-[#446b6a] px-6 py-4 rounded-t-lg flex-shrink-0">
-                <div class="flex items-center justify-between">
-                    <h3 class="text-lg font-medium text-white flex items-center">
-                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                        </svg>
-                        Edit Data Affiliator
-                    </h3>
-                    <button onclick="closeEditModal()" class="text-white hover:text-gray-200">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Content - Scrollable -->
-            <div class="flex-1 overflow-y-auto px-6 py-4" id="editModalContent">
-                <!-- Edit form will be loaded here -->
-            </div>
-        </div>
-    </div>
-</div>
+    <script>
+        // View Details Function
+        function viewDetails(id) {
+            fetch(`/admin/affiliate/${id}/details`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const affiliate = data.data;
+                        const info = affiliate.affiliate_info || {};
 
-<script>
-    // View Details Function
-    function viewDetails(id) {
-        fetch(`/admin/affiliate/${id}/details`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const affiliate = data.data;
-                    const info = affiliate.affiliate_info || {};
-                    
-                    const modalContent = `
+                        const modalContent = `
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
                                 <h4 class="text-lg font-semibold text-gray-800 mb-4">Informasi Personal</h4>
@@ -382,11 +419,11 @@
                                         <p class="text-sm text-gray-900">${affiliate.info_darimana}</p>
                                     </div>
                                     ${affiliate.yang_lain_text ? `
-                                    <div>
-                                        <label class="block text-sm font-medium text-gray-600">Keterangan Lainnya</label>
-                                        <p class="text-sm text-gray-900">${affiliate.yang_lain_text}</p>
-                                    </div>
-                                    ` : ''}
+                                        <div>
+                                            <label class="block text-sm font-medium text-gray-600">Keterangan Lainnya</label>
+                                            <p class="text-sm text-gray-900">${affiliate.yang_lain_text}</p>
+                                        </div>
+                                        ` : ''}
                                     <div>
                                         <label class="block text-sm font-medium text-gray-600">Tanggal Daftar</label>
                                         <p class="text-sm text-gray-900">${new Date(affiliate.created_at).toLocaleDateString('id-ID', {
@@ -404,48 +441,48 @@
                                             affiliate.status === 'Aktif' ? 'bg-green-100 text-green-800' :
                                             affiliate.status === 'Nonaktif' ? 'bg-red-100 text-red-800' :
                                             'bg-gray-100 text-gray-800'
-                                        }">${affiliate.status || 'Aktif'}</span>
+                                        }">${affiliate.status}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     `;
-                    
-                    document.getElementById('modalContent').innerHTML = modalContent;
-                    document.getElementById('detailModal').classList.remove('hidden');
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                Swal.fire({
-                    title: 'Error!',
-                    text: 'Terjadi kesalahan saat memuat data',
-                    icon: 'error',
-                    confirmButtonColor: '#dc2626'
+
+                        document.getElementById('modalContent').innerHTML = modalContent;
+                        document.getElementById('detailModal').classList.remove('hidden');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Terjadi kesalahan saat memuat data',
+                        icon: 'error',
+                        confirmButtonColor: '#dc2626'
+                    });
                 });
-            });
-    }
-    
-    // Close Modal Function
-    function closeModal() {
-        document.getElementById('detailModal').classList.add('hidden');
-    }
-    
-    // Close Edit Modal Function
-    function closeEditModal() {
-        document.getElementById('editModal').classList.add('hidden');
-    }
-    
-    // Edit Affiliate Function
-    function editAffiliate(id) {
-        fetch(`/admin/affiliate/${id}/details`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    const affiliate = data.data;
-                    const info = affiliate.affiliate_info || {};
-                    
-                    const editForm = `
+        }
+
+        // Close Modal Function
+        function closeModal() {
+            document.getElementById('detailModal').classList.add('hidden');
+        }
+
+        // Close Edit Modal Function
+        function closeEditModal() {
+            document.getElementById('editModal').classList.add('hidden');
+        }
+
+        // Edit Affiliate Function
+        function editAffiliate(id) {
+            fetch(`/admin/affiliate/${id}/details`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const affiliate = data.data;
+                        const info = affiliate.affiliate_info || {};
+
+                        const editForm = `
                         <form id="editForm" onsubmit="submitEdit(event, ${id})">
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <!-- Email -->
@@ -608,209 +645,319 @@
                             </div>
                         </form>
                     `;
-                    
-                    document.getElementById('editModalContent').innerHTML = editForm;
-                    document.getElementById('editModal').classList.remove('hidden');
+
+                        document.getElementById('editModalContent').innerHTML = editForm;
+                        document.getElementById('editModal').classList.remove('hidden');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'Terjadi kesalahan saat memuat data untuk edit',
+                        icon: 'error',
+                        confirmButtonColor: '#dc2626'
+                    });
+                });
+        }
+
+        // Submit Edit Function
+        function submitEdit(event, id) {
+            console.log('submitEdit called with ID:', id);
+            console.log('Event:', event);
+            
+            event.preventDefault();
+            event.stopPropagation();
+            
+            const form = event.target;
+            console.log('Form element:', form);
+            
+            const submitButton = form.querySelector('button[type="submit"]');
+            console.log('Submit button:', submitButton);
+            
+            if (!submitButton) {
+                console.error('Submit button not found!');
+                return;
+            }
+            
+            const submitText = submitButton.querySelector('.submit-text');
+            const loadingText = submitButton.querySelector('.loading-text');
+            
+            console.log('Submit text element:', submitText);
+            console.log('Loading text element:', loadingText);
+            
+            // Show loading state
+            submitButton.disabled = true;
+            if (submitText) submitText.classList.add('hidden');
+            if (loadingText) loadingText.classList.remove('hidden');
+
+            const formData = new FormData(form);
+            
+            // Debug: log form data
+            console.log('Form data being sent:');
+            for (let [key, value] of formData.entries()) {
+                console.log(key, value);
+            }
+            
+            const csrfToken = document.querySelector('meta[name="csrf-token"]');
+            console.log('CSRF token element:', csrfToken);
+            console.log('CSRF token value:', csrfToken ? csrfToken.getAttribute('content') : 'NOT FOUND');
+            
+            fetch(`/admin/affiliate/${id}/update`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': csrfToken ? csrfToken.getAttribute('content') : '',
+                    'Accept': 'application/json',
+                    'X-Requested-With': 'XMLHttpRequest'
+                },
+                body: formData
+            })
+            .then(response => {
+                console.log('Response status:', response.status);
+                console.log('Response headers:', response.headers);
+                return response.text().then(text => {
+                    console.log('Raw response text:', text);
+                    try {
+                        return JSON.parse(text);
+                    } catch (e) {
+                        console.error('Response is not JSON:', text);
+                        throw new Error('Server returned invalid JSON: ' + text);
+                    }
+                });
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                if (data.success) {
+                    Swal.fire({
+                        title: 'Berhasil!',
+                        text: 'Data berhasil diperbarui!',
+                        icon: 'success',
+                        confirmButtonColor: '#528B89',
+                        timer: 2000,
+                        timerProgressBar: true
+                    }).then(() => {
+                        closeEditModal();
+                        location.reload();
+                    });
+                } else {
+                    if (data.errors) {
+                        const errorMessages = Object.values(data.errors).flat().join(', ');
+                        throw new Error(errorMessages);
+                    } else {
+                        throw new Error(data.message || 'Terjadi kesalahan saat menyimpan data');
+                    }
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
                 Swal.fire({
                     title: 'Error!',
-                    text: 'Terjadi kesalahan saat memuat data untuk edit',
+                    text: error.message || 'Terjadi kesalahan saat menyimpan data',
                     icon: 'error',
                     confirmButtonColor: '#dc2626'
                 });
+            })
+            .finally(() => {
+                // Reset loading state
+                submitButton.disabled = false;
+                if (submitText) submitText.classList.remove('hidden');
+                if (loadingText) loadingText.classList.add('hidden');
             });
-    }
-    
-    // Submit Edit Function
-    function submitEdit(event, id) {
-        event.preventDefault();
-        
-        const form = event.target;
-        const formData = new FormData(form);
-        const submitButton = form.querySelector('button[type="submit"]');
-        const submitText = submitButton.querySelector('.submit-text');
-        const loadingText = submitButton.querySelector('.loading-text');
-        
-        // Show loading state
-        submitText.classList.add('hidden');
-        loadingText.classList.remove('hidden');
-        submitButton.disabled = true;
-        
-        // Convert FormData to JSON
-        const data = {};
-        for (let [key, value] of formData.entries()) {
-            data[key] = value;
         }
-        
-        console.log('Sending data:', data); // Debug log
-        
-        fetch(`/admin/affiliate/${id}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                'Accept': 'application/json',
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            body: JSON.stringify(data)
-        })
-        .then(response => {
-            console.log('Response status:', response.status); // Debug log
-            console.log('Response headers:', response.headers.get('content-type')); // Debug log
+
+        // Delete Affiliate Function
+        function deleteAffiliate(id, name) {
+            console.log('deleteAffiliate called with ID:', id, 'Name:', name);
             
-            // Check if response is actually JSON
-            const contentType = response.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                // If it's not JSON, let's see what we got
-                return response.text().then(text => {
-                    console.error('Non-JSON response:', text.substring(0, 500)); // Log first 500 chars
-                    throw new Error('Server tidak mengembalikan response JSON yang valid');
+            Swal.fire({
+                title: 'Konfirmasi Hapus',
+                text: `Apakah Anda yakin ingin menghapus data ${name}?`,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#dc2626',
+                cancelButtonColor: '#6b7280',
+                confirmButtonText: 'Ya, Hapus!',
+                cancelButtonText: 'Batal',
+                customClass: {
+                    popup: 'swal2-popup-custom'
+                }
+            }).then((result) => {
+                console.log('SweetAlert result:', result);
+                
+                if (result.isConfirmed) {
+                    console.log('User confirmed delete, proceeding...');
+                    
+                    const csrfToken = document.querySelector('meta[name="csrf-token"]');
+                    console.log('CSRF token element:', csrfToken);
+                    console.log('CSRF token value:', csrfToken ? csrfToken.getAttribute('content') : 'NOT FOUND');
+                    
+                    fetch(`/admin/affiliate/${id}/delete`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken ? csrfToken.getAttribute('content') : '',
+                            'X-Requested-With': 'XMLHttpRequest'
+                        }
+                    })
+                    .then(response => {
+                        console.log('Delete response status:', response.status);
+                        return response.text().then(text => {
+                            console.log('Raw delete response:', text);
+                            try {
+                                return JSON.parse(text);
+                            } catch (e) {
+                                console.error('Delete response is not JSON:', text);
+                                throw new Error('Server returned invalid JSON: ' + text);
+                            }
+                        });
+                    })
+                    .then(data => {
+                        console.log('Delete response data:', data);
+                        if (data.success) {
+                            Swal.fire({
+                                title: 'Berhasil!',
+                                text: 'Data berhasil dihapus',
+                                icon: 'success',
+                                confirmButtonColor: '#528B89',
+                                timer: 1500,
+                                timerProgressBar: true,
+                                showConfirmButton: false
+                            }).then(() => {
+                                location.reload();
+                            });
+                        } else {
+                            throw new Error(data.message || 'Gagal menghapus data');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Delete error:', error);
+                        Swal.fire({
+                            title: 'Error!',
+                            text: error.message || 'Terjadi kesalahan saat menghapus data',
+                            icon: 'error',
+                            confirmButtonColor: '#dc2626'
+                        });
+                    });
+                } else {
+                    console.log('User cancelled delete');
+                }
+            });
+        }
+
+        // Search and Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('searchInput');
+            const statusFilter = document.getElementById('statusFilter');
+            const affiliateRows = document.querySelectorAll('.affiliate-row');
+
+            function filterTable() {
+                const searchTerm = searchInput.value.toLowerCase();
+                const statusValue = statusFilter.value;
+
+                affiliateRows.forEach(row => {
+                    const name = row.dataset.name || '';
+                    const email = row.dataset.email || '';
+                    const status = row.dataset.status || '';
+
+                    const matchesSearch = name.includes(searchTerm) || email.includes(searchTerm);
+                    const matchesStatus = !statusValue || status === statusValue;
+
+                    if (matchesSearch && matchesStatus) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
                 });
             }
-            
-            return response.json();
-        })
-        .then(data => {
-            if (data.success) {
+
+            if (searchInput) {
+                searchInput.addEventListener('input', filterTable);
+            }
+
+            if (statusFilter) {
+                statusFilter.addEventListener('change', filterTable);
+            }
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('detailModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Close edit modal when clicking outside
+        document.getElementById('editModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeEditModal();
+            }
+        });
+
+        // Export to CSV Function
+        function exportToExcel() {
+            // Show loading state
+            const originalText = event.target.innerHTML;
+            event.target.innerHTML = `
+                <svg class="animate-spin w-4 h-4 mr-2 inline" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Mengunduh...
+            `;
+            event.target.disabled = true;
+
+            // Make request to export endpoint
+            fetch('/admin/affiliate/export', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'text/csv'
+                }
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.blob();
+            })
+            .then(blob => {
+                // Create download link
+                const url = window.URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = `data-affiliator-${new Date().toISOString().split('T')[0]}.csv`;
+                document.body.appendChild(a);
+                a.click();
+                window.URL.revokeObjectURL(url);
+                document.body.removeChild(a);
+
+                // Show success message
                 Swal.fire({
                     title: 'Berhasil!',
-                    text: 'Data berhasil diperbarui!',
+                    text: 'Data berhasil diunduh',
                     icon: 'success',
                     confirmButtonColor: '#528B89',
                     timer: 2000,
                     timerProgressBar: true
-                }).then(() => {
-                    closeEditModal();
-                    // Refresh the page to show updated data including status
-                    location.reload();
                 });
-            } else {
-                // Handle validation errors
-                if (data.errors) {
-                    let errorMessages = Object.values(data.errors).flat().join(', ');
-                    throw new Error(errorMessages);
-                } else {
-                    throw new Error(data.message || 'Terjadi kesalahan saat menyimpan data');
-                }
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            Swal.fire({
-                title: 'Error!',
-                text: error.message || 'Terjadi kesalahan saat menyimpan data',
-                icon: 'error',
-                confirmButtonColor: '#dc2626'
-            });
-        })
-        .finally(() => {
-            // Reset loading state
-            submitText.classList.remove('hidden');
-            loadingText.classList.add('hidden');
-            submitButton.disabled = false;
-        });
-    }
-    
-    // Delete Function with SweetAlert
-    function deleteAffiliate(id, name) {
-        Swal.fire({
-            title: 'Hapus Data Affiliator',
-            html: `
-                <div style="text-align: left; margin: 20px 0;">
-                    <p><strong>Anda akan menghapus data:</strong></p>
-                    <div style="background: #f3f4f6; padding: 12px; border-radius: 8px; margin: 10px 0;">
-                        <p style="font-weight: 600; color: #374151; margin: 0;">"${name}"</p>
-                    </div>
-                    <div style="background: #fef2f2; border: 1px solid #fecaca; padding: 12px; border-radius: 8px; margin: 10px 0;">
-                        <p style="color: #dc2626; margin: 0; font-size: 14px;">
-                            <span style="font-weight: 600;">⚠️ PERHATIAN:</span> Tindakan ini tidak dapat dibatalkan!
-                        </p>
-                    </div>
-                    <p style="color: #6b7280; font-size: 14px;">Apakah Anda yakin ingin melanjutkan?</p>
-                </div>
-            `,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#dc2626',
-            cancelButtonColor: '#6b7280',
-            confirmButtonText: 'Ya, Hapus Data!',
-            cancelButtonText: 'Batal',
-            reverseButtons: true,
-            customClass: {
-                popup: 'swal2-popup-custom'
-            }
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // Show loading
+            })
+            .catch(error => {
+                console.error('Export Error:', error);
                 Swal.fire({
-                    title: 'Menghapus data...',
-                    allowOutsideClick: false,
-                    allowEscapeKey: false,
-                    showConfirmButton: false,
-                    didOpen: () => {
-                        Swal.showLoading();
-                    }
+                    title: 'Error!',
+                    text: 'Terjadi kesalahan saat mengunduh data',
+                    icon: 'error',
+                    confirmButtonColor: '#dc2626'
                 });
-
-                fetch(`/admin/affiliate/${id}/delete`, {
-                    method: 'DELETE',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-                        'Accept': 'application/json',
-                        'X-Requested-With': 'XMLHttpRequest'
-                    }
-                })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Server error: ${response.status}`);
-                    }
-                    return response.json();
-                })
-                .then(data => {
-                    if (data.success) {
-                        Swal.fire({
-                            title: 'Berhasil!',
-                            text: data.message,
-                            icon: 'success',
-                            confirmButtonColor: '#528B89',
-                            timer: 2000,
-                            timerProgressBar: true
-                        }).then(() => {
-                            location.reload();
-                        });
-                    } else {
-                        throw new Error(data.message || 'Terjadi kesalahan saat menghapus data');
-                    }
-                })
-                .catch(error => {
-                    console.error('Delete Error:', error);
-                    Swal.fire({
-                        title: 'Error!',
-                        text: error.message || 'Terjadi kesalahan saat menghapus data',
-                        icon: 'error',
-                        confirmButtonColor: '#dc2626'
-                    });
-                });
-            }
-        });
-    }
-    
-    // Close modal when clicking outside
-    document.getElementById('detailModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeModal();
+            })
+            .finally(() => {
+                // Reset button state
+                event.target.innerHTML = originalText;
+                event.target.disabled = false;
+            });
         }
-    });
-    
-    // Close edit modal when clicking outside
-    document.getElementById('editModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closeEditModal();
-        }
-    });
-</script>
+    </script>
 @endsection

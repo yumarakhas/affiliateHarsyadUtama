@@ -1,133 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth" lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin Dashboard')</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>@yield('title', 'Admin - Gentle Living')</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo-tab.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="{{ asset('js/carousel.js') }}"></script>
 </head>
 
-<body class="bg-gray-50" style="font-family: 'Nunito', sans-serif;">
-    <div class="flex h-screen">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-[#614DAC] text-white">
-            <div class="p-4 flex items-center border-b border-white/10">
-                <img src="{{ asset('images/logo.png') }}" alt="Gentle Living" class="h-10">
-            </div>
-            <nav class="mt-6">
-                <div class="px-4 py-2 text-xs font-semibold text-white/70 uppercase tracking-wider">
-                    Menu Utama
-                </div>
-                <a href="{{ route('admin.dashboard') }}"
-                    class="flex items-center px-4 py-3 text-white/90 hover:bg-[#5344a1]">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
-                        </path>
-                    </svg>
-                    Dashboard
-                </a>
-                <a href="#" class="flex items-center px-4 py-3 text-white/90 hover:bg-[#5344a1]">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
-                        </path>
-                    </svg>
-                    Data Affiliate
-                </a>
-                <a href="#" class="flex items-center px-4 py-3 text-white/90 hover:bg-[#5344a1]">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
-                        </path>
-                    </svg>
-                    Verifikasi
-                </a>
-                <a href="#" class="flex items-center px-4 py-3 text-white/90 hover:bg-[#5344a1]">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z">
-                        </path>
-                    </svg>
-                    Laporan
-                </a>
+<body>
+    {{-- Admin Top Bar --}}
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+        <div class="max-w-6xl mx-auto py-4 flex justify-between items-center px-6">
+            <img src="{{ asset('images/logo.png') }}" alt="Gentle Living Logo" class="h-12">
 
-                <div class="px-4 py-2 mt-4 text-xs font-semibold text-white/70 uppercase tracking-wider">
-                    Pengaturan
-                </div>
-                <a href="#" class="flex items-center px-4 py-3 text-white/90 hover:bg-[#5344a1]">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
-                        </path>
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                    </svg>
-                    Pengaturan Akun
-                </a>
-                <form action="{{ route('logout') }}" method="POST" class="mt-6 px-4">
+            <!-- User Info dan Logout Button -->
+            <div class="flex items-center space-x-4">
+                <span style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600 hidden sm:block">
+                    Halo, {{ Auth::user()->name }}
+                </span>
+
+                <!-- Logout Button -->
+                <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf
-                    <button type="submit" class="flex w-full items-center px-4 py-3 text-white/90 hover:bg-[#5344a1]">
-                        <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    <button type="submit" style="font-family: 'Nunito', sans-serif;"
+                        class="font-medium px-6 py-2 bg-gradient-to-r from-[#FF6B6B] to-[#EE5A52] text-white rounded-full hover:from-[#FF5252] hover:to-[#D32F2F] transition-all duration-300 flex items-center space-x-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
                             </path>
                         </svg>
-                        Logout
+                        <span>Logout</span>
                     </button>
                 </form>
-            </nav>
-        </aside>
+            </div>
+        </div>
+    </header>
 
-        <!-- Main Content -->
-        <div class="flex-1 flex flex-col overflow-hidden">
-            <!-- Top Header -->
-            <header class="bg-white shadow-sm z-10">
-                <div class="flex items-center justify-between px-6 py-3">
-                    <div class="flex items-center">
-                        <h2 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#614DAC]">Admin Dashboard
-                        </h2>
+    <!-- Spacer untuk menggantikan ruang yang diambil oleh fixed header -->
+    <div class="h-20"></div>
+
+    <!-- Success/Error Messages -->
+    @if (session('success'))
+        <div class="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 w-full max-w-md">
+            <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-3 rounded-r-lg shadow-lg mx-4"
+                id="successAlert">
+                <div class="flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span style="font-family: 'Nunito', sans-serif;"
+                        class="text-sm font-medium">{{ session('success') }}</span>
+                </div>
+            </div>
+        </div>
+        <script>
+            setTimeout(function() {
+                const alert = document.getElementById('successAlert');
+                if (alert) {
+                    alert.style.opacity = '0';
+                    alert.style.transform = 'translate(-50%, -100%)';
+                    setTimeout(() => alert.remove(), 300);
+                }
+            }, 3000);
+        </script>
+    @endif
+
+    {{-- Main Content --}}
+    <main>
+        @yield('content')
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="bg-[#528B89] py-12">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-8 text-white">
+                <!-- Logo and Company Info -->
+                <div>
+                    <div class="flex items-center space-x-3">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-auto h-25">
                     </div>
-                    <div class="flex items-center">
-                        <div class="relative">
-                            <button class="flex items-center space-x-2 focus:outline-none">
-                                <div
-                                    class="w-10 h-10 rounded-full bg-[#614DAC]/10 flex items-center justify-center text-[#614DAC]">
-                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z">
-                                        </path>
-                                    </svg>
-                                </div>
-                                <span class="font-semibold">{{ Auth::user()->name }}</span>
-                                <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M19 9l-7 7-7-7"></path>
-                                </svg>
-                            </button>
-                        </div>
+                    <p style="font-family: 'Nunito', sans-serif;" class="text-sm mb-4">
+                        Jl. Pandanwangi Park No 58<br>
+                        Pandanwangi, Kec. Blimbing, Kota Malang, Jawa Timur 65126
+                    </p>
+                    <!-- Social Media Icons -->
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white hover:text-gray-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 3.95-.36.1-.74.15-1.13.15-.27 0-.54-.03-.8-.08.54 1.69 2.11 2.95 4 2.98-1.46 1.16-3.31 1.84-5.33 1.84-.35 0-.69-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z" />
+                            </svg>
+                        </a>
+                        <a href="#" class="text-white hover:text-gray-200">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12.036 5.339c-3.635 0-6.591 2.956-6.591 6.589 0 3.632 2.956 6.589 6.591 6.589s6.591-2.957 6.591-6.589c0-3.633-2.956-6.589-6.591-6.589zm0 10.863c-2.359 0-4.274-1.915-4.274-4.274S9.677 7.654 12.036 7.654s4.274 1.915 4.274 4.274-1.915 4.274-4.274 4.274zM19.817 5.123c0 .847-.69 1.532-1.532 1.532-.847 0-1.532-.685-1.532-1.532s.685-1.532 1.532-1.532c.847 0 1.532.685 1.532 1.532zM12.036 2.5c-2.11 0-6.654-.09-8.566 1.822C1.558 6.234 1.648 10.778 1.648 12.036s-.09 5.802 1.822 7.714c1.912 1.912 6.456 1.822 8.566 1.822s6.654.09 8.566-1.822c1.912-1.912 1.822-6.456 1.822-8.714s.09-5.802-1.822-7.714C18.69 2.41 14.146 2.5 12.036 2.5zm7.714 16.948c-1.297 1.297-3.084 1.182-7.714 1.182s-6.417.115-7.714-1.182-1.182-3.084-1.182-7.714.115-6.417 1.182-7.714S7.406 2.838 12.036 2.838s6.417-.115 7.714 1.182 1.182 3.084 1.182 7.714-.115 6.417-1.182 7.714z" />
+                            </svg>
+                        </a>
                     </div>
                 </div>
-            </header>
 
-            <!-- Content -->
-            <main class="flex-1 overflow-y-auto bg-gray-50">
-                @yield('content')
-            </main>
+                <!-- Tentang Kami -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Tentang Kami</h4>
+                    <ul style="font-family: 'Nunito', sans-serif;" class="space-y-2 text-sm">
+                        <li><a href="#" class="hover:text-gray-200">Visi & Misi</a></li>
+                        <li><a href="#" class="hover:text-gray-200">Karir</a></li>
+                    </ul>
+                </div>
+
+                <!-- Hubungi Kami -->
+                <div>
+                    <h4 class="text-lg font-bold mb-4">Hubungi Kami</h4>
+                    <ul style="font-family: 'Nunito', sans-serif;" class="space-y-2 text-sm">
+                        <li>+62 821-3716-1033</li>
+                        <li>cs@gentleliving.com</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-white/20 mt-8 pt-8 text-center">
+                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-white/80">
+                    Hak Cipta © 2025 Gentle Living | Kebijakan Privasi
+                </p>
+            </div>
         </div>
-    </div>
+    </footer>
 </body>
 
 </html>

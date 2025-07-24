@@ -37,6 +37,9 @@ class AdminController extends Controller
     public function update(Request $request, $id)
     {
         try {
+            \Log::info('Update request received for ID: ' . $id);
+            \Log::info('Request data: ', $request->all());
+            
             $affiliate = AffiliateRegistration::findOrFail($id);
             
             // Validate the request
@@ -51,24 +54,30 @@ class AdminController extends Controller
                 'status' => 'required|string|in:Aktif,Nonaktif',
             ]);
             
-            // Update main data
-            $affiliate->update([
+            \Log::info('Validation passed. Validated data: ', $validatedData);
+            
+            // Update main data including status
+            $updated = $affiliate->update([
                 'email' => $validatedData['email'],
                 'nama_lengkap' => $validatedData['nama_lengkap'],
                 'kontak_whatsapp' => $validatedData['kontak_whatsapp'],
                 'kota_domisili' => $validatedData['kota_domisili'],
                 'profesi_kesibukan' => $validatedData['profesi_kesibukan'],
-                'status' => $validatedData['status'],
+                'status' => $validatedData['status'], // Status disimpan di affiliate_registrations
             ]);
             
-            // Update or create affiliate info
-            $affiliate->affiliateInfo()->updateOrCreate(
+            \Log::info('Main data update result: ' . ($updated ? 'success' : 'failed'));
+            
+            // Update or create affiliate info (tanpa status karena ada di tabel utama)
+            $infoUpdated = $affiliate->affiliateInfo()->updateOrCreate(
                 ['affiliate_registration_id' => $affiliate->id],
                 [
                     'akun_instagram' => $validatedData['akun_instagram'],
                     'akun_tiktok' => $validatedData['akun_tiktok'],
                 ]
             );
+            
+            \Log::info('Affiliate info update result: ' . ($infoUpdated ? 'success' : 'failed'));
             
             // Always return JSON response for AJAX requests
             if ($request->expectsJson() || $request->ajax()) {
@@ -327,6 +336,81 @@ class AdminController extends Controller
     public function show($id)
     {
         return $this->getDetails($id);
+    }
+
+    /**
+     * Export affiliate data to CSV
+     */
+    public function export()
+    {
+        try {
+            // Get all affiliate data
+            $affiliates = AffiliateRegistration::with('affiliateInfo')
+                ->orderBy('created_at', 'desc')
+                ->get();
+
+            // Generate filename
+            $filename = 'data-affiliator-' . date('Y-m-d-H-i-s') . '.csv';
+            
+            // Set headers for CSV download
+            $headers = [
+                'Content-Type' => 'text/csv; charset=UTF-8',
+                'Content-Disposition' => 'attachment; filename="' . $filename . '"',
+                'Cache-Control' => 'max-age=0',
+            ];
+
+            // Create CSV content
+            $callback = function() use ($affiliates) {
+                $file = fopen('php://output', 'w');
+                
+                // Add BOM for UTF-8
+                fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF));
+                
+                // CSV Headers
+                fputcsv($file, [
+                    'No',
+                    'Email',
+                    'Nama Lengkap',
+                    'Kontak WhatsApp',
+                    'Kota Domisili',
+                    'Profesi/Kesibukan',
+                    'Info Dari Mana',
+                    'Instagram',
+                    'TikTok',
+                    'Status',
+                    'Tanggal Daftar'
+                ]);
+
+                // Data rows
+                foreach ($affiliates as $index => $affiliate) {
+                    fputcsv($file, [
+                        $index + 1,
+                        $affiliate->email,
+                        $affiliate->nama_lengkap,
+                        $affiliate->kontak_whatsapp,
+                        $affiliate->kota_domisili,
+                        $affiliate->profesi_kesibukan,
+                        $affiliate->info_darimana,
+                        $affiliate->affiliateInfo->akun_instagram ?? '-',
+                        $affiliate->affiliateInfo->akun_tiktok ?? '-',
+                        $affiliate->affiliateInfo->status ?? 'Aktif',
+                        $affiliate->created_at->format('d/m/Y H:i')
+                    ]);
+                }
+
+                fclose($file);
+            };
+
+            return response()->stream($callback, 200, $headers);
+
+        } catch (\Exception $e) {
+            \Log::error('Error exporting affiliate data: ' . $e->getMessage() . ' | Stack: ' . $e->getTraceAsString());
+            
+            return response()->json([
+                'success' => false,
+                'message' => 'Terjadi kesalahan saat mengexport data'
+            ], 500);
+        }
     }
 
     /**

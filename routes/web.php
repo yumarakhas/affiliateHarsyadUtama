@@ -20,11 +20,12 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 
 // Admin Routes (Protected)
 Route::middleware('auth')->prefix('admin')->group(function () {
-    Route::get('/dashboard', [AuthController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/view-data', [AdminController::class, 'viewData'])->name('admin.view-data');
-    Route::get('/affiliate/{id}/details', [AdminController::class, 'show'])->name('admin.affiliate.details');
+    Route::get('/affiliate/{id}/details', [AdminController::class, 'getDetails'])->name('admin.affiliate.details');
     Route::put('/affiliate/{id}', [AdminController::class, 'update'])->name('admin.affiliate.update');
-    Route::delete('/affiliate/{id}/delete', [AdminController::class, 'destroy'])->name('admin.affiliate.delete');
+    Route::post('/affiliate/{id}/update', [AdminController::class, 'update'])->name('admin.affiliate.update.post');
+    Route::delete('/affiliate/{id}/delete', [AdminController::class, 'delete'])->name('admin.affiliate.delete');
     Route::post('/affiliate/{id}/update-status', [AdminController::class, 'updateStatus'])->name('admin.affiliate.update-status');
+    Route::get('/affiliate/export', [AdminController::class, 'export'])->name('admin.affiliate.export');
     Route::get('/export-excel', [AdminController::class, 'exportExcel'])->name('admin.export-excel');
 });
