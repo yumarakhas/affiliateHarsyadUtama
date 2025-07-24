@@ -29,7 +29,7 @@
                 <form action="{{ route('logout') }}" method="POST" class="inline">
                     @csrf
                     <button type="submit" style="font-family: 'Nunito', sans-serif;"
-                        class="font-medium px-6 py-2 bg-gradient-to-r from-[#FF6B6B] to-[#EE5A52] text-white rounded-full hover:from-[#FF5252] hover:to-[#D32F2F] transition-all duration-300 flex items-center space-x-2 shadow-md hover:shadow-lg transform hover:scale-105">
+                        class="font-medium px-8 mr-0 py-2 border border-red-600 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-colors duration-300 flex items-center space-x-4">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
