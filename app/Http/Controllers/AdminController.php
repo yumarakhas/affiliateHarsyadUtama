@@ -17,10 +17,10 @@ class AdminController extends Controller
      */
     public function viewData()
     {
-        // Get all affiliate registrations with their related info
+        // Get all affiliate registrations with their related info, paginated to 10 per page
         $affiliates = AffiliateRegistration::with('affiliateInfo')
             ->orderBy('created_at', 'desc')
-            ->paginate(20);
+            ->paginate(10);
 
         return view('admin.view-data', compact('affiliates'));
     }
