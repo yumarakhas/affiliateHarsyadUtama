@@ -32,11 +32,11 @@
 
                 <div class="relative z-10 max-w-lg text-center lg:text-left py-16 lg:py-0">
                     <h1 style="font-family: 'Fredoka One', cursive;"
-                        class="text-3xl sm:text-4xl lg:text-5xl text-white lg:text-[#EF9F9B] mb-6 leading-tight drop-shadow-lg lg:drop-shadow-none">
+                        class="text-3xl sm:text-4xl lg:text-5xl text-[#EF9F9B] lg:text-[#EF9F9B] mb-6 leading-tight drop-shadow-lg lg:drop-shadow-none">
                         Join Our Baby Wellness Affiliate Program
                     </h1>
                     <p style="font-family: 'Nunito', sans-serif;"
-                        class="text-base lg:text-lg text-white/90 lg:text-[#EF9F9B] mb-6 leading-relaxed drop-shadow lg:drop-shadow-none">
+                        class="text-base lg:text-lg text-[#EF9F9B] lg:text-[#EF9F9B] mb-6 leading-relaxed drop-shadow lg:drop-shadow-none">
                         Kami sedang membuka program affiliate partnership untuk <br class="hidden sm:block" />
                         <span class="font-bold"> 3 produk best-seller </span> kami yang fokus pada wellness bunda & bayi.
                     </p>
