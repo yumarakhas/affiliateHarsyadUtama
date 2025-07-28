@@ -4,136 +4,161 @@
 
 @section('content')
     <!-- Hero Section / Beranda -->
-    <section id="beranda" class="flex flex-col md:flex-row items-center h-screen bg-gray-100 relative">
-        <!-- Background Gradient -->
-        <div
-            class="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-[#444444]/100 via-[#444444]/100 to-transparent z-10">
-        </div>
-
-        <!-- Sisi Kiri - Teks -->
-        <div class="relative z-20 w-full md:w-1/2 flex items-start justify-center flex-col h-full">
-            <div class="px-6 md:px-16 max-w"> <!-- Tambahkan padding kiri & batasi lebar konten -->
-                <h1 style="font-family: 'Fredoka One', cursive;"
-                    class="text-3xl md:text-5xl text-[#528B89] mb-8 leading-tight">
-                    Join Our Baby Wellness Affiliate Program
-                </h1>
-                <p style="font-family: 'Nunito', sans-serif;" class="text-base md:text-lg text-[#528B89] mb-4 md:mb-6">
-                    Kami sedang membuka program affiliate partnership untuk <br />
-                    <span class="font-bold"> 3 produk best-seller </span> kami yang fokus pada wellness bunda
-                    & bayi.
-                </p>
-                <p id ="content"style="font-family: 'Nunito', sans-serif; font-size: 25px; font-bold;"
-                    class="text-white font-semibold mb-6">
-                    
-                </p>
-                <a href="{{ route('affiliate.form') }}"
-                    class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#528B89] hover:text-white transform hover:scale-110 hover:-translate-y-2 transition-all duration-300 ease-in-out">
-                    DAFTAR SEKARANG
-                </a>
-            </div>
-        </div>
-
-        <!-- Sisi Kanan - Gambar Carousel -->
-        <div class="relative z-0 w-full md:w-1/2 h-full" id="banner-carousel">
+    <section id="beranda" class="relative min-h-screen bg-gray-100">
+        <!-- Mobile: Banner Background (visible only on mobile) -->
+        <div class="absolute inset-0 w-full h-full lg:hidden" id="banner-carousel-mobile">
             <!-- Slides Container -->
             <div class="h-full overflow-hidden relative">
                 <img src="{{ asset('images/banner.png') }}" alt="Banner 1"
-                    class="banner-slide w-full h-full object-cover object-right absolute transition-all duration-700 opacity-100">
+                    class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
                 <img src="{{ asset('images/banner-2.png') }}" alt="Banner 2"
-                    class="banner-slide w-full h-full object-cover object-right absolute transition-all duration-700 opacity-0">
+                    class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
                 <img src="{{ asset('images/banner-3.png') }}" alt="Banner 3"
-                    class="banner-slide w-full h-full object-cover object-right absolute transition-all duration-700 opacity-0">
+                    class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
+            </div>
+            <!-- Mobile: Overlay Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-10"></div>
+        </div>
+
+        <!-- Desktop Layout Container -->
+        <div class="relative flex flex-col lg:flex-row min-h-screen">
+            <!-- Desktop Background Gradient -->
+            <div
+                class="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-[#444444]/100 via-[#444444]/100 to-transparent z-10">
+            </div>
+            <!-- Left Side - Text Content -->
+            <div class="relative w-full lg:w-1/2 flex items-center justify-center px-6 lg:px-12 z-20">
+
+
+                <div class="relative z-10 max-w-lg text-center lg:text-left py-16 lg:py-0">
+                    <h1 style="font-family: 'Fredoka One', cursive;"
+                        class="text-3xl sm:text-4xl lg:text-5xl text-white lg:text-[#EF9F9B] mb-6 leading-tight drop-shadow-lg lg:drop-shadow-none">
+                        Join Our Baby Wellness Affiliate Program
+                    </h1>
+                    <p style="font-family: 'Nunito', sans-serif;"
+                        class="text-base lg:text-lg text-white/90 lg:text-[#EF9F9B] mb-6 leading-relaxed drop-shadow lg:drop-shadow-none">
+                        Kami sedang membuka program affiliate partnership untuk <br class="hidden sm:block" />
+                        <span class="font-bold"> 3 produk best-seller </span> kami yang fokus pada wellness bunda & bayi.
+                    </p>
+                    <p id="content" style="font-family: 'Nunito', sans-serif;"
+                        class="text-xl lg:text-2xl font-bold text-white lg:text-white mb-8 drop-shadow lg:drop-shadow-none">
+
+                    </p>
+                    <a href="{{ route('affiliate.form') }}"
+                        class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#528B89] hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        DAFTAR SEKARANG
+                    </a>
+                </div>
             </div>
 
-            <!-- Navigation Indicators - Larger click target -->
-            <div class="absolute bottom-12 left-0 right-0 flex justify-center gap-5 z-20" id="carousel-indicators">
-                <button class="group relative cursor-pointer" data-slide="0">
-                    <div class="w-20 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                    <div
-                        class="w-20 h-3 bg-white/80 rounded-full indicator-line active transition-all group-hover:bg-white">
-                    </div>
-                </button>
-                <button class="group relative cursor-pointer" data-slide="1">
-                    <div class="w-20 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                    <div class="w-20 h-3 bg-white/40 rounded-full indicator-line transition-all group-hover:bg-white/60">
-                    </div>
-                </button>
-                <button class="group relative cursor-pointer" data-slide="2">
-                    <div class="w-20 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                    <div class="w-20 h-3 bg-white/40 rounded-full indicator-line transition-all group-hover:bg-white/60">
-                    </div>
-                </button>
+            <!-- Right Side - Desktop Banner Carousel -->
+            <div class="relative w-full lg:w-1/2 min-h-screen hidden lg:block" id="banner-carousel">
+                <!-- Slides Container -->
+                <div class="h-full overflow-hidden relative">
+                    <img src="{{ asset('images/banner.png') }}" alt="Banner 1"
+                        class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
+                    <img src="{{ asset('images/banner-2.png') }}" alt="Banner 2"
+                        class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
+                    <img src="{{ asset('images/banner-3.png') }}" alt="Banner 3"
+                        class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
+                </div>
+                <!-- Subtle overlay for blending -->
+                <div class="absolute inset-0 bg-gradient-to-r from-black/5 to-transparent"></div>
             </div>
+        </div>
+
+        <!-- Navigation Indicators -->
+        <div class="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-30" id="carousel-indicators">
+            <button class="group relative cursor-pointer" data-slide="0">
+                <div class="w-16 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="w-16 h-3 bg-white/80 rounded-full indicator-line active transition-all group-hover:bg-white">
+                </div>
+            </button>
+            <button class="group relative cursor-pointer" data-slide="1">
+                <div class="w-16 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="w-16 h-3 bg-white/40 rounded-full indicator-line transition-all group-hover:bg-white/60"></div>
+            </button>
+            <button class="group relative cursor-pointer" data-slide="2">
+                <div class="w-16 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                <div class="w-16 h-3 bg-white/40 rounded-full indicator-line transition-all group-hover:bg-white/60"></div>
+            </button>
         </div>
     </section>
 
     <!-- Produk Section -->
-    <section id="products" class="py-20 bg-white">
-        <div class="max-w-6xl mx-auto px-6">
+    <section id="products" class="py-12 sm:py-16 lg:py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Why Join Us Header -->
-            <div class="text-center mb-16">
-                <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-8">
+            <div class="text-center mb-12 lg:mb-16">
+                <h2 style="font-family: 'Fredoka One', cursive;"
+                    class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8">
                     Why Join Us
                 </h2>
-                <p style="font-family: 'Nunito', sans-serif;" class="text-lg text-[#6C63FF] max-w-3xl mx-auto">
+                <p style="font-family: 'Nunito', sans-serif;"
+                    class="text-base sm:text-lg text-[#6C63FF] max-w-4xl mx-auto leading-relaxed">
                     Kami percaya produk ini sangat cocok untuk audience kami yang didominasi moms, new parents,
                     breastfeeding moms, dan pejuang MPASI.
                 </p>
-                <p style="font-family: 'Nunito', sans-serif;" class="text-lg text-[#6C63FF] italic font-semibold mt-4">
+                <p style="font-family: 'Nunito', sans-serif;"
+                    class="text-base sm:text-lg text-[#6C63FF] italic font-semibold mt-3 lg:mt-4">
                     Helping Moms - Earning with Purpose
                 </p>
             </div>
 
             <!-- Benefits Grid -->
-            <div class="grid md:grid-cols-2 gap-8 mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
                 <!-- Benefit 1 -->
-                <div class="flex items-start space-x-4">
+                <div
+                    class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-check-badge class="w-12 h-12 text-[#528B89]" />
+                        <x-heroicon-s-check-badge class="w-10 h-10 sm:w-12 sm:h-12 text-[#528B89]" />
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Produk yang beneran dipakai & dibutuhkan bunda dan
-                            baby</h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk yang beneran dipakai & dibutuhkan
+                            bunda dan baby</h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm sm:text-base">
                             Kami tahu dibutuhkan berdasarkan riset & kami sendiri beneran pakai untuk Si Kecil
                         </p>
                     </div>
                 </div>
 
                 <!-- Benefit 2 -->
-                <div class="flex items-start space-x-4">
+                <div
+                    class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-shopping-cart class="w-12 h-12 text-[#528B89]" />
+                        <x-heroicon-s-shopping-cart class="w-10 h-10 sm:w-12 sm:h-12 text-[#528B89]" />
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Repeat order tinggi</h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Repeat order tinggi</h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm sm:text-base">
                             Hasil dirasakan cepat & kebutuhan harian
                         </p>
                     </div>
                 </div>
 
                 <!-- Benefit 3 -->
-                <div class="flex items-start space-x-4">
+                <div
+                    class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-document-text class="w-12 h-12 text-[#528B89]" />
+                        <x-heroicon-s-document-text class="w-10 h-10 sm:w-12 sm:h-12 text-[#528B89]" />
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Full support + edukasi</h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Full support + edukasi</h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm sm:text-base">
                             Kamu bisa dibantu berkembang secara skill atau kebutuhan konten
                         </p>
                     </div>
                 </div>
 
                 <!-- Benefit 4 -->
-                <div class="flex items-start space-x-4">
+                <div
+                    class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-star class="w-12 h-12 text-[#528B89]" />
+                        <x-heroicon-s-star class="w-10 h-10 sm:w-12 sm:h-12 text-[#528B89]" />
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-gray-800 mb-2">Produk kategori premium</h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk kategori premium</h3>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm sm:text-base">
                             Bernilai jual cukup tinggi sehingga komisi besar untuk setiap penjualannya
                         </p>
                     </div>
@@ -143,39 +168,41 @@
         </div>
 
         <!-- What you will get Section -->
-        <div class="mb-16 text-center">
-            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-8">
+        <div class="mb-12 lg:mb-16 text-center px-4 sm:px-6 lg:px-8">
+            <h2 style="font-family: 'Fredoka One', cursive;"
+                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8">
                 What you will get
             </h2>
-            <div class="max-w-5xl mx-auto">
+            <div class="max-w-6xl mx-auto">
                 <!-- Baris pertama - 3 item -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-6 lg:mb-8">
                     <!-- Item 1 -->
                     <div
-                        class="bg-white rounded-lg p-6 text-left border border-gray-200 hover:border-[#528B89] transition-colors shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-currency-dollar class="w-6 h-6 text-gray-600" />
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Setup penjualan produk</h4>
+                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Setup penjualan produk
+                                </h4>
                                 <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">mendapat
-                                    komisi sebesar 30-40%</p>
+                                    komisi
+                                    sebesar 30-40%</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Item 2 -->
                     <div
-                        class="bg-white rounded-lg p-6 text-left border border-gray-200 hover:border-[#528B89] transition-colors shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-user-group class="w-6 h-6 text-gray-600" />
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Tim support untuk bantu
-                                    tracking &
-                                    pelaporan</h4>
+                                    tracking & pelaporan</h4>
                                 <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">hingga
                                     pengembangan skill</p>
                             </div>
@@ -184,7 +211,7 @@
 
                     <!-- Item 3 -->
                     <div
-                        class="bg-white rounded-lg p-6 text-left border border-gray-200 hover:border-[#528B89] transition-colors shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm sm:col-span-2 lg:col-span-1">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-gift class="w-6 h-6 text-gray-600" />
@@ -200,10 +227,10 @@
                 </div>
 
                 <!-- Baris kedua - 2 item di tengah -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
                     <!-- Item 4 -->
                     <div
-                        class="bg-white rounded-lg p-6 text-left border border-gray-200 hover:border-[#528B89] transition-colors shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-banknotes class="w-6 h-6 text-gray-600" />
@@ -219,7 +246,7 @@
 
                     <!-- Item 5 -->
                     <div
-                        class="bg-white rounded-lg p-6 text-left border border-gray-200 hover:border-[#528B89] transition-colors shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-photo class="w-6 h-6 text-gray-600" />
@@ -234,63 +261,75 @@
                 </div>
             </div>
         </div>
+        </div>
+        </div>
+        </div>
 
         <!-- Perfect for you Section -->
-        <div class="mb-16 ">
-            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-8 text-center">
+        <div class="mb-12 lg:mb-16 px-4 sm:px-6 lg:px-8">
+            <h2 style="font-family: 'Fredoka One', cursive;"
+                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 text-center">
                 Perfect for you
             </h2>
-            <div class="max-w-6xl mx-auto">
-                <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6">
                     <!-- Type 1 -->
-                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
-                        <h4 class="font-bold text-gray-800 text-sm mb-2">Momfluencer</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Sering berbagi daily
-                            life bermama anak</p>
+                    <div
+                        class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
+                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Momfluencer</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Sering
+                            berbagi daily life bermama anak</p>
                     </div>
 
                     <!-- Type 2 -->
-                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
-                        <h4 class="font-bold text-gray-800 text-sm mb-2">Bidan/Educator MPASI</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Aktif memberikan
-                            edukasi tentang kesehatan bayi/anak</p>
+                    <div
+                        class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
+                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Bidan/Educator MPASI</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Aktif
+                            memberikan edukasi tentang kesehatan bayi/anak</p>
                     </div>
 
                     <!-- Type 3 -->
-                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
-                        <h4 class="font-bold text-gray-800 text-sm mb-2">Admin Komunitas Ibu</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Mengelola komunitas
-                            untuk mama dan terlibat diskusi</p>
+                    <div
+                        class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
+                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Admin Komunitas Ibu</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Mengelola
+                            komunitas untuk mama dan terlibat diskusi</p>
                     </div>
 
                     <!-- Type 4 -->
-                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
-                        <h4 class="font-bold text-gray-800 text-sm mb-2">Content Creator Parenting</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Membuat konten tips,
-                            review terkait tumbuh kembang</p>
+                    <div
+                        class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
+                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Content Creator Parenting
+                        </h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Membuat
+                            konten tips, review terkait tumbuh kembang</p>
                     </div>
 
                     <!-- Type 5 -->
-                    <div class="bg-white p-4 rounded-lg text-center shadow-xl hover:shadow-2xl transition-shadow">
-                        <h4 class="font-bold text-gray-800 text-sm mb-2">Ibu Aktif</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs text-gray-600">Suka berbagi info dan
-                            recommend ke mama lain</p>
+                    <div
+                        class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200 col-span-2 sm:col-span-1">
+                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Ibu Aktif</h4>
+                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Suka
+                            berbagi info dan recommend ke mama lain</p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Meet The Product Section -->
-        <div class="text-center py-16">
-            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-12">
+        <div class="text-center py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+            <h2 style="font-family: 'Fredoka One', cursive;"
+                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-8 lg:mb-12">
                 Meet The Product
             </h2>
-            <div class="max-w-6xl mx-auto px-6 md:px-10">
-                <div class="grid md:grid-cols-3 gap-8 md:gap-12">
+            <div class="max-w-7xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
                     <!-- Product 1 -->
                     <div
-                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-[#528B89] transition-colors shadow-sm hover:shadow-lg flex flex-col">
-                        <div class="bg-gray-100 rounded-lg mb-6 flex items-center justify-center" style="height: 280px;">
+                        class="bg-white border-2 border-gray-200 rounded-xl p-4 sm:p-5 lg:p-6 hover:border-[#528B89] transition-colors shadow-sm hover:shadow-lg flex flex-col">
+                        <div
+                            class="bg-gray-100 rounded-lg mb-4 lg:mb-6 flex items-center justify-center h-48 sm:h-64 lg:h-72">
                             <img src="{{ asset('images/gentleBaby.png') }}" alt="Gentle Baby"
                                 class="max-h-full max-w-full object-contain"
                                 onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
@@ -367,28 +406,31 @@
     </section>
 
     <!-- Testimonial Section -->
-    <section class="py-20 bg-gray-50">
-        <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-8">
+    <section class="py-12 sm:py-16 lg:py-20 bg-gray-50">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 style="font-family: 'Fredoka One', cursive;"
+                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8">
                 Telah dipercaya >30.000 Ibu
             </h2>
 
             <!-- Testimonial Card -->
-            <div class="bg-white rounded-lg p-8 shadow-lg max-w-2xl mx-auto">
-                <div class="flex items-start space-x-4">
+            <div class="bg-white rounded-lg p-6 lg:p-8 shadow-lg max-w-3xl mx-auto">
+                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-4">
                     <!-- Avatar -->
-                    <div class="bg-gray-300 w-16 h-16 rounded-full flex-shrink-0"></div>
+                    <div class="bg-gray-300 w-16 h-16 rounded-full flex-shrink-0 mx-auto sm:mx-0"></div>
 
                     <!-- Testimonial Content -->
-                    <div class="text-left">
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-700 mb-4 italic">
-                            "Hari ini Fahiyyah masuk angin, muntah, dan mual. Trus ingat punya Tummy Calmer.
-                            Langsung obles-oles ke perut Alhamdulillah langsung terkendali enggak lagi
-                            batunya. Makasih Gentle Baby!"
+                    <div class="text-center sm:text-left flex-1">
+                        <p style="font-family: 'Nunito', sans-serif;"
+                            class="text-sm sm:text-base lg:text-lg text-gray-700 mb-3 lg:mb-4 italic leading-relaxed">
+                            "Produk-produknya benar-benar berkualitas dan sesuai dengan kebutuhan bayi. Sebagai affiliate,
+                            saya merasa bangga merekomendasikan produk yang saya gunakan sendiri untuk anak saya."
                         </p>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-[#528B89] font-semibold">
-                            Mom Firda Amalia
-                        </p>
+                        <div class="text-left">
+                            <p class="font-bold text-gray-800 text-sm lg:text-base">Ibu Sarah</p>
+                            <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-500">
+                                Affiliate Partner sejak 2024</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -396,54 +438,59 @@
     </section>
 
     <!-- How to Join Section -->
-    <section class="py-20 bg-[#B8E6D9]">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+    <section class="py-12 sm:py-16 lg:py-20 bg-[#B8E6D9]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <!-- Left Side - Content -->
-                <div>
-                    <h2 style="font-family: 'Fredoka One', cursive;" class="text-4xl text-[#6C63FF] mb-6">
+                <div class="order-2 lg:order-1">
+                    <h2 style="font-family: 'Fredoka One', cursive;"
+                        class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 text-center lg:text-left">
                         How to Join
                     </h2>
 
-                    <div class="bg-white rounded-2xl border border-[#E5E7EB] p-6 md:p-8 shadow-lg">
-                        <h3 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-3">
+                    <div class="bg-white rounded-2xl border border-[#E5E7EB] p-6 lg:p-8 shadow-lg">
+                        <h3 style="font-family: 'Fredoka One', cursive;"
+                            class="text-xl lg:text-2xl text-[#528B89] mb-3 text-center lg:text-left">
                             Work Easy, Earn More
                         </h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm leading-relaxed mb-8">
+                        <p style="font-family: 'Nunito', sans-serif;"
+                            class="text-gray-600 text-sm lg:text-base leading-relaxed mb-6 lg:mb-8 text-center lg:text-left">
                             Kami bisa bantu rekomendasikan bikin konten/script sesuai gaya kamu
                         </p>
 
                         <!-- CTA Button -->
-                        <button
-                            class="relative bg-gradient-to-r from-[#FF6B6B] to-[#FF9191] text-white px-8 py-4 rounded-xl font-bold text-center shadow-md overflow-hidden transform transition duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:-translate-y-1 group w-full md:w-auto">
-                            <a class="relative z-10" href="{{ route('affiliate.form') }}">DAFTAR SEKARANG</a>
-                            <!-- Hover Gradient Overlay -->
-                            <span
-                                class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#D94C4C] to-[#FF6B6B] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0 rounded-xl"></span>
-                            <!-- Shine Effect -->
-                            <span
-                                class="absolute top-0 right-0 w-8 h-full bg-white/20 skew-x-[30deg] transform translate-x-32 group-hover:translate-x-0 transition-all duration-1000 z-0"></span>
-                        </button>
+                        <div class="text-center lg:text-left">
+                            <button
+                                class="relative bg-gradient-to-r from-[#FF6B6B] to-[#FF9191] text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold shadow-md overflow-hidden transform transition duration-300 ease-in-out hover:shadow-xl hover:scale-105 hover:-translate-y-1 group w-full sm:w-auto">
+                                <a class="relative z-10" href="{{ route('affiliate.form') }}">DAFTAR SEKARANG</a>
+                                <!-- Hover Gradient Overlay -->
+                                <span
+                                    class="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-[#D94C4C] to-[#FF6B6B] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left z-0 rounded-xl"></span>
+                                <!-- Shine Effect -->
+                                <span
+                                    class="absolute top-0 right-0 w-8 h-full bg-white/20 skew-x-[30deg] transform translate-x-32 group-hover:translate-x-0 transition-all duration-1000 z-0"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
-
                 <!-- Right Side - Steps -->
-                <div class="space-y-8">
+                <div class="space-y-6 lg:space-y-8 order-1 lg:order-2">
                     <!-- Step 1 -->
                     <div class="flex items-start space-x-4 relative">
                         <div class="relative">
                             <div
-                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg ">
-                                <span class="text-white font-bold text-lg">1</span>
+                                class="bg-[#FF6B6B] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg">
+                                <span class="text-white font-bold text-base sm:text-lg">1</span>
                             </div>
                             <!-- Line connector -->
-                            <div class="absolute left-1/2 top-12 w-1 h-12 bg-[#D2F4E4] transform -translate-x-0.5 z-0">
+                            <div
+                                class="absolute left-1/2 top-10 sm:top-12 w-1 h-10 sm:h-12 bg-[#D2F4E4] transform -translate-x-0.5 z-0">
                             </div>
                         </div>
                         <div class="flex-1 mt-2">
                             <p style="font-family: 'Nunito', sans-serif;"
-                                class="text-[#D94C4C] font-bold text-base leading-relaxed">
+                                class="text-[#D94C4C] font-bold text-sm sm:text-base leading-relaxed">
                                 Klik "DAFTAR SEKARANG" dan isi identitas diri
                             </p>
                         </div>
@@ -453,11 +500,12 @@
                     <div class="flex items-start space-x-4 relative">
                         <div class="relative">
                             <div
-                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg">
-                                <span class="text-white font-bold text-lg">2</span>
+                                class="bg-[#FF6B6B] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg">
+                                <span class="text-white font-bold text-base sm:text-lg">2</span>
                             </div>
                             <!-- Line connector -->
-                            <div class="absolute left-1/2 top-12 w-1 h-12 bg-[#D2F4E4] transform -translate-x-0.5 z-0">
+                            <div
+                                class="absolute left-1/2 top-10 sm:top-12 w-1 h-10 sm:h-12 bg-[#D2F4E4] transform -translate-x-0.5 z-0">
                             </div>
                         </div>
                         <div class="flex-1 mt-2">

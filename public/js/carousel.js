@@ -1,5 +1,10 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const slides = document.querySelectorAll(".banner-slide");
+    const mobileSlides = document.querySelectorAll(
+        "#banner-carousel-mobile .banner-slide"
+    );
+    const desktopSlides = document.querySelectorAll(
+        "#banner-carousel .banner-slide"
+    );
     const indicators = document.querySelectorAll("#carousel-indicators button");
     const indicatorLines = document.querySelectorAll(".indicator-line");
     const contentElement = document.getElementById("content");
@@ -28,19 +33,34 @@ document.addEventListener("DOMContentLoaded", function () {
     function updateContent(index) {
         if (contentElement) {
             contentElement.innerHTML = `${slideContents[index].title}<br />
-                <span class="text-white font-normal" style="font-size: 20px;">${slideContents[index].description}</span>`;
+                <span class="text-white lg:text-white font-normal" style="font-size: 20px;">${slideContents[index].description}</span>`;
         }
     }
 
     function showSlide(index) {
-        slides.forEach((slide) => {
+        // Update mobile slides
+        mobileSlides.forEach((slide) => {
             slide.style.opacity = "0";
             slide.style.zIndex = "0";
         });
 
-        slides[index].style.opacity = "1";
-        slides[index].style.zIndex = "1";
+        if (mobileSlides[index]) {
+            mobileSlides[index].style.opacity = "1";
+            mobileSlides[index].style.zIndex = "1";
+        }
 
+        // Update desktop slides
+        desktopSlides.forEach((slide) => {
+            slide.style.opacity = "0";
+            slide.style.zIndex = "0";
+        });
+
+        if (desktopSlides[index]) {
+            desktopSlides[index].style.opacity = "1";
+            desktopSlides[index].style.zIndex = "1";
+        }
+
+        // Update indicators
         indicatorLines.forEach((line, i) => {
             if (i === index) {
                 line.classList.add("bg-white/80");
@@ -60,7 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function nextSlide() {
-        const newIndex = (currentSlide + 1) % slides.length;
+        const totalSlides = Math.max(mobileSlides.length, desktopSlides.length);
+        const newIndex = (currentSlide + 1) % totalSlides;
         showSlide(newIndex);
     }
 
