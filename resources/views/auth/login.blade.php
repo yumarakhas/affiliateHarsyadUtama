@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin - Gentle Living</title>
+    <title>Login Affiliate- Gentle Living</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo-tab.png') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
                 <!-- Logo dan Judul -->
                 <div class="text-center mb-4">
                     <img src="{{ asset('images/logo-tab.png') }}" alt="Gentle Living" class="h-16 mx-auto mb-3">
-                    <h2 style="font-family: 'Fredoka One', cursive;" class="text-3xl text-[#6C63FF] mb-2">Login Admin
+                    <h2 style="font-family: 'Fredoka One', cursive;" class="text-3xl text-[#6C63FF] mb-2">Login Affiliate
                     </h2>
                     <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">Masuk ke dashboard untuk
                         mengelola

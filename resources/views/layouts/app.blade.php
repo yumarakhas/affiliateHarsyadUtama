@@ -20,7 +20,7 @@
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <img src="{{ asset('images/logo.png') }}" alt="Gentle Living Logo" class="h-10 sm:h-12">
+                    <img src="{{ asset('images/top-bar.png') }}" alt="Gentle Living Logo" class="h-10 sm:h-12">
                 </div>
 
                 <!-- Mobile menu button -->
@@ -42,7 +42,7 @@
                     <nav class="flex space-x-6 xl:space-x-8" style="font-family: 'Fredoka One', cursive;">
                         <a href="#beranda"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Beranda</a>
-                        <a href="#products"
+                        <a href="#"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Produk</a>
                         <a href="#"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Belanja</a>
@@ -56,7 +56,7 @@
                     <!-- Admin Button -->
                     <a href="{{ route('login') }}" style="font-family: 'Nunito', sans-serif;"
                         class="font-medium px-4 lg:px-6 xl:px-8 py-2 border border-[#6C63FF] text-[#6C63FF] rounded-full hover:bg-[#6C63FF] hover:text-white transition-all duration-300 text-sm lg:text-base">
-                        <span>Admin</span>
+                        <span>Login</span>
                     </a>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                 <!-- Logo and Company Info -->
                 <div class="md:col-span-2 lg:col-span-1">
                     <div class="flex items-center space-x-3 mb-4">
-                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="w-auto h-20 lg:h-25">
+                        <img src="{{ asset('images/top-bar.png') }}" alt="Logo" class="w-auto h-20 lg:h-25">
                     </div>
                     <p style="font-family: 'Nunito', sans-serif;" class="text-sm lg:text-base mb-4 leading-relaxed">
                         Jl. Pandanwangi Park No 58<br>
