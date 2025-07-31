@@ -136,7 +136,7 @@
                                 @enderror
                             </div>
 
-                            <!-- Remember Me Checkbox -->
+                            {{-- <!-- Remember Me Checkbox -->
                             <div class="flex items-center justify-between mb-4">
                                 <div class="flex items-center">
                                     <input type="checkbox" id="remember" name="remember"
@@ -148,7 +148,7 @@
                                 <a href="#" class="text-sm text-[#6C63FF] hover:underline">
                                     Lupa password?
                                 </a>
-                            </div>
+                            </div> --}}
 
                             <!-- Login Button -->
                             <div class="text-center">

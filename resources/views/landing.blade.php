@@ -17,7 +17,7 @@
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
             </div>
             <!-- Mobile: Overlay Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent z-10"></div>
         </div>
 
         <!-- Desktop Layout Container -->
@@ -440,14 +440,13 @@
     <!-- How to Join Section -->
     <section class="py-12 sm:py-16 lg:py-20 bg-[#B8E6D9]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 style="font-family: 'Fredoka One', cursive;"
+                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 text-center lg:text-left">
+                How to Join
+            </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <!-- Left Side - Content -->
                 <div class="order-2 lg:order-1">
-                    <h2 style="font-family: 'Fredoka One', cursive;"
-                        class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 text-center lg:text-left">
-                        How to Join
-                    </h2>
-
                     <div class="bg-white rounded-2xl border border-[#E5E7EB] p-6 lg:p-8 shadow-lg">
                         <h3 style="font-family: 'Fredoka One', cursive;"
                             class="text-xl lg:text-2xl text-[#528B89] mb-3 text-center lg:text-left">
@@ -475,22 +474,21 @@
                 </div>
 
                 <!-- Right Side - Steps -->
-                <div class="space-y-6 lg:space-y-8 order-1 lg:order-2">
-                    <!-- Step 1 -->
+                <div class="space-y-8 order-1 lg:order-2">
+                    <!-- Step Template -->
                     <div class="flex items-start space-x-4 relative">
-                        <div class="relative">
+                        <div class="relative flex flex-col items-center">
+                            <!-- Circle -->
                             <div
-                                class="bg-[#FF6B6B] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg">
-                                <span class="text-white font-bold text-base sm:text-lg">1</span>
+                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10">
+                                <span class="text-white font-bold text-lg">1</span>
                             </div>
-                            <!-- Line connector -->
-                            <div
-                                class="absolute left-1/2 top-10 sm:top-12 w-1 h-10 sm:h-12 bg-[#D2F4E4] transform -translate-x-0.5 z-0">
+                            <!-- Vertical Line -->
+                            <div class="w-1 h-16 bg-[#D2F4E4] absolute top-12 left-1/2 transform -translate-x-1/2 z-0">
                             </div>
                         </div>
                         <div class="flex-1 mt-2">
-                            <p style="font-family: 'Nunito', sans-serif;"
-                                class="text-[#D94C4C] font-bold text-sm sm:text-base leading-relaxed">
+                            <p class="text-[#D94C4C] font-bold text-sm sm:text-base leading-relaxed font-nunito">
                                 Klik "DAFTAR SEKARANG" dan isi identitas diri
                             </p>
                         </div>
@@ -498,21 +496,19 @@
 
                     <!-- Step 2 -->
                     <div class="flex items-start space-x-4 relative">
-                        <div class="relative">
+                        <div class="relative flex flex-col items-center">
                             <div
-                                class="bg-[#FF6B6B] w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg">
-                                <span class="text-white font-bold text-base sm:text-lg">2</span>
+                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10">
+                                <span class="text-white font-bold text-lg">2</span>
                             </div>
-                            <!-- Line connector -->
-                            <div
-                                class="absolute left-1/2 top-10 sm:top-12 w-1 h-10 sm:h-12 bg-[#D2F4E4] transform -translate-x-0.5 z-0">
+                            <div class="w-1 h-16 bg-[#D2F4E4] absolute top-12 left-1/2 transform -translate-x-1/2 z-0">
                             </div>
                         </div>
                         <div class="flex-1 mt-2">
-                            <p style="font-family: 'Nunito', sans-serif;" class="text-[#D94C4C] font-bold text-base mb-1">
+                            <p class="text-[#D94C4C] font-bold text-base mb-1 font-nunito">
                                 Tim kami akan kirim:
                             </p>
-                            <p style="font-family: 'Nunito', sans-serif;" class="text-[#D94C4C] text-sm leading-relaxed">
+                            <p class="text-[#D94C4C] text-sm leading-relaxed font-nunito">
                                 Link affiliate, Product Knowledge, Brief konten & panduan
                             </p>
                         </div>
@@ -520,45 +516,41 @@
 
                     <!-- Step 3 -->
                     <div class="flex items-start space-x-4 relative">
-                        <div class="relative">
+                        <div class="relative flex flex-col items-center">
                             <div
-                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg">
+                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10">
                                 <span class="text-white font-bold text-lg">3</span>
                             </div>
-                            <!-- Line connector -->
-                            <div class="absolute left-1/2 top-12 w-1 h-12 bg-[#D2F4E4] transform -translate-x-0.5 z-0">
+                            <div class="w-1 h-16 bg-[#D2F4E4] absolute top-12 left-1/2 transform -translate-x-1/2 z-0">
                             </div>
                         </div>
                         <div class="flex-1 mt-2">
-                            <p style="font-family: 'Nunito', sans-serif;"
-                                class="text-[#D94C4C] font-bold text-base leading-relaxed">
-                                Kamu tinggal sharelink affiliate ke IG Story, TikTok, WA Grup, atau komunitas Ibu
+                            <p class="text-[#D94C4C] font-bold text-base leading-relaxed font-nunito">
+                                Kamu tinggal share link affiliate ke IG Story, TikTok, WA Grup, atau komunitas Ibu
                             </p>
                         </div>
                     </div>
 
                     <!-- Step 4 -->
                     <div class="flex items-start space-x-4 relative">
-                        <div class="relative">
+                        <div class="relative flex flex-col items-center">
                             <div
-                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center flex-shrink-0 relative z-10 shadow-lg">
+                                class="bg-[#FF6B6B] w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-10">
                                 <span class="text-white font-bold text-lg">4</span>
                             </div>
                         </div>
                         <div class="flex-1 mt-2">
-                            <p style="font-family: 'Nunito', sans-serif;" class="text-[#D94C4C] font-bold text-base mb-1">
+                            <p class="text-[#D94C4C] font-bold text-base mb-1 font-nunito">
                                 Pantauan dan komisi dicatat otomatis lewat platform
                             </p>
-                            <p style="font-family: 'Nunito', sans-serif;" class="text-[#D94C4C] text-sm leading-relaxed">
+                            <p class="text-[#D94C4C] text-sm leading-relaxed font-nunito">
                                 (atau Google Sheet kalau manual)
                             </p>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-        </div>
         </div>
     </section>
+
 @endsection
