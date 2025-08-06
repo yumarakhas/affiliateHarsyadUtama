@@ -4,7 +4,7 @@
 
 @section('content')
     <!-- Hero Section / Beranda -->
-    <section id="beranda" class="relative min-h-screen bg-gray-100">
+    <section id="partner" class="relative min-h-screen bg-gray-100">
         <!-- Mobile: Banner Background (visible only on mobile) -->
         <div class="absolute inset-0 w-full h-full lg:hidden" id="banner-carousel-mobile">
             <!-- Slides Container -->

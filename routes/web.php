@@ -6,7 +6,9 @@ use App\Http\Controllers\AffiliateController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 
-Route::get('/', [LandingController::class, 'index'])->name('landing');
+// Main Pages Routes
+Route::get('/', [LandingController::class, 'beranda'])->name('beranda');
+Route::get('/partner', [LandingController::class, 'partner'])->name('partner');
 
 // Affiliate Routes
 Route::get('/affiliate/daftar', [AffiliateController::class, 'showForm'])->name('affiliate.form');

@@ -40,13 +40,13 @@
                 <!-- Desktop Navigation -->
                 <div class="hidden lg:flex lg:items-center lg:space-x-8">
                     <nav class="flex space-x-6 xl:space-x-8" style="font-family: 'Fredoka One', cursive;">
-                        <a href="#beranda"
+                        <a href="{{ route('beranda') }}"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Beranda</a>
                         <a href="#"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Produk</a>
                         <a href="#"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Belanja</a>
-                        <a href="#"
+                        <a href="#{{ route('partner') }}"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Partner</a>
                         <a href="#"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Tentang
@@ -65,13 +65,13 @@
             <div class="lg:hidden hidden" id="mobile-menu">
                 <div class="pt-4 pb-3 space-y-1 border-t border-gray-200 mt-4">
                     <nav class="space-y-1" style="font-family: 'Fredoka One', cursive;">
-                        <a href="#beranda"
+                        <a href="{{ route('beranda') }}"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Beranda</a>
-                        <a href="#products"
+                        <a href=""
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Produk</a>
                         <a href="#"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Belanja</a>
-                        <a href="#"
+                        <a href="#{{ route('partner') }}"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Partner</a>
                         <a href="#"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Tentang
@@ -80,7 +80,7 @@
                     <div class="pt-4 border-t border-gray-200">
                         <a href="{{ route('login') }}" style="font-family: 'Nunito', sans-serif;"
                             class="block mx-3 px-4 py-2 text-center border border-[#6C63FF] text-[#6C63FF] rounded-full hover:bg-[#6C63FF] hover:text-white transition-all duration-300">
-                            Admin
+                            Login
                         </a>
                     </div>
                 </div>
