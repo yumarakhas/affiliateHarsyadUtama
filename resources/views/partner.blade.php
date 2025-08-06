@@ -3,7 +3,7 @@
 @section('title', 'Gentle Living')
 
 @section('content')
-    <!-- Hero Section / Beranda -->
+    <!-- Hero Section / partner -->
     <section id="partner" class="relative min-h-screen bg-gray-100">
         <!-- Mobile: Banner Background (visible only on mobile) -->
         <div class="absolute inset-0 w-full h-full lg:hidden" id="banner-carousel-mobile">

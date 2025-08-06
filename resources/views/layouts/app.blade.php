@@ -46,7 +46,7 @@
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Produk</a>
                         <a href="#"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Belanja</a>
-                        <a href="#{{ route('partner') }}"
+                        <a href="{{ route('partner') }}"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Partner</a>
                         <a href="#"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Tentang

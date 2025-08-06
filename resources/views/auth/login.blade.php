@@ -163,7 +163,7 @@
 
                 <!-- Back Link -->
                 <div class="text-center mt-6">
-                    <a href="{{ route('landing') }}"
+                    <a href="{{ route('beranda') }}"
                         class="text-[#528B89] hover:text-[#446b6a] flex items-center justify-center">
                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">

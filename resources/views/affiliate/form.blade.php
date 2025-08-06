@@ -18,7 +18,7 @@
                             </svg>
                             Formulir Pendaftaran Affiliator
                         </h2>
-                        <a href="{{ route('landing') }}" 
+                        <a href="{{ route('beranda') }}" 
                            class="inline-flex items-center px-3 py-1.5 bg-white/10 hover:bg-white/20 text-white text-sm font-medium rounded-lg transition-all duration-300 ease-in-out backdrop-blur-sm border border-white/20">
                             <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
