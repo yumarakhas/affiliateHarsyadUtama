@@ -4,6 +4,29 @@
 
 @section('content')
     <div class="container mx-auto px-6 py-8 max-w-7xl">
+        @php
+            // Untuk summary cards, ambil semua data (tidak terpaginasi)
+            $allAffiliatesForSummary = \App\Models\AffiliateRegistration::with('affiliateInfo')->get();
+            $totalAffiliates = $allAffiliatesForSummary->count();
+            $activeAffiliates = $allAffiliatesForSummary->where('status', 'Aktif')->count();
+            $inactiveAffiliates = $allAffiliatesForSummary->where('status', 'Nonaktif')->count();
+            $pendingAffiliates = $allAffiliatesForSummary->where('status', 'Pending')->count();
+            
+            // Debug info
+            \Log::info('Summary Cards Data', [
+                'total' => $totalAffiliates,
+                'active' => $activeAffiliates,
+                'inactive' => $inactiveAffiliates,
+                'pending' => $pendingAffiliates
+            ]);
+            
+            // Debug table data
+            \Log::info('Table Data', [
+                'affiliates_count' => $affiliates->count(),
+                'affiliates_total' => $affiliates->total(),
+                'affiliates_items' => $affiliates->items() ? count($affiliates->items()) : 0
+            ]);
+        @endphp
         <!-- Header Section -->
         <div class="mb-8">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
@@ -33,16 +56,7 @@
         </div>
 
         <!-- Summary Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            @php
-                $allAffiliates = \App\Models\AffiliateRegistration::with('affiliateInfo')->get();
-                $totalAffiliates = $allAffiliates->count();
-                $activeAffiliates = $allAffiliates->filter(fn($affiliate) => $affiliate->status === 'Aktif')->count();
-                $inactiveAffiliates = $allAffiliates
-                    ->filter(fn($affiliate) => $affiliate->status === 'Nonaktif')
-                    ->count();
-            @endphp
-
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
             <!-- Total Affiliator Card -->
             <div
                 class="bg-[#446b6a] rounded-xl p-8 text-white shadow-lg transform hover:scale-105 transition-all duration-300">
@@ -56,6 +70,40 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
                             </path>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pending Affiliator Card dengan Notifikasi -->
+            <div
+                class="bg-gradient-to-r from-orange-500 to-amber-500 rounded-xl p-8 text-white shadow-lg transform hover:scale-105 transition-all duration-300 relative overflow-hidden">
+                @if($pendingAffiliates > 0)
+                    <!-- Pulse Animation untuk Notifikasi -->
+                    <div class="absolute top-2 right-2">
+                        <div class="relative">
+                            <div class="w-4 h-4 bg-red-500 rounded-full animate-ping"></div>
+                            <div class="absolute inset-0 w-4 h-4 bg-red-600 rounded-full"></div>
+                        </div>
+                    </div>
+                @endif
+                <div class="flex items-center justify-between">
+                    <div>
+                        <p class="text-sm font-medium text-white/90 mb-2 flex items-center">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            Menunggu Konfirmasi
+                        </p>
+                        <p class="text-4xl font-bold">{{ $pendingAffiliates }}</p>
+                        @if($pendingAffiliates > 0)
+                            <p class="text-xs text-white/80 mt-2 font-medium">Segera hubungi via WhatsApp!</p>
+                        @endif
+                    </div>
+                    <div class="bg-white/20 rounded-full p-4">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.728-.833-2.498 0L4.316 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
                         </svg>
                     </div>
                 </div>
@@ -114,6 +162,7 @@
                     <select id="statusFilter"
                         class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-[#528B89] focus:border-transparent text-sm">
                         <option value="">Semua Status</option>
+                        <option value="Pending">Menunggu Konfirmasi</option>
                         <option value="Aktif">Aktif</option>
                         <option value="Nonaktif">Nonaktif</option>
                     </select>
@@ -135,7 +184,10 @@
 
         <!-- Data Table -->
         <div class="bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
-                @if($affiliates->count() > 0)
+                
+                
+                <!-- Tampilkan tabel dalam semua kondisi untuk debugging -->
+                @if(true)
                     <div class="overflow-x-auto">
                         <table class="min-w-full divide-y divide-gray-200">
                             <thead class="bg-gray-50">
@@ -150,18 +202,19 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
-                                @foreach($affiliates as $index => $affiliate)
+                                
+                                @forelse($affiliates as $index => $affiliate)
                                     <tr class="hover:bg-gray-50 transition-colors duration-200 affiliate-row"
-                                        data-name="{{ strtolower($affiliate->nama_lengkap) }}"
-                                        data-email="{{ strtolower($affiliate->email) }}"
-                                        data-status="{{ $affiliate->status }}">
+                                        data-name="{{ strtolower($affiliate->nama_lengkap ?? 'no-name') }}"
+                                        data-email="{{ strtolower($affiliate->email ?? 'no-email') }}"
+                                        data-status="{{ $affiliate->status ?? 'no-status' }}">
                                         <td class="px-8 py-6 whitespace-nowrap text-sm text-gray-900 font-medium row-number">
                                             {{ ($affiliates->currentPage() - 1) * $affiliates->perPage() + $index + 1 }}
                                         </td>
                                         <td class="px-8 py-6">
                                             <div>
-                                                <div class="text-sm font-semibold text-gray-900">{{ $affiliate->nama_lengkap }}</div>
-                                                <div class="text-sm text-gray-500 mt-1">{{ $affiliate->email }}</div>
+                                                <div class="text-sm font-semibold text-gray-900">{{ $affiliate->nama_lengkap ?? 'No Name' }}</div>
+                                                <div class="text-sm text-gray-500 mt-1">{{ $affiliate->email ?? 'No Email' }}</div>
                                             </div>
                                         </td>
                                         <td class="px-8 py-6">
@@ -210,11 +263,21 @@
                                                 $statusClass = match($status) {
                                                     'Aktif' => 'bg-green-100 text-green-800',
                                                     'Nonaktif' => 'bg-red-100 text-red-800',
-                                                    default => 'bg-green-100 text-green-800'
+                                                    'Pending' => 'bg-orange-100 text-orange-800 animate-pulse',
+                                                    default => 'bg-gray-100 text-gray-800'
+                                                };
+                                                $statusText = match($status) {
+                                                    'Pending' => 'Menunggu Konfirmasi',
+                                                    default => $status
                                                 };
                                             @endphp
                                             <span class="inline-flex px-3 py-2 text-xs font-semibold rounded-full {{ $statusClass }}">
-                                                {{ $status }}
+                                                @if($status === 'Pending')
+                                                    <svg class="w-3 h-3 mr-1 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                                    </svg>
+                                                @endif
+                                                {{ $statusText }}
                                             </span>
                                         </td>
                                         <td class="px-8 py-6 whitespace-nowrap text-sm text-gray-500 font-medium">
@@ -252,7 +315,14 @@
                                             </div>
                                         </td>
                                     </tr>
-                                @endforeach
+                                @empty
+                                    <tr>
+                                        <td colspan="7" class="px-8 py-12 text-center text-gray-500">
+                                            <strong>No Data Found in Loop</strong><br>
+                                            Variable $affiliates tidak mengandung data atau error dalam loop
+                                        </td>
+                                    </tr>
+                                @endforelse
                             </tbody>
                         </table>
                     </div>
@@ -672,6 +742,7 @@
                                                     name="status" 
                                                     required
                                                     class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-gray-800 focus:border-gray-800 transition-all duration-300">
+                                                <option value="Pending" ${affiliate.status === 'Pending' ? 'selected' : ''}>Menunggu Konfirmasi</option>
                                                 <option value="Aktif" ${affiliate.status === 'Aktif' ? 'selected' : ''}>Aktif</option>
                                                 <option value="Nonaktif" ${affiliate.status === 'Nonaktif' ? 'selected' : ''}>Nonaktif</option>
                                             </select>

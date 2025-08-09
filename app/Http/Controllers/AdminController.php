@@ -19,7 +19,7 @@ class AdminController extends Controller
     {
         // Get all affiliate registrations with their related info, paginated to 10 per page
         $affiliates = AffiliateRegistration::with('affiliateInfo')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'asc')
             ->paginate(10);
 
         return view('admin.view-data', compact('affiliates'));
@@ -54,7 +54,7 @@ class AdminController extends Controller
                 'profesi_kesibukan' => 'required|string',
                 'akun_instagram' => 'nullable|string|max:255',
                 'akun_tiktok' => 'nullable|string|max:255',
-                'status' => 'required|string|in:Aktif,Nonaktif',
+                'status' => 'required|string|in:Aktif,Nonaktif,Pending',
             ]);
 
             Log::info('Validation passed. Validated data: ', $validatedData);
@@ -128,7 +128,9 @@ class AdminController extends Controller
     public function exportExcel()
     {
         try {
-            $affiliates = AffiliateRegistration::with('affiliateInfo')->get();
+            $affiliates = AffiliateRegistration::with('affiliateInfo')
+                ->orderBy('created_at', 'asc')
+                ->get();
 
             // Create new Spreadsheet object
             $spreadsheet = new Spreadsheet();
@@ -220,7 +222,7 @@ class AdminController extends Controller
                 $sheet->setCellValue('I' . $row, $affiliate->info_darimana);
                 $sheet->setCellValue('J' . $row, $affiliate->yang_lain_text ?? '-');
                 $sheet->setCellValue('K' . $row, $affiliate->created_at->format('d/m/Y H:i'));
-                $sheet->setCellValue('L' . $row, $affiliate->status ?? 'Aktif');
+                $sheet->setCellValue('L' . $row, $affiliate->status === 'Pending' ? 'Menunggu Konfirmasi' : ($affiliate->status ?? 'Aktif'));
 
                 // Apply data styling to current row
                 $sheet->getStyle('A' . $row . ':L' . $row)->applyFromArray($dataStyle);
@@ -279,7 +281,7 @@ class AdminController extends Controller
 
             // Validate input
             $validated = $request->validate([
-                'status' => 'required|string|in:Aktif,Nonaktif'
+                'status' => 'required|string|in:Aktif,Nonaktif,Pending'
             ]);
 
             $affiliate = AffiliateRegistration::findOrFail($id);
@@ -423,7 +425,7 @@ class AdminController extends Controller
         try {
             // Get all affiliate data
             $affiliates = AffiliateRegistration::with('affiliateInfo')
-                ->orderBy('created_at', 'desc')
+                ->orderBy('created_at', 'asc')
                 ->get();
 
             // Generate filename
@@ -470,7 +472,7 @@ class AdminController extends Controller
                         $affiliate->info_darimana,
                         $affiliate->affiliateInfo->akun_instagram ?? '-',
                         $affiliate->affiliateInfo->akun_tiktok ?? '-',
-                        $affiliate->affiliateInfo->status ?? 'Aktif',
+                        $affiliate->status === 'Pending' ? 'Menunggu Konfirmasi' : ($affiliate->status ?? 'Aktif'),
                         $affiliate->created_at->format('d/m/Y H:i')
                     ]);
                 }
