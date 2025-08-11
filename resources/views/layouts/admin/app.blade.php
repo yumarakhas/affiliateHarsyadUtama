@@ -10,41 +10,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    {{-- Sidebar Styles --}}
-    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-
-    {{-- Additional Styles Section --}}
-    @yield('styles')
-
     <script src="{{ asset('js/carousel.js') }}"></script>
 </head>
 
 <body>
     {{-- Admin Top Bar --}}
-    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-40">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
         <div class="max-w-7xl mx-auto py-3 lg:py-4 px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
                     <img src="{{ asset('images/top-bar.png') }}" alt="Gentle Living Logo" class="h-10 sm:h-12">
                 </div>
-
-                <!-- User Info dan Logout Button -->
-                <div class="flex items-center space-x-3 sm:space-x-4">
-                    <span style="font-family: 'Nunito', sans-serif;"
-                        class="text-xs sm:text-sm text-gray-600 hidden sm:block">
-                        Halo, {{ Auth::user()->name }}
-                    </span>
-
-
-                </div>
             </div>
         </div>
     </header>
-
-    <!-- Include Sidebar -->
-    @include('layouts.admin.sidebar')
 
     <!-- Spacer untuk menggantikan ruang yang diambil oleh fixed header -->
     <div class="h-20"></div>
@@ -76,15 +56,13 @@
     @endif
 
     {{-- Main Content --}}
-    <main id="main-content" class="main-content transition-all duration-300 ease-in-out">
+    <main>
         @yield('content')
     </main>
 
     <!-- Footer Section -->
     @include('layouts.footer')
-
-    {{-- Sidebar Scripts --}}
-    <script src="{{ asset('js/sidebar.js') }}"></script>
+    @include('layouts.admin.sidebar')
 </body>
 
 </html>

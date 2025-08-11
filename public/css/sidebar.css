@@ -1,0 +1,411 @@
+/* ========================================= */
+/* RESPONSIVE SIDEBAR STYLES                */
+/* ========================================= */
+
+/* Sidebar base styles */
+#sidebar {
+    transition: all 0.3s ease-in-out;
+    width: 16rem; /* Default width 256px */
+}
+
+/* Sidebar in collapsed state (desktop) */
+#sidebar.sidebar-collapsed {
+    width: 4rem !important; /* 64px - just for icons */
+}
+
+/* Sidebar in expanded state (desktop) */
+#sidebar.sidebar-expanded {
+    width: 16rem !important; /* 256px - full width */
+}
+
+/* Hide text in collapsed state */
+.sidebar-collapsed .sidebar-text {
+    opacity: 0;
+    visibility: hidden;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Show text in expanded state */
+.sidebar-expanded .sidebar-text,
+#sidebar:not(.sidebar-collapsed) .sidebar-text {
+    opacity: 1;
+    visibility: visible;
+    width: auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ensure icons are ALWAYS visible regardless of state */
+.nav-icon,
+.sidebar-collapsed .nav-icon,
+.sidebar-expanded .nav-icon {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    flex-shrink: 0 !important;
+    transition: all 0.3s ease-in-out; /* Smooth icon transitions */
+}
+
+/* Normal state icons */
+.sidebar-expanded .nav-icon,
+#sidebar:not(.sidebar-collapsed) .nav-icon {
+    width: 1.25rem !important;
+    height: 1.25rem !important;
+}
+
+/* Mini sidebar - larger icons for better visibility */
+.sidebar-collapsed .nav-icon {
+    width: 1.75rem !important; /* 28px - larger for mini sidebar */
+    height: 1.75rem !important; /* 28px - larger for mini sidebar */
+    margin-right: 0 !important;
+}
+
+/* Smooth transitions for nav items */
+.nav-item {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Navigation item styling - remove background colors */
+.nav-item {
+    background: transparent !important; /* Force no background */
+}
+
+.nav-item:hover {
+    background: transparent !important; /* No background on hover */
+    color: #528b89 !important; /* Only change text color */
+}
+
+.nav-item:hover .nav-icon {
+    color: #528b89 !important; /* Only change icon color */
+}
+
+/* Active state - remove background, only change colors */
+.nav-item.active {
+    background: transparent !important; /* No background for active */
+    color: #528b89 !important;
+}
+
+.nav-item.active .nav-icon {
+    color: #528b89 !important;
+}
+
+/* Logout button icon transitions */
+.logout-btn svg {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Logout button - no background */
+.logout-btn {
+    background: transparent !important;
+    border: none;
+}
+
+.logout-btn:hover {
+    background: transparent !important; /* No background on hover */
+    color: #b91c1c !important; /* Darker red on hover */
+}
+
+.logout-btn:hover .nav-icon {
+    color: #b91c1c !important;
+}
+
+/* Improved touch targets for collapsed state */
+.sidebar-collapsed .nav-item {
+    padding: 1rem !important;
+}
+
+/* Logout button icon sizing for collapsed state */
+.sidebar-collapsed .logout-btn svg {
+    width: 1.75rem !important;
+    height: 1.75rem !important;
+}
+
+/* Hamburger button styles */
+.hamburger-btn {
+    position: fixed;
+    top: 1.75rem;
+    left: 0.75rem;
+    z-index: 60;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.375rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-btn:hover {
+    background: #f9fafb;
+    transform: scale(1.05);
+}
+
+.hamburger-btn:active {
+    transform: scale(0.95);
+}
+
+/* Hamburger icon styling */
+.hamburger-btn svg {
+    width: 1rem;
+    height: 1rem;
+    color: #374151;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hide hamburger button when sidebar is open/expanded */
+@media (max-width: 1023px) {
+    .sidebar-open ~ .hamburger-btn {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-100%);
+    }
+}
+
+@media (min-width: 1024px) {
+    .sidebar-expanded ~ .hamburger-btn {
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(-100%);
+    }
+}
+
+/* Hamburger icon animation */
+.hamburger-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Smooth icon transition */
+.hamburger-icon path {
+    transition: all 0.3s ease-in-out;
+}
+
+/* Icon rotation effect */
+.hamburger-btn:hover .hamburger-icon {
+    transform: scale(1.1);
+}
+
+.hamburger-btn:active .hamburger-icon {
+    transform: scale(0.95);
+}
+
+/* Mobile overlay */
+.sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 45;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Sidebar positioning adjustments */
+@media (max-width: 1023px) {
+    #sidebar {
+        transform: translateX(-100%);
+    }
+
+    #sidebar.sidebar-open {
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 1024px) {
+    #sidebar {
+        transform: translateX(0);
+        position: fixed;
+    }
+
+    /* Desktop collapsed state */
+    #sidebar.sidebar-collapsed {
+        width: 4rem;
+    }
+
+    #sidebar.sidebar-expanded {
+        width: 16rem;
+    }
+
+    /* Adjust main content when sidebar is collapsed on desktop */
+    .main-content {
+        transition: margin-left 0.3s ease-in-out;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 4rem;
+    }
+
+    .main-content.sidebar-expanded {
+        margin-left: 16rem;
+    }
+
+    /* Default state - collapsed */
+    .main-content:not(.sidebar-expanded):not(.sidebar-collapsed) {
+        margin-left: 4rem;
+    }
+}
+
+/* Navigation item adjustments for collapsed state */
+.sidebar-collapsed .nav-item {
+    justify-content: center;
+    padding: 1rem !important; /* More padding for larger touch target */
+    position: relative;
+    margin: 0.5rem 0;
+    background: transparent !important; /* No background in collapsed state */
+}
+
+.sidebar-collapsed .nav-item:hover {
+    background: transparent !important; /* No background on hover */
+    color: #528b89; /* Only change text color */
+}
+
+.sidebar-collapsed .nav-icon {
+    margin-right: 0 !important;
+    flex-shrink: 0;
+}
+
+/* Logout button adjustments for mini sidebar */
+.sidebar-collapsed .logout-section {
+    position: absolute;
+    bottom: 1rem;
+    left: 0.5rem; /* Exact same as hamburger left position */
+    right: auto; /* Remove right positioning */
+    width: 2.5rem; /* Exact same as hamburger width */
+    height: 2.5rem; /* Exact same as hamburger height */
+    padding: 0;
+}
+.sidebar-collapsed .logout-btn {
+    justify-content: center;
+    padding: 1rem !important;
+    background: transparent !important; /* No background */
+}
+
+.sidebar-collapsed .logout-btn:hover {
+    background: transparent !important; /* No background on hover */
+    color: #dc2626; /* Only change text color */
+}
+
+.sidebar-collapsed .logout-btn .nav-icon {
+    width: 1.75rem !important;
+    height: 1.7rrem !important;
+    margin-right: 0 !important;
+}
+
+/* Ensure icons are always visible */
+.nav-icon {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Logo adjustments for collapsed state */
+.sidebar-collapsed .sidebar-logo {
+    display: none;
+}
+
+.sidebar-expanded .sidebar-logo,
+#sidebar:not(.sidebar-collapsed) .sidebar-logo {
+    display: flex;
+}
+
+.sidebar-expanded .sidebar-logo-mini,
+#sidebar:not(.sidebar-collapsed) .sidebar-logo-mini {
+    display: none !important;
+}
+
+/* Logout button adjustments */
+.sidebar-collapsed .logout-section {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
+.sidebar-collapsed .logout-btn {
+    justify-content: center;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Tooltip styles for collapsed state */
+.nav-tooltip {
+    position: absolute;
+    left: 4rem;
+    background: #1f2937;
+    color: white;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-0.5rem);
+    transition: all 0.3s ease-in-out;
+    z-index: 70;
+    pointer-events: none;
+}
+
+.nav-tooltip::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -0.25rem;
+    transform: translateY(-50%);
+    border: 0.25rem solid transparent;
+    border-right-color: #1f2937;
+}
+
+.sidebar-collapsed .nav-item:hover .nav-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(0);
+}
+
+/* Smooth animations */
+* {
+    transition-property: margin, width, transform, opacity, visibility;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+/* Close button in top right corner */
+#sidebar-close-top {
+    display: block;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Hide close button when collapsed on desktop */
+@media (min-width: 1024px) {
+    .sidebar-collapsed #sidebar-close-top {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+    .sidebar-expanded #sidebar-close-top {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
+
+/* Always show close button on mobile when sidebar is open */
+@media (max-width: 1023px) {
+    #sidebar-close-top {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+}
