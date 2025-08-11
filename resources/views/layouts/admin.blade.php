@@ -11,16 +11,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="{{ asset('js/carousel.js') }}"></script>
+
+    {{-- Additional Styles Section --}}
+    @yield('styles')
 </head>
 
 <body>
     {{-- Admin Top Bar --}}
-    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
+    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-40">
         <div class="max-w-7xl mx-auto py-3 lg:py-4 px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex-shrink-0">
-                    <img src="{{ asset('images/logo.png') }}" alt="Gentle Living Logo" class="h-10 sm:h-12">
+                    <img src="{{ asset('images/top-bar.png') }}" alt="Gentle Living Logo" class="h-10 sm:h-12">
                 </div>
 
                 <!-- User Info dan Logout Button -->
@@ -30,24 +33,14 @@
                         Halo, {{ Auth::user()->name }}
                     </span>
 
-                    <!-- Logout Button -->
-                    <form action="{{ route('logout') }}" method="POST" class="inline">
-                        @csrf
-                        <button type="submit" style="font-family: 'Nunito', sans-serif;"
-                            class="font-medium px-4 sm:px-6 lg:px-8 py-2 border border-red-600 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-colors duration-300 flex items-center space-x-2 lg:space-x-4 text-sm lg:text-base">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1">
-                                </path>
-                            </svg>
-                            <span class="hidden sm:inline">Logout</span>
-                        </button>
-                    </form>
+
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- Include Sidebar -->
+    @include('layouts.admin.sidebar')
 
     <!-- Spacer untuk menggantikan ruang yang diambil oleh fixed header -->
     <div class="h-20"></div>
@@ -79,7 +72,7 @@
     @endif
 
     {{-- Main Content --}}
-    <main>
+    <main id="main-content" class="transition-all duration-300 ease-in-out">
         @yield('content')
     </main>
 

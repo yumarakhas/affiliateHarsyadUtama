@@ -2,6 +2,10 @@
 
 @section('title', 'Data Affiliator')
 
+@section('styles')
+    <link rel="stylesheet" href="{{ asset('css/view-data.css') }}">
+@endsection
+
 @section('content')
     <div class="container mx-auto px-6 py-8 max-w-7xl">
         @php
@@ -31,7 +35,7 @@
         <div class="mb-8">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
                 <div class="mb-4 sm:mb-0">
-                    <h1 style="font-family: 'Fredoka One', cursive;" class="text-3xl text-[#6C63FF] flex items-center mb-2">
+                    <h1 class="page-title text-3xl text-[#6C63FF] flex items-center mb-2">
                         <svg class="w-8 h-8 mr-3 text-[#528B89]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
@@ -39,7 +43,8 @@
                         </svg>
                         Data Affiliator
                     </h1>
-                    <p class="text-[#6C63FF] text-lg ml-11" style="font-family: 'Nunito', sans-serif;" >Kelola data affiliator yang telah mendaftar</p>
+                    <p class="page-subtitle text-[#6C63FF] text-lg ml-11">Kelola data
+                        affiliator yang telah mendaftar</p>
                 </div>
                 <div class="flex gap-3">
                     <button onclick="exportToExcel()"
@@ -359,36 +364,45 @@
                                         </a>
                                     @endif
 
-                                    {{-- Next Page Link --}}
-                                    @if ($affiliates->hasMorePages())
-                                        <a href="{{ $affiliates->nextPageUrl() }}" class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#528B89] focus:border-[#528B89] active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
-                                            Selanjutnya
-                                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                            </svg>
-                                        </a>
-                                    @else
-                                        <span class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-300 cursor-default leading-5 rounded-md">
-                                            Selanjutnya
-                                            <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
-                                    @endif
-                                </div>
-                            @endif
-                        </div>
+                                {{-- Next Page Link --}}
+                                @if ($affiliates->hasMorePages())
+                                    <a href="{{ $affiliates->nextPageUrl() }}"
+                                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 leading-5 rounded-md hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-[#528B89] focus:border-[#528B89] active:bg-gray-100 active:text-gray-700 transition ease-in-out duration-150">
+                                        Selanjutnya
+                                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </a>
+                                @else
+                                    <span
+                                        class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-gray-400 bg-gray-100 border border-gray-300 cursor-default leading-5 rounded-md">
+                                        Selanjutnya
+                                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd"
+                                                d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </span>
+                                @endif
+                            </div>
+                        @endif
                     </div>
-                @else
-                    <div class="text-center py-12">
-                        <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                        </svg>
-                        <h3 class="text-lg font-medium text-gray-900 mb-2">Belum ada data affiliator</h3>
-                        <p class="text-gray-500">Data affiliator akan muncul di sini setelah ada yang mendaftar.</p>
-                    </div>
-                @endif
-            </div>
+                </div>
+            @else
+                <div class="text-center py-12">
+                    <svg class="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
+                            d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                        </path>
+                    </svg>
+                    <h3 class="text-lg font-medium text-gray-900 mb-2">Belum ada data affiliator</h3>
+                    <p class="text-gray-500">Data affiliator akan muncul di sini setelah ada yang mendaftar.</p>
+                </div>
+            @endif
+        </div>
     </div>
 
     <!-- Detail Modal -->
@@ -1038,5 +1052,6 @@
             });
         }
     </script>
+    <script src="{{ asset('js/view-data.js') }}"></script>
     <script src="{{ asset('js/admin.js') }}"></script>
 @endsection
