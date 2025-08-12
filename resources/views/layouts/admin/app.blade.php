@@ -15,11 +15,11 @@
 
 <body>
     {{-- Admin Top Bar --}}
-    <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
-        <div class="max-w-7xl mx-auto py-3 lg:py-4 px-4 sm:px-6 lg:px-8">
+    <header class="main-content fixed bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto py-3 lg:py-4 px-4 lg:px-8">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
-                <div class="flex-shrink-0">
+                <div class="flex-shrink-0 ml-6">
                     <img src="{{ asset('images/top-bar.png') }}" alt="Gentle Living Logo" class="h-10 sm:h-12">
                 </div>
             </div>
@@ -27,7 +27,7 @@
     </header>
 
     <!-- Spacer untuk menggantikan ruang yang diambil oleh fixed header -->
-    <div class="h-20"></div>
+    <div class="main-content h-20"></div>
 
     <!-- Success/Error Messages -->
     @if (session('success'))
@@ -35,9 +35,7 @@
             <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-3 rounded-r-lg shadow-lg"
                 id="successAlert">
                 <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
+                    <x-heroicon-s-check-circle class="w-5 h-5 mr-2" />
                     <span style="font-family: 'Nunito', sans-serif;"
                         class="text-sm font-medium">{{ session('success') }}</span>
                 </div>
@@ -56,13 +54,36 @@
     @endif
 
     {{-- Main Content --}}
-    <main>
+    <main class="main-content">
         @yield('content')
     </main>
 
     <!-- Footer Section -->
-    @include('layouts.footer')
+    <footer class="main-content">
+        @include('layouts.footer')
+    </footer>
+
     @include('layouts.admin.sidebar')
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sidebar = document.getElementById('sidebar');
+            const mainContents = document.querySelectorAll('.main-content');
+
+            function adjustLayout() {
+                const sidebarWidth = sidebar.classList.contains('sidebar-collapsed') ? '4rem' : '16rem';
+                mainContents.forEach(element => {
+                    element.style.marginLeft = sidebarWidth;
+                });
+            }
+
+            // Adjust layout on sidebar toggle
+            sidebar.addEventListener('transitionend', adjustLayout);
+
+            // Initial adjustment
+            adjustLayout();
+        });
+    </script>
 </body>
 
 </html>

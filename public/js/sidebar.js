@@ -129,6 +129,10 @@ class ResponsiveSidebar {
                 this.closeSidebar();
             }
         });
+
+        this.sidebar.addEventListener("transitionend", () => {
+            this.adjustLayout();
+        });
     }
 
     toggleSidebar() {
@@ -267,6 +271,21 @@ class ResponsiveSidebar {
 
             // Update icon for new screen size
             this.updateHamburgerIcon();
+        }
+    }
+
+    adjustLayout() {
+        const sidebarWidth = this.sidebar.classList.contains(
+            "sidebar-collapsed"
+        )
+            ? "4rem"
+            : "16rem";
+        if (this.mainContent) {
+            this.mainContent.style.marginLeft = sidebarWidth;
+        }
+        const footer = document.querySelector("footer");
+        if (footer) {
+            footer.style.marginLeft = sidebarWidth;
         }
     }
 }

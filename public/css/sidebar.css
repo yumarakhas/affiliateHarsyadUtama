@@ -1,11 +1,12 @@
 /* ========================================= */
-/* RESPONSIVE SIDEBAR STYLES                */
+/* ENHANCED SIDEBAR STYLES                  */
 /* ========================================= */
 
 /* Sidebar base styles */
 #sidebar {
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 16rem; /* Default width 256px */
+    backdrop-filter: blur(10px);
 }
 
 /* Sidebar in collapsed state (desktop) */
@@ -25,7 +26,7 @@
     width: 0;
     overflow: hidden;
     white-space: nowrap;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Show text in expanded state */
@@ -34,70 +35,93 @@
     opacity: 1;
     visibility: visible;
     width: auto;
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Ensure icons are ALWAYS visible regardless of state */
-.nav-icon,
-.sidebar-collapsed .nav-icon,
-.sidebar-expanded .nav-icon {
+/* Enhanced icon styling */
+.nav-icon {
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
     flex-shrink: 0 !important;
-    transition: all 0.3s ease-in-out; /* Smooth icon transitions */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    color: inherit;
 }
 
-/* Normal state icons */
-.sidebar-expanded .nav-icon,
-#sidebar:not(.sidebar-collapsed) .nav-icon {
-    width: 1.25rem !important;
-    height: 1.25rem !important;
-}
-
-/* Mini sidebar - larger icons for better visibility */
-.sidebar-collapsed .nav-icon {
-    width: 1.75rem !important; /* 28px - larger for mini sidebar */
-    height: 1.75rem !important; /* 28px - larger for mini sidebar */
-    margin-right: 0 !important;
-}
-
-/* Smooth transitions for nav items */
+/* Navigation item enhanced styling */
 .nav-item {
-    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
 }
 
-/* Navigation item styling - remove background colors */
-.nav-item {
-    background: transparent !important; /* Force no background */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(82, 139, 137, 0.1), transparent);
+    transition: left 0.5s ease-in-out;
+}
+
+.nav-item:hover::before {
+    left: 100%;
 }
 
 .nav-item:hover {
-    background: transparent !important; /* No background on hover */
-    color: #528b89 !important; /* Only change text color */
+    transform: translateX(4px);
+    background: linear-gradient(135deg, rgba(82, 139, 137, 0.05) 0%, rgba(82, 139, 137, 0.02) 100%);
+    border-color: rgba(82, 139, 137, 0.1);
+    box-shadow: 0 4px 12px rgba(82, 139, 137, 0.1);
 }
 
-.nav-item:hover .nav-icon {
-    color: #528b89 !important; /* Only change icon color */
+/* Active state styling */
+.nav-item.bg-\[#528B89\] {
+    background: linear-gradient(135deg, #528B89 0%, #4a7f7d 100%) !important;
+    box-shadow: 0 8px 25px rgba(82, 139, 137, 0.3);
+    transform: translateX(2px);
 }
 
-/* Active state - remove background, only change colors */
-.nav-item.active {
-    background: transparent !important; /* No background for active */
-    color: #528b89 !important;
+/* Tooltip styling */
+.nav-tooltip {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-8px);
 }
 
-.nav-item.active .nav-icon {
-    color: #528b89 !important;
+.sidebar-collapsed .nav-item:hover .nav-tooltip {
+    opacity: 1 !important;
+    transform: translateX(0);
 }
 
-/* Logout button icon transitions */
-.logout-btn svg {
-    transition: all 0.3s ease-in-out;
-}
-
-/* Logout button - no background */
+/* Logout button enhanced styling */
 .logout-btn {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.logout-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.1), transparent);
+    transition: left 0.5s ease-in-out;
+}
+
+.logout-btn:hover::before {
+    left: 100%;
+}
+
+.logout-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);
+}
     background: transparent !important;
     border: none;
 }
@@ -371,6 +395,18 @@
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
+}
+
+/* Adjust main content and footer spacing based on sidebar state */
+.main-content,
+footer {
+    transition: margin-left 0.3s ease-in-out;
+    margin-left: 16rem; /* Default expanded sidebar width */
+}
+
+.sidebar-collapsed + .main-content,
+.sidebar-collapsed + footer {
+    margin-left: 4rem; /* Collapsed sidebar width */
 }
 
 /* Smooth animations */
