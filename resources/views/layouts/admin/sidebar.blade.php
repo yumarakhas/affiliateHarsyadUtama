@@ -46,8 +46,8 @@
 
             <!-- Produk -->
             <li class="relative">
-                <a href="#"
-                    class="nav-item group flex items-center px-4 py-3 text-gray-700 rounded-xl hover:bg-gray-50 transition-all duration-200">
+                <a href="{{ route('admin.products.index') }}"
+                    class="nav-item group flex items-center px-4 py-3 text-gray-700 rounded-xl hover:bg-gray-50 transition-all duration-200 {{ request()->routeIs('admin.products.*') ? 'bg-[#528B89] text-white' : '' }}">
                     <x-heroicon-s-cube class="nav-icon w-5 h-5 mr-3 flex-shrink-0" />
                     <span class="sidebar-text font-medium" style="font-family: 'Nunito', sans-serif;">Produk</span>
 

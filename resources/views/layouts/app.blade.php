@@ -42,13 +42,13 @@
                     <nav class="flex space-x-6 xl:space-x-8" style="font-family: 'Fredoka One', cursive;">
                         <a href="{{ route('beranda') }}"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Beranda</a>
-                        <a href="#"
+                        <a href="{{ route('produk') }}"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Produk</a>
                         <a href="#"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Belanja</a>
                         <a href="{{ route('partner') }}"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Partner</a>
-                        <a href="#"
+                        <a href="{{ route('tentang-kami') }}"
                             class="text-sm xl:text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Tentang
                             Kami</a>
                     </nav>
@@ -67,13 +67,13 @@
                     <nav class="space-y-1" style="font-family: 'Fredoka One', cursive;">
                         <a href="{{ route('beranda') }}"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Beranda</a>
-                        <a href=""
+                        <a href="{{ route('produk') }}"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Produk</a>
                         <a href="#"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Belanja</a>
-                        <a href="#{{ route('partner') }}"
+                        <a href="{{ route('partner') }}"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Partner</a>
-                        <a href="#"
+                        <a href="{{ route('tentang-kami') }}"
                             class="block px-3 py-2 text-base text-[#444444]/50 hover:text-[#614DAC] transition-colors duration-200">Tentang
                             Kami</a>
                     </nav>

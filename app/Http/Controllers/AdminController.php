@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AffiliateRegistration;
 use App\Models\AffiliateInfo;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Log;
@@ -497,5 +498,134 @@ class AdminController extends Controller
     public function destroy(Request $request, $id)
     {
         return $this->delete($request, $id);
+    }
+
+    // ===== PRODUCT MANAGEMENT METHODS =====
+
+    /**
+     * Show product management page
+     */
+    public function manageProducts()
+    {
+        $products = Product::ordered()->get();
+        
+        return view('admin.products.index', compact('products'));
+    }
+
+    /**
+     * Show form to create new product
+     */
+    public function createProduct()
+    {
+        return view('admin.products.create');
+    }
+
+    /**
+     * Store new product
+     */
+    public function storeProduct(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category' => 'required|string',
+            'status' => 'boolean',
+            'order' => 'integer|min:0'
+        ]);
+
+        $data = $request->only(['name', 'description', 'category', 'status', 'order']);
+        
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/products'), $imageName);
+            $data['image'] = 'images/products/' . $imageName;
+        }
+
+        // Handle content (JSON data)
+        $content = [
+            'benefits' => $request->input('benefits', []),
+            'variants' => $request->input('variants', []),
+            'features' => $request->input('features', []),
+            'reviews' => $request->input('reviews', [])
+        ];
+        $data['content'] = $content;
+
+        Product::create($data);
+
+        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil ditambahkan!');
+    }
+
+    /**
+     * Show form to edit product
+     */
+    public function editProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        return view('admin.products.edit', compact('product'));
+    }
+
+    /**
+     * Update product
+     */
+    public function updateProduct(Request $request, $id)
+    {
+        $product = Product::findOrFail($id);
+        
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'category' => 'required|string',
+            'status' => 'boolean',
+            'order' => 'integer|min:0'
+        ]);
+
+        $data = $request->only(['name', 'description', 'category', 'status', 'order']);
+        
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($product->image && file_exists(public_path($product->image))) {
+                unlink(public_path($product->image));
+            }
+            
+            $image = $request->file('image');
+            $imageName = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images/products'), $imageName);
+            $data['image'] = 'images/products/' . $imageName;
+        }
+
+        // Handle content (JSON data)
+        $content = [
+            'benefits' => $request->input('benefits', []),
+            'variants' => $request->input('variants', []),
+            'features' => $request->input('features', []),
+            'reviews' => $request->input('reviews', [])
+        ];
+        $data['content'] = $content;
+
+        $product->update($data);
+
+        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil diupdate!');
+    }
+
+    /**
+     * Delete product
+     */
+    public function deleteProduct($id)
+    {
+        $product = Product::findOrFail($id);
+        
+        // Delete image if exists
+        if ($product->image && file_exists(public_path($product->image))) {
+            unlink(public_path($product->image));
+        }
+        
+        $product->delete();
+
+        return redirect()->route('admin.products.index')->with('success', 'Produk berhasil dihapus!');
     }
 }
