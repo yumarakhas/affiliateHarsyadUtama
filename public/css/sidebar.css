@@ -48,6 +48,31 @@
     color: inherit;
 }
 
+/* Ensure icons are always visible - highest priority */
+.nav-icon,
+.sidebar-collapsed .nav-icon,
+.sidebar-expanded .nav-icon,
+#sidebar .nav-icon {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Default icon color */
+.nav-item .nav-icon {
+    color: #6b7280; /* Gray color */
+}
+
+/* Active icon color */
+.nav-item.bg-\[#528B89\] .nav-icon {
+    color: white !important;
+}
+
+/* Hover icon color */
+.nav-item:hover .nav-icon {
+    color: #528b89 !important;
+}
+
 /* Navigation item enhanced styling */
 .nav-item {
     position: relative;
@@ -122,9 +147,6 @@
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);
 }
-    background: transparent !important;
-    border: none;
-}
 
 .logout-btn:hover {
     background: transparent !important; /* No background on hover */
@@ -142,8 +164,8 @@
 
 /* Logout button icon sizing for collapsed state */
 .sidebar-collapsed .logout-btn svg {
-    width: 1.75rem !important;
-    height: 1.75rem !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
 }
 
 /* Hamburger button styles */
@@ -285,48 +307,126 @@
 
 /* Navigation item adjustments for collapsed state */
 .sidebar-collapsed .nav-item {
-    justify-content: center;
-    padding: 1rem !important; /* More padding for larger touch target */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    padding: 0.75rem !important;
+    margin: 0.5rem auto !important;
+    border-radius: 0.75rem !important;
+    background: transparent !important;
+    border: none !important;
     position: relative;
-    margin: 0.5rem 0;
-    background: transparent !important; /* No background in collapsed state */
+    transition: all 0.3s ease-in-out;
 }
 
 .sidebar-collapsed .nav-item:hover {
-    background: transparent !important; /* No background on hover */
-    color: #528b89; /* Only change text color */
+    background: rgba(82, 139, 137, 0.1) !important;
+    color: #528b89;
 }
 
+/* Ensure icons are always visible in collapsed state */
 .sidebar-collapsed .nav-icon {
     margin-right: 0 !important;
     flex-shrink: 0;
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #6b7280; /* Default gray color */
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+}
+
+/* Active state icons in collapsed sidebar */
+.sidebar-collapsed .nav-item.bg-\[#528B89\] {
+    background: #528B89 !important; /* Show background for active items */
+    border-radius: 0.75rem;
+}
+
+.sidebar-collapsed .nav-item.bg-\[#528B89\] .nav-icon {
+    color: white !important; /* White icon for active items */
+}
+
+.sidebar-collapsed .nav-item:hover .nav-icon {
+    color: #528b89 !important; /* Teal color on hover */
+}
+
+/* Special handling for buttons in collapsed state */
+.sidebar-collapsed button.nav-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    padding: 0.75rem !important;
+    margin: 0.5rem auto !important;
+    border-radius: 0.75rem !important;
+    background: transparent !important;
+    border: none !important;
+    cursor: pointer;
+}
+
+.sidebar-collapsed button.nav-item:hover {
+    background: rgba(82, 139, 137, 0.1) !important;
+}
+
+.sidebar-collapsed button.nav-item.bg-\[#528B89\] {
+    background: #528B89 !important;
+}
+
+.sidebar-collapsed button.nav-item.bg-\[#528B89\] .nav-icon {
+    color: white !important;
 }
 
 /* Logout button adjustments for mini sidebar */
 .sidebar-collapsed .logout-section {
     position: absolute;
     bottom: 1rem;
-    left: 0.5rem; /* Exact same as hamburger left position */
-    right: auto; /* Remove right positioning */
-    width: 2.5rem; /* Exact same as hamburger width */
-    height: 2.5rem; /* Exact same as hamburger height */
+    left: 50%;
+    transform: translateX(-50%);
+    right: auto;
+    width: 3rem !important;
+    height: 3rem !important;
     padding: 0;
 }
+
 .sidebar-collapsed .logout-btn {
-    justify-content: center;
-    padding: 1rem !important;
-    background: transparent !important; /* No background */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    padding: 0.75rem !important;
+    background: transparent !important;
+    border-radius: 0.75rem !important;
+    border: none !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
 }
 
 .sidebar-collapsed .logout-btn:hover {
-    background: transparent !important; /* No background on hover */
-    color: #dc2626; /* Only change text color */
+    background: rgba(239, 68, 68, 0.1) !important;
+    color: #dc2626;
 }
 
 .sidebar-collapsed .logout-btn .nav-icon {
-    width: 1.75rem !important;
-    height: 1.7rrem !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
     margin-right: 0 !important;
+    color: #dc2626 !important;
+}
+
+.sidebar-collapsed .logout-btn:hover .nav-icon {
+    color: #b91c1c !important;
 }
 
 /* Ensure icons are always visible */
@@ -334,6 +434,43 @@
     display: block !important;
     visibility: visible !important;
     opacity: 1 !important;
+}
+
+/* Enhanced icon visibility and sizing for collapsed state */
+.sidebar-collapsed .nav-icon {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    margin: 0 !important;
+    color: #6b7280 !important; /* Default gray */
+}
+
+/* Active state in collapsed sidebar */
+.sidebar-collapsed .nav-item.bg-\[#528B89\] .nav-icon {
+    color: white !important;
+}
+
+/* Hover state in collapsed sidebar */
+.sidebar-collapsed .nav-item:hover .nav-icon {
+    color: #528b89 !important;
+}
+
+/* Specific handling for button icons in collapsed state */
+.sidebar-collapsed button.nav-item .nav-icon {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    color: #6b7280 !important;
+}
+
+.sidebar-collapsed button.nav-item.bg-\[#528B89\] .nav-icon {
+    color: white !important;
+}
+
+.sidebar-collapsed button.nav-item:hover .nav-icon {
+    color: #528b89 !important;
 }
 
 /* Logo adjustments for collapsed state */
@@ -349,6 +486,127 @@
 .sidebar-expanded .sidebar-logo-mini,
 #sidebar:not(.sidebar-collapsed) .sidebar-logo-mini {
     display: none !important;
+}
+
+/* Collapsed state navigation improvements */
+.sidebar-collapsed .nav-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    margin: 0.5rem auto !important;
+    border-radius: 0.75rem !important;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ensure all nav items have consistent sizing in collapsed state */
+.sidebar-collapsed .nav-item,
+.sidebar-collapsed button.nav-item,
+.sidebar-collapsed a.nav-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    padding: 0.75rem !important;
+    margin: 0.5rem auto !important;
+    border-radius: 0.75rem !important;
+    box-sizing: border-box !important;
+}
+
+/* Ensure proper icon display in all collapsed nav items */
+.sidebar-collapsed .nav-item svg,
+.sidebar-collapsed .nav-item .nav-icon {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+/* Override any conflicting styles for collapsed nav items */
+.sidebar-collapsed li .nav-item,
+.sidebar-collapsed li button.nav-item,
+.sidebar-collapsed li a.nav-item {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    padding: 0.75rem !important;
+    margin: 0.5rem auto !important;
+    border-radius: 0.75rem !important;
+    box-sizing: border-box !important;
+    text-decoration: none !important;
+}
+
+/* Color states for collapsed nav items */
+.sidebar-collapsed .nav-item svg,
+.sidebar-collapsed .nav-item .nav-icon {
+    color: #6b7280; /* Default gray */
+}
+
+.sidebar-collapsed .nav-item:hover svg,
+.sidebar-collapsed .nav-item:hover .nav-icon {
+    color: #528b89; /* Teal on hover */
+}
+
+.sidebar-collapsed .nav-item.bg-\[#528B89\] svg,
+.sidebar-collapsed .nav-item.bg-\[#528B89\] .nav-icon {
+    color: white; /* White for active */
+}
+
+/* Background colors for collapsed state */
+.sidebar-collapsed .nav-item {
+    background: transparent;
+}
+
+.sidebar-collapsed .nav-item:hover {
+    background: rgba(82, 139, 137, 0.1);
+}
+
+.sidebar-collapsed .nav-item.bg-\[#528B89\] {
+    background: #528B89 !important;
+}
+
+/* Ensure consistent sizing for all list items in collapsed state */
+.sidebar-collapsed nav ul li {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0.5rem 0 !important;
+    padding: 0 !important;
+}
+
+/* Force consistent button and link sizing */
+.sidebar-collapsed .nav-item,
+.sidebar-collapsed .nav-item:hover,
+.sidebar-collapsed .nav-item.bg-\[#528B89\],
+.sidebar-collapsed button.nav-item,
+.sidebar-collapsed a.nav-item {
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    margin: 0.5rem auto !important;
+    padding: 0.75rem !important;
+    box-sizing: border-box !important;
 }
 
 /* Logout button adjustments */
@@ -444,4 +702,294 @@ footer {
         visibility: visible;
         pointer-events: auto;
     }
+}
+
+/* ========================================= */
+/* SUBMENU STYLES                           */
+/* ========================================= */
+
+/* Submenu container */
+.submenu-container {
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+}
+
+/* Submenu items */
+.submenu-item {
+    position: relative;
+    margin-left: 1rem;
+    border-left: 2px solid #e5e7eb;
+    padding-left: 1rem;
+}
+
+.submenu-item:last-child {
+    border-left-color: transparent;
+}
+
+.submenu-item::before {
+    content: '';
+    position: absolute;
+    left: -2px;
+    top: 50%;
+    width: 8px;
+    height: 2px;
+    background-color: #9ca3af;
+    transform: translateY(-50%);
+}
+
+.submenu-item:hover::before {
+    background-color: #528b89;
+}
+
+/* Submenu link styling */
+.submenu-item a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    color: #6b7280;
+    text-decoration: none;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+    font-size: 0.875rem;
+}
+
+.submenu-item a:hover {
+    background-color: #f3f4f6;
+    color: #528b89;
+    transform: translateX(4px);
+}
+
+.submenu-item a.active {
+    background-color: #528b89;
+    color: white;
+}
+
+/* Chevron rotation animation */
+.chevron-rotate {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hide submenu elements when sidebar is collapsed */
+.sidebar-collapsed .submenu-container,
+.sidebar-collapsed [id$="-submenu"],
+.sidebar-collapsed .sidebar-text {
+    max-height: 0 !important;
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Ensure dropdown chevron is hidden in collapsed state */
+.sidebar-collapsed [id$="-chevron"] {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Submenu spacing adjustments */
+[id$="-submenu"] {
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+[id$="-submenu"] li {
+    margin-bottom: 0.25rem;
+}
+
+[id$="-submenu"] li:last-child {
+    margin-bottom: 0;
+}
+
+/* ========================================= */
+/* COLLAPSED SIDEBAR BUTTON SIZE FIXES     */
+/* ========================================= */
+
+/* Master rule to ensure ALL nav items have consistent size in collapsed state */
+.sidebar-collapsed .nav-item,
+.sidebar-collapsed button.nav-item,
+.sidebar-collapsed a.nav-item,
+.sidebar-collapsed .nav-item:hover,
+.sidebar-collapsed .nav-item:focus,
+.sidebar-collapsed .nav-item:active,
+.sidebar-collapsed .nav-item.bg-\[#528B89\] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    padding: 0.75rem !important;
+    margin: 0.5rem auto !important;
+    border-radius: 0.75rem !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    text-decoration: none !important;
+    position: relative !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+/* Ensure container elements don't interfere */
+.sidebar-collapsed nav ul li {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* Override any flexbox or grid layouts that might interfere */
+.sidebar-collapsed nav ul {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0 0.5rem !important;
+}
+
+/* Logout button consistency with other nav items */
+.sidebar-collapsed .logout-btn {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    min-width: 3rem !important;
+    min-height: 3rem !important;
+    max-width: 3rem !important;
+    max-height: 3rem !important;
+    padding: 0.75rem !important;
+    margin: 0 auto !important;
+    border-radius: 0.75rem !important;
+    box-sizing: border-box !important;
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease-in-out !important;
+}
+
+.sidebar-collapsed .logout-section {
+    position: absolute !important;
+    bottom: 1rem !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 3rem !important;
+    height: 3rem !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* Final override to ensure absolute consistency */
+.sidebar-collapsed .nav-item *:not(.nav-tooltip) {
+    pointer-events: none; /* Prevent child elements from interfering */
+}
+
+.sidebar-collapsed .nav-item {
+    pointer-events: auto; /* But allow the nav item itself to be clickable */
+}
+
+/* Ensure icons are properly centered and sized */
+.sidebar-collapsed .nav-item svg,
+.sidebar-collapsed .nav-item .nav-icon,
+.sidebar-collapsed .logout-btn svg,
+.sidebar-collapsed .logout-btn .nav-icon {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    min-width: 1.5rem !important;
+    min-height: 1.5rem !important;
+    max-width: 1.5rem !important;
+    max-height: 1.5rem !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    flex-shrink: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Comprehensive icon visibility rules */
+.sidebar-collapsed .nav-item svg,
+.sidebar-collapsed .nav-item [class*="heroicon"],
+.sidebar-collapsed .nav-item .nav-icon,
+.sidebar-collapsed svg,
+.sidebar-collapsed [class*="heroicon"] {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    width: 1.5rem !important;
+    height: 1.5rem !important;
+    flex-shrink: 0 !important;
+}
+
+/* Force icon colors in collapsed state */
+.sidebar-collapsed .nav-item svg,
+.sidebar-collapsed .nav-item [class*="heroicon"] {
+    color: #6b7280 !important; /* Default gray */
+    stroke: currentColor;
+    fill: currentColor;
+}
+
+.sidebar-collapsed .nav-item:hover svg,
+.sidebar-collapsed .nav-item:hover [class*="heroicon"] {
+    color: #528b89 !important; /* Teal on hover */
+}
+
+.sidebar-collapsed .nav-item.bg-\[#528B89\] svg,
+.sidebar-collapsed .nav-item.bg-\[#528B89\] [class*="heroicon"] {
+    color: white !important; /* White for active */
+}
+
+/* Specific handling for button icons */
+.sidebar-collapsed button.nav-item svg {
+    color: #6b7280 !important;
+}
+
+.sidebar-collapsed button.nav-item:hover svg {
+    color: #528b89 !important;
+}
+
+.sidebar-collapsed button.nav-item.bg-\[#528B89\] svg {
+    color: white !important;
+}
+
+/* Active parent menu with submenus */
+.nav-item.bg-\[#528B89\] {
+    background: linear-gradient(135deg, #528B89 0%, #4a7f7d 100%) !important;
+    box-shadow: 0 8px 25px rgba(82, 139, 137, 0.3);
+    transform: translateX(2px);
+    color: white !important;
+}
+
+.nav-item.bg-\[#528B89\] .nav-icon {
+    color: white !important;
+}
+
+.nav-item.bg-\[#528B89\] span {
+    color: white !important;
+}
+
+/* Ensure chevron icon is white when parent is active */
+.nav-item.bg-\[#528B89\] svg {
+    color: white !important;
+}
+
+/* Override for collapsed state - simpler active styling */
+.sidebar-collapsed .nav-item.bg-\[#528B89\] {
+    background: #528B89 !important;
+    box-shadow: 0 2px 8px rgba(82, 139, 137, 0.3);
+    transform: none;
+}
+
+/* Ensure button elements work properly in collapsed state */
+.sidebar-collapsed button.nav-item {
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.sidebar-collapsed button.nav-item.bg-\[#528B89\] {
+    background: #528B89 !important;
 }
