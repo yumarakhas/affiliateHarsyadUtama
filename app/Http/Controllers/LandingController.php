@@ -17,7 +17,7 @@ class LandingController extends Controller
         return view('partner');
     }
     
-    public function produk()
+    public function produk(Request $request)
     {
         // Ambil produk yang aktif dan diurutkan
         $products = Product::active()->ordered()->get();
@@ -28,7 +28,23 @@ class LandingController extends Controller
         $nyamProducts = $products->where('category', 'nyam');
         $generalProducts = $products->where('category', 'general');
         
-        return view('produk', compact('products', 'gentleBabyProducts', 'mamimaProducts', 'nyamProducts', 'generalProducts'));
+        // Tentukan produk yang sedang dipilih dari dropdown
+        $selectedProduct = $request->get('product', 'gentle-baby'); // default ke gentle-baby
+        
+        // Validasi produk yang dipilih
+        $validProducts = ['gentle-baby', 'mamina-asi-booster', 'nyam'];
+        if (!in_array($selectedProduct, $validProducts)) {
+            $selectedProduct = 'gentle-baby';
+        }
+        
+        return view('produk', compact(
+            'products', 
+            'gentleBabyProducts', 
+            'mamimaProducts', 
+            'nyamProducts', 
+            'generalProducts',
+            'selectedProduct'
+        ));
     }
     
     public function tentangKami()
