@@ -6,13 +6,13 @@
     <style>
         .carousel-container {
             padding: 0 2rem;
-            max-width: 1200px;
+            max-width: 1900px;
             margin: 0 auto;
         }
         
         #productCarousel {
             transition: transform 0.5s ease-in-out;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         
         .product-card {
@@ -38,8 +38,8 @@
         /* Tablet: 2 cards per view */
         @media (min-width: 768px) and (max-width: 1023px) {
             .product-card {
-                min-width: calc(50% - 0.75rem);
-                max-width: calc(50% - 0.75rem);
+                min-width: calc(50% - 0.5rem);
+                max-width: calc(50% - 0.5rem);
             }
         }
         
@@ -50,8 +50,8 @@
             }
             
             .product-card {
-                min-width: calc(100% - 2rem);
-                max-width: calc(100% - 2rem);
+                min-width: calc(100% - 1rem);
+                max-width: calc(100% - 1rem);
             }
         }
         
@@ -78,7 +78,7 @@
         /* Varian Carousel Styles */
         #varianCarousel {
             transition: transform 0.5s ease-in-out;
-            gap: 1.5rem;
+            gap: 0.5rem;
         }
         
         .varian-card {
@@ -89,24 +89,40 @@
             transform: translateY(-4px);
         }
         
-        /* Desktop: 3 varian cards per view */
-        @media (min-width: 1024px) {
+        /* Desktop: 5 varian cards per view (smaller cards) */
+        @media (min-width: 1200px) {
             .varian-card {
-                min-width: calc(33.333% - 1rem);
-                max-width: calc(33.333% - 1rem);
+                min-width: calc(20% - 1.2rem);
+                max-width: calc(20% - 1.2rem);
             }
         }
         
-        /* Tablet: 2 varian cards per view */
+        /* Large Desktop: 4 varian cards per view */
+        @media (min-width: 1024px) and (max-width: 1199px) {
+            .varian-card {
+                min-width: calc(25% - 1rem);
+                max-width: calc(25% - 1rem);
+            }
+        }
+        
+        /* Tablet: 3 varian cards per view */
         @media (min-width: 768px) and (max-width: 1023px) {
             .varian-card {
-                min-width: calc(50% - 0.75rem);
-                max-width: calc(50% - 0.75rem);
+                min-width: calc(33.333% - 0.75rem);
+                max-width: calc(33.333% - 0.75rem);
             }
         }
         
-        /* Mobile: 1 varian card per view */
-        @media (max-width: 767px) {
+        /* Mobile: 2 varian cards per view */
+        @media (min-width: 480px) and (max-width: 767px) {
+            .varian-card {
+                min-width: calc(50% - 0.5rem);
+                max-width: calc(50% - 0.5rem);
+            }
+        }
+        
+        /* Small Mobile: 1 varian card per view */
+        @media (max-width: 479px) {
             .varian-card {
                 min-width: calc(100% - 2rem);
                 max-width: calc(100% - 2rem);
@@ -132,53 +148,135 @@
             height: 100%;
             object-fit: cover;
         }
+        
+        /* Card styles untuk varian */
+        .card-product {
+            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+            border-radius: 0.75rem;
+            padding: 0.75rem;
+            text-align: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            height: auto;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card-product:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Button styles */
+        .btn-gradient-brand {
+            background: linear-gradient(90deg, #528B89 0%, #6C63FF 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-gradient-brand:hover {
+            background: linear-gradient(90deg, #446b6a 0%, #5a56d1 100%);
+            transform: translateY(-1px);
+        }
+
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        /* Carousel button styles */
+        .btn-carousel {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #e5e7eb;
+            border-radius: 50%;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+
+        .btn-carousel:hover {
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
     </style>
-    </style>
+
+    @php
+        // Define product title based on request parameter
+        $productType = request('product', 'gentle-baby');
+        $productTitle = match($productType) {
+            'mamina', 'mamina-asi-booster' => 'Mamina ASI Booster',
+            'nyam' => 'Nyam! MPASI',
+            default => 'Gentle Baby'
+        };
+    @endphp
+
     <!-- Hero Produk Section -->
-    <section class="relative bg-white py-8">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Hero Title -->
-            <div class="text-center px-6 mb-12">
-                @php
-                    $productTitle = 'Gentle Baby';
-                    
-                    if(request('product') == 'mamina') {
-                        $productTitle = 'Mamina ASI Booster';
-                    } elseif(request('product') == 'nyam') {
-                        $productTitle = 'Nyam!';
-                    }
-                @endphp
-                
-                <h1 class="text-3xl lg:text-5xl text-[#6C63FF] font-fredoka">
+    <section class="relative bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+            <div class="text-center mb-16">
+                <h1 class="text-3xl lg:text-5xl text-[#6C63FF] font-fredoka mt-4">
                     {{ $productTitle }}
                 </h1>
             </div>
 
             <!-- Product Carousel -->
-            <div class="relative mb-16 carousel-container">
+            <div class="relative mb-16 carousel-container mt-4">
                 <!-- Carousel Container -->
                 <div class="overflow-hidden rounded-lg">
                     <div id="productCarousel" class="flex">
                         @php
-                            $productImage = 'gentleBaby.png';
                             if(request('product') == 'mamina') {
-                                $productImage = 'mamina.png';
+                                $productImages = [
+                                    'mamina.png', 'mamina.png', 'mamina.png', 'mamina.png', 'mamina.png',
+                                    'mamina.png', 'mamina.png', 'mamina.png', 'mamina.png', 'mamina.png'
+                                ];
                             } elseif(request('product') == 'nyam') {
-                                $productImage = 'nyam.png';
+                                $productImages = [
+                                    'nyam.png', 'nyam.png', 'nyam.png', 'nyam.png', 'nyam.png',
+                                    'nyam.png', 'nyam.png', 'nyam.png', 'nyam.png', 'nyam.png'
+                                ];
+                            } else {
+                                // Gentle Baby - Multiple images from folder
+                                $productImages = [
+                                    'products/gentle-baby/gentle-baby-1.jpg',
+                                    'products/gentle-baby/gentle-baby-2.jpg',
+                                    'products/gentle-baby/gentle-baby-3.jpg',
+                                    'products/gentle-baby/gentle-baby-4.png',
+                                    'products/gentle-baby/gentle-baby-5.png',
+                                    'products/gentle-baby/gentle-baby-6.png',
+                                    'products/gentle-baby/gentle-baby-7.png',
+                                    'products/gentle-baby/gentle-baby-8.png',
+                                    'products/gentle-baby/gentle-baby-9.png',
+                                    'products/gentle-baby/gentle-baby-10.png'
+                                ];
                             }
                         @endphp
                         
                         <!-- Product Cards - 10 items total -->
-                        @for ($i = 1; $i <= 10; $i++)
+                        @foreach($productImages as $index => $image)
                         <div class="product-card flex-none mx-3">
                             <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 text-center shadow-lg border border-gray-200">
                                 <!-- Square Image Container 1:1 ratio -->
                                 <div class="image-container shadow-md">
-                                    <img src="{{ asset('images/' . $productImage) }}" alt="Product {{ $i }}" class="rounded-lg">
+                                    <img src="{{ asset('images/' . $image) }}" 
+                                        alt="Gentle Baby Product {{ $index + 1 }}" 
+                                        class="rounded-lg"
+                                        onerror="this.src='{{ asset('images/gentleBaby.png') }}'">
                                 </div>
                             </div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
                 
@@ -316,7 +414,7 @@
 
     @if(!request('product') || request('product') == 'gentle-baby')
     <!-- Varian Section - Only for Gentle Baby -->
-    <section class="py-16 bg-gray-50">
+    <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl text-[#6C63FF] mb-8 font-fredoka">
@@ -329,33 +427,33 @@
                         <div id="varianCarousel" class="flex transition-transform duration-500 ease-in-out gap-6">
                             @php
                                 $variants = [
-                                    ['name' => 'Cough n Flu', 'desc' => 'Minyak oles flu, pilek untuk balita'],
-                                    ['name' => 'Deep Sleep', 'desc' => 'Minyak pijat untuk tidur nyenyak'],
-                                    ['name' => 'Gimme Food', 'desc' => 'Minyak penambah nafsu makan'],
-                                    ['name' => 'Joy', 'desc' => 'Minyak relaksasi dan kebahagiaan'],
-                                    ['name' => 'Calm Baby', 'desc' => 'Minyak penenang untuk bayi rewel'],
-                                    ['name' => 'Fresh Breath', 'desc' => 'Minyak aromaterapi penyegar'],
-                                    ['name' => 'Skin Care', 'desc' => 'Minyak perawatan kulit bayi'],
-                                    ['name' => 'Immunity', 'desc' => 'Minyak penambah daya tahan tubuh'],
-                                    ['name' => 'Growth Plus', 'desc' => 'Minyak pendukung tumbuh kembang']
+                                    ['name' => 'Cough n Flu', 'desc' => 'Minyak oles flu, pilek untuk balita', 'image' => 'products/gentle-baby/variants/cough-flu.jpg'],
+                                    ['name' => 'Deep Sleep', 'desc' => 'Minyak pijat untuk tidur nyenyak', 'image' => 'products/gentle-baby/variants/deep-sleep.jpg'],
+                                    ['name' => 'Gimme Food', 'desc' => 'Minyak penambah nafsu makan', 'image' => 'products/gentle-baby/variants/gimme-food.jpg'],
+                                    ['name' => 'Joy', 'desc' => 'Minyak relaksasi dan kebahagiaan', 'image' => 'products/gentle-baby/variants/joy.jpg'],
+                                    ['name' => 'Tummy Calmer', 'desc' => 'Minyak penenang untuk bayi rewel', 'image' => 'products/gentle-baby/variants/tummy-calmer.jpg'],
+                                    ['name' => 'LDR Booster', 'desc' => 'Minyak aromaterapi penyegar', 'image' => 'products/gentle-baby/variants/ldr-booster.jpg'],
+                                    ['name' => 'Massage Your Baby', 'desc' => 'Minyak perawatan kulit bayi', 'image' => 'products/gentle-baby/variants/massage-your-baby.jpg'],
+                                    ['name' => 'Immboost', 'desc' => 'Minyak penambah daya tahan tubuh', 'image' => 'products/gentle-baby/variants/immboost.jpg'],
+                                    ['name' => 'Anti Nyamuk', 'desc' => 'Minyak pendukung tumbuh kembang', 'image' => 'products/gentle-baby/variants/anti-nyamuk.png']
                                 ];
                             @endphp
                             
                             <!-- Varian Cards - 9 items total -->
                             @foreach($variants as $index => $variant)
-                            <div class="varian-card flex-none mx-3">
+                            <div class="varian-card flex-none mx-2">
                                 <div class="card-product h-auto">
                                     <!-- Square Image Container 1:1 ratio -->
-                                    <div class="varian-image-container mb-4 shadow-md">
-                                        <img src="{{ asset('images/gentleBaby.png') }}" alt="{{ $variant['name'] }}" class="rounded-lg">
+                                    <div class="varian-image-container shadow-sm">
+                                        <img src="{{ asset('images/' . $variant['image']) }}" alt="{{ $variant['name'] }}" class="rounded-lg">
                                     </div>
                                     
                                     <!-- Varian Info -->
                                     <div class="text-center">
-                                        <h3 class="font-bold text-gray-800 mb-2 text-lg font-nunito">
+                                        <h3 class="font-bold text-gray-800 mb-1 text-sm font-nunito">
                                             {{ $variant['name'] }}
                                         </h3>
-                                        <p class="text-sm text-gray-600 mb-4">
+                                        <p class="text-sm text-gray-600 mb-3 leading-tight">
                                             {{ $variant['desc'] }}
                                         </p>
                                         <button class="btn-gradient-brand btn-sm">
@@ -695,14 +793,15 @@
                 const totalVarianItems = 9;
                 
                 function getVarianItemsPerView() {
-                    if (window.innerWidth >= 1024) return 3; // Desktop: 3 cards
+                    if (window.innerWidth >= 1024) return 5; // Desktop: 5 cards
                     if (window.innerWidth >= 768) return 2;  // Tablet: 2 cards  
                     return 1; // Mobile: 1 card
                 }
                 
                 function getTotalVarianSlides() {
                     const itemsPerView = getVarianItemsPerView();
-                    return Math.ceil(totalVarianItems / itemsPerView);
+                    // Perbaikan: gunakan sliding window approach
+                    return Math.max(1, totalVarianItems - itemsPerView + 1);
                 }
                 
                 function updateVarianCarousel() {
@@ -830,6 +929,3 @@
         });
     </script>
 @endsection
-
-
-
