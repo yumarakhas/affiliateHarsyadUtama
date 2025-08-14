@@ -14,7 +14,7 @@
             </div>
 
             <!-- Thank You Message -->
-            <h1 style="font-family: 'Fredoka One', cursive;" class="text-2xl md:text-3xl text-[#528B89] mb-4">
+            <h1 style="font-family: 'Fredoka One', cursive;" class="text-2xl md:text-3xl text-brand-500 mb-4">
                 Terima Kasih!
             </h1>
             
@@ -22,8 +22,8 @@
                 Pendaftaran Anda telah berhasil dikirim. Tim kami akan menghubungi Anda untuk proses selanjutnya.
             </p>
 
-            <div class="bg-[#528B89]/10 rounded-lg p-4 mb-6">
-                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-[#528B89] font-semibold">
+            <div class="bg-brand-500/10 rounded-lg p-4 mb-6">
+                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-brand-500 font-semibold">
                     Admin akan menghubungi Anda melalui kontak yang telah diberikan.
                 </p>
             </div>
@@ -32,7 +32,7 @@
             <div class="space-y-3">
                 
                 <a href="{{ url('/partner') }}" 
-                   class="block w-full px-6 py-3 border-2 border-[#528B89] text-[#528B89] font-semibold rounded-lg hover:bg-[#528B89] hover:text-white transition-colors duration-300">
+                   class="block w-full px-6 py-3 border-2 border-brand-500 text-brand-500 font-semibold rounded-lg hover:bg-brand-500 hover:text-white transition-colors duration-300">
                     Kembali ke Halaman Awal
                 </a>
             </div>

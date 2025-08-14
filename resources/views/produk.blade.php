@@ -218,7 +218,7 @@
                     
                     <div class="space-y-3 max-w-2xl mx-auto">
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -227,7 +227,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -236,7 +236,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -251,7 +251,7 @@
                     
                     <div class="space-y-3 max-w-2xl mx-auto">
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -260,7 +260,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -269,7 +269,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -284,7 +284,7 @@
                     
                     <div class="space-y-3 max-w-2xl mx-auto">
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -293,7 +293,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -302,7 +302,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-[#528B89] rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>

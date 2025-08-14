@@ -92,19 +92,19 @@
                         </p>
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#528B89] mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 Menghadirkan MPASI berkualitas tinggi dengan standar internasional
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#528B89] mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 Mendukung ibu Indonesia dalam memberikan nutrisi terbaik
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#528B89] mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 Menciptakan generasi Indonesia yang sehat dan cerdas
@@ -126,25 +126,25 @@
                         </p>
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#528B89] mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 Menggunakan bahan organik dan berkualitas tinggi
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#528B89] mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 Proses produksi higienis dengan standar keamanan pangan
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#528B89] mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 Memberikan edukasi MPASI yang tepat kepada orangtua
                             </li>
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-[#528B89] mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-6 h-6 text-brand-500 mr-3 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                                 Inovasi berkelanjutan dalam pengembangan produk MPASI
@@ -195,7 +195,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                 <div class="bg-white rounded-lg p-6 shadow-md">
                     <div style="font-family: 'Fredoka One', cursive;" 
-                         class="text-3xl lg:text-4xl text-[#528B89] mb-2">
+                         class="text-3xl lg:text-4xl text-brand-500 mb-2">
                         10,000+
                     </div>
                     <p style="font-family: 'Nunito', sans-serif;" 
@@ -205,7 +205,7 @@
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-md">
                     <div style="font-family: 'Fredoka One', cursive;" 
-                         class="text-3xl lg:text-4xl text-[#528B89] mb-2">
+                         class="text-3xl lg:text-4xl text-brand-500 mb-2">
                         50+
                     </div>
                     <p style="font-family: 'Nunito', sans-serif;" 
@@ -215,7 +215,7 @@
                 </div>
                 <div class="bg-white rounded-lg p-6 shadow-md">
                     <div style="font-family: 'Fredoka One', cursive;" 
-                         class="text-3xl lg:text-4xl text-[#528B89] mb-2">
+                         class="text-3xl lg:text-4xl text-brand-500 mb-2">
                         100%
                     </div>
                     <p style="font-family: 'Nunito', sans-serif;" 

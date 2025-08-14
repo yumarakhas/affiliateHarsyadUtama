@@ -7,12 +7,22 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', 'Admin - Gentle Living')</title>
     <link rel="icon" type="image/png" href="{{ asset('images/logo-tab.png') }}">
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Vite CSS -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
 
-    {{-- Sidebar Styles --}}
-    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+    {{-- Vite CSS includes optimized Tailwind components --}}
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    {{-- SweetAlert & Utilities --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{{ asset('js/swal-utils.js') }}"></script>
 
     {{-- Additional Styles Section --}}
     @yield('styles')
@@ -32,8 +42,8 @@
 
                 <!-- User Info dan Logout Button -->
                 <div class="flex items-center space-x-3 sm:space-x-4">
-                    <span style="font-family: 'Nunito', sans-serif;"
-                        class="text-xs sm:text-sm text-gray-600 hidden sm:block">
+                    <span class="font-nunito
+                        text-xs sm:text-sm text-gray-600 hidden sm:block">
                         Halo, {{ Auth::user()->name }}
                     </span>
 
@@ -58,8 +68,9 @@
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    <span style="font-family: 'Nunito', sans-serif;"
-                        class="text-sm font-medium">{{ session('success') }}</span>
+                    <span
+                        class="font-nunito
+                        text-sm font-medium">{{ session('success') }}</span>
                 </div>
             </div>
         </div>

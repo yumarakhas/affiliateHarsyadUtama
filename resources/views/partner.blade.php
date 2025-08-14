@@ -45,7 +45,7 @@
 
                     </p>
                     <a href="{{ route('affiliate.form') }}"
-                        class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#528B89] hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-brand-500 hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
                         DAFTAR SEKARANG
                     </a>
                 </div>
@@ -111,7 +111,7 @@
                 <div
                     class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-check-badge class="w-10 h-10 sm:w-12 sm:h-12 text-[#528B89]" />
+                        <x-heroicon-s-check-badge class="w-10 h-10 sm:w-12 sm:h-12 text-brand-500" />
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk yang beneran dipakai & dibutuhkan
@@ -126,7 +126,7 @@
                 <div
                     class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-shopping-cart class="w-10 h-10 sm:w-12 sm:h-12 text-[#528B89]" />
+                        <x-heroicon-s-shopping-cart class="w-10 h-10 sm:w-12 sm:h-12 text-brand-500" />
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Repeat order tinggi</h3>
@@ -140,7 +140,7 @@
                 <div
                     class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-document-text class="w-10 h-10 sm:w-12 sm:h-12 text-[#528B89]" />
+                        <x-heroicon-s-document-text class="w-10 h-10 sm:w-12 sm:h-12 text-brand-500" />
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Full support + edukasi</h3>
@@ -154,7 +154,7 @@
                 <div
                     class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-star class="w-10 h-10 sm:w-12 sm:h-12 text-[#528B89]" />
+                        <x-heroicon-s-star class="w-10 h-10 sm:w-12 sm:h-12 text-brand-500" />
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk kategori premium</h3>
@@ -178,7 +178,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-6 lg:mb-8">
                     <!-- Item 1 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-currency-dollar class="w-6 h-6 text-gray-600" />
@@ -195,7 +195,7 @@
 
                     <!-- Item 2 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-user-group class="w-6 h-6 text-gray-600" />
@@ -211,7 +211,7 @@
 
                     <!-- Item 3 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm sm:col-span-2 lg:col-span-1">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm sm:col-span-2 lg:col-span-1">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-gift class="w-6 h-6 text-gray-600" />
@@ -230,7 +230,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
                     <!-- Item 4 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-banknotes class="w-6 h-6 text-gray-600" />
@@ -246,7 +246,7 @@
 
                     <!-- Item 5 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-[#528B89] hover:shadow-md transition-all duration-200 shadow-sm">
+                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
                             <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
                                 <x-heroicon-s-photo class="w-6 h-6 text-gray-600" />
@@ -327,7 +327,7 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
                     <!-- Product 1 -->
                     <div
-                        class="bg-white border-2 border-gray-200 rounded-xl p-4 sm:p-5 lg:p-6 hover:border-[#528B89] transition-colors shadow-sm hover:shadow-lg flex flex-col">
+                        class="bg-white border-2 border-gray-200 rounded-xl p-4 sm:p-5 lg:p-6 hover:border-brand-500 transition-colors shadow-sm hover:shadow-lg flex flex-col">
                         <div
                             class="bg-gray-100 rounded-lg mb-4 lg:mb-6 flex items-center justify-center h-48 sm:h-64 lg:h-72">
                             <img src="{{ asset('images/gentleBaby.png') }}" alt="Gentle Baby"
@@ -335,11 +335,11 @@
                                 onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
                         </div>
                         <div class="text-center mt-auto">
-                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-3">
+                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-brand-500 mb-3">
                                 Gentle Baby
                             </h4>
                             <a href="https://shopee.co.id/GENTLE-BABY-Therapeutic-Oil-10ML-Minyak-Pijat-Aromaterapi-Bayi-Balita-Usia-0-4-Tahun-Bahan-alami-i.400631324.18077793526?sp_atk=fa2355c4-a239-4d5f-ac85-40125edb2198&xptdk=fa2355c4-a239-4d5f-ac85-40125edb2198"
-                                class="inline-flex items-center justify-center text-[#528B89] font-semibold hover:underline text-lg">
+                                class="inline-flex items-center justify-center text-brand-500 font-semibold hover:underline text-lg">
                                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path
                                         d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
@@ -353,18 +353,18 @@
 
                     <!-- Product 2 -->
                     <div
-                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-[#528B89] transition-colors shadow-sm hover:shadow-lg flex flex-col">
+                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-brand-500 transition-colors shadow-sm hover:shadow-lg flex flex-col">
                         <div class="bg-gray-100 rounded-lg mb-6 flex items-center justify-center" style="height: 280px;">
                             <img src="{{ asset('images/mamina.png') }}" alt="Mamina"
                                 class="max-h-full max-w-full object-contain"
                                 onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
                         </div>
                         <div class="text-center mt-auto">
-                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-3">
+                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-brand-500 mb-3">
                                 Mamina Seduhan
                             </h4>
                             <a href="https://shopee.co.id/Mamina-Paket-Bundle-Pelancar-Asi-Isi-3-(10-Tebag-per-Paket)-ASI-Booster-Halal-Bahan-Alami-i.1483235365.41704362992?sp_atk=cd7bceae-166b-47bb-8c7c-92efde449b76&xptdk=cd7bceae-166b-47bb-8c7c-92efde449b76"
-                                class="inline-flex items-center justify-center text-[#528B89] font-semibold hover:underline text-lg">
+                                class="inline-flex items-center justify-center text-brand-500 font-semibold hover:underline text-lg">
                                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path
                                         d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
@@ -378,18 +378,18 @@
 
                     <!-- Product 3 -->
                     <div
-                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-[#528B89] transition-colors shadow-sm hover:shadow-lg flex flex-col">
+                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-brand-500 transition-colors shadow-sm hover:shadow-lg flex flex-col">
                         <div class="bg-gray-100 rounded-lg mb-6 flex items-center justify-center" style="height: 280px;">
                             <img src="{{ asset('images/nyam.png') }}" alt="Nyam MPASI"
                                 class="max-h-full max-w-full object-contain"
                                 onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
                         </div>
                         <div class="text-center mt-auto">
-                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-[#528B89] mb-3">
+                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-brand-500 mb-3">
                                 Nyam! MPASI
                             </h4>
                             <a href="https://shopee.co.id/NYAM-BABY-FOOD-BUNDLING-PAKET-MPASI-10-18-BULAN-HOMEMADE-TANPA-PENGAWET-i.1059596102.43102157461"
-                                class="inline-flex items-center justify-center text-[#528B89] font-semibold hover:underline text-lg">
+                                class="inline-flex items-center justify-center text-brand-500 font-semibold hover:underline text-lg">
                                 <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                     <path
                                         d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
@@ -449,7 +449,7 @@
                 <div class="order-2 lg:order-1">
                     <div class="bg-white rounded-2xl border border-[#E5E7EB] p-6 lg:p-8 shadow-lg">
                         <h3 style="font-family: 'Fredoka One', cursive;"
-                            class="text-xl lg:text-2xl text-[#528B89] mb-3 text-center lg:text-left">
+                            class="text-xl lg:text-2xl text-brand-500 mb-3 text-center lg:text-left">
                             Work Easy, Earn More
                         </h3>
                         <p style="font-family: 'Nunito', sans-serif;"

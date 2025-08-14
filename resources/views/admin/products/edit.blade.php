@@ -188,7 +188,7 @@
                     Batal
                 </a>
                 <button type="submit" 
-                        class="px-6 py-2 bg-[#528B89] text-white rounded-md hover:bg-[#446b6a] transition-colors">
+                        class="px-6 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600 transition-colors">
                     Update Produk
                 </button>
             </div>

@@ -31,7 +31,7 @@
                 <!-- Form Card -->
                 <div class="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden">
                     <!-- Card Header -->
-                    <div class="bg-[#528B89] px-6 py-3">
+                    <div class="bg-brand-500 px-6 py-3">
                         <h2 style="font-family: 'Fredoka One', cursive;" class="text-xl text-white flex items-center">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
@@ -164,7 +164,7 @@
                 <!-- Back Link -->
                 <div class="text-center mt-6">
                     <a href="{{ route('beranda') }}"
-                        class="text-[#528B89] hover:text-[#446b6a] flex items-center justify-center">
+                        class="text-brand-500 hover:text-[#446b6a] flex items-center justify-center">
                         <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

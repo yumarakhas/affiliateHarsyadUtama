@@ -14,7 +14,7 @@
                 <p class="text-gray-600 mt-1">Kelola konten halaman produk website</p>
             </div>
             <a href="{{ route('admin.products.create') }}" 
-               class="bg-[#528B89] text-white px-4 py-2 rounded-lg hover:bg-[#446b6a] transition-colors">
+               class="bg-brand-500 text-white px-4 py-2 rounded-lg hover:bg-brand-600 transition-colors">
                 <i class="fas fa-plus mr-2"></i>Tambah Produk
             </a>
         </div>
@@ -117,7 +117,7 @@
                     @empty
                         <tr>
                             <td colspan="7" class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 text-center">
-                                Belum ada produk. <a href="{{ route('admin.products.create') }}" class="text-[#528B89] hover:underline">Tambah produk pertama</a>
+                                Belum ada produk. <a href="{{ route('admin.products.create') }}" class="text-brand-500 hover:underline">Tambah produk pertama</a>
                             </td>
                         </tr>
                     @endforelse
