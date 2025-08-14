@@ -31,17 +31,14 @@
 
 
                 <div class="relative z-10 max-w-lg text-center lg:text-left py-16 lg:py-0">
-                    <h1 style="font-family: 'Fredoka One', cursive;"
-                        class="text-3xl sm:text-4xl lg:text-5xl text-[#EF9F9B] lg:text-[#EF9F9B] mb-6 leading-tight drop-shadow-lg lg:drop-shadow-none">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl text-[#EF9F9B] lg:text-[#EF9F9B] mb-6 leading-tight drop-shadow-lg lg:drop-shadow-none font-fredoka">
                         Join Our Baby Wellness Affiliate Program
                     </h1>
-                    <p style="font-family: 'Nunito', sans-serif;"
-                        class="text-base lg:text-lg text-[#EF9F9B] lg:text-[#EF9F9B] mb-6 leading-relaxed drop-shadow lg:drop-shadow-none">
+                    <p class="text-base lg:text-lg text-[#EF9F9B] lg:text-[#EF9F9B] mb-6 leading-relaxed drop-shadow lg:drop-shadow-none font-nunito">
                         Kami sedang membuka program affiliate partnership untuk <br class="hidden sm:block" />
                         <span class="font-bold"> 3 produk best-seller </span> kami yang fokus pada wellness bunda & bayi.
                     </p>
-                    <p id="content" style="font-family: 'Nunito', sans-serif;"
-                        class="text-xl lg:text-2xl font-bold text-white lg:text-white mb-8 drop-shadow lg:drop-shadow-none">
+                    <p id="content" class="text-xl lg:text-2xl font-bold text-white lg:text-white mb-8 drop-shadow lg:drop-shadow-none font-nunito">
 
                     </p>
                     <a href="{{ route('affiliate.form') }}"
@@ -90,17 +87,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Why Join Us Header -->
             <div class="text-center mb-12 lg:mb-16">
-                <h2 style="font-family: 'Fredoka One', cursive;"
-                    class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 font-fredoka">
                     Why Join Us
                 </h2>
-                <p style="font-family: 'Nunito', sans-serif;"
-                    class="text-base sm:text-lg text-[#6C63FF] max-w-4xl mx-auto leading-relaxed">
+                <p class="text-base sm:text-lg text-[#6C63FF] max-w-4xl mx-auto leading-relaxed font-nunito">
                     Kami percaya produk ini sangat cocok untuk audience kami yang didominasi moms, new parents,
                     breastfeeding moms, dan pejuang MPASI.
                 </p>
-                <p style="font-family: 'Nunito', sans-serif;"
-                    class="text-base sm:text-lg text-[#6C63FF] italic font-semibold mt-3 lg:mt-4">
+                <p class="text-base sm:text-lg text-[#6C63FF] italic font-semibold mt-3 lg:mt-4 font-nunito">
                     Helping Moms - Earning with Purpose
                 </p>
             </div>
@@ -116,7 +110,7 @@
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk yang beneran dipakai & dibutuhkan
                             bunda dan baby</h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm sm:text-base">
+                        <p class="text-gray-600 text-sm sm:text-base font-nunito">
                             Kami tahu dibutuhkan berdasarkan riset & kami sendiri beneran pakai untuk Si Kecil
                         </p>
                     </div>
@@ -130,7 +124,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Repeat order tinggi</h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm sm:text-base">
+                        <p class="text-gray-600 text-sm sm:text-base font-nunito">
                             Hasil dirasakan cepat & kebutuhan harian
                         </p>
                     </div>
@@ -144,7 +138,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Full support + edukasi</h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm sm:text-base">
+                        <p class="text-gray-600 text-sm sm:text-base font-nunito">
                             Kamu bisa dibantu berkembang secara skill atau kebutuhan konten
                         </p>
                     </div>
@@ -158,7 +152,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk kategori premium</h3>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600 text-sm sm:text-base">
+                        <p class="text-gray-600 text-sm sm:text-base font-nunito">
                             Bernilai jual cukup tinggi sehingga komisi besar untuk setiap penjualannya
                         </p>
                     </div>
@@ -169,8 +163,7 @@
 
         <!-- What you will get Section -->
         <div class="mb-12 lg:mb-16 text-center px-4 sm:px-6 lg:px-8">
-            <h2 style="font-family: 'Fredoka One', cursive;"
-                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 font-fredoka">
                 What you will get
             </h2>
             <div class="max-w-6xl mx-auto">
@@ -186,7 +179,7 @@
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Setup penjualan produk
                                 </h4>
-                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">mendapat
+                                <p class="text-sm text-gray-600 font-nunito">mendapat
                                     komisi
                                     sebesar 30-40%</p>
                             </div>
@@ -203,7 +196,7 @@
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Tim support untuk bantu
                                     tracking & pelaporan</h4>
-                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">hingga
+                                <p class="text-sm text-gray-600 font-nunito">hingga
                                     pengembangan skill</p>
                             </div>
                         </div>
@@ -219,7 +212,7 @@
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Produk gratis untuk review
                                 </h4>
-                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">(bisa 1-3
+                                <p class="text-sm text-gray-600 font-nunito">(bisa 1-3
                                     item)</p>
                             </div>
                         </div>
@@ -238,7 +231,7 @@
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Bonus bulanan dan tahunan
                                 </h4>
-                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">untuk
+                                <p class="text-sm text-gray-600 font-nunito">untuk
                                     penjualan terbanyak</p>
                             </div>
                         </div>
@@ -253,7 +246,7 @@
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Akses ke media kit</h4>
-                                <p style="font-family: 'Nunito', sans-serif;" class="text-sm text-gray-600">(foto, video,
+                                <p class="text-sm text-gray-600 font-nunito">(foto, video,
                                     script)</p>
                             </div>
                         </div>
@@ -267,8 +260,7 @@
 
         <!-- Perfect for you Section -->
         <div class="mb-12 lg:mb-16 px-4 sm:px-6 lg:px-8">
-            <h2 style="font-family: 'Fredoka One', cursive;"
-                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 text-center">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 text-center font-fredoka">
                 Perfect for you
             </h2>
             <div class="max-w-7xl mx-auto">
@@ -277,7 +269,7 @@
                     <div
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
                         <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Momfluencer</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Sering
+                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Sering
                             berbagi daily life bermama anak</p>
                     </div>
 
@@ -285,7 +277,7 @@
                     <div
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
                         <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Bidan/Educator MPASI</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Aktif
+                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Aktif
                             memberikan edukasi tentang kesehatan bayi/anak</p>
                     </div>
 
@@ -293,7 +285,7 @@
                     <div
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
                         <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Admin Komunitas Ibu</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Mengelola
+                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Mengelola
                             komunitas untuk mama dan terlibat diskusi</p>
                     </div>
 
@@ -302,7 +294,7 @@
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
                         <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Content Creator Parenting
                         </h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Membuat
+                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Membuat
                             konten tips, review terkait tumbuh kembang</p>
                     </div>
 
@@ -310,7 +302,7 @@
                     <div
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200 col-span-2 sm:col-span-1">
                         <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Ibu Aktif</h4>
-                        <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-600">Suka
+                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Suka
                             berbagi info dan recommend ke mama lain</p>
                     </div>
                 </div>
@@ -319,8 +311,7 @@
 
         <!-- Meet The Product Section -->
         <div class="text-center py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
-            <h2 style="font-family: 'Fredoka One', cursive;"
-                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-8 lg:mb-12">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-8 lg:mb-12 font-fredoka">
                 Meet The Product
             </h2>
             <div class="max-w-7xl mx-auto">
@@ -335,7 +326,7 @@
                                 onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
                         </div>
                         <div class="text-center mt-auto">
-                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-brand-500 mb-3">
+                            <h4 class="text-2xl text-brand-500 mb-3 font-fredoka">
                                 Gentle Baby
                             </h4>
                             <a href="https://shopee.co.id/GENTLE-BABY-Therapeutic-Oil-10ML-Minyak-Pijat-Aromaterapi-Bayi-Balita-Usia-0-4-Tahun-Bahan-alami-i.400631324.18077793526?sp_atk=fa2355c4-a239-4d5f-ac85-40125edb2198&xptdk=fa2355c4-a239-4d5f-ac85-40125edb2198"
@@ -360,7 +351,7 @@
                                 onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
                         </div>
                         <div class="text-center mt-auto">
-                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-brand-500 mb-3">
+                            <h4 class="text-2xl text-brand-500 mb-3 font-fredoka">
                                 Mamina Seduhan
                             </h4>
                             <a href="https://shopee.co.id/Mamina-Paket-Bundle-Pelancar-Asi-Isi-3-(10-Tebag-per-Paket)-ASI-Booster-Halal-Bahan-Alami-i.1483235365.41704362992?sp_atk=cd7bceae-166b-47bb-8c7c-92efde449b76&xptdk=cd7bceae-166b-47bb-8c7c-92efde449b76"
@@ -385,7 +376,7 @@
                                 onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
                         </div>
                         <div class="text-center mt-auto">
-                            <h4 style="font-family: 'Fredoka One', cursive;" class="text-2xl text-brand-500 mb-3">
+                            <h4 class="text-2xl text-brand-500 mb-3 font-fredoka">
                                 Nyam! MPASI
                             </h4>
                             <a href="https://shopee.co.id/NYAM-BABY-FOOD-BUNDLING-PAKET-MPASI-10-18-BULAN-HOMEMADE-TANPA-PENGAWET-i.1059596102.43102157461"
@@ -408,8 +399,7 @@
     <!-- Testimonial Section -->
     <section class="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 style="font-family: 'Fredoka One', cursive;"
-                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 font-fredoka">
                 Telah dipercaya >30.000 Ibu
             </h2>
 
@@ -421,14 +411,13 @@
 
                     <!-- Testimonial Content -->
                     <div class="text-center sm:text-left flex-1">
-                        <p style="font-family: 'Nunito', sans-serif;"
-                            class="text-sm sm:text-base lg:text-lg text-gray-700 mb-3 lg:mb-4 italic leading-relaxed">
+                        <p class="text-sm sm:text-base lg:text-lg text-gray-700 mb-3 lg:mb-4 italic leading-relaxed font-nunito">
                             "Produk-produknya benar-benar berkualitas dan sesuai dengan kebutuhan bayi. Sebagai affiliate,
                             saya merasa bangga merekomendasikan produk yang saya gunakan sendiri untuk anak saya."
                         </p>
                         <div class="text-left">
                             <p class="font-bold text-gray-800 text-sm lg:text-base">Ibu Sarah</p>
-                            <p style="font-family: 'Nunito', sans-serif;" class="text-xs lg:text-sm text-gray-500">
+                            <p class="text-xs lg:text-sm text-gray-500 font-nunito">
                                 Affiliate Partner sejak 2024</p>
                         </div>
                     </div>
@@ -440,20 +429,17 @@
     <!-- How to Join Section -->
     <section class="py-12 sm:py-16 lg:py-20 bg-[#B8E6D9]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 style="font-family: 'Fredoka One', cursive;"
-                class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 text-center lg:text-left">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 text-center lg:text-left font-fredoka">
                 How to Join
             </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <!-- Left Side - Content -->
                 <div class="order-2 lg:order-1">
                     <div class="bg-white rounded-2xl border border-[#E5E7EB] p-6 lg:p-8 shadow-lg">
-                        <h3 style="font-family: 'Fredoka One', cursive;"
-                            class="text-xl lg:text-2xl text-brand-500 mb-3 text-center lg:text-left">
+                        <h3 class="text-xl lg:text-2xl text-brand-500 mb-3 text-center lg:text-left font-fredoka">
                             Work Easy, Earn More
                         </h3>
-                        <p style="font-family: 'Nunito', sans-serif;"
-                            class="text-gray-600 text-sm lg:text-base leading-relaxed mb-6 lg:mb-8 text-center lg:text-left">
+                        <p class="text-gray-600 text-sm lg:text-base leading-relaxed mb-6 lg:mb-8 text-center lg:text-left font-nunito">
                             Kami bisa bantu rekomendasikan bikin konten/script sesuai gaya kamu
                         </p>
 
@@ -554,3 +540,4 @@
     </section>
 
 @endsection
+

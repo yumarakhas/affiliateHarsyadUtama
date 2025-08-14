@@ -149,8 +149,7 @@
                     }
                 @endphp
                 
-                <h1 style="font-family: 'Fredoka One', cursive;" 
-                    class="text-3xl lg:text-5xl text-[#6C63FF]">
+                <h1 class="text-3xl lg:text-5xl text-[#6C63FF] font-fredoka">
                     {{ $productTitle }}
                 </h1>
             </div>
@@ -184,13 +183,13 @@
                 </div>
                 
                 <!-- Navigation Arrows -->
-                <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-200 z-10 border border-gray-200">
+                <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 btn-carousel z-10">
                     <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
                 </button>
                 
-                <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-200 z-10 border border-gray-200">
+                <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 btn-carousel z-10">
                     <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                     </svg>
@@ -212,7 +211,7 @@
             <!-- Product Benefits -->
             <div class="text-center mb-12">
                 @if(request('product') == 'mamina')
-                    <p style="font-family: 'Nunito', sans-serif;" class="text-lg text-gray-700 mb-6">
+                    <p class="text-lg text-gray-700 mb-6 font-nunito">
                         Pelancar ASI dari bahan rempah alami terpilih untuk meningkatkan kualitas dan kuantitas ASI.
                     </p>
                     
@@ -245,7 +244,7 @@
                         </div>
                     </div>
                 @elseif(request('product') == 'nyam')
-                    <p style="font-family: 'Nunito', sans-serif;" class="text-lg text-gray-700 mb-6">
+                    <p class="text-lg text-gray-700 mb-6 font-nunito">
                         Makanan Pendamping ASI (MPASI) berkualitas tinggi untuk tumbuh kembang optimal si kecil.
                     </p>
                     
@@ -278,7 +277,7 @@
                         </div>
                     </div>
                 @else
-                    <p style="font-family: 'Nunito', sans-serif;" class="text-lg text-gray-700 mb-6">
+                    <p class="text-lg text-gray-700 mb-6 font-nunito">
                         Minyak Bayi Aromaterapi, kombinasi Essential Oil dan Sunflower Seed Oil untuk kesehatan ibu, bayi, dan balita.
                     </p>
                     
@@ -320,8 +319,7 @@
     <section class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 style="font-family: 'Fredoka One', cursive;" 
-                    class="text-3xl lg:text-4xl text-[#6C63FF] mb-8">
+                <h2 class="text-3xl lg:text-4xl text-[#6C63FF] mb-8 font-fredoka">
                     Varian
                 </h2>
                 
@@ -346,7 +344,7 @@
                             <!-- Varian Cards - 9 items total -->
                             @foreach($variants as $index => $variant)
                             <div class="varian-card flex-none mx-3">
-                                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-6 text-center shadow-lg border border-gray-200 h-auto">
+                                <div class="card-product h-auto">
                                     <!-- Square Image Container 1:1 ratio -->
                                     <div class="varian-image-container mb-4 shadow-md">
                                         <img src="{{ asset('images/gentleBaby.png') }}" alt="{{ $variant['name'] }}" class="rounded-lg">
@@ -354,13 +352,13 @@
                                     
                                     <!-- Varian Info -->
                                     <div class="text-center">
-                                        <h3 style="font-family: 'Nunito', sans-serif;" class="font-bold text-gray-800 mb-2 text-lg">
+                                        <h3 class="font-bold text-gray-800 mb-2 text-lg font-nunito">
                                             {{ $variant['name'] }}
                                         </h3>
                                         <p class="text-sm text-gray-600 mb-4">
                                             {{ $variant['desc'] }}
                                         </p>
-                                        <button class="bg-gradient-to-r from-[#528B89] to-[#6C63FF] text-white px-6 py-2 rounded-full text-sm font-semibold hover:from-[#446b6a] hover:to-[#5a56d1] transition-all duration-200 shadow-md hover:shadow-lg">
+                                        <button class="btn-gradient-brand btn-sm">
                                             Beli
                                         </button>
                                     </div>
@@ -371,13 +369,13 @@
                     </div>
                     
                     <!-- Navigation Arrows -->
-                    <button id="varianPrevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-200 z-10 border border-gray-200">
+                    <button id="varianPrevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 btn-carousel z-10">
                         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                         </svg>
                     </button>
                     
-                    <button id="varianNextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white shadow-xl rounded-full p-4 hover:bg-gray-50 transition-all duration-200 z-10 border border-gray-200">
+                    <button id="varianNextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 btn-carousel z-10">
                         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
@@ -397,8 +395,7 @@
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
-                <h2 style="font-family: 'Fredoka One', cursive;" 
-                    class="text-3xl lg:text-4xl text-[#6C63FF] mb-8">
+                <h2 class="text-3xl lg:text-4xl text-[#6C63FF] mb-8 font-fredoka">
                     Produk Lainnya
                 </h2>
                 
@@ -409,13 +406,13 @@
                         <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                             <img src="{{ asset('images/gentleBaby.png') }}" alt="Gentle Baby" class="max-h-full max-w-full object-contain">
                         </div>
-                        <h3 style="font-family: 'Nunito', sans-serif;" class="font-bold text-gray-800 mb-2 text-xl">
+                        <h3 class="font-bold text-gray-800 mb-2 text-xl font-nunito">
                             Gentle Baby
                         </h3>
                         <p class="text-gray-600 mb-4">
                             Minyak Bayi Aromaterapi untuk kesehatan dan kenyamanan si kecil
                         </p>
-                        <a href="{{ route('produk', ['product' => 'gentle-baby']) }}" class="bg-gradient-to-r from-[#528B89] to-[#6C63FF] text-white px-8 py-3 rounded-full font-semibold hover:from-[#446b6a] hover:to-[#5a56d1] transition-all inline-block">
+                        <a href="{{ route('produk', ['product' => 'gentle-baby']) }}" class="btn-gradient-brand inline-block">
                             Lihat Produk
                         </a>
                     </div>
@@ -427,13 +424,13 @@
                         <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                             <img src="{{ asset('images/mamina.png') }}" alt="Mamina ASI Booster" class="max-h-full max-w-full object-contain">
                         </div>
-                        <h3 style="font-family: 'Nunito', sans-serif;" class="font-bold text-gray-800 mb-2 text-xl">
+                        <h3 class="font-bold text-gray-800 mb-2 text-xl font-nunito">
                             Mamina ASI Booster
                         </h3>
                         <p class="text-gray-600 mb-4">
                             Pelancar ASI dari bahan Rempah Alami
                         </p>
-                        <a href="{{ route('produk', ['product' => 'mamina-asi-booster']) }}" class="bg-gradient-to-r from-[#528B89] to-[#6C63FF] text-white px-8 py-3 rounded-full font-semibold hover:from-[#446b6a] hover:to-[#5a56d1] transition-all inline-block">
+                        <a href="{{ route('produk', ['product' => 'mamina-asi-booster']) }}" class="btn-gradient-brand inline-block">
                             Lihat Produk
                         </a>
                     </div>
@@ -445,13 +442,13 @@
                         <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                             <img src="{{ asset('images/nyam.png') }}" alt="Nyam! MPASI" class="max-h-full max-w-full object-contain">
                         </div>
-                        <h3 style="font-family: 'Nunito', sans-serif;" class="font-bold text-gray-800 mb-2 text-xl">
+                        <h3 class="font-bold text-gray-800 mb-2 text-xl font-nunito">
                             Nyam!
                         </h3>
                         <p class="text-gray-600 mb-4">
                             Makanan Pendamping ASI (MPASI)
                         </p>
-                        <a href="{{ route('produk', ['product' => 'nyam']) }}" class="bg-gradient-to-r from-[#528B89] to-[#6C63FF] text-white px-8 py-3 rounded-full font-semibold hover:from-[#446b6a] hover:to-[#5a56d1] transition-all inline-block">
+                        <a href="{{ route('produk', ['product' => 'nyam']) }}" class="btn-gradient-brand inline-block">
                             Lihat Produk
                         </a>
                     </div>
@@ -465,8 +462,7 @@
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
-                <h2 style="font-family: 'Fredoka One', cursive;" 
-                    class="text-3xl lg:text-4xl text-[#6C63FF] mb-8">
+                <h2 class="text-3xl lg:text-4xl text-[#6C63FF] mb-8 font-fredoka">
                     Penilaian Produk
                 </h2>
                 
@@ -834,3 +830,6 @@
         });
     </script>
 @endsection
+
+
+
