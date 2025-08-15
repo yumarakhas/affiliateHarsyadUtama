@@ -236,15 +236,25 @@
                 <div class="overflow-hidden rounded-lg">
                     <div id="productCarousel" class="flex">
                         @php
-                            if(request('product') == 'mamina') {
+                            if(request('product') == 'mamina' || request('product') == 'mamina-asi-booster') {
+                                // Mamina - Multiple images from folder
                                 $productImages = [
-                                    'mamina.png', 'mamina.png', 'mamina.png', 'mamina.png', 'mamina.png',
-                                    'mamina.png', 'mamina.png', 'mamina.png', 'mamina.png', 'mamina.png'
+                                    'products/mamina/ori-10.jpg',
+                                    'products/mamina/bahan-manfaat-ori.jpg',
+                                    'products/mamina/mamina1.jpg',
+                                    'products/mamina/paket-20.jpg',
+                                    'products/mamina/bahan-manfaat-jeruk-nipis.jpg',
+                                    'products/mamina/mamina-2.jpg',
+                                    'products/mamina/bahan-manfaat-belimbing.jpg'
                                 ];
                             } elseif(request('product') == 'nyam') {
                                 $productImages = [
-                                    'nyam.png', 'nyam.png', 'nyam.png', 'nyam.png', 'nyam.png',
-                                    'nyam.png', 'nyam.png', 'nyam.png', 'nyam.png', 'nyam.png'
+                                    'products/nyam/nyam-1.jpg',
+                                    'products/nyam/nyam-11.jpg',
+                                    'products/nyam/nyam-2.jpg',
+                                    'products/nyam/nyam-22.jpg',
+                                    'products/nyam/nyam-3.jpg',
+                                    'products/nyam/nyam-33.jpg'
                                 ];
                             } else {
                                 // Gentle Baby - Multiple images from folder
@@ -270,9 +280,9 @@
                                 <!-- Square Image Container 1:1 ratio -->
                                 <div class="image-container shadow-md">
                                     <img src="{{ asset('images/' . $image) }}" 
-                                        alt="Gentle Baby Product {{ $index + 1 }}" 
+                                        alt="{{ $productTitle }} Product {{ $index + 1 }}" 
                                         class="rounded-lg"
-                                        onerror="this.src='{{ asset('images/gentleBaby.png') }}'">
+                                        onerror="this.src='{{ asset('images/' . (request('product') == 'nyam' ? 'nyam.png' : (request('product') == 'mamina' || request('product') == 'mamina-asi-booster' ? 'mamina.png' : 'gentleBaby.png'))) }}'">
                                 </div>
                             </div>
                         </div>
@@ -315,7 +325,7 @@
                     
                     <div class="space-y-3 max-w-2xl mx-auto">
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -324,7 +334,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -333,7 +343,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -343,35 +353,44 @@
                     </div>
                 @elseif(request('product') == 'nyam')
                     <p class="text-lg text-gray-700 mb-6 font-nunito">
-                        Makanan Pendamping ASI (MPASI) berkualitas tinggi untuk tumbuh kembang optimal si kecil.
+                        Makanan Pendamping ASI (MPASI) berkualitas tinggi dengan nutrisi lengkap untuk tumbuh kembang optimal si kecil.
                     </p>
                     
                     <div class="space-y-3 max-w-2xl mx-auto">
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span class="text-gray-700">MPASI BERKUALITAS TINGGI</span>
+                            <span class="text-gray-700">MPASI BERGIZI TINGGI & HIGIENIS</span>
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span class="text-gray-700">NUTRISI LENGKAP untuk tumbuh kembang</span>
+                            <span class="text-gray-700">NUTRISI LENGKAP sesuai tahapan usia</span>
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
                             </div>
-                            <span class="text-gray-700">KONSULTASI GRATIS seputar MPASI</span>
+                            <span class="text-gray-700">TANPA PENGAWET & MSG - 100% Alami</span>
+                        </div>
+                        
+                        <div class="flex items-center justify-center space-x-3">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="text-gray-700">KONSULTASI GRATIS ahli gizi MPASI</span>
                         </div>
                     </div>
                 @else
@@ -381,7 +400,7 @@
                     
                     <div class="space-y-3 max-w-2xl mx-auto">
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -390,7 +409,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -399,7 +418,7 @@
                         </div>
                         
                         <div class="flex items-center justify-center space-x-3">
-                            <div class="w-6 h-6 bg-brand-500 rounded-full flex items-center justify-center">
+                            <div class="w-6 h-6 bg-[#6C63FF] rounded-full flex items-center justify-center">
                                 <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                 </svg>
@@ -412,8 +431,8 @@
         </div>
     </section>
 
-    @if(!request('product') || request('product') == 'gentle-baby')
-    <!-- Varian Section - Only for Gentle Baby -->
+    @if((!request('product') || request('product') == 'gentle-baby') || request('product') == 'nyam' || request('product') == 'mamina' || request('product') == 'mamina-asi-booster')
+    <!-- Varian Section - For Gentle Baby, Nyam, and Mamina -->
     <section class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -426,6 +445,34 @@
                     <div class="overflow-hidden rounded-xl">
                         <div id="varianCarousel" class="flex transition-transform duration-500 ease-in-out gap-6">
                             @php
+                            if(request('product') == 'mamina' || request('product') == 'mamina-asi-booster') {
+                                // Mamina Variants
+                                $variants = [
+                                    ['name' => 'Paket Bundle Premium', 'desc' => 'Paket premium dengan isi eksklusif', 'image' => 'products/mamina/variants/paket-20.jpg'],
+                                    ['name' => 'Rempah Original', 'desc' => 'Seduhan rempah pelancar ASI original', 'image' => 'products/mamina/variants/paket-20.jpg'],
+                                    ['name' => 'Rempah Jeruk Nipis', 'desc' => 'Seduhan rempah dengan perasa jeruk nipis', 'image' => 'products/mamina/variants/jeruk-nipis-10.jpg'],
+                                    ['name' => 'Rempah Belimbing Wuluh', 'desc' => 'Seduhan rempah dengan perasa belimbing wuluh', 'image' => 'products/mamina/variants/jeruk-nipis-20.jpg'],
+                                    ['name' => 'Tea Bag Original', 'desc' => 'Tea bag praktis untuk ibu sibuk', 'image' => 'products/mamina/variants/belimbing-10.jpg'],
+                                    ['name' => 'Kapsul Herbal', 'desc' => 'Kapsul herbal pelancar ASI praktis', 'image' => 'products/mamina/variants/belimbing-20.jpg'],
+                                    ['name' => 'Susu Almond', 'desc' => 'Susu almond khusus ibu menyusui', 'image' => 'products/mamina/variants/ori-10.jpg'],
+                                    ['name' => 'Cookies Lactation', 'desc' => 'Cookies laktasi untuk camilan sehat', 'image' => 'products/mamina/variants/ori-20.jpg']
+                                ];
+                            } elseif(request('product') == 'nyam') {
+                                // Nyam Variants
+                                $variants = [
+                                    ['name' => 'Abon Hati Ayam', 'desc' => 'MPASI abon hati ayam bergizi tinggi', 'image' => 'products/nyam/variants/abon-hati-ayam.jpg'],
+                                    ['name' => 'Chicken Pudding', 'desc' => 'MPASI chicken pudding bergizi tinggi', 'image' => 'products/nyam/variants/chicken-pudding.jpg'],
+                                    ['name' => 'Dori Bumbu Kuning', 'desc' => 'MPASI dori bumbu kuning bergizi tinggi', 'image' => 'products/nyam/variants/dori-bumbu-kuning.jpg'],
+                                    ['name' => 'Hati Ayam Bumbu Kuning', 'desc' => 'MPASI hati ayam bumbu kuning bergizi tinggi', 'image' => 'products/nyam/variants/hati-ayam-bumbu-kuning.jpg'],
+                                    ['name' => 'Hati Ayam Lengkuas', 'desc' => 'Makanan jari untuk bayi aktif', 'image' => 'products/nyam/variants/hati-ayam-lengkuas.jpg'],
+                                    ['name' => 'Ice Cream', 'desc' => 'Es krim sehat untuk bayi', 'image' => 'products/nyam/variants/ice-cream.jpg'],
+                                    ['name' => 'Jantung Ayam Ungkep', 'desc' => 'Biskuit sehat untuk cemilan', 'image' => 'products/nyam/variants/jantung-ayam-ungkep.jpg'],
+                                    ['name' => 'Nasi Uduk', 'desc' => 'Cemilan sehat untuk balita', 'image' => 'products/nyam/variants/nasi-uduk.jpg'],
+                                    ['name' => 'Pancake Pisang', 'desc' => 'Biskuit sehat untuk cemilan', 'image' => 'products/nyam/variants/pancake-pisang.jpg'],
+                                    ['name' => 'Pasta Bolognese', 'desc' => 'Cemilan sehat untuk balita', 'image' => 'products/nyam/variants/pasta-bolognese.jpg']
+                                ];
+                            } else {
+                                // Gentle Baby Variants (existing)
                                 $variants = [
                                     ['name' => 'Cough n Flu', 'desc' => 'Minyak oles flu, pilek untuk balita', 'image' => 'products/gentle-baby/variants/cough-flu.jpg'],
                                     ['name' => 'Deep Sleep', 'desc' => 'Minyak pijat untuk tidur nyenyak', 'image' => 'products/gentle-baby/variants/deep-sleep.jpg'],
@@ -435,9 +482,10 @@
                                     ['name' => 'LDR Booster', 'desc' => 'Minyak aromaterapi penyegar', 'image' => 'products/gentle-baby/variants/ldr-booster.jpg'],
                                     ['name' => 'Massage Your Baby', 'desc' => 'Minyak perawatan kulit bayi', 'image' => 'products/gentle-baby/variants/massage-your-baby.jpg'],
                                     ['name' => 'Immboost', 'desc' => 'Minyak penambah daya tahan tubuh', 'image' => 'products/gentle-baby/variants/immboost.jpg'],
-                                    ['name' => 'Anti Nyamuk', 'desc' => 'Minyak pendukung tumbuh kembang', 'image' => 'products/gentle-baby/variants/anti-nyamuk.png']
+                                    ['name' => 'Anti Nyamuk', 'desc' => 'Minyak anti nyamuk alami', 'image' => 'products/gentle-baby/variants/anti-nyamuk.png']
                                 ];
-                            @endphp
+                            }
+                        @endphp
                             
                             <!-- Varian Cards - 9 items total -->
                             @foreach($variants as $index => $variant)
@@ -445,7 +493,9 @@
                                 <div class="card-product h-auto">
                                     <!-- Square Image Container 1:1 ratio -->
                                     <div class="varian-image-container shadow-sm">
-                                        <img src="{{ asset('images/' . $variant['image']) }}" alt="{{ $variant['name'] }}" class="rounded-lg">
+                                        <img src="{{ asset('images/' . $variant['image']) }}" alt="{{ $variant['name'] }}" class="rounded-lg"
+                                        onerror="this.src='{{ asset('images/' . (request('product') == 'nyam' ? 'nyam.png' : (request('product') == 'mamina' || 
+                                        request('product') == 'mamina-asi-booster' ? 'mamina.png' : 'gentleBaby.png'))) }}'">
                                     </div>
                                     
                                     <!-- Varian Info -->
@@ -516,7 +566,7 @@
                     </div>
                     @endif
                     
-                    @if(request('product') != 'mamina')
+                    @if(request('product') != 'mamina' && request('product') != 'mamina-asi-booster')
                     <!-- Mamina ASI Booster -->
                     <div class="bg-gray-100 rounded-xl p-6">
                         <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
