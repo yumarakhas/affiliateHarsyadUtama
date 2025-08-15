@@ -314,10 +314,10 @@
     </section>
 
     <!-- Product Benefits Section -->
-    <section class="py-16 bg-white">
+    <section class="py-4 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Product Benefits -->
-            <div class="text-center mb-12">
+            <div class="text-center mb-6">
                 @if(request('product') == 'mamina')
                     <p class="text-lg text-gray-700 mb-6 font-nunito">
                         Pelancar ASI dari bahan rempah alami terpilih untuk meningkatkan kualitas dan kuantitas ASI.
@@ -433,9 +433,9 @@
 
     @if((!request('product') || request('product') == 'gentle-baby') || request('product') == 'nyam' || request('product') == 'mamina' || request('product') == 'mamina-asi-booster')
     <!-- Varian Section - For Gentle Baby, Nyam, and Mamina -->
-    <section class="py-16 bg-white">
+    <section class="py-6 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-8">
                 <h2 class="text-3xl lg:text-4xl text-[#6C63FF] mb-8 font-fredoka">
                     Varian
                 </h2>
@@ -540,9 +540,9 @@
     @endif
 
     <!-- Produk Lainnya Section -->
-    <section class="py-16 bg-white">
+    <section class="py-8 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-8">
                 <h2 class="text-3xl lg:text-4xl text-[#6C63FF] mb-8 font-fredoka">
                     Produk Lainnya
                 </h2>
@@ -607,7 +607,7 @@
     </section>
 
     <!-- Penilaian Produk Section -->
-    <section class="py-16 bg-white">
+    <section class="py-8 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center">
                 <h2 class="text-3xl lg:text-4xl text-[#6C63FF] mb-8 font-fredoka">
