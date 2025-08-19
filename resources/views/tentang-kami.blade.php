@@ -3,21 +3,78 @@
 @section('title', 'Tentang Kami - Gentle Living')
 
 @section('content')
+    {{-- Hero Section / Carousel Banner Tentang Kami --}}
+    <section id="hero" class="relative min-h-screen bg-gray-100">
+        <!-- Full Width Image Carousel -->
+        <div class="absolute inset-0 w-full h-full" id="banner-carousel">
+            <div class="h-full overflow-hidden relative">
+                <img src="{{ asset('images/profil1.jpg') }}" alt="Tentang Kami Banner 1"
+                    class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
+                <img src="{{ asset('images/profil2.jpg') }}" alt="Tentang Kami Banner 2"
+                    class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
+                <img src="{{ asset('images/profil3.jpg') }}" alt="Tentang Kami Banner 3"
+                    class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
+            </div>
+        </div>
 
-    <!-- Tentang Kami Section -->
-    <section class="py-24 bg-gradient-to-b from-white to-blue-50 mt-32">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
-            <div class="text-center mb-16">
-                <h1 class="font-fredoka text-4xl text-gray-800 mb-2 relative inline-block">
+        <!-- Enhanced Dark Overlay -->
+        <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70 z-10"></div>
+
+        <!-- Text Overlay -->
+        <div class="absolute inset-0 flex items-center justify-center z-20">
+            <div class="text-center text-white px-4 max-w-6xl mx-auto">
+
+                <h1 class="font-fredoka text-4xl text-white/85 mb-2 relative inline-block">
                     Tentang Kami
                     <span
                         class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></span>
                 </h1>
-                <p class="font-nunito text-lg text-gray-600 leading-relaxed max-w-lg mx-auto">
-                    Mengenal lebih dekat Gentle Living dan komitmen kami
+
+                <!-- Enhanced Description -->
+                <p
+                    class="font-nunito text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed mb-12 px-4">
+                    Mengenal lebih dekat perjalanan <span class="text-blue-300 font-semibold">Gentle Living</span>
+                    dalam menghadirkan nutrisi terbaik dan produk berkualitas untuk keluarga Indonesia
                 </p>
+
+                <!-- Enhanced Scroll Down Arrow -->
+                <div class="flex flex-col items-center">
+                    <button onclick="scrollToContent()"
+                        class="group relative animate-bounce cursor-pointer p-4 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+                        <!-- Animated Arrow Container -->
+                        <div class="relative overflow-hidden">
+                            <!-- Multiple Arrow Effects -->
+                            <svg class="w-8 h-8 text-white transform transition-all duration-500 group-hover:translate-y-1 group-hover:scale-110"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                            </svg>
+
+                            <!-- Second Arrow for Depth -->
+                            <svg class="absolute top-0 left-0 w-8 h-8 text-blue-300/60 transform transition-all duration-500 group-hover:translate-y-2"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+                            </svg>
+                        </div>
+
+                        <!-- Pulse Effect -->
+                        <div class="absolute inset-0 rounded-full bg-white/20 animate-ping"></div>
+                    </button>
+
+                    <!-- Enhanced Guide Text -->
+                    <div class="mt-4 flex flex-col items-center">
+                        <p class="text-white/70 text-sm font-nunito tracking-wide">Scroll untuk melanjutkan</p>
+                        <div class="w-8 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent mt-2"></div>
+                    </div>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <!-- Tentang Kami Section -->
+    <section id="tentang-kami" class="py-24 bg-gradient-to-b from-white to-blue-50 mt-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+
 
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
                 <!-- Logo Section - Left -->
@@ -57,15 +114,13 @@
     </section>
 
     <!-- Statistics Section -->
-    <section class="py-24 bg-gradient-to-b from-white to-blue-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
+    <section class="py-16 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
-                <h2 class="font-fredoka text-4xl text-gray-800 mb-4 relative inline-block">
-                    Kebanggaan Kami
-                    <span
-                        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></span>
+                <h2 class="text-3xl lg:text-4xl text-gray-800 mb-8 font-fredoka">
+                    Kebangaan Kami
                 </h2>
+            </div>
                 <p class="font-nunito text-lg text-gray-600 leading-relaxed max-w-lg mx-auto">
                     Angka-angka yang membuktikan komitmen kami untuk keluarga Indonesia
                 </p>
@@ -277,4 +332,29 @@
 
         </div>
     </section>
+
+    <script>
+        // Scroll to content function
+        function scrollToContent() {
+            const nextSection = document.querySelector('#tentang-kami');
+            if (nextSection) {
+                nextSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Optional: Auto-hide scroll arrow when user scrolls
+        window.addEventListener('scroll', function() {
+            const scrollArrow = document.querySelector('.animate-bounce');
+            if (scrollArrow) {
+                if (window.scrollY > 100) {
+                    scrollArrow.style.opacity = '0';
+                } else {
+                    scrollArrow.style.opacity = '1';
+                }
+            }
+        });
+    </script>
 @endsection

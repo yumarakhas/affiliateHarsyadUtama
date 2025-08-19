@@ -6,11 +6,11 @@
         <!-- Full Width Image Carousel -->
         <div class="absolute inset-0 w-full h-full" id="banner-carousel">
             <div class="h-full overflow-hidden relative">
-                <img src="{{ asset('images/banner.png') }}" alt="Banner 1"
+                <img src="{{ asset('images/banner_beranda1.png') }}" alt="Banner 1"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
-                <img src="{{ asset('images/banner-2.png') }}" alt="Banner 2"
+                <img src="{{ asset('images/banner_beranda2.png') }}" alt="Banner 2"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
-                <img src="{{ asset('images/banner-3.png') }}" alt="Banner 3"
+                <img src="{{ asset('images/banner_beranda3.png') }}" alt="Banner 3"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
             </div>
         </div>

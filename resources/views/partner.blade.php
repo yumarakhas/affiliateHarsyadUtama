@@ -9,11 +9,11 @@
         <div class="absolute inset-0 w-full h-full lg:hidden" id="banner-carousel-mobile">
             <!-- Slides Container -->
             <div class="h-full overflow-hidden relative">
-                <img src="{{ asset('images/banner.png') }}" alt="Banner 1"
+                <img src="{{ asset('images/banner_partner1.png') }}" alt="Banner 1"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
-                <img src="{{ asset('images/banner-2.png') }}" alt="Banner 2"
+                <img src="{{ asset('images/banner_partner2.jpg') }}" alt="Banner 2"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
-                <img src="{{ asset('images/banner-3.png') }}" alt="Banner 3"
+                <img src="{{ asset('images/banner_partner3.jpg') }}" alt="Banner 3"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
             </div>
             <!-- Mobile: Overlay Gradient -->
@@ -52,11 +52,11 @@
             <div class="relative w-full lg:w-1/2 min-h-screen hidden lg:block" id="banner-carousel">
                 <!-- Slides Container -->
                 <div class="h-full overflow-hidden relative">
-                    <img src="{{ asset('images/banner.png') }}" alt="Banner 1"
+                    <img src="{{ asset('images/banner_partner1.png') }}" alt="Banner 1"
                         class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
-                    <img src="{{ asset('images/banner-2.png') }}" alt="Banner 2"
+                    <img src="{{ asset('images/banner_partner2.jpg') }}" alt="Banner 2"
                         class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
-                    <img src="{{ asset('images/banner-3.png') }}" alt="Banner 3"
+                    <img src="{{ asset('images/banner_partner3.jpg') }}" alt="Banner 3"
                         class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
                 </div>
                 <!-- Subtle overlay for blending -->
