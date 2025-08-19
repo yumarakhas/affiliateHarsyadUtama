@@ -3,213 +3,6 @@
 @section('title', 'Produk - Gentle Living')
 
 @section('content')
-    <style>
-        .carousel-container {
-            padding: 0 2rem;
-            max-width: 1900px;
-            margin: 0 auto;
-        }
-        
-        #productCarousel {
-            transition: transform 0.5s ease-in-out;
-            gap: 1rem;
-        }
-        
-        .product-card {
-            transition: transform 0.3s ease;
-        }
-        
-        .product-card:hover {
-            transform: translateY(-4px);
-        }
-        
-        .dot.active {
-            background-color: #6C63FF !important;
-        }
-        
-        /* Desktop: 3 cards per view */
-        @media (min-width: 1024px) {
-            .product-card {
-                min-width: calc(33.333% - 1rem);
-                max-width: calc(33.333% - 1rem);
-            }
-        }
-        
-        /* Tablet: 2 cards per view */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .product-card {
-                min-width: calc(50% - 0.5rem);
-                max-width: calc(50% - 0.5rem);
-            }
-        }
-        
-        /* Mobile: 1 card per view */
-        @media (max-width: 767px) {
-            .carousel-container {
-                padding: 0 1rem;
-            }
-            
-            .product-card {
-                min-width: calc(100% - 1rem);
-                max-width: calc(100% - 1rem);
-            }
-        }
-        
-        /* Square image container */
-        .image-container {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            background: white;
-        }
-        
-        .image-container img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* Varian Carousel Styles */
-        #varianCarousel {
-            transition: transform 0.5s ease-in-out;
-            gap: 0.5rem;
-        }
-        
-        .varian-card {
-            transition: transform 0.3s ease;
-        }
-        
-        .varian-card:hover {
-            transform: translateY(-4px);
-        }
-        
-        /* Desktop: 5 varian cards per view (smaller cards) */
-        @media (min-width: 1200px) {
-            .varian-card {
-                min-width: calc(20% - 1.2rem);
-                max-width: calc(20% - 1.2rem);
-            }
-        }
-        
-        /* Large Desktop: 4 varian cards per view */
-        @media (min-width: 1024px) and (max-width: 1199px) {
-            .varian-card {
-                min-width: calc(25% - 1rem);
-                max-width: calc(25% - 1rem);
-            }
-        }
-        
-        /* Tablet: 3 varian cards per view */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .varian-card {
-                min-width: calc(33.333% - 0.75rem);
-                max-width: calc(33.333% - 0.75rem);
-            }
-        }
-        
-        /* Mobile: 2 varian cards per view */
-        @media (min-width: 480px) and (max-width: 767px) {
-            .varian-card {
-                min-width: calc(50% - 0.5rem);
-                max-width: calc(50% - 0.5rem);
-            }
-        }
-        
-        /* Small Mobile: 1 varian card per view */
-        @media (max-width: 479px) {
-            .varian-card {
-                min-width: calc(100% - 2rem);
-                max-width: calc(100% - 2rem);
-            }
-        }
-        
-        /* Varian Square image container */
-        .varian-image-container {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
-            background: white;
-        }
-        
-        .varian-image-container img {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* Card styles untuk varian */
-        .card-product {
-            background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
-            border-radius: 0.75rem;
-            padding: 0.75rem;
-            text-align: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            border: 1px solid #e5e7eb;
-            height: auto;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card-product:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 15px -3px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Button styles */
-        .btn-gradient-brand {
-            background: linear-gradient(90deg, #528B89 0%, #6C63FF 100%);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .btn-gradient-brand:hover {
-            background: linear-gradient(90deg, #446b6a 0%, #5a56d1 100%);
-            transform: translateY(-1px);
-        }
-
-        .btn-sm {
-            padding: 0.375rem 0.75rem;
-            font-size: 0.75rem;
-        }
-
-        /* Carousel button styles */
-        .btn-carousel {
-            background: rgba(255, 255, 255, 0.9);
-            border: 1px solid #e5e7eb;
-            border-radius: 50%;
-            width: 2.5rem;
-            height: 2.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(4px);
-        }
-
-        .btn-carousel:hover {
-            background: rgba(255, 255, 255, 1);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-    </style>
 
     @php
         // Define product title based on request parameter
@@ -231,10 +24,10 @@
             </div>
 
             <!-- Product Carousel -->
-            <div class="relative mb-16 carousel-container mt-4">
+            <div class="relative mb-16 px-4 lg:px-8 max-w-7xl mx-auto mt-4">
                 <!-- Carousel Container -->
-                <div class="overflow-hidden rounded-lg">
-                    <div id="productCarousel" class="flex">
+                <div class="overflow-hidden rounded-xl bg-white p-16">
+                    <div id="productCarousel" class="flex transition-transform duration-500 ease-in-out gap-4">
                         @php
                             if(request('product') == 'mamina' || request('product') == 'mamina-asi-booster') {
                                 // Mamina - Multiple images from folder
@@ -244,8 +37,8 @@
                                     'products/mamina/mamina1.jpg',
                                     'products/mamina/paket-20.jpg',
                                     'products/mamina/bahan-manfaat-jeruk-nipis.jpg',
-                                    'products/mamina/mamina-2.jpg',
-                                    'products/mamina/bahan-manfaat-belimbing.jpg'
+                                    'products/mamina/bahan-manfaat-belimbing.jpg',
+                                    'products/mamina/ori-10.jpg'
                                 ];
                             } elseif(request('product') == 'nyam') {
                                 $productImages = [
@@ -254,7 +47,8 @@
                                     'products/nyam/nyam-2.jpg',
                                     'products/nyam/nyam-22.jpg',
                                     'products/nyam/nyam-3.jpg',
-                                    'products/nyam/nyam-33.jpg'
+                                    'products/nyam/nyam-33.jpg',
+                                    'products/nyam/nyam-1.jpg'
                                 ];
                             } else {
                                 // Gentle Baby - Multiple images from folder
@@ -265,23 +59,21 @@
                                     'products/gentle-baby/gentle-baby-4.png',
                                     'products/gentle-baby/gentle-baby-5.png',
                                     'products/gentle-baby/gentle-baby-6.png',
-                                    'products/gentle-baby/gentle-baby-7.png',
-                                    'products/gentle-baby/gentle-baby-8.png',
-                                    'products/gentle-baby/gentle-baby-9.png',
-                                    'products/gentle-baby/gentle-baby-10.png'
+                                    'products/gentle-baby/gentle-baby-1.jpg'
                                 ];
                             }
                         @endphp
                         
-                        <!-- Product Cards - 10 items total -->
+                        <!-- Product Cards - 5 gambar per slide sesuai konsep -->
                         @foreach($productImages as $index => $image)
-                        <div class="product-card flex-none mx-3">
-                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-4 text-center shadow-lg border border-gray-200">
-                                <!-- Square Image Container 1:1 ratio -->
-                                <div class="image-container shadow-md">
+                        <div class="flex-none transition-transform duration-300 hover:-translate-y-1" 
+                             style="width: calc(25% - 1.5rem); min-width: calc(25% - 1.5rem);">
+                            <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl text-center shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
+                                <!-- Square Image Container -->
+                                <div class="w-full aspect-square relative overflow-hidden rounded-lg bg-white shadow-md">
                                     <img src="{{ asset('images/' . $image) }}" 
                                         alt="{{ $productTitle }} Product {{ $index + 1 }}" 
-                                        class="rounded-lg"
+                                        class="absolute inset-0 w-full h-full object-cover rounded-lg transition-transform duration-300 hover:scale-105"
                                         onerror="this.src='{{ asset('images/' . (request('product') == 'nyam' ? 'nyam.png' : (request('product') == 'mamina' || request('product') == 'mamina-asi-booster' ? 'mamina.png' : 'gentleBaby.png'))) }}'">
                                 </div>
                             </div>
@@ -289,25 +81,10 @@
                         @endforeach
                     </div>
                 </div>
-                
-                <!-- Navigation Arrows -->
-                <button id="prevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 btn-carousel z-10">
-                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                    </svg>
-                </button>
-                
-                <button id="nextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 btn-carousel z-10">
-                    <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-                
-                <!-- Dots Indicator -->
-                <div class="flex justify-center mt-8 space-x-3">
-                    <div class="dot active w-3 h-3 bg-[#6C63FF] rounded-full cursor-pointer transition-all duration-200 hover:scale-110" data-slide="0"></div>
-                    <div class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-all duration-200 hover:scale-110" data-slide="1"></div>
-                    <div class="dot w-3 h-3 bg-gray-300 rounded-full cursor-pointer transition-all duration-200 hover:scale-110" data-slide="2"></div>
+                        
+                <!-- Dots Indicator dengan styling yang lebih menarik -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <!-- Dots akan di-generate oleh JavaScript berdasarkan total slides -->
                 </div>
             </div>
         </div>
@@ -441,72 +218,71 @@
                 </h2>
                 
                 <!-- Varian Carousel -->
-                <div class="carousel-container relative">
+                <div class="px-4 sm:px-8 max-w-7xl mx-auto relative">
                     <div class="overflow-hidden rounded-xl">
-                        <div id="varianCarousel" class="flex transition-transform duration-500 ease-in-out gap-6">
+                        <div id="varianCarousel" class="flex transition-transform duration-500 ease-in-out gap-2">
                             @php
                             if(request('product') == 'mamina' || request('product') == 'mamina-asi-booster') {
                                 // Mamina Variants
                                 $variants = [
-                                    ['name' => 'Paket Bundle Premium', 'desc' => 'Paket premium dengan isi eksklusif', 'image' => 'products/mamina/variants/paket-20.jpg'],
-                                    ['name' => 'Rempah Original', 'desc' => 'Seduhan rempah pelancar ASI original', 'image' => 'products/mamina/variants/paket-20.jpg'],
-                                    ['name' => 'Rempah Jeruk Nipis', 'desc' => 'Seduhan rempah dengan perasa jeruk nipis', 'image' => 'products/mamina/variants/jeruk-nipis-10.jpg'],
-                                    ['name' => 'Rempah Belimbing Wuluh', 'desc' => 'Seduhan rempah dengan perasa belimbing wuluh', 'image' => 'products/mamina/variants/jeruk-nipis-20.jpg'],
-                                    ['name' => 'Tea Bag Original', 'desc' => 'Tea bag praktis untuk ibu sibuk', 'image' => 'products/mamina/variants/belimbing-10.jpg'],
-                                    ['name' => 'Kapsul Herbal', 'desc' => 'Kapsul herbal pelancar ASI praktis', 'image' => 'products/mamina/variants/belimbing-20.jpg'],
-                                    ['name' => 'Susu Almond', 'desc' => 'Susu almond khusus ibu menyusui', 'image' => 'products/mamina/variants/ori-10.jpg'],
-                                    ['name' => 'Cookies Lactation', 'desc' => 'Cookies laktasi untuk camilan sehat', 'image' => 'products/mamina/variants/ori-20.jpg']
+                                    ['name' => 'Paket Bundle Premium', 'image' => 'products/mamina/variants/paket-20.jpg'],
+                                    ['name' => 'Rempah Original', 'image' => 'products/mamina/variants/paket-20.jpg'],
+                                    ['name' => 'Rempah Jeruk Nipis', 'image' => 'products/mamina/variants/jeruk-nipis-10.jpg'],
+                                    ['name' => 'Rempah Belimbing Wuluh', 'image' => 'products/mamina/variants/jeruk-nipis-20.jpg'],
+                                    ['name' => 'Tea Bag Original', 'image' => 'products/mamina/variants/belimbing-10.jpg'],
+                                    ['name' => 'Kapsul Herbal', 'image' => 'products/mamina/variants/belimbing-20.jpg'],
+                                    ['name' => 'Susu Almond', 'image' => 'products/mamina/variants/ori-10.jpg'],
+                                    ['name' => 'Cookies Lactation', 'image' => 'products/mamina/variants/ori-20.jpg']
                                 ];
                             } elseif(request('product') == 'nyam') {
                                 // Nyam Variants
                                 $variants = [
-                                    ['name' => 'Abon Hati Ayam', 'desc' => 'MPASI abon hati ayam bergizi tinggi', 'image' => 'products/nyam/variants/abon-hati-ayam.jpg'],
-                                    ['name' => 'Chicken Pudding', 'desc' => 'MPASI chicken pudding bergizi tinggi', 'image' => 'products/nyam/variants/chicken-pudding.jpg'],
-                                    ['name' => 'Dori Bumbu Kuning', 'desc' => 'MPASI dori bumbu kuning bergizi tinggi', 'image' => 'products/nyam/variants/dori-bumbu-kuning.jpg'],
-                                    ['name' => 'Hati Ayam Bumbu Kuning', 'desc' => 'MPASI hati ayam bumbu kuning bergizi tinggi', 'image' => 'products/nyam/variants/hati-ayam-bumbu-kuning.jpg'],
-                                    ['name' => 'Hati Ayam Lengkuas', 'desc' => 'Makanan jari untuk bayi aktif', 'image' => 'products/nyam/variants/hati-ayam-lengkuas.jpg'],
-                                    ['name' => 'Ice Cream', 'desc' => 'Es krim sehat untuk bayi', 'image' => 'products/nyam/variants/ice-cream.jpg'],
-                                    ['name' => 'Jantung Ayam Ungkep', 'desc' => 'Biskuit sehat untuk cemilan', 'image' => 'products/nyam/variants/jantung-ayam-ungkep.jpg'],
-                                    ['name' => 'Nasi Uduk', 'desc' => 'Cemilan sehat untuk balita', 'image' => 'products/nyam/variants/nasi-uduk.jpg'],
-                                    ['name' => 'Pancake Pisang', 'desc' => 'Biskuit sehat untuk cemilan', 'image' => 'products/nyam/variants/pancake-pisang.jpg'],
-                                    ['name' => 'Pasta Bolognese', 'desc' => 'Cemilan sehat untuk balita', 'image' => 'products/nyam/variants/pasta-bolognese.jpg']
+                                    ['name' => 'Abon Hati Ayam', 'image' => 'products/nyam/variants/abon-hati-ayam.jpg'],
+                                    ['name' => 'Chicken Pudding', 'image' => 'products/nyam/variants/chicken-pudding.jpg'],
+                                    ['name' => 'Dori Bumbu Kuning', 'image' => 'products/nyam/variants/dori-bumbu-kuning.jpg'],
+                                    ['name' => 'Hati Ayam Bumbu Kuning', 'image' => 'products/nyam/variants/hati-ayam-bumbu-kuning.jpg'],
+                                    ['name' => 'Hati Ayam Lengkuas', 'image' => 'products/nyam/variants/hati-ayam-lengkuas.jpg'],
+                                    ['name' => 'Ice Cream', 'image' => 'products/nyam/variants/ice-cream.jpg'],
+                                    ['name' => 'Jantung Ayam Ungkep', 'image' => 'products/nyam/variants/jantung-ayam-ungkep.jpg'],
+                                    ['name' => 'Nasi Uduk', 'image' => 'products/nyam/variants/nasi-uduk.jpg'],
+                                    ['name' => 'Pancake Pisang', 'image' => 'products/nyam/variants/pancake-pisang.jpg'],
+                                    ['name' => 'Pasta Bolognese', 'image' => 'products/nyam/variants/pasta-bolognese.jpg']
                                 ];
                             } else {
                                 // Gentle Baby Variants (existing)
                                 $variants = [
-                                    ['name' => 'Cough n Flu', 'desc' => 'Minyak oles flu, pilek untuk balita', 'image' => 'products/gentle-baby/variants/cough-flu.jpg'],
-                                    ['name' => 'Deep Sleep', 'desc' => 'Minyak pijat untuk tidur nyenyak', 'image' => 'products/gentle-baby/variants/deep-sleep.jpg'],
-                                    ['name' => 'Gimme Food', 'desc' => 'Minyak penambah nafsu makan', 'image' => 'products/gentle-baby/variants/gimme-food.jpg'],
-                                    ['name' => 'Joy', 'desc' => 'Minyak relaksasi dan kebahagiaan', 'image' => 'products/gentle-baby/variants/joy.jpg'],
-                                    ['name' => 'Tummy Calmer', 'desc' => 'Minyak penenang untuk bayi rewel', 'image' => 'products/gentle-baby/variants/tummy-calmer.jpg'],
-                                    ['name' => 'LDR Booster', 'desc' => 'Minyak aromaterapi penyegar', 'image' => 'products/gentle-baby/variants/ldr-booster.jpg'],
-                                    ['name' => 'Massage Your Baby', 'desc' => 'Minyak perawatan kulit bayi', 'image' => 'products/gentle-baby/variants/massage-your-baby.jpg'],
-                                    ['name' => 'Immboost', 'desc' => 'Minyak penambah daya tahan tubuh', 'image' => 'products/gentle-baby/variants/immboost.jpg'],
-                                    ['name' => 'Anti Nyamuk', 'desc' => 'Minyak anti nyamuk alami', 'image' => 'products/gentle-baby/variants/anti-nyamuk.png']
+                                    ['name' => 'Cough n Flu', 'image' => 'products/gentle-baby/variants/cough-flu.jpg'],
+                                    ['name' => 'Deep Sleep', 'image' => 'products/gentle-baby/variants/deep-sleep.jpg'],
+                                    ['name' => 'Gimme Food', 'image' => 'products/gentle-baby/variants/gimme-food.jpg'],
+                                    ['name' => 'Joy', 'image' => 'products/gentle-baby/variants/joy.jpg'],
+                                    ['name' => 'Tummy Calmer', 'image' => 'products/gentle-baby/variants/tummy-calmer.jpg'],
+                                    ['name' => 'LDR Booster', 'image' => 'products/gentle-baby/variants/ldr-booster.jpg'],
+                                    ['name' => 'Massage Your Baby', 'image' => 'products/gentle-baby/variants/massage-your-baby.jpg'],
+                                    ['name' => 'Immboost', 'image' => 'products/gentle-baby/variants/immboost.jpg']
                                 ];
                             }
                         @endphp
                             
-                            <!-- Varian Cards - 9 items total -->
+                            <!-- Varian Cards - Display 5 variants per slide -->
                             @foreach($variants as $index => $variant)
-                            <div class="varian-card flex-none mx-2">
-                                <div class="card-product h-auto">
+                            <div class="flex-none mx-2 w-[calc(20%-0.75rem)] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-0.75rem)] lg:w-[calc(20%-0.75rem)] transition-transform duration-300 hover:-translate-y-1">
+                                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-2 text-center shadow-lg border border-gray-200 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
                                     <!-- Square Image Container 1:1 ratio -->
-                                    <div class="varian-image-container shadow-sm">
-                                        <img src="{{ asset('images/' . $variant['image']) }}" alt="{{ $variant['name'] }}" class="rounded-lg"
-                                        onerror="this.src='{{ asset('images/' . (request('product') == 'nyam' ? 'nyam.png' : (request('product') == 'mamina' || 
-                                        request('product') == 'mamina-asi-booster' ? 'mamina.png' : 'gentleBaby.png'))) }}'">
+                                    <div class="w-full aspect-square relative overflow-hidden rounded-lg bg-white shadow-md mb-3">
+                                        <img src="{{ asset('images/' . $variant['image']) }}" 
+                                             alt="{{ $variant['name'] }}" 
+                                             class="w-full h-full object-cover rounded-lg"
+                                             onerror="this.src='{{ asset('images/' . (request('product') == 'nyam' ? 'nyam.png' : (request('product') == 'mamina' || 
+                                             request('product') == 'mamina-asi-booster' ? 'mamina.png' : 'gentleBaby.png'))) }}'">
                                     </div>
                                     
                                     <!-- Varian Info -->
                                     <div class="text-center">
-                                        <h3 class="font-bold text-gray-800 mb-1 text-sm font-nunito">
+                                        <h3 class="font-bold text-gray-800 mb-2 text-sm font-nunito">
                                             {{ $variant['name'] }}
                                         </h3>
-                                        <p class="text-sm text-gray-600 mb-3 leading-tight">
-                                            {{ $variant['desc'] }}
-                                        </p>
-                                        <button class="btn-gradient-brand btn-sm">
+                                        <button
+                                            class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
                                             Beli
                                         </button>
                                     </div>
@@ -517,13 +293,13 @@
                     </div>
                     
                     <!-- Navigation Arrows -->
-                    <button id="varianPrevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 btn-carousel z-10">
+                    <button id="varianPrevBtn" class="absolute left-2 top-1/2 transform -translate-y-1/2 bg-white/90 border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm hover:bg-white hover:shadow-lg z-10">
                         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                         </svg>
                     </button>
                     
-                    <button id="varianNextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 btn-carousel z-10">
+                    <button id="varianNextBtn" class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/90 border border-gray-200 rounded-full w-10 h-10 flex items-center justify-center cursor-pointer transition-all duration-300 backdrop-blur-sm hover:bg-white hover:shadow-lg z-10">
                         <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                         </svg>
@@ -560,7 +336,7 @@
                         <p class="text-gray-600 mb-4">
                             Minyak Bayi Aromaterapi untuk kesehatan dan kenyamanan si kecil
                         </p>
-                        <a href="{{ route('produk', ['product' => 'gentle-baby']) }}" class="btn-gradient-brand inline-block">
+                        <a href="{{ route('produk', ['product' => 'gentle-baby']) }}" class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
                             Lihat Produk
                         </a>
                     </div>
@@ -578,7 +354,7 @@
                         <p class="text-gray-600 mb-4">
                             Pelancar ASI dari bahan Rempah Alami
                         </p>
-                        <a href="{{ route('produk', ['product' => 'mamina-asi-booster']) }}" class="btn-gradient-brand inline-block">
+                        <a href="{{ route('produk', ['product' => 'mamina-asi-booster']) }}" class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
                             Lihat Produk
                         </a>
                     </div>
@@ -596,7 +372,7 @@
                         <p class="text-gray-600 mb-4">
                             Makanan Pendamping ASI (MPASI)
                         </p>
-                        <a href="{{ route('produk', ['product' => 'nyam']) }}" class="btn-gradient-brand inline-block">
+                        <a href="{{ route('produk', ['product' => 'nyam']) }}" class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
                             Lihat Produk
                         </a>
                     </div>
@@ -703,50 +479,80 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const carousel = document.getElementById('productCarousel');
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            const dots = document.querySelectorAll('.dot');
+            const dotsContainer = document.querySelector('.flex.justify-center.mt-8.space-x-2');
             
-            let currentSlide = 0;
-            const totalItems = 10;
-            
-            function getItemsPerView() {
-                if (window.innerWidth >= 1024) return 3; // Desktop: 3 cards
-                if (window.innerWidth >= 768) return 2;  // Tablet: 2 cards  
-                return 1; // Mobile: 1 card
+            if (!carousel || !dotsContainer) {
+                console.log('Product carousel elements not found');
+                return;
             }
             
+            let currentSlide = 0;
+            
+            // Get actual number of images dynamically from PHP
+            @php
+                $imageCount = 0;
+                if(request('product') == 'mamina' || request('product') == 'mamina-asi-booster') {
+                    $imageCount = count($productImages); // Mamina: 6 images
+                } elseif(request('product') == 'nyam') {
+                    $imageCount = count($productImages); // Nyam: 6 images
+                } else {
+                    $imageCount = count($productImages); // Gentle Baby: 6 images
+                }
+            @endphp
+            
+            const totalItems = {{ $imageCount }}; // Dynamic count from PHP
+            const itemsPerSlide = 4; // Show 4 images per slide for better display
+            
+            console.log('Product Carousel Initialized:', {totalItems, itemsPerSlide});
+            
             function getTotalSlides() {
-                const itemsPerView = getItemsPerView();
-                return Math.ceil(totalItems / itemsPerView);
+                // Menghitung berapa banyak slide yang dibutuhkan untuk menampilkan semua gambar
+                return Math.ceil(totalItems / itemsPerSlide);
+            }
+            
+            function createDots() {
+                const totalSlides = getTotalSlides();
+                dotsContainer.innerHTML = '';
+
+                console.log('Creating dots for', totalSlides, 'slides');
+                
+                for (let i = 0; i < totalSlides; i++) {
+                    const dot = document.createElement('div');
+                    dot.className = 'dot w-4 h-4 bg-gray-300 rounded-full cursor-pointer transition-all duration-200 hover:scale-110 hover:bg-gray-400';
+                    if (i === 0) {
+                        dot.classList.remove('bg-gray-300');
+                        dot.classList.add('bg-purple-500');
+                    }
+                    dot.setAttribute('data-slide', i);
+                    dot.addEventListener('click', () => goToSlide(i));
+                    dotsContainer.appendChild(dot);
+                }
             }
             
             function updateCarousel() {
-                const itemsPerView = getItemsPerView();
-                const slideWidth = 100 / itemsPerView;
-                const translateX = currentSlide * slideWidth;
+                console.log('Updating carousel, currentSlide:', currentSlide);
                 
-                carousel.style.transform = `translateX(-${translateX}%)`;
+                // Calculate transform based on items per slide
+                const itemsToMove = currentSlide * itemsPerSlide;
+                const translatePercentage = (itemsToMove / totalItems) * 100;
+                
+                carousel.style.transform = `translateX(-${translatePercentage}%)`;
                 
                 // Update dots
-                const totalSlides = getTotalSlides();
+                const dots = dotsContainer.querySelectorAll('.dot');
                 dots.forEach((dot, index) => {
                     const isActive = index === currentSlide;
-                    dot.classList.toggle('bg-[#6C63FF]', isActive);
+                    dot.classList.toggle('bg-purple-500', isActive);
                     dot.classList.toggle('bg-gray-300', !isActive);
                 });
                 
-                // Update button states
-                prevBtn.style.opacity = currentSlide === 0 ? '0.5' : '1';
-                prevBtn.style.pointerEvents = currentSlide === 0 ? 'none' : 'auto';
-                
-                const maxSlide = totalSlides - 1;
-                nextBtn.style.opacity = currentSlide >= maxSlide ? '0.5' : '1';
-                nextBtn.style.pointerEvents = currentSlide >= maxSlide ? 'none' : 'auto';
+                console.log('Transform applied:', `translateX(-${translatePercentage}%)`);
             }
             
             function nextSlide() {
                 const totalSlides = getTotalSlides();
+                console.log('Next slide called, current:', currentSlide, 'total slides:', totalSlides);
+                
                 if (currentSlide < totalSlides - 1) {
                     currentSlide++;
                 } else {
@@ -756,41 +562,54 @@
             }
             
             function prevSlide() {
+                const totalSlides = getTotalSlides();
+                console.log('Prev slide called, current:', currentSlide);
+                
                 if (currentSlide > 0) {
                     currentSlide--;
                 } else {
-                    currentSlide = getTotalSlides() - 1; // Loop to end
+                    currentSlide = totalSlides - 1; // Loop to end
                 }
                 updateCarousel();
             }
             
             function goToSlide(slideIndex) {
+                console.log('Go to slide:', slideIndex);
                 const totalSlides = getTotalSlides();
                 currentSlide = Math.min(slideIndex, totalSlides - 1);
                 updateCarousel();
             }
             
-            // Event listeners
-            nextBtn.addEventListener('click', nextSlide);
-            prevBtn.addEventListener('click', prevSlide);
+            // AUTO-SLIDE CAROUSEL - Fixed implementation
+            let autoPlayInterval;
             
-            dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => goToSlide(index));
-            });
+            function startAutoSlide() {
+                console.log('Starting auto-slide...');
+                autoPlayInterval = setInterval(() => {
+                    console.log('Auto-slide executing...');
+                    nextSlide();
+                }, 4000); // Auto slide every 4 seconds
+            }
             
-            // Auto-play carousel (optional - remove if not wanted)
-            let autoPlayInterval = setInterval(nextSlide, 4000);
-            
-            // Pause auto-play on hover
-            carousel.parentElement.addEventListener('mouseenter', () => {
+            function stopAutoSlide() {
+                console.log('Stopping auto-slide...');
                 clearInterval(autoPlayInterval);
+            }
+            
+            // Pause auto-slide on hover
+            const carouselContainer = carousel.parentElement;
+            carouselContainer.addEventListener('mouseenter', () => {
+                console.log('Mouse entered, pausing auto-slide');
+                stopAutoSlide();
             });
             
-            carousel.parentElement.addEventListener('mouseleave', () => {
-                autoPlayInterval = setInterval(nextSlide, 4000);
+            // Resume auto-slide when mouse leaves
+            carouselContainer.addEventListener('mouseleave', () => {
+                console.log('Mouse left, resuming auto-slide');
+                startAutoSlide();
             });
             
-            // Handle resize
+            // Handle window resize
             window.addEventListener('resize', () => {
                 const totalSlides = getTotalSlides();
                 if (currentSlide >= totalSlides) {
@@ -799,26 +618,24 @@
                 updateCarousel();
             });
             
-            // Initialize
-            updateCarousel();
-            
             // Touch/Swipe support for mobile
             let startX = 0;
             let currentX = 0;
             let isTouch = false;
             
-            carousel.addEventListener('touchstart', (e) => {
+            carouselContainer.addEventListener('touchstart', (e) => {
                 startX = e.touches[0].clientX;
                 isTouch = true;
+                stopAutoSlide(); // Pause during touch
             });
             
-            carousel.addEventListener('touchmove', (e) => {
+            carouselContainer.addEventListener('touchmove', (e) => {
                 if (!isTouch) return;
                 currentX = e.touches[0].clientX;
                 e.preventDefault();
             });
             
-            carousel.addEventListener('touchend', () => {
+            carouselContainer.addEventListener('touchend', () => {
                 if (!isTouch) return;
                 isTouch = false;
                 
@@ -830,7 +647,30 @@
                         prevSlide();
                     }
                 }
+                
+                // Resume auto-slide after touch
+                startAutoSlide();
             });
+            
+            // Initialize carousel
+            console.log('Initializing product carousel...');
+            createDots();
+            updateCarousel();
+            
+            // Start auto-slide after a short delay
+            setTimeout(() => {
+                startAutoSlide();
+                console.log('Auto-slide started');
+            }, 1000);
+            
+            // Test carousel movement (for debugging)
+            console.log('Testing manual slide in 2 seconds...');
+            setTimeout(() => {
+                if (getTotalSlides() > 1) {
+                    nextSlide();
+                    console.log('Manual test slide executed');
+                }
+            }, 2000);
             
             // Varian Carousel functionality
             const varianCarousel = document.getElementById('varianCarousel');
@@ -838,57 +678,85 @@
             const varianPrevBtn = document.getElementById('varianPrevBtn');
             const varianIndicators = document.getElementById('varianIndicators');
             
-            if (varianCarousel) {
+            if (varianCarousel && varianNextBtn && varianPrevBtn && varianIndicators) {
+                console.log('Varian carousel elements found, initializing...');
+                
+                // Get actual variant count from DOM
+                const varianCards = varianCarousel.children;
+                const totalVarianItems = varianCards.length;
                 let varianCurrentSlide = 0;
-                const totalVarianItems = 9;
+                
+                console.log('Varian Carousel Initialized:', {totalVarianItems});
                 
                 function getVarianItemsPerView() {
-                    if (window.innerWidth >= 1024) return 5; // Desktop: 5 cards
-                    if (window.innerWidth >= 768) return 2;  // Tablet: 2 cards  
+                    if (window.innerWidth >= 1280) return 5; // Desktop XL: 5 cards
+                    if (window.innerWidth >= 1024) return 4; // Desktop LG: 4 cards
+                    if (window.innerWidth >= 768) return 3;  // Tablet MD: 3 cards
+                    if (window.innerWidth >= 640) return 2;  // Tablet SM: 2 cards
                     return 1; // Mobile: 1 card
                 }
                 
                 function getTotalVarianSlides() {
                     const itemsPerView = getVarianItemsPerView();
-                    // Perbaikan: gunakan sliding window approach
-                    return Math.max(1, totalVarianItems - itemsPerView + 1);
+                    return Math.ceil(totalVarianItems / itemsPerView);
                 }
                 
                 function updateVarianCarousel() {
-                    const itemsPerView = getVarianItemsPerView();
-                    const slideWidth = 100 / itemsPerView;
-                    const translateX = varianCurrentSlide * slideWidth;
+                    console.log('updateVarianCarousel called, currentSlide:', varianCurrentSlide);
                     
-                    varianCarousel.style.transform = `translateX(-${translateX}%)`;
+                    const itemsPerView = getVarianItemsPerView();
+                    const itemsToMove = varianCurrentSlide * itemsPerView;
+                    const translatePercentage = (itemsToMove / totalVarianItems) * 100;
+                    
+                    varianCarousel.style.transform = `translateX(-${translatePercentage}%)`;
                     
                     // Update indicators
-                    const dots = varianIndicators.querySelectorAll('.dot');
+                    const dots = varianIndicators.querySelectorAll('button');
                     dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === varianCurrentSlide);
+                        if (index === varianCurrentSlide) {
+                            dot.classList.remove('bg-gray-300');
+                            dot.classList.add('bg-purple-500');
+                        } else {
+                            dot.classList.remove('bg-purple-500');
+                            dot.classList.add('bg-gray-300');
+                        }
                     });
                     
                     // Update navigation buttons
                     const totalSlides = getTotalVarianSlides();
-                    varianPrevBtn.style.opacity = varianCurrentSlide === 0 ? '0.5' : '1';
-                    varianNextBtn.style.opacity = varianCurrentSlide >= totalSlides - 1 ? '0.5' : '1';
+                    if (varianPrevBtn) {
+                        varianPrevBtn.style.opacity = varianCurrentSlide === 0 ? '0.5' : '1';
+                        varianPrevBtn.style.pointerEvents = varianCurrentSlide === 0 ? 'none' : 'auto';
+                    }
+                    if (varianNextBtn) {
+                        varianNextBtn.style.opacity = varianCurrentSlide >= totalSlides - 1 ? '0.5' : '1';
+                        varianNextBtn.style.pointerEvents = varianCurrentSlide >= totalSlides - 1 ? 'none' : 'auto';
+                    }
                 }
                 
                 function nextVarianSlide() {
+                    console.log('Next varian slide called');
                     const totalSlides = getTotalVarianSlides();
                     if (varianCurrentSlide < totalSlides - 1) {
                         varianCurrentSlide++;
-                        updateVarianCarousel();
+                    } else {
+                        varianCurrentSlide = 0; // Loop back to start
                     }
+                    updateVarianCarousel();
                 }
                 
                 function prevVarianSlide() {
+                    console.log('Prev varian slide called');
                     if (varianCurrentSlide > 0) {
                         varianCurrentSlide--;
-                        updateVarianCarousel();
+                    } else {
+                        varianCurrentSlide = getTotalVarianSlides() - 1; // Loop to end
                     }
+                    updateVarianCarousel();
                 }
                 
                 function goToVarianSlide(slideIndex) {
+                    console.log('Go to varian slide:', slideIndex);
                     varianCurrentSlide = slideIndex;
                     updateVarianCarousel();
                 }
@@ -898,64 +766,81 @@
                     const totalSlides = getTotalVarianSlides();
                     varianIndicators.innerHTML = '';
                     
+                    console.log('Creating varian indicators for', totalSlides, 'slides');
+                    
                     for (let i = 0; i < totalSlides; i++) {
                         const dot = document.createElement('button');
-                        dot.classList.add('dot', 'w-3', 'h-3', 'rounded-full', 'bg-gray-300', 'hover:bg-gray-400', 'transition-colors');
-                        if (i === 0) dot.classList.add('active');
+                        dot.classList.add('w-3', 'h-3', 'rounded-full', 'transition-colors', 'duration-200');
+                        if (i === 0) {
+                            dot.classList.add('bg-purple-500');
+                        } else {
+                            dot.classList.add('bg-gray-300', 'hover:bg-gray-400');
+                        }
                         dot.addEventListener('click', () => goToVarianSlide(i));
                         varianIndicators.appendChild(dot);
                     }
+                    updateVarianCarousel();
                 }
                 
-                // Event listeners
-                varianNextBtn.addEventListener('click', nextVarianSlide);
-                varianPrevBtn.addEventListener('click', prevVarianSlide);
+                // Event listeners with null checks
+                if (varianNextBtn) {
+                    varianNextBtn.addEventListener('click', () => {
+                        console.log('Varian next button clicked');
+                        nextVarianSlide();
+                    });
+                }
                 
-                // Auto-slide functionality
+                if (varianPrevBtn) {
+                    varianPrevBtn.addEventListener('click', () => {
+                        console.log('Varian prev button clicked');
+                        prevVarianSlide();
+                    });
+                }
+                
+                // Auto-slide functionality for varian
                 let varianAutoSlideInterval;
                 
                 function startVarianAutoSlide() {
+                    console.log('Starting varian auto-slide...');
                     varianAutoSlideInterval = setInterval(() => {
-                        const totalSlides = getTotalVarianSlides();
-                        if (varianCurrentSlide >= totalSlides - 1) {
-                            varianCurrentSlide = 0;
-                        } else {
-                            varianCurrentSlide++;
-                        }
-                        updateVarianCarousel();
-                    }, 4000);
+                        console.log('Varian auto-slide executing...');
+                        nextVarianSlide();
+                    }, 5000); // 5 seconds for varian
                 }
                 
                 function stopVarianAutoSlide() {
+                    console.log('Stopping varian auto-slide...');
                     clearInterval(varianAutoSlideInterval);
                 }
                 
-                varianCarousel.parentElement.addEventListener('mouseenter', stopVarianAutoSlide);
-                varianCarousel.parentElement.addEventListener('mouseleave', startVarianAutoSlide);
+                // Pause/resume on hover
+                const varianContainer = varianCarousel.parentElement;
+                varianContainer.addEventListener('mouseenter', stopVarianAutoSlide);
+                varianContainer.addEventListener('mouseleave', startVarianAutoSlide);
                 
                 // Responsive handling
                 window.addEventListener('resize', () => {
                     createVarianIndicators();
-                    updateVarianCarousel();
                 });
                 
-                // Touch/swipe support for mobile
+                // Touch/swipe support for varian
                 let varianStartX = 0;
                 let varianCurrentX = 0;
                 let varianIsDragging = false;
                 
-                varianCarousel.addEventListener('touchstart', (e) => {
+                varianContainer.addEventListener('touchstart', (e) => {
                     varianStartX = e.touches[0].clientX;
                     varianIsDragging = true;
+                    stopVarianAutoSlide();
                 });
                 
-                varianCarousel.addEventListener('touchmove', (e) => {
+                varianContainer.addEventListener('touchmove', (e) => {
                     if (!varianIsDragging) return;
                     varianCurrentX = e.touches[0].clientX;
                     e.preventDefault();
                 });
                 
-                varianCarousel.addEventListener('touchend', () => {
+                varianContainer.addEventListener('touchend', () => {
                     if (!varianIsDragging) return;
                     varianIsDragging = false;
                     
@@ -969,12 +854,21 @@
                             prevVarianSlide();
                         }
                     }
+                    
+                    startVarianAutoSlide();
                 });
                 
-                // Initialize
+                // Initialize varian carousel
+                console.log('Initializing varian carousel...');
                 createVarianIndicators();
-                updateVarianCarousel();
-                startVarianAutoSlide();
+                
+                // Start varian auto-slide
+                setTimeout(() => {
+                    startVarianAutoSlide();
+                    console.log('Varian auto-slide started');
+                }, 2000);
+            } else {
+                console.log('Varian carousel elements not found');
             }
         });
     </script>
