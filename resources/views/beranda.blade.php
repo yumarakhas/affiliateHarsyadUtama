@@ -89,7 +89,7 @@
                                 <!-- Product Image -->
                                 <div class="rounded-lg mb-5 overflow-hidden flex items-center justify-center bg-gray-50 p-3"
                                     style="height: 200px;">
-                                    <img src="{{ asset('images/products/mamina/variants/maminA.png') }}"
+                                    <img src="{{ asset('images/products/mamina/variants/ori-10.jpg') }}"
                                         alt="Mamina ASI Booster"
                                         class="object-contain transition-transform duration-300 hover:scale-110">
                                 </div>

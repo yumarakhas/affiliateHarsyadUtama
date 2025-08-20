@@ -4,7 +4,7 @@
 
 @section('content')
     {{-- Hero Section / Carousel Banner Tentang Kami --}}
-    <section id="hero" class="relative min-h-screen bg-gray-100">
+    <section id="hero" class="relative min-h-screen bg-gray-100 mt-20">
         <!-- Full Width Image Carousel -->
         <div class="absolute inset-0 w-full h-full" id="banner-carousel">
             <div class="h-full overflow-hidden relative">
@@ -74,8 +74,6 @@
     <section id="tentang-kami" class="py-24 bg-gradient-to-b from-white to-blue-50 mt-32">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
-
-
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
                 <!-- Logo Section - Left -->
                 <div class="flex justify-center lg:justify-start">
@@ -118,10 +116,9 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl lg:text-4xl text-gray-800 mb-8 font-fredoka">
-                    Kebangaan Kami
+                    Kebanggaan Kami
                 </h2>
-            </div>
-                <p class="font-nunito text-lg text-gray-600 leading-relaxed max-w-lg mx-auto">
+                <p class="font-nunito text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto">
                     Angka-angka yang membuktikan komitmen kami untuk keluarga Indonesia
                 </p>
             </div>
