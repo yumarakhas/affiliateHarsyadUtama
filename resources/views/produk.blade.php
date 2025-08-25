@@ -26,7 +26,7 @@
             <!-- Product Carousel -->
             <div class="relative mb-16 px-4 lg:px-8 max-w-7xl mx-auto mt-4">
                 <!-- Carousel Container -->
-                <div class="overflow-hidden rounded-xl bg-white p-16">
+                <div class="overflow-hidden rounded-xl bg-white p-6 lg:p-8">
                     <div id="productCarousel" class="flex transition-transform duration-500 ease-in-out gap-4">
                         @php
                             if(request('product') == 'mamina' || request('product') == 'mamina-asi-booster') {
@@ -35,10 +35,11 @@
                                     'products/mamina/ori-10.jpg',
                                     'products/mamina/bahan-manfaat-ori.jpg',
                                     'products/mamina/mamina1.jpg',
-                                    'products/mamina/paket-20.jpg',
                                     'products/mamina/bahan-manfaat-jeruk-nipis.jpg',
+                                    'products/mamina/paket-20.jpg',
                                     'products/mamina/bahan-manfaat-belimbing.jpg',
-                                    'products/mamina/ori-10.jpg'
+                                    'products/mamina/ori-10.jpg',
+                                    'products/mamina/bahan-manfaat-ori.jpg'
                                 ];
                             } elseif(request('product') == 'nyam') {
                                 $productImages = [
@@ -48,7 +49,8 @@
                                     'products/nyam/nyam-22.jpg',
                                     'products/nyam/nyam-3.jpg',
                                     'products/nyam/nyam-33.jpg',
-                                    'products/nyam/nyam-1.jpg'
+                                    'products/nyam/nyam-1.jpg',
+                                    'products/nyam/nyam-11.jpg'
                                 ];
                             } else {
                                 // Gentle Baby - Multiple images from folder
@@ -57,17 +59,18 @@
                                     'products/gentle-baby/gentle-baby-2.jpg',
                                     'products/gentle-baby/gentle-baby-3.jpg',
                                     'products/gentle-baby/gentle-baby-4.png',
-                                    'products/gentle-baby/gentle-baby-5.png',
-                                    'products/gentle-baby/gentle-baby-6.png',
-                                    'products/gentle-baby/gentle-baby-1.jpg'
+                                    'products/gentle-baby/gentle-baby-10.png',
+                                    'products/gentle-baby/gentle-baby-9.png',
+                                    'products/gentle-baby/gentle-baby-1.jpg',
+                                    'products/gentle-baby/gentle-baby-2.jpg'
                                 ];
                             }
                         @endphp
                         
                         <!-- Product Cards - 5 gambar per slide sesuai konsep -->
                         @foreach($productImages as $index => $image)
-                        <div class="flex-none transition-transform duration-300 hover:-translate-y-1" 
-                             style="width: calc(25% - 1.5rem); min-width: calc(25% - 1.5rem);">
+                        <div class="flex-none transition-transform duration-300 hover:-translate-y-1 
+                                    w-full sm:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
                             <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl text-center shadow-lg border border-gray-200 hover:shadow-xl transition-all duration-300">
                                 <!-- Square Image Container -->
                                 <div class="w-full aspect-square relative overflow-hidden rounded-lg bg-white shadow-md">
@@ -95,7 +98,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Product Benefits -->
             <div class="text-center mb-6">
-                @if(request('product') == 'mamina')
+                @if(request('product') == 'mamina-asi-booster')
                     <p class="text-lg text-gray-700 mb-6 font-nunito">
                         Pelancar ASI dari bahan rempah alami terpilih untuk meningkatkan kualitas dan kuantitas ASI.
                     </p>
@@ -225,47 +228,47 @@
                             if(request('product') == 'mamina' || request('product') == 'mamina-asi-booster') {
                                 // Mamina Variants
                                 $variants = [
-                                    ['name' => 'Paket Bundle Premium', 'image' => 'products/mamina/variants/paket-20.jpg'],
-                                    ['name' => 'Rempah Original', 'image' => 'products/mamina/variants/paket-20.jpg'],
-                                    ['name' => 'Rempah Jeruk Nipis', 'image' => 'products/mamina/variants/jeruk-nipis-10.jpg'],
-                                    ['name' => 'Rempah Belimbing Wuluh', 'image' => 'products/mamina/variants/jeruk-nipis-20.jpg'],
-                                    ['name' => 'Tea Bag Original', 'image' => 'products/mamina/variants/belimbing-10.jpg'],
-                                    ['name' => 'Kapsul Herbal', 'image' => 'products/mamina/variants/belimbing-20.jpg'],
-                                    ['name' => 'Susu Almond', 'image' => 'products/mamina/variants/ori-10.jpg'],
-                                    ['name' => 'Cookies Lactation', 'image' => 'products/mamina/variants/ori-20.jpg']
+                                    ['name' => 'Paket 3 box isi 20 kantong', 'image' => 'products/mamina/variants/paket-20.jpg', 'link' => 'https://shopee.co.id/Mamina-Paket-Bundle-ASI-Booster-Pelancar-ASI-Halal-dari-Bahan-Alami-3-Paket-Isi-20-Kantong-i.1483235365.40754357803'],
+                                    ['name' => 'Paket 3 box isi 10 kantong', 'image' => 'products/mamina/variants/paket-10.jpg', 'link' => 'https://shopee.co.id/Mamina-Paket-Bundle-ASI-Booster-Pelancar-ASI-Halal-dari-Bahan-Alami-3-Paket-Isi10-Kantong-i.1483235365.41704362992'],
+                                    ['name' => 'Jeruk Nipis 10 kantong', 'image' => 'products/mamina/variants/jeruk-nipis-10.jpg', 'link' => 'https://shopee.co.id/Mamina-ASI-Booster-Pelancar-ASI-Halal-dari-Bahan-Alami-Rasa-Jeruk-Nipis-Isi-10-Kantong-i.1483235365.41104368528'],
+                                    ['name' => 'Jeruk Nipis 20 kantong', 'image' => 'products/mamina/variants/jeruk-nipis-20.jpg', 'link' => 'https://shopee.co.id/Mamina-ASI-Booster-Pelancar-ASI-Halal-dari-Bahan-Alami-Rasa-Jeruk-Nipis-Isi-20-Kantong-i.1483235365.42903609549'],
+                                    ['name' => 'Belimbing Wuluh 10 kantong', 'image' => 'products/mamina/variants/belimbing-10.jpg', 'link' => 'https://shopee.co.id/Mamina-ASI-Booster-Pelancar-ASI-Halal-dari-Bahan-Alami-Rasa-Belimbing-Wuluh-Isi-10-Kantong-i.1483235365.43703599893'],
+                                    ['name' => 'Belimbing Wuluh 20 kantong', 'image' => 'products/mamina/variants/belimbing-20.jpg', 'link' => 'https://shopee.co.id/Mamina-ASI-Booster-Pelancar-ASI-Halal-dari-Bahan-Alami-Rasa-Belimbing-Wuluh-Isi-20-Kantong-i.1483235365.42604364041'],
+                                    ['name' => 'Original 10 kantong', 'image' => 'products/mamina/variants/ori-10.jpg', 'link' => 'https://shopee.co.id/Mamina-ASI-Booster-Pelancar-ASI-Halal-dari-Bahan-Alami-Rasa-Original-Isi-10-Kantong-i.1483235365.43404363804'],
+                                    ['name' => 'Original 20 kantong', 'image' => 'products/mamina/variants/ori-20.jpg', 'link' => 'https://shopee.co.id/Mamina-ASI-Booster-Pelancar-ASI-Halal-dari-Bahan-Alami-Rasa-Original-Isi-20-Kantung-i.1483235365.40953609750']
                                 ];
                             } elseif(request('product') == 'nyam') {
                                 // Nyam Variants
                                 $variants = [
-                                    ['name' => 'Abon Hati Ayam', 'image' => 'products/nyam/variants/abon-hati-ayam.jpg'],
-                                    ['name' => 'Chicken Pudding', 'image' => 'products/nyam/variants/chicken-pudding.jpg'],
-                                    ['name' => 'Dori Bumbu Kuning', 'image' => 'products/nyam/variants/dori-bumbu-kuning.jpg'],
-                                    ['name' => 'Hati Ayam Bumbu Kuning', 'image' => 'products/nyam/variants/hati-ayam-bumbu-kuning.jpg'],
-                                    ['name' => 'Hati Ayam Lengkuas', 'image' => 'products/nyam/variants/hati-ayam-lengkuas.jpg'],
-                                    ['name' => 'Ice Cream', 'image' => 'products/nyam/variants/ice-cream.jpg'],
-                                    ['name' => 'Jantung Ayam Ungkep', 'image' => 'products/nyam/variants/jantung-ayam-ungkep.jpg'],
-                                    ['name' => 'Nasi Uduk', 'image' => 'products/nyam/variants/nasi-uduk.jpg'],
-                                    ['name' => 'Pancake Pisang', 'image' => 'products/nyam/variants/pancake-pisang.jpg'],
-                                    ['name' => 'Pasta Bolognese', 'image' => 'products/nyam/variants/pasta-bolognese.jpg']
+                                    ['name' => 'Abon Hati Ayam', 'image' => 'products/nyam/variants/abon-hati-ayam.jpg', 'link' => 'https://shopee.co.id/NYAM-BABY-FOOD-ABON-HATI-AYAM-MPASI-BAYI-ZAT-BESI-TINGGI-NO-MSG-TANPA-PENGAWET-i.1059596102.26274848426'],
+                                    ['name' => 'Chicken Pudding', 'image' => 'products/nyam/variants/chicken-pudding.jpg', 'link' => 'https://shopee.co.id/NYAM-BABY-FOOD-CHICKEN-PUDDING-GADON-AYAM-MPASI-BAYI-TINGGI-PROTEIN-NO-MSG-TANPA-PENGAWET-i.1059596102.27611140618'],
+                                    ['name' => 'Dori Bumbu Kuning', 'image' => 'products/nyam/variants/dori-bumbu-kuning.jpg', 'link' => 'https://shopee.co.id/NYAM-BABY-FOOD-DORI-BUMBU-KUNING-MPASI-BAYI-8-BULAN-FULL-MEAL-TANPA-PENGAWET-i.1059596102.27411140854'],
+                                    ['name' => 'Hati Ayam Bumbu Kuning', 'image' => 'products/nyam/variants/hati-ayam-bumbu-kuning.jpg', 'link' => 'https://shopee.co.id/NYAM-BABY-FOOD-HATI-AYAM-BUMBU-KUNING-MPASI-BAYI-8-BULAN-TINGGI-ZAT-BESI-TANPA-PENGAWET-i.1059596102.25235437153'],
+                                    ['name' => 'Hati Ayam Lengkuas', 'image' => 'products/nyam/variants/hati-ayam-lengkuas.jpg', 'link' => 'https://shopee.co.id/NYAM-BABY-FOOD-HATI-AYAM-LENGKUAS-MPASI-BAY-ZAT-BESI-TINGGI-NO-MSG-TANPA-PENGAWET-i.1059596102.26782686685'],
+                                    ['name' => 'Hi-Pro Ice Cream', 'image' => 'products/nyam/variants/ice-cream.jpg', 'link' => 'https://shopee.co.id/NYAM-ICE-CREAM-MPASI-%E2%80%93-ES-KRIM-HOMEMADE-TINGGI-PROTEIN-UNTUK-BAYI-ANAK-BB-BOOSTER-i.1059596102.25185486134'],
+                                    ['name' => 'Jantung Ayam Ungkep', 'image' => 'products/nyam/variants/jantung-ayam-ungkep.jpg', 'link' => 'https://shopee.co.id/NYAM-BABY-FOOD-JANTUNG-AYAM-UNGKEP-MPASI-BAYI-ANTI-GTM-TANPA-PENGAWET-HOMEMADE-i.1059596102.25493777125'],
+                                    ['name' => 'Nasi Uduk', 'image' => 'products/nyam/variants/nasi-uduk.jpg', 'link' => 'https://shopee.co.id/NYAM-BABY-FOOD-NASI-UDUK-AYAM-TELUR-MPASI-BAYI-8-BULAN-GURIH-LEMBUT-FULL-MEAL-NO-MSG-TANPA-PENGAWET-i.1059596102.26659625493'],
+                                    ['name' => 'Pancake Pisang', 'image' => 'products/nyam/variants/pancake-pisang.jpg', 'link' => 'https://shopee.co.id/Nyambabyfood-Pancake-Pisang-Homemade-Finger-Food-Sehat-untuk-Anak-Usia-6--i.1059596102.42806701992'],
+                                    ['name' => 'Pasta Bolognese', 'image' => 'products/nyam/variants/pasta-bolognese.jpg', 'link' => 'https://shopee.co.id/NYAM-BABY-FOOD-PASTA-BOLOGNESE-MPASI-BAYI-8-BULAN-FULL-MEAL-TANPA-PENGAWET-HOMEMADE-i.1059596102.27559603253']
                                 ];
                             } else {
                                 // Gentle Baby Variants (existing)
                                 $variants = [
-                                    ['name' => 'Cough n Flu', 'image' => 'products/gentle-baby/variants/cough-flu.jpg'],
-                                    ['name' => 'Deep Sleep', 'image' => 'products/gentle-baby/variants/deep-sleep.jpg'],
-                                    ['name' => 'Gimme Food', 'image' => 'products/gentle-baby/variants/gimme-food.jpg'],
-                                    ['name' => 'Joy', 'image' => 'products/gentle-baby/variants/joy.jpg'],
-                                    ['name' => 'Tummy Calmer', 'image' => 'products/gentle-baby/variants/tummy-calmer.jpg'],
-                                    ['name' => 'LDR Booster', 'image' => 'products/gentle-baby/variants/ldr-booster.jpg'],
-                                    ['name' => 'Massage Your Baby', 'image' => 'products/gentle-baby/variants/massage-your-baby.jpg'],
-                                    ['name' => 'Immboost', 'image' => 'products/gentle-baby/variants/immboost.jpg']
+                                    ['name' => 'Cough n Flu', 'image' => 'products/gentle-baby/variants/cough-flu.jpg', 'link' => 'https://shopee.co.id/GENTLE-BABY-Cough-n-Flu-Therapeutic-Oil-10-ml-mengatasi-Batuk-Pilek-pada-Bayi-Balita-Bahan-Alami-i.400631324.23843953090'],
+                                    ['name' => 'Deep Sleep', 'image' => 'products/gentle-baby/variants/deep-sleep.jpg', 'link' => 'https://shopee.co.id/GENTLE-BABY-Deep-Sleep-Therapeutic-Oil-10-ml-Membuat-Bayi-Tidur-Lebih-Nyenyak-Bahan-Alami-i.400631324.23269436550'],
+                                    ['name' => 'Gimme Food', 'image' => 'products/gentle-baby/variants/gimme-food.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-Gimme-Food-Therapeutic-Oil-10-ml-Tingkatkan-Nafsu-Makan-Buah-Hati-Bahan-Alami-i.400631324.16694810325'],
+                                    ['name' => 'Joy', 'image' => 'products/gentle-baby/variants/joy.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-Joy-Therapeutic-Oil-10-ml-Atasi-Pegal-pegal-Nyeri-Otot-pada-Bayi-Bahan-Alami-i.400631324.23343960290'],
+                                    ['name' => 'Tummy Calmer', 'image' => 'products/gentle-baby/variants/tummy-calmer.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-Tummy-Calmer-Therapeutic-Oil-10-ml-Atasi-Masalah-Perut-Kembung-Si-Kecil-Bahan-Alami-i.400631324.18489288812'],
+                                    ['name' => 'LDR Booster', 'image' => 'products/gentle-baby/variants/ldr-booster.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-LDR-Booster-Therapeutic-Oil-10-ml-Untuk-Ibu-Menyusui-Bahan-Alami-i.400631324.19780323108'],
+                                    ['name' => 'Massage Your Baby', 'image' => 'products/gentle-baby/variants/massage-your-baby.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-Massage-Your-Baby-Therapeutic-Oil-10-ml-Media-untuk-Memijat-Bayi-Balita-Bahan-Alami-i.400631324.21589276883'],
+                                    ['name' => 'Immboost', 'image' => 'products/gentle-baby/variants/immboost.jpg', 'link' => 'https://shopee.co.id/GENTLE-BABY-Therapeutic-Oil-10ML-Minyak-Pijat-Aromaterapi-Bayi-Balita-Usia-0-4-Tahun-Bahan-alami-i.400631324.18077793526']
                                 ];
                             }
                         @endphp
                             
                             <!-- Varian Cards - Display 5 variants per slide -->
                             @foreach($variants as $index => $variant)
-                            <div class="flex-none mx-2 w-[calc(20%-0.75rem)] sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-0.75rem)] lg:w-[calc(20%-0.75rem)] transition-transform duration-300 hover:-translate-y-1">
+                            <div class="flex-none w-full sm:w-1/2 md:w-1/3 lg:w-1/5 px-2 transition-transform duration-300 hover:-translate-y-1">
                                 <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl p-2 text-center shadow-lg border border-gray-200 h-full flex flex-col justify-between transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl">
                                     <!-- Square Image Container 1:1 ratio -->
                                     <div class="w-full aspect-square relative overflow-hidden rounded-lg bg-white shadow-md mb-3">
@@ -281,10 +284,13 @@
                                         <h3 class="font-bold text-gray-800 mb-2 text-sm font-nunito">
                                             {{ $variant['name'] }}
                                         </h3>
-                                        <button
-                                            class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
+                                        <a href="{{ $variant['link'] ?? '#' }}" 
+                                            target="_blank" 
+                                            rel="noopener noreferrer"
+                                            class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90 block text-center">
                                             Beli
-                                        </button>
+                                        </a>
+
                                     </div>
                                 </div>
                             </div>
@@ -326,55 +332,97 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
                     @if(request('product') != 'gentle-baby' && request('product') != null)
                     <!-- Gentle Baby -->
-                    <div class="bg-gray-100 rounded-xl p-6">
-                        <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="{{ asset('images/gentleBaby.png') }}" alt="Gentle Baby" class="max-h-full max-w-full object-contain">
+                    <div class="bg-white border rounded-xl overflow-hidden h-64 flex">
+                        <!-- Gambar Produk - Bigger Size -->
+                        <div class="w-1/2 bg-gray-100 flex items-center justify-center p-6">
+                            <img src="{{ asset('images/products/gentle-baby.png') }}" 
+                                alt="Gentle Baby" 
+                                class="w-full h-44 object-contain">
                         </div>
-                        <h3 class="font-bold text-gray-800 mb-2 text-xl font-nunito">
-                            Gentle Baby
-                        </h3>
-                        <p class="text-gray-600 mb-4">
-                            Minyak Bayi Aromaterapi untuk kesehatan dan kenyamanan si kecil
-                        </p>
-                        <a href="{{ route('produk', ['product' => 'gentle-baby']) }}" class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
-                            Lihat Produk
-                        </a>
+                        <!-- Konten Produk - Adjusted Layout -->
+                        <div class="w-1/2 p-4 flex flex-col">
+                            <!-- Judul -->
+                            <h3 class="font-bold text-gray-800 mb-2 text-lg font-nunito leading-tight">
+                                Gentle Baby
+                            </h3>
+
+                            <!-- Deskripsi di tengah -->
+                            <p class="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">
+                                <span class="block">Minyak Bayi Aromaterapi, kombinasi Essential Oil dan Sunflower Seed Oil untuk kesehatan ibu, bayi, dan balita.</span>
+                            </p>
+
+                            <!-- Tombol -->
+                            <div class="mt-3 flex justify-center">
+                                <a href="{{ route('produk', ['product' => 'gentle-baby']) }}" 
+                                class="btn-gradient-brand text-white font-nunito font-semibold py-2 px-3 text-sm rounded-lg">
+                                Lihat Produk
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     @endif
                     
                     @if(request('product') != 'mamina' && request('product') != 'mamina-asi-booster')
                     <!-- Mamina ASI Booster -->
-                    <div class="bg-gray-100 rounded-xl p-6">
-                        <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="{{ asset('images/mamina.png') }}" alt="Mamina ASI Booster" class="max-h-full max-w-full object-contain">
+                    <div class="bg-white border rounded-xl overflow-hidden h-64 flex">
+                        <!-- Gambar Produk - Bigger Size -->
+                        <div class="w-1/2 bg-gray-100 flex items-center justify-center p-6">
+                            <img src="{{ asset('images/products/mamina.png') }}" 
+                                alt="Mamina ASI Booster" 
+                                class="w-full h-44 object-contain">
                         </div>
-                        <h3 class="font-bold text-gray-800 mb-2 text-xl font-nunito">
-                            Mamina ASI Booster
-                        </h3>
-                        <p class="text-gray-600 mb-4">
-                            Pelancar ASI dari bahan Rempah Alami
-                        </p>
-                        <a href="{{ route('produk', ['product' => 'mamina-asi-booster']) }}" class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
-                            Lihat Produk
-                        </a>
+                        <!-- Konten Produk - Adjusted Layout -->
+                        <div class="w-1/2 p-4 flex flex-col">
+                            <!-- Judul -->
+                            <h3 class="font-bold text-gray-800 mb-2 text-lg font-nunito leading-tight">
+                                Mamina ASI Booster
+                            </h3>
+
+                            <!-- Deskripsi di tengah -->
+                            <p class="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">
+                                <span class="block">Pelancar ASI dari bahan Rempah Alami untuk meningkatkan kualitas dan kuantitas ASI</span>
+                            </p>
+
+                            <!-- Tombol -->
+                            <div class="mt-3 flex justify-center">
+                                <a href="{{ route('produk', ['product' => 'mamina-asi-booster']) }}" 
+                                class="btn-gradient-brand text-white font-nunito font-semibold py-2 px-3 text-sm rounded-lg">
+                                Lihat Produk
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     @endif
                     
                     @if(request('product') != 'nyam')
                     <!-- Nyam! -->
-                    <div class="bg-gray-100 rounded-xl p-6">
-                        <div class="h-48 bg-white rounded-lg mb-4 flex items-center justify-center overflow-hidden">
-                            <img src="{{ asset('images/nyam.png') }}" alt="Nyam! MPASI" class="max-h-full max-w-full object-contain">
+                    <div class="bg-white border rounded-xl overflow-hidden h-64 flex">
+                        <!-- Gambar Produk - Bigger Size -->
+                        <div class="w-1/2 bg-gray-100 flex items-center justify-center p-6">
+                            <img src="{{ asset('images/products/nyam.png') }}" 
+                                alt="Nyam! MPASI" 
+                                class="w-full h-44 object-contain">
                         </div>
-                        <h3 class="font-bold text-gray-800 mb-2 text-xl font-nunito">
-                            Nyam!
-                        </h3>
-                        <p class="text-gray-600 mb-4">
-                            Makanan Pendamping ASI (MPASI)
-                        </p>
-                        <a href="{{ route('produk', ['product' => 'nyam']) }}" class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
-                            Lihat Produk
-                        </a>
+                        <!-- Konten Produk - Adjusted Layout -->
+                        <div class="w-1/2 p-4 flex flex-col">
+                            <!-- Judul -->
+                            <h3 class="font-bold text-gray-800 mb-2 text-lg font-nunito leading-tight">
+                                Nyam! MPASI
+                            </h3>
+
+                            <!-- Deskripsi di tengah -->
+                            <p class="text-gray-600 text-sm leading-relaxed flex-1 flex items-center">
+                                <span class="block">Makanan Pendamping ASI (MPASI) berkualitas tinggi dengan nutrisi yang lengkap</span>
+                            </p>
+
+                            <!-- Tombol -->
+                            <div class="mt-3 flex justify-center">
+                                <a href="{{ route('produk', ['product' => 'nyam']) }}" 
+                                class="btn-gradient-brand text-white font-nunito font-semibold py-2 px-3 text-sm rounded-lg">
+                                Lihat Produk
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     @endif
                 </div>
@@ -501,8 +549,18 @@
             @endphp
             
             const totalItems = {{ $imageCount }}; // Dynamic count from PHP
-            const itemsPerSlide = 4; // Show 4 images per slide for better display
-            
+            function getItemsPerSlide() {
+                if (window.innerWidth < 640) {
+                    return 1; // Mobile
+                } else if (window.innerWidth < 1024) {
+                    return 2; // Tablet
+                } else {
+                    return 4; // Desktop
+                }
+            }
+
+            let itemsPerSlide = getItemsPerSlide();
+
             console.log('Product Carousel Initialized:', {totalItems, itemsPerSlide});
             
             function getTotalSlides() {
@@ -533,10 +591,14 @@
                 console.log('Updating carousel, currentSlide:', currentSlide);
                 
                 // Calculate transform based on items per slide
-                const itemsToMove = currentSlide * itemsPerSlide;
-                const translatePercentage = (itemsToMove / totalItems) * 100;
-                
-                carousel.style.transform = `translateX(-${translatePercentage}%)`;
+                const items = carousel.querySelectorAll('.flex-none'); // ambil semua item
+                if (items.length === 0) return;
+
+                const itemWidth = items[0].getBoundingClientRect().width + 16; 
+                // +16px karena ada gap-4 antar item
+
+                const translateX = -(currentSlide * itemsPerSlide * itemWidth);
+                carousel.style.transform = `translateX(${translateX}px)`;
                 
                 // Update dots
                 const dots = dotsContainer.querySelectorAll('.dot');
@@ -546,7 +608,7 @@
                     dot.classList.toggle('bg-gray-300', !isActive);
                 });
                 
-                console.log('Transform applied:', `translateX(-${translatePercentage}%)`);
+                console.log('Transform applied:', `translateX(${translateX}px)`);
             }
             
             function nextSlide() {
@@ -611,10 +673,12 @@
             
             // Handle window resize
             window.addEventListener('resize', () => {
+                itemsPerSlide = getItemsPerSlide();
                 const totalSlides = getTotalSlides();
                 if (currentSlide >= totalSlides) {
                     currentSlide = totalSlides - 1;
                 }
+                createDots(); // regenerate dots sesuai jumlah slide
                 updateCarousel();
             });
             
@@ -705,9 +769,7 @@
                     console.log('updateVarianCarousel called, currentSlide:', varianCurrentSlide);
                     
                     const itemsPerView = getVarianItemsPerView();
-                    const itemsToMove = varianCurrentSlide * itemsPerView;
-                    const translatePercentage = (itemsToMove / totalVarianItems) * 100;
-                    
+                    const translatePercentage = (varianCurrentSlide * 100); 
                     varianCarousel.style.transform = `translateX(-${translatePercentage}%)`;
                     
                     // Update indicators
