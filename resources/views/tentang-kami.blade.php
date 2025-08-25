@@ -4,15 +4,15 @@
 
 @section('content')
     {{-- Hero Section / Carousel Banner Tentang Kami --}}
-    <section id="hero" class="relative min-h-screen bg-gray-100 mt-20">
+    <section id="hero" class="relative min-h-screen bg-gray-100">
         <!-- Full Width Image Carousel -->
         <div class="absolute inset-0 w-full h-full" id="banner-carousel">
             <div class="h-full overflow-hidden relative">
-                <img src="{{ asset('images/profil1.jpg') }}" alt="Tentang Kami Banner 1"
+                <img src="{{ asset('images/banner/profil1.jpg') }}" alt="Tentang Kami Banner 1"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
-                <img src="{{ asset('images/profil2.jpg') }}" alt="Tentang Kami Banner 2"
+                <img src="{{ asset('images/banner/profil2.jpg') }}" alt="Tentang Kami Banner 2"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
-                <img src="{{ asset('images/profil3.jpg') }}" alt="Tentang Kami Banner 3"
+                <img src="{{ asset('images/banner/profil3.jpg') }}" alt="Tentang Kami Banner 3"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
             </div>
         </div>
@@ -26,8 +26,6 @@
 
                 <h1 class="font-fredoka text-4xl text-white/85 mb-2 relative inline-block">
                     Tentang Kami
-                    <span
-                        class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full"></span>
                 </h1>
 
                 <!-- Enhanced Description -->
@@ -71,7 +69,7 @@
     </section>
 
     <!-- Tentang Kami Section -->
-    <section id="tentang-kami" class="py-24 bg-gradient-to-b from-white to-blue-50 mt-32">
+    <section id="tentang-kami" class="py-24 bg-gradient-to-b from-white to-blue-50 ">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="grid grid-cols-1 lg:grid-cols-2 items-center">

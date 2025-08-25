@@ -8,77 +8,74 @@
         <!-- Mobile: Banner Background (visible only on mobile) -->
         <div class="absolute inset-0 w-full h-full lg:hidden" id="banner-carousel-mobile">
             <!-- Slides Container -->
-            <div class="h-full overflow-hidden relative">
-                <img src="{{ asset('images/banner_partner1.png') }}" alt="Banner 1"
+            <div class="h-full overflow-hidden relative z-0">
+                <img src="{{ asset('images/banner/banner_partner1.png') }}" alt="Banner 1"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
-                <img src="{{ asset('images/banner_partner2.jpg') }}" alt="Banner 2"
+                <img src="{{ asset('images/banner/banner_partner2.jpg') }}" alt="Banner 2"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
-                <img src="{{ asset('images/banner_partner3.jpg') }}" alt="Banner 3"
+                <img src="{{ asset('images/banner/banner_partner3.jpg') }}" alt="Banner 3"
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
             </div>
-            <!-- Mobile: Overlay Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-transparent z-10"></div>
+
+            <!-- Mobile: Overlay Gradient DIPERBAIKI -->
+            <div class="absolute inset-0 bg-gradient-to-b from-[#444444]/100 via-[#444444]/100 to-transparent z-10"></div>
+
+            <!-- Mobile Content -->
+            <div class="absolute inset-0 flex items-center justify-center z-20 px-6">
+                <div class="text-center text-[#EF9F9B]">
+                    <h1 class="text-3xl sm:text-4xl font-medium font-fredoka leading-tight drop-shadow-lg mb-6">
+                        Join Our Baby Wellness Affiliate Program
+                    </h1>
+                    <p class="text-base sm:text-lg leading-relaxed drop-shadow mb-8 font-nunito">
+                        Kami sedang membuka program affiliate partnership untuk
+                        <span class="font-bold">3 produk best-seller</span> kami yang fokus pada wellness bunda & bayi.
+                    </p>
+                    <a href="{{ route('affiliate.form') }}"
+                        class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#EF9F9B] hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        DAFTAR SEKARANG
+                    </a>
+                </div>
+            </div>
         </div>
 
         <!-- Desktop Layout Container -->
-        <div class="relative flex flex-col lg:flex-row min-h-screen">
+        <div class="relative flex-col lg:flex-row min-h-screen hidden lg:flex">
             <!-- Desktop Background Gradient -->
             <div
                 class="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-[#444444]/100 via-[#444444]/100 to-transparent z-10">
             </div>
+
             <!-- Left Side - Text Content -->
-            <div class="relative w-full lg:w-1/2 flex items-center justify-center px-6 lg:px-12 z-20">
-
-
-                <div class="relative z-10 max-w-lg text-center lg:text-left py-16 lg:py-0">
-                    <h1 class="text-3xl sm:text-4xl lg:text-5xl text-[#EF9F9B] lg:text-[#EF9F9B] mb-6 leading-tight drop-shadow-lg lg:drop-shadow-none font-fredoka">
+            <div class="relative w-full lg:w-1/2 flex items-center justify-center px-6 lg:px-24 z-20">
+                <div class="relative z-10 text-center lg:text-left py-16 lg:py-0">
+                    <h1 class="text-3xl lg:text-6xl xl:text-7xl font-medium text-[#EF9F9B] font-fredoka leading-tight">
                         Join Our Baby Wellness Affiliate Program
                     </h1>
-                    <p class="text-base lg:text-lg text-[#EF9F9B] lg:text-[#EF9F9B] mb-6 leading-relaxed drop-shadow lg:drop-shadow-none font-nunito">
+                    <p class="text-base lg:text-lg text-[#EF9F9B] mt-6 mb-6 leading-relaxed font-nunito">
                         Kami sedang membuka program affiliate partnership untuk <br class="hidden sm:block" />
-                        <span class="font-bold"> 3 produk best-seller </span> kami yang fokus pada wellness bunda & bayi.
-                    </p>
-                    <p id="content" class="text-xl lg:text-2xl font-bold text-white lg:text-white mb-8 drop-shadow lg:drop-shadow-none font-nunito">
-
+                        <span class="font-bold">3 produk best-seller</span> kami yang fokus pada wellness bunda & bayi.
                     </p>
                     <a href="{{ route('affiliate.form') }}"
-                        class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-brand-500 hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#EF9F9B] hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
                         DAFTAR SEKARANG
                     </a>
                 </div>
             </div>
 
             <!-- Right Side - Desktop Banner Carousel -->
-            <div class="relative w-full lg:w-1/2 min-h-screen hidden lg:block" id="banner-carousel">
+            <div class="relative w-full lg:w-1/2 min-h-screen" id="banner-carousel">
                 <!-- Slides Container -->
                 <div class="h-full overflow-hidden relative">
-                    <img src="{{ asset('images/banner_partner1.png') }}" alt="Banner 1"
+                    <img src="{{ asset('images/banner/banner_partner1.png') }}" alt="Banner 1"
                         class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-100">
-                    <img src="{{ asset('images/banner_partner2.jpg') }}" alt="Banner 2"
+                    <img src="{{ asset('images/banner/banner_partner2.jpg') }}" alt="Banner 2"
                         class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
-                    <img src="{{ asset('images/banner_partner3.jpg') }}" alt="Banner 3"
+                    <img src="{{ asset('images/banner/banner_partner3.jpg') }}" alt="Banner 3"
                         class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
                 </div>
-                <!-- Subtle overlay for blending -->
+                <!-- Desktop: Subtle overlay -->
                 <div class="absolute inset-0 bg-gradient-to-r from-black/5 to-transparent"></div>
             </div>
-        </div>
-
-        <!-- Navigation Indicators -->
-        <div class="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-30" id="carousel-indicators">
-            <button class="group relative cursor-pointer" data-slide="0">
-                <div class="w-16 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div class="w-16 h-3 bg-white/80 rounded-full indicator-line active transition-all group-hover:bg-white">
-                </div>
-            </button>
-            <button class="group relative cursor-pointer" data-slide="1">
-                <div class="w-16 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div class="w-16 h-3 bg-white/40 rounded-full indicator-line transition-all group-hover:bg-white/60"></div>
-            </button>
-            <button class="group relative cursor-pointer" data-slide="2">
-                <div class="w-16 h-8 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
-                <div class="w-16 h-3 bg-white/40 rounded-full indicator-line transition-all group-hover:bg-white/60"></div>
-            </button>
         </div>
     </section>
 
@@ -87,14 +84,14 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Why Join Us Header -->
             <div class="text-center mb-12 lg:mb-16">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 font-fredoka">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 lg:mb-8 font-fredoka">
                     Why Join Us
                 </h2>
-                <p class="text-base sm:text-lg text-[#6C63FF] max-w-4xl mx-auto leading-relaxed font-nunito">
+                <p class="text-base sm:text-lg text-gray-800 max-w-4xl mx-auto leading-relaxed font-nunito">
                     Kami percaya produk ini sangat cocok untuk audience kami yang didominasi moms, new parents,
                     breastfeeding moms, dan pejuang MPASI.
                 </p>
-                <p class="text-base sm:text-lg text-[#6C63FF] italic font-semibold mt-3 lg:mt-4 font-nunito">
+                <p class="text-base sm:text-lg text-gray-800 italic font-semibold mt-3 lg:mt-4 font-nunito">
                     Helping Moms - Earning with Purpose
                 </p>
             </div>
@@ -103,24 +100,25 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
                 <!-- Benefit 1 -->
                 <div
-                    class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                    class="flex items-start space-x-4 p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-check-badge class="w-10 h-10 sm:w-12 sm:h-12 text-brand-500" />
+                        <x-heroicon-s-check-badge
+                            class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 bg-blue-100 rounded-full p-1 " />
                     </div>
                     <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk yang beneran dipakai & dibutuhkan
-                            bunda dan baby</h3>
+                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Kebutuhan bunda dan baby</h3>
                         <p class="text-gray-600 text-sm sm:text-base font-nunito">
-                            Kami tahu dibutuhkan berdasarkan riset & kami sendiri beneran pakai untuk Si Kecil
+                            Berdasarkan data yang kami punya, produk kami salah satu kebutuhan si Kecil
                         </p>
                     </div>
                 </div>
 
                 <!-- Benefit 2 -->
                 <div
-                    class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                    class="flex items-start space-x-4 p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-shopping-cart class="w-10 h-10 sm:w-12 sm:h-12 text-brand-500" />
+                        <x-heroicon-s-shopping-cart
+                            class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Repeat order tinggi</h3>
@@ -132,9 +130,10 @@
 
                 <!-- Benefit 3 -->
                 <div
-                    class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                    class="flex items-start space-x-4 p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-document-text class="w-10 h-10 sm:w-12 sm:h-12 text-brand-500" />
+                        <x-heroicon-s-document-text
+                            class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Full support + edukasi</h3>
@@ -146,9 +145,9 @@
 
                 <!-- Benefit 4 -->
                 <div
-                    class="flex items-start space-x-4 p-4 lg:p-6 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors duration-200">
+                    class="flex items-start space-x-4 p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-star class="w-10 h-10 sm:w-12 sm:h-12 text-brand-500" />
+                        <x-heroicon-s-star class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk kategori premium</h3>
@@ -163,7 +162,7 @@
 
         <!-- What you will get Section -->
         <div class="mb-12 lg:mb-16 text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 font-fredoka">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 lg:mb-8 font-fredoka">
                 What you will get
             </h2>
             <div class="max-w-6xl mx-auto">
@@ -173,8 +172,8 @@
                     <div
                         class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
-                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-currency-dollar class="w-6 h-6 text-gray-600" />
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-currency-dollar class="w-6 h-6 text-blue-600" />
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Setup penjualan produk
@@ -190,8 +189,8 @@
                     <div
                         class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
-                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-user-group class="w-6 h-6 text-gray-600" />
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-user-group class="w-6 h-6 text-blue-600" />
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Tim support untuk bantu
@@ -206,8 +205,8 @@
                     <div
                         class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm sm:col-span-2 lg:col-span-1">
                         <div class="flex items-start mb-4">
-                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-gift class="w-6 h-6 text-gray-600" />
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-gift class="w-6 h-6 text-blue-600" />
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Produk gratis untuk review
@@ -225,8 +224,8 @@
                     <div
                         class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
-                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-banknotes class="w-6 h-6 text-gray-600" />
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-banknotes class="w-6 h-6 text-blue-600" />
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Bonus bulanan dan tahunan
@@ -241,8 +240,8 @@
                     <div
                         class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
                         <div class="flex items-start mb-4">
-                            <div class="bg-gray-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-photo class="w-6 h-6 text-gray-600" />
+                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
+                                <x-heroicon-s-photo class="w-6 h-6 text-blue-600" />
                             </div>
                             <div>
                                 <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Akses ke media kit</h4>
@@ -260,7 +259,7 @@
 
         <!-- Perfect for you Section -->
         <div class="mb-12 lg:mb-16 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 text-center font-fredoka">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 lg:mb-8 text-center font-fredoka">
                 Perfect for you
             </h2>
             <div class="max-w-7xl mx-auto">
@@ -311,84 +310,89 @@
 
         <!-- Meet The Product Section -->
         <div class="text-center py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-8 lg:mb-12 font-fredoka">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-8 lg:mb-12 font-fredoka">
                 Meet The Product
             </h2>
             <div class="max-w-7xl mx-auto">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
                     <!-- Product 1 -->
                     <div
-                        class="bg-white border-2 border-gray-200 rounded-xl p-4 sm:p-5 lg:p-6 hover:border-brand-500 transition-colors shadow-sm hover:shadow-lg flex flex-col">
-                        <div
-                            class="bg-gray-100 rounded-lg mb-4 lg:mb-6 flex items-center justify-center h-48 sm:h-64 lg:h-72">
-                            <img src="{{ asset('images/gentleBaby.png') }}" alt="Gentle Baby"
-                                class="max-h-full max-w-full object-contain"
-                                onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
-                        </div>
-                        <div class="text-center mt-auto">
-                            <h4 class="text-2xl text-brand-500 mb-3 font-fredoka">
-                                Gentle Baby
-                            </h4>
-                            <a href="https://shopee.co.id/GENTLE-BABY-Therapeutic-Oil-10ML-Minyak-Pijat-Aromaterapi-Bayi-Balita-Usia-0-4-Tahun-Bahan-alami-i.400631324.18077793526?sp_atk=fa2355c4-a239-4d5f-ac85-40125edb2198&xptdk=fa2355c4-a239-4d5f-ac85-40125edb2198"
-                                class="inline-flex items-center justify-center text-brand-500 font-semibold hover:underline text-lg">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                                    <path
-                                        d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                                </svg>
-                                Link produk
-                            </a>
+                        class="bg-gradient-to-b from-white to-blue-50 rounded-xl border-2 border-blue-400 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+                        <div class="relative">
+                            <div class="p-6 flex flex-col flex-1">
+                                <!-- Product Image -->
+                                <div class="w-full rounded-lg mb-5 overflow-hidden flex items-center justify-center bg-gray-50 p-3"
+                                    style="height: 200px;">
+                                    <img src="{{ asset('images/gentleBaby.png') }}" alt="Gentle Baby"
+                                        class="object-contain transition-transform duration-300 hover:scale-110">
+                                </div>
+                                <!-- Product Info -->
+                                <div class="text-center flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-fredoka text-gray-800 mb-2 text-xl">Gentle Baby</h3>
+                                        <p class="text-sm text-gray-600 font-nunito mb-4">Massage oil</p>
+                                    </div>
+                                    <button
+                                        onclick="window.location.href='https://shopee.co.id/Gentle-Baby-Massage-Oil-100ml-i.1483235365.41704362992?sp_atk=cd7bceae-166b-47bb-8c7c-92efde449b76&xptdk=cd7bceae-166b-47bb-8c7c-92efde449b76'"
+                                        class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
+                                        Beli
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Product 2 -->
                     <div
-                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-brand-500 transition-colors shadow-sm hover:shadow-lg flex flex-col">
-                        <div class="bg-gray-100 rounded-lg mb-6 flex items-center justify-center" style="height: 280px;">
-                            <img src="{{ asset('images/mamina.png') }}" alt="Mamina"
-                                class="max-h-full max-w-full object-contain"
-                                onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
-                        </div>
-                        <div class="text-center mt-auto">
-                            <h4 class="text-2xl text-brand-500 mb-3 font-fredoka">
-                                Mamina Seduhan
-                            </h4>
-                            <a href="https://shopee.co.id/Mamina-Paket-Bundle-Pelancar-Asi-Isi-3-(10-Tebag-per-Paket)-ASI-Booster-Halal-Bahan-Alami-i.1483235365.41704362992?sp_atk=cd7bceae-166b-47bb-8c7c-92efde449b76&xptdk=cd7bceae-166b-47bb-8c7c-92efde449b76"
-                                class="inline-flex items-center justify-center text-brand-500 font-semibold hover:underline text-lg">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                                    <path
-                                        d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                                </svg>
-                                Link produk
-                            </a>
+                        class="bg-gradient-to-b from-white to-blue-50 rounded-xl border-2 border-blue-400 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+                        <div class="relative">
+                            <div class="p-6 flex flex-col flex-1">
+                                <!-- Product Image -->
+                                <div class="w-full rounded-lg mb-5 overflow-hidden flex items-center justify-center bg-gray-50 p-3"
+                                    style="height: 200px;">
+                                    <img src="{{ asset('images/mamina.png') }}" alt="Gentle Baby"
+                                        class="object-contain transition-transform duration-300 hover:scale-110">
+                                </div>
+                                <!-- Product Info -->
+                                <div class="text-center flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-fredoka text-gray-800 mb-2 text-xl">Mamina Asi Booster</h3>
+                                        <p class="text-sm text-gray-600 font-nunito mb-4">seduhan herbal alami</p>
+                                    </div>
+                                    <button
+                                        onclick="window.location.href='https://shopee.co.id/Mamina-Paket-Bundle-Pelancar-Asi-Isi-3-(10-Tebag-per-Paket)-ASI-Booster-Halal-Bahan-Alami-i.1483235365.41704362992?sp_atk=cd7bceae-166b-47bb-8c7c-92efde449b76&xptdk=cd7bceae-166b-47bb-8c7c-92efde449b76'"
+                                        class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
+                                        Beli
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <!-- Product 3 -->
                     <div
-                        class="bg-white border-2 border-gray-200 rounded-xl p-5 hover:border-brand-500 transition-colors shadow-sm hover:shadow-lg flex flex-col">
-                        <div class="bg-gray-100 rounded-lg mb-6 flex items-center justify-center" style="height: 280px;">
-                            <img src="{{ asset('images/nyam.png') }}" alt="Nyam MPASI"
-                                class="max-h-full max-w-full object-contain"
-                                onerror="this.onerror=null; this.parentElement.innerHTML='<span class=\'text-gray-400 text-xl\'>Product Image</span>';">
-                        </div>
-                        <div class="text-center mt-auto">
-                            <h4 class="text-2xl text-brand-500 mb-3 font-fredoka">
-                                Nyam! MPASI
-                            </h4>
-                            <a href="https://shopee.co.id/NYAM-BABY-FOOD-BUNDLING-PAKET-MPASI-10-18-BULAN-HOMEMADE-TANPA-PENGAWET-i.1059596102.43102157461"
-                                class="inline-flex items-center justify-center text-brand-500 font-semibold hover:underline text-lg">
-                                <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path
-                                        d="M11 3a1 1 0 100 2h2.586l-6.293 6.293a1 1 0 101.414 1.414L15 6.414V9a1 1 0 102 0V4a1 1 0 00-1-1h-5z" />
-                                    <path
-                                        d="M5 5a2 2 0 00-2 2v8a2 2 0 002 2h8a2 2 0 002-2v-3a1 1 0 10-2 0v3H5V7h3a1 1 0 000-2H5z" />
-                                </svg>
-                                Link produk
-                            </a>
+                        class="bg-gradient-to-b from-white to-blue-50 rounded-xl border-2 border-blue-400 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 overflow-hidden flex flex-col">
+                        <div class="relative">
+                            <div class="p-6 flex flex-col flex-1">
+                                <!-- Product Image -->
+                                <div class="w-full rounded-lg mb-5 overflow-hidden flex items-center justify-center bg-gray-50 p-3"
+                                    style="height: 200px;">
+                                    <img src="{{ asset('images/nyam.png') }}" alt="Gentle Baby"
+                                        class="object-contain transition-transform duration-300 hover:scale-110">
+                                </div>
+                                <!-- Product Info -->
+                                <div class="text-center flex-1 flex flex-col justify-between">
+                                    <div>
+                                        <h3 class="font-fredoka text-gray-800 mb-2 text-xl">Nyam! MPASI</h3>
+                                        <p class="text-sm text-gray-600 font-nunito mb-4">Makanan pendamping bayi</p>
+                                    </div>
+                                    <button
+                                        onclick="window.location.href='https://shopee.co.id/NYAM-BABY-FOOD-BUNDLING-PAKET-MPASI-10-18-BULAN-HOMEMADE-TANPA-PENGAWET-i.1059596102.43102157461'"
+                                        class="w-full btn-gradient-brand text-white font-nunito font-semibold py-3 px-4 text-sm rounded-lg mt-auto hover:opacity-90">
+                                        Beli
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -399,8 +403,9 @@
     <!-- Testimonial Section -->
     <section class="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 font-fredoka">
-                Telah dipercaya >30.000 Ibu
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 lg:mb-8 font-fredoka">
+                Telah dipercaya oleh 
+                <span class="text-[#6C63FF] font-bold">>30.000</span> Ibu
             </h2>
 
             <!-- Testimonial Card -->
@@ -411,7 +416,8 @@
 
                     <!-- Testimonial Content -->
                     <div class="text-center sm:text-left flex-1">
-                        <p class="text-sm sm:text-base lg:text-lg text-gray-700 mb-3 lg:mb-4 italic leading-relaxed font-nunito">
+                        <p
+                            class="text-sm sm:text-base lg:text-lg text-gray-700 mb-3 lg:mb-4 italic leading-relaxed font-nunito">
                             "Produk-produknya benar-benar berkualitas dan sesuai dengan kebutuhan bayi. Sebagai affiliate,
                             saya merasa bangga merekomendasikan produk yang saya gunakan sendiri untuk anak saya."
                         </p>
@@ -429,7 +435,7 @@
     <!-- How to Join Section -->
     <section class="py-12 sm:py-16 lg:py-20 bg-[#B8E6D9]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 text-center lg:text-left font-fredoka">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 text-center lg:text-left font-fredoka">
                 How to Join
             </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -439,7 +445,8 @@
                         <h3 class="text-xl lg:text-2xl text-brand-500 mb-3 text-center lg:text-left font-fredoka">
                             Work Easy, Earn More
                         </h3>
-                        <p class="text-gray-600 text-sm lg:text-base leading-relaxed mb-6 lg:mb-8 text-center lg:text-left font-nunito">
+                        <p
+                            class="text-gray-600 text-sm lg:text-base leading-relaxed mb-6 lg:mb-8 text-center lg:text-left font-nunito">
                             Kami bisa bantu rekomendasikan bikin konten/script sesuai gaya kamu
                         </p>
 
@@ -539,5 +546,44 @@
         </div>
     </section>
 
-@endsection
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.banner-slide');
+        const dots = document.querySelectorAll('.banner-carousel-mobile button');
 
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? '1' : '0';
+            });
+
+            // Update dots
+            if (dots.length > 0) {
+                dots.forEach((dot, i) => {
+                    dot.style.opacity = i === index ? '1' : '0.5';
+                });
+            }
+        }
+
+        function goToSlide(index) {
+            currentSlide = index;
+            showSlide(currentSlide);
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-slide untuk mobile
+        let autoSlideInterval = setInterval(nextSlide, 5000);
+
+        // Pause auto-slide saat user interaksi
+        document.addEventListener('touchstart', function() {
+            clearInterval(autoSlideInterval);
+        });
+
+        document.addEventListener('touchend', function() {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        });
+    </script>
+@endsection
