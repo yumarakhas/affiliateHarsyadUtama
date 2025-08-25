@@ -1,13 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
+    // Mobile carousel elements
     const mobileSlides = document.querySelectorAll(
         "#banner-carousel-mobile .banner-slide"
     );
+
+    // Desktop carousel elements
     const desktopSlides = document.querySelectorAll(
         "#banner-carousel .banner-slide"
     );
+
+    // Common elements
     const indicators = document.querySelectorAll("#carousel-indicators button");
     const indicatorLines = document.querySelectorAll(".indicator-line");
-    const contentElement = document.getElementById("content");
+    const mobileContentElement = document.getElementById("content");
+    const desktopContentElement = document.getElementById("desktop-content");
+
     let currentSlide = 0;
     let slideInterval;
 
@@ -16,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         {
             title: "Gentlebaby Massage Oil",
             description:
-                "bantu atasi bayi rewel dan rileks, juga media bonding",
+                "bantu atasi bayi rewel dan rileks, juga media bonding dengan ayah bunda",
         },
         {
             title: "Mamina ASI Booster",
@@ -31,51 +38,45 @@ document.addEventListener("DOMContentLoaded", function () {
     ];
 
     function updateContent(index) {
-        if (contentElement) {
-            contentElement.innerHTML = `${slideContents[index].title}<br />
-                <span class="text-white lg:text-white font-normal" style="font-size: 20px;">${slideContents[index].description}</span>`;
+        // Update mobile content
+        if (mobileContentElement) {
+            mobileContentElement.innerHTML = `<span class="text-white font-nunito font-bold text-xl sm:text-2xl">${slideContents[index].title}</span><br />
+            <span class="text-white font-nunito font-normal text-base sm:text-lg">${slideContents[index].description}</span>`;
+        }
+
+        // Update desktop content
+        if (desktopContentElement) {
+            desktopContentElement.innerHTML = `<span class="text-white font-nunito font-bold text-xl lg:text-2xl xl:text-3xl">${slideContents[index].title}</span><br />
+            <span class="text-white font-nunito font-normal text-base lg:text-lg">${slideContents[index].description}</span>`;
         }
     }
 
     function showSlide(index) {
         // Update mobile slides
-        mobileSlides.forEach((slide) => {
-            slide.style.opacity = "0";
-            slide.style.zIndex = "0";
+        mobileSlides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? "1" : "0";
+            slide.style.zIndex = i === index ? "1" : "0";
         });
-
-        if (mobileSlides[index]) {
-            mobileSlides[index].style.opacity = "1";
-            mobileSlides[index].style.zIndex = "1";
-        }
 
         // Update desktop slides
-        desktopSlides.forEach((slide) => {
-            slide.style.opacity = "0";
-            slide.style.zIndex = "0";
+        desktopSlides.forEach((slide, i) => {
+            slide.style.opacity = i === index ? "1" : "0";
+            slide.style.zIndex = i === index ? "1" : "0";
         });
-
-        if (desktopSlides[index]) {
-            desktopSlides[index].style.opacity = "1";
-            desktopSlides[index].style.zIndex = "1";
-        }
 
         // Update indicators
         indicatorLines.forEach((line, i) => {
             if (i === index) {
                 line.classList.add("bg-white/80");
                 line.classList.remove("bg-white/40");
-                line.classList.add("active");
             } else {
                 line.classList.remove("bg-white/80");
                 line.classList.add("bg-white/40");
-                line.classList.remove("active");
             }
         });
 
-        // Update the content text based on the current slide
+        // Update content
         updateContent(index);
-
         currentSlide = index;
     }
 
@@ -85,19 +86,68 @@ document.addEventListener("DOMContentLoaded", function () {
         showSlide(newIndex);
     }
 
+    function goToSlide(index) {
+        clearInterval(slideInterval);
+        showSlide(index);
+        startAutoSlide();
+    }
+
+    // Event listeners for indicators
     indicators.forEach((indicator, index) => {
         indicator.addEventListener("click", function () {
-            clearInterval(slideInterval);
-            showSlide(index);
-            startAutoSlide();
+            goToSlide(index);
         });
     });
 
     function startAutoSlide() {
-        slideInterval = setInterval(nextSlide, 2000);
+        slideInterval = setInterval(nextSlide, 5000);
     }
 
-    // Initialize with the first slide's content
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    function handleSwipe() {
+        if (touchEndX < touchStartX - 50) {
+            // Swipe left - next slide
+            goToSlide((currentSlide + 1) % slideContents.length);
+        }
+        if (touchEndX > touchStartX + 50) {
+            // Swipe right - previous slide
+            goToSlide(
+                (currentSlide - 1 + slideContents.length) % slideContents.length
+            );
+        }
+    }
+
+    // Touch event listeners for mobile carousel
+    const mobileCarousel = document.getElementById("banner-carousel-mobile");
+    if (mobileCarousel) {
+        mobileCarousel.addEventListener("touchstart", function (e) {
+            touchStartX = e.changedTouches[0].screenX;
+            clearInterval(slideInterval);
+        });
+
+        mobileCarousel.addEventListener("touchend", function (e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+            startAutoSlide();
+        });
+    }
+
+    // Pause on hover for desktop
+    const desktopCarousel = document.getElementById("banner-carousel");
+    if (desktopCarousel) {
+        desktopCarousel.addEventListener("mouseenter", () => {
+            clearInterval(slideInterval);
+        });
+
+        desktopCarousel.addEventListener("mouseleave", () => {
+            startAutoSlide();
+        });
+    }
+
+    // Initialize
     updateContent(0);
     startAutoSlide();
 });

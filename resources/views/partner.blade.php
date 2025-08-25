@@ -17,23 +17,55 @@
                     class="banner-slide w-full h-full object-cover object-center absolute transition-all duration-700 opacity-0">
             </div>
 
-            <!-- Mobile: Overlay Gradient DIPERBAIKI -->
+            <!-- Mobile: Overlay Gradient -->
             <div class="absolute inset-0 bg-gradient-to-b from-[#444444]/100 via-[#444444]/100 to-transparent z-10"></div>
 
             <!-- Mobile Content -->
             <div class="absolute inset-0 flex items-center justify-center z-20 px-6">
-                <div class="text-center text-[#EF9F9B]">
-                    <h1 class="text-3xl sm:text-4xl font-medium font-fredoka leading-tight drop-shadow-lg mb-6">
-                        Join Our Baby Wellness Affiliate Program
+                <div class="text-center">
+                    <!-- Main Title - Pink Color like in image -->
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold leading-tight drop-shadow-lg mb-6 font-fredoka"
+                        style="color: #F4A6A6;">
+                        Join Our Baby<br>
+                        Wellness Affiliate<br>
+                        Program
                     </h1>
-                    <p class="text-base sm:text-lg leading-relaxed drop-shadow mb-8 font-nunito">
+
+                    <!-- Description - Beige/Light color like in image -->
+                    <p class="text-base sm:text-lg leading-relaxed drop-shadow mb-8 font-nunito max-w-md mx-auto"
+                        style="color: #D4B5A0;">
                         Kami sedang membuka program affiliate partnership untuk
                         <span class="font-bold">3 produk best-seller</span> kami yang fokus pada wellness bunda & bayi.
                     </p>
+
+                    <!-- Dynamic Caption Container - White text like in image -->
+                    <div class="mb-6">
+                        <div id="content" class="text-xl sm:text-2xl font-bold font-fredoka leading-tight text-white">
+                            <!-- Content will be updated by carousel.js -->
+                        </div>
+                    </div>
+
+                    <!-- CTA Button - White background, dark text like in image -->
                     <a href="{{ route('affiliate.form') }}"
-                        class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#EF9F9B] hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        class="inline-block px-10 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-gray-100 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out font-nunito">
                         DAFTAR SEKARANG
                     </a>
+
+                    <!-- Navigation Indicators -->
+                    <div id="carousel-indicators" class="flex justify-center space-x-2 mt-8">
+                        <button class="w-8 h-1 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-200">
+                            <div class="indicator-line w-full h-full rounded-full bg-white/80 transition-all duration-300">
+                            </div>
+                        </button>
+                        <button class="w-8 h-1 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-200">
+                            <div class="indicator-line w-full h-full rounded-full bg-white/40 transition-all duration-300">
+                            </div>
+                        </button>
+                        <button class="w-8 h-1 rounded-full bg-white/40 hover:bg-white/80 transition-all duration-200">
+                            <div class="indicator-line w-full h-full rounded-full bg-white/40 transition-all duration-300">
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,18 +77,34 @@
                 class="absolute top-0 left-0 right-0 h-full bg-gradient-to-r from-[#444444]/100 via-[#444444]/100 to-transparent z-10">
             </div>
 
-            <!-- Left Side - Text Content -->
+            <!-- Left Side - Text Content with Dynamic Caption -->
             <div class="relative w-full lg:w-1/2 flex items-center justify-center px-6 lg:px-24 z-20">
                 <div class="relative z-10 text-center lg:text-left py-16 lg:py-0">
-                    <h1 class="text-3xl lg:text-6xl xl:text-7xl font-medium text-[#EF9F9B] font-fredoka leading-tight">
-                        Join Our Baby Wellness Affiliate Program
+                    <!-- Main Title - Pink Color like in image, with line breaks -->
+                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-8 font-fredoka"
+                        style="color: #F4A6A6;">
+                        Join Our Baby<br>
+                        Wellness Affiliate<br>
+                        Program
                     </h1>
-                    <p class="text-base lg:text-lg text-[#EF9F9B] mt-6 mb-6 leading-relaxed font-nunito">
-                        Kami sedang membuka program affiliate partnership untuk <br class="hidden sm:block" />
+
+                    <!-- Description - Beige/Light color like in image -->
+                    <p class="text-base lg:text-lg leading-relaxed font-nunito mb-8 max-w-lg" style="color: #D4B5A0;">
+                        Kami sedang membuka program affiliate partnership untuk
                         <span class="font-bold">3 produk best-seller</span> kami yang fokus pada wellness bunda & bayi.
                     </p>
+
+                    <!-- Desktop Dynamic Caption Container - White text like in image -->
+                    <div class="mb-8">
+                        <div id="desktop-content"
+                            class="text-xl lg:text-2xl xl:text-3xl font-bold font-fredoka leading-tight text-white">
+                            <!-- Content will be updated by carousel.js -->
+                        </div>
+                    </div>
+
+                    <!-- CTA Button - White background, dark text like in image -->
                     <a href="{{ route('affiliate.form') }}"
-                        class="inline-block px-8 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-[#EF9F9B] hover:text-white transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                        class="inline-block px-10 py-4 bg-white text-gray-800 font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-gray-100 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out font-nunito">
                         DAFTAR SEKARANG
                     </a>
                 </div>
@@ -79,35 +127,41 @@
         </div>
     </section>
 
+    <!-- Include Carousel JavaScript -->
+    <script src="{{ asset('js/carousel.js') }}"></script>
+
     <!-- Produk Section -->
     <section id="products" class="py-12 sm:py-16 lg:py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
             <!-- Why Join Us Header -->
-            <div class="text-center mb-12 lg:mb-16">
-                <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 lg:mb-8 font-fredoka">
+            <div class="text-center mb-8 sm:mb-12 lg:mb-16">
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-4 sm:mb-6 lg:mb-8 font-fredoka">
                     Why Join Us
                 </h2>
-                <p class="text-base sm:text-lg text-gray-800 max-w-4xl mx-auto leading-relaxed font-nunito">
+                <p
+                    class="text-sm sm:text-base lg:text-lg text-gray-800 max-w-4xl mx-auto leading-relaxed font-nunito px-2 sm:px-0">
                     Kami percaya produk ini sangat cocok untuk audience kami yang didominasi moms, new parents,
                     breastfeeding moms, dan pejuang MPASI.
                 </p>
-                <p class="text-base sm:text-lg text-gray-800 italic font-semibold mt-3 lg:mt-4 font-nunito">
+                <p
+                    class="text-sm sm:text-base lg:text-lg text-gray-800 italic font-semibold mt-2 sm:mt-3 lg:mt-4 font-nunito">
                     Helping Moms - Earning with Purpose
                 </p>
             </div>
 
             <!-- Benefits Grid -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 mb-12 lg:mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 lg:mb-16">
                 <!-- Benefit 1 -->
                 <div
-                    class="flex items-start space-x-4 p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-center flex-shrink-0">
                         <x-heroicon-s-check-badge
-                            class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 bg-blue-100 rounded-full p-1 " />
+                            class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
                     </div>
                     <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Kebutuhan bunda dan baby</h3>
-                        <p class="text-gray-600 text-sm sm:text-base font-nunito">
+                        <h3 class="text-base sm:text-lg lg:text-xl font-bold text-gray-800 mb-1 sm:mb-2">Kebutuhan bunda dan
+                            baby</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm lg:text-base font-nunito leading-relaxed">
                             Berdasarkan data yang kami punya, produk kami salah satu kebutuhan si Kecil
                         </p>
                     </div>
@@ -115,14 +169,15 @@
 
                 <!-- Benefit 2 -->
                 <div
-                    class="flex items-start space-x-4 p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-center flex-shrink-0">
                         <x-heroicon-s-shopping-cart
-                            class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
+                            class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
                     </div>
                     <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Repeat order tinggi</h3>
-                        <p class="text-gray-600 text-sm sm:text-base font-nunito">
+                        <h3 class="text-base sm:text-lg lg:text-xl font-bold text-gray-800 mb-1 sm:mb-2">Repeat order tinggi
+                        </h3>
+                        <p class="text-gray-600 text-xs sm:text-sm lg:text-base font-nunito leading-relaxed">
                             Hasil dirasakan cepat & kebutuhan harian
                         </p>
                     </div>
@@ -130,14 +185,15 @@
 
                 <!-- Benefit 3 -->
                 <div
-                    class="flex items-start space-x-4 p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-center flex-shrink-0">
                         <x-heroicon-s-document-text
-                            class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
+                            class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
                     </div>
                     <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Full support + edukasi</h3>
-                        <p class="text-gray-600 text-sm sm:text-base font-nunito">
+                        <h3 class="text-base sm:text-lg lg:text-xl font-bold text-gray-800 mb-1 sm:mb-2">Full support +
+                            edukasi</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm lg:text-base font-nunito leading-relaxed">
                             Kamu bisa dibantu berkembang secara skill atau kebutuhan konten
                         </p>
                     </div>
@@ -145,172 +201,170 @@
 
                 <!-- Benefit 4 -->
                 <div
-                    class="flex items-start space-x-4 p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                    class="flex items-start space-x-3 sm:space-x-4 p-3 sm:p-4 lg:p-6 bg-white rounded-lg hover:bg-gray-50 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
                     <div class="flex items-center justify-center flex-shrink-0">
-                        <x-heroicon-s-star class="w-10 h-10 sm:w-12 sm:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
+                        <x-heroicon-s-star
+                            class="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-blue-600 bg-blue-100 rounded-full p-1" />
                     </div>
                     <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-800 mb-2">Produk kategori premium</h3>
-                        <p class="text-gray-600 text-sm sm:text-base font-nunito">
+                        <h3 class="text-base sm:text-lg lg:text-xl font-bold text-gray-800 mb-1 sm:mb-2">Produk kategori
+                            premium</h3>
+                        <p class="text-gray-600 text-xs sm:text-sm lg:text-base font-nunito leading-relaxed">
                             Bernilai jual cukup tinggi sehingga komisi besar untuk setiap penjualannya
                         </p>
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- What you will get Section -->
-        <div class="mb-12 lg:mb-16 text-center px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 lg:mb-8 font-fredoka">
+        <div class="mb-8 sm:mb-12 lg:mb-16 text-center px-3 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-4 sm:mb-6 lg:mb-8 font-fredoka">
                 What you will get
             </h2>
             <div class="max-w-6xl mx-auto">
                 <!-- Baris pertama - 3 item -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 mb-6 lg:mb-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mb-4 sm:mb-6 lg:mb-8">
                     <!-- Item 1 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
-                        <div class="flex items-start mb-4">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-currency-dollar class="w-6 h-6 text-blue-600" />
+                        class="bg-white rounded-lg p-3 sm:p-4 lg:p-6 text-left border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-200 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 flex-shrink-0">
+                                <x-heroicon-s-currency-dollar class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-600" />
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Setup penjualan produk
+                                <h4 class="font-bold text-gray-800 text-sm sm:text-base leading-tight">
+                                    Setiap penjualan produk mendapat komisi sebesar 12-15%
                                 </h4>
-                                <p class="text-sm text-gray-600 font-nunito">mendapat
-                                    komisi
-                                    sebesar 30-40%</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Item 2 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
-                        <div class="flex items-start mb-4">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-user-group class="w-6 h-6 text-blue-600" />
+                        class="bg-white rounded-lg p-3 sm:p-4 lg:p-6 text-left border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-200 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 flex-shrink-0">
+                                <x-heroicon-s-user-group class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-600" />
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Tim support untuk bantu
-                                    tracking & pelaporan</h4>
-                                <p class="text-sm text-gray-600 font-nunito">hingga
-                                    pengembangan skill</p>
+                                <h4 class="font-bold text-gray-800 text-sm sm:text-base leading-tight">
+                                    Tim support untuk bantu tracking & pelaporan hingga pengembangan skill
+                                </h4>
                             </div>
                         </div>
                     </div>
 
                     <!-- Item 3 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm sm:col-span-2 lg:col-span-1">
-                        <div class="flex items-start mb-4">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-gift class="w-6 h-6 text-blue-600" />
+                        class="bg-white rounded-lg p-3 sm:p-4 lg:p-6 text-left border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-200 shadow-sm sm:col-span-2 lg:col-span-1">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 flex-shrink-0">
+                                <x-heroicon-s-gift class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-600" />
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Produk gratis untuk review
+                                <h4 class="font-bold text-gray-800 text-sm sm:text-base leading-tight">
+                                    Produk gratis untuk review (bisa 1-3 item)
                                 </h4>
-                                <p class="text-sm text-gray-600 font-nunito">(bisa 1-3
-                                    item)</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <!-- Baris kedua - 2 item di tengah -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6 max-w-4xl mx-auto">
                     <!-- Item 4 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
-                        <div class="flex items-start mb-4">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-banknotes class="w-6 h-6 text-blue-600" />
+                        class="bg-white rounded-lg p-3 sm:p-4 lg:p-6 text-left border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-200 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 flex-shrink-0">
+                                <x-heroicon-s-banknotes class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-600" />
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Bonus bulanan dan tahunan
+                                <h4 class="font-bold text-gray-800 text-sm sm:text-base leading-tight">
+                                    Bonus bulanan dan tahunan untuk penjualan terbanyak
                                 </h4>
-                                <p class="text-sm text-gray-600 font-nunito">untuk
-                                    penjualan terbanyak</p>
                             </div>
                         </div>
                     </div>
 
                     <!-- Item 5 -->
                     <div
-                        class="bg-white rounded-lg p-4 sm:p-6 text-left border border-gray-200 hover:border-brand-500 hover:shadow-md transition-all duration-200 shadow-sm">
-                        <div class="flex items-start mb-4">
-                            <div class="bg-blue-100 p-3 rounded-full mr-4 flex-shrink-0">
-                                <x-heroicon-s-photo class="w-6 h-6 text-blue-600" />
+                        class="bg-white rounded-lg p-3 sm:p-4 lg:p-6 text-left border border-gray-200 hover:border-blue-400 hover:shadow-md transition-all duration-200 shadow-sm">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 p-2 sm:p-3 rounded-full mr-3 sm:mr-4 flex-shrink-0">
+                                <x-heroicon-s-photo class="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 text-blue-600" />
                             </div>
                             <div>
-                                <h4 class="font-bold text-gray-800 text-base leading-tight mb-2">Akses ke media kit</h4>
-                                <p class="text-sm text-gray-600 font-nunito">(foto, video,
-                                    script)</p>
+                                <h4 class="font-bold text-gray-800 text-sm sm:text-base leading-tight">
+                                    Akses ke media kit (foto, video, script)
+                                </h4>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-        </div>
-        </div>
 
         <!-- Perfect for you Section -->
-        <div class="mb-12 lg:mb-16 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 lg:mb-8 text-center font-fredoka">
+        <div class="mb-8 sm:mb-12 lg:mb-16 px-3 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-4 sm:mb-6 lg:mb-8 text-center font-fredoka">
                 Perfect for you
             </h2>
             <div class="max-w-7xl mx-auto">
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-6">
                     <!-- Type 1 -->
                     <div
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
-                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Momfluencer</h4>
-                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Sering
-                            berbagi daily life bermama anak</p>
+                        <h4 class="font-bold text-gray-800 text-sm sm:text-base lg:text-lg mb-2">Momfluencer</h4>
+                        <p class="text-xs sm:text-sm lg:text-base text-gray-600 font-nunito leading-relaxed">
+                            Sering berbagi daily life bermama anak
+                        </p>
                     </div>
 
                     <!-- Type 2 -->
                     <div
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
-                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Bidan/Educator MPASI</h4>
-                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Aktif
-                            memberikan edukasi tentang kesehatan bayi/anak</p>
+                        <h4 class="font-bold text-gray-800 text-sm sm:text-base lg:text-lg mb-2">Bidan/Educator MPASI</h4>
+                        <p class="text-xs sm:text-sm lg:text-base text-gray-600 font-nunito leading-relaxed">
+                            Aktif memberikan edukasi tentang tumbuh kembang dan nutrisi
+                        </p>
                     </div>
 
                     <!-- Type 3 -->
                     <div
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
-                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Admin Komunitas Ibu</h4>
-                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Mengelola
-                            komunitas untuk mama dan terlibat diskusi</p>
+                        <h4 class="font-bold text-gray-800 text-sm sm:text-base lg:text-lg mb-2">Admin Komunitas Ibu</h4>
+                        <p class="text-xs sm:text-sm lg:text-base text-gray-600 font-nunito leading-relaxed">
+                            Mengelola komunitas diskusi seputar parenting
+                        </p>
                     </div>
 
                     <!-- Type 4 -->
                     <div
                         class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200">
-                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Content Creator Parenting
+                        <h4 class="font-bold text-gray-800 text-sm sm:text-base lg:text-lg mb-2">Content Creator Parenting
                         </h4>
-                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Membuat
-                            konten tips, review terkait tumbuh kembang</p>
+                        <p class="text-xs sm:text-sm lg:text-base text-gray-600 font-nunito leading-relaxed">
+                            Membuat konten tips, review produk bayi, hingga edukasi
+                        </p>
                     </div>
 
                     <!-- Type 5 -->
                     <div
-                        class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200 col-span-2 sm:col-span-1">
-                        <h4 class="font-bold text-gray-800 text-xs sm:text-sm lg:text-base mb-2">Ibu Aktif</h4>
-                        <p class="text-xs lg:text-sm text-gray-600 font-nunito">Suka
-                            berbagi info dan recommend ke mama lain</p>
+                        class="bg-white p-3 sm:p-4 lg:p-6 rounded-lg text-center shadow-lg hover:shadow-xl transition-shadow duration-200 sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto lg:max-w-none">
+                        <h4 class="font-bold text-gray-800 text-sm sm:text-base lg:text-lg mb-2">Ibu Aktif</h4>
+                        <p class="text-xs sm:text-sm lg:text-base text-gray-600 font-nunito leading-relaxed">
+                            Suka berbagi info bermanfaat ke sesama ibu
+                        </p>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Meet The Product Section -->
-        <div class="text-center py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-8 lg:mb-12 font-fredoka">
+        <div class="text-center py-10 lg:py-14 px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-8 lg:mb-12 font-fredoka">
                 Meet The Product
             </h2>
             <div class="max-w-7xl mx-auto">
@@ -403,9 +457,9 @@
     <!-- Testimonial Section -->
     <section class="py-12 sm:py-16 lg:py-20 bg-gray-50">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 lg:mb-8 font-fredoka">
-                Telah dipercaya oleh 
-                <span class="text-[#6C63FF] font-bold">>30.000</span> Ibu
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 lg:mb-8 font-fredoka">
+                Telah dipercaya oleh
+                <span class="text-gray-800 font-bold">>30.000</span> Ibu
             </h2>
 
             <!-- Testimonial Card -->
@@ -435,7 +489,7 @@
     <!-- How to Join Section -->
     <section class="py-12 sm:py-16 lg:py-20 bg-[#B8E6D9]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-6 text-center lg:text-left font-fredoka">
+            <h2 class="text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-6 text-center lg:text-left font-fredoka">
                 How to Join
             </h2>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -534,7 +588,7 @@
                         </div>
                         <div class="flex-1 mt-2">
                             <p class="text-[#D94C4C] font-bold text-base mb-1 font-nunito">
-                                Pantauan dan komisi dicatat otomatis lewat platform
+                                Penjualan dan komisi dicatat otomatis lewat platform
                             </p>
                             <p class="text-[#D94C4C] text-sm leading-relaxed font-nunito">
                                 (atau Google Sheet kalau manual)
@@ -545,45 +599,4 @@
             </div>
         </div>
     </section>
-
-    <script>
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.banner-slide');
-        const dots = document.querySelectorAll('.banner-carousel-mobile button');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.style.opacity = i === index ? '1' : '0';
-            });
-
-            // Update dots
-            if (dots.length > 0) {
-                dots.forEach((dot, i) => {
-                    dot.style.opacity = i === index ? '1' : '0.5';
-                });
-            }
-        }
-
-        function goToSlide(index) {
-            currentSlide = index;
-            showSlide(currentSlide);
-        }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-
-        // Auto-slide untuk mobile
-        let autoSlideInterval = setInterval(nextSlide, 5000);
-
-        // Pause auto-slide saat user interaksi
-        document.addEventListener('touchstart', function() {
-            clearInterval(autoSlideInterval);
-        });
-
-        document.addEventListener('touchend', function() {
-            autoSlideInterval = setInterval(nextSlide, 5000);
-        });
-    </script>
 @endsection

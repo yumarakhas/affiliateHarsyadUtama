@@ -26,14 +26,14 @@
             <div class="hidden lg:flex lg:items-center lg:space-x-8">
                 <nav class="flex space-x-6 xl:space-x-8 font-nunito">
                     <a href="{{ route('beranda') }}"
-                        class="text-sm xl:text-base text-gray-600 hover:text-brand transition-colors duration-200">
+                        class="text-sm xl:text-base {{ Route::currentRouteName() == 'beranda' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 transition-colors duration-200">
                         Beranda
                     </a>
 
                     <!-- Produk Dropdown -->
                     <div class="relative group">
                         <button id="produk-dropdown-btn"
-                            class="text-sm xl:text-base text-gray-600 hover:text-brand transition-colors duration-200 flex items-center space-x-1 focus:outline-none">
+                            class="text-sm xl:text-base {{ Route::currentRouteName() == 'produk' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 transition-colors duration-200 flex items-center space-x-1 focus:outline-none">
                             <span>Produk</span>
                             <svg class="w-4 h-4 transition-transform duration-200 group-hover:rotate-180"
                                 fill="currentColor" viewBox="0 0 20 20">
@@ -48,7 +48,7 @@
                             class="absolute left-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
                             <div class="py-3">
                                 <a href="{{ route('produk') }}?product=gentle-baby"
-                                    class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-brand hover:text-white transition-all duration-200 group/item">
+                                    class="flex items-center px-4 py-3 text-sm {{ request('product') == 'gentle-baby' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-700 hover:bg-blue-600 hover:text-white' }} transition-all duration-200 group/item">
                                     <span class="font-medium">Gentle Baby</span>
                                     <div
                                         class="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
@@ -59,7 +59,7 @@
                                     </div>
                                 </a>
                                 <a href="{{ route('produk') }}?product=mamina-asi-booster"
-                                    class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-brand hover:text-white transition-all duration-200 group/item">
+                                    class="flex items-center px-4 py-3 text-sm {{ request('product') == 'mamina-asi-booster' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-700 hover:bg-blue-600 hover:text-white' }} transition-all duration-200 group/item">
                                     <span class="font-medium">Mamina ASI Booster</span>
                                     <div
                                         class="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
@@ -70,7 +70,7 @@
                                     </div>
                                 </a>
                                 <a href="{{ route('produk') }}?product=nyam"
-                                    class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-brand hover:text-white transition-all duration-200 group/item">
+                                    class="flex items-center px-4 py-3 text-sm {{ request('product') == 'nyam' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-700 hover:bg-blue-600 hover:text-white' }} transition-all duration-200 group/item">
                                     <span class="font-medium">Nyam</span>
                                     <div
                                         class="ml-auto opacity-0 group-hover/item:opacity-100 transition-opacity duration-200">
@@ -85,21 +85,22 @@
                     </div>
 
                     <a href=""
-                        class="text-sm xl:text-base text-gray-600 hover:text-brand transition-colors duration-200">
+                        class="text-sm xl:text-base text-gray-600 hover:text-blue-600 transition-colors duration-200">
                         Belanja
                     </a>
                     <a href="{{ route('partner') }}"
-                        class="text-sm xl:text-base text-gray-600 hover:text-brand transition-colors duration-200">
+                        class="text-sm xl:text-base {{ Route::currentRouteName() == 'partner' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 transition-colors duration-200">
                         Partner
                     </a>
                     <a href="{{ route('tentang-kami') }}"
-                        class="text-sm xl:text-base text-gray-600 hover:text-brand transition-colors duration-200">
+                        class="text-sm xl:text-base {{ Route::currentRouteName() == 'tentang-kami' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 transition-colors duration-200">
                         Tentang Kami
                     </a>
                 </nav>
 
                 <!-- Login Button -->
-                <a href="{{ route('login') }}" class="btn-blue-primary text-sm lg:text-base">
+                <a href="{{ route('login') }}"
+                    class="px-6 py-2 text-sm lg:text-base font-nunito font-medium text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105">
                     Login
                 </a>
             </div>
@@ -110,14 +111,14 @@
             <div class="pt-4 pb-3 space-y-1 border-t border-gray-200 mt-4">
                 <nav class="space-y-1 font-nunito">
                     <a href="{{ route('beranda') }}"
-                        class="block px-3 py-2 text-base text-gray-600 hover:text-brand hover:bg-gray-50 rounded-lg transition-all duration-200">
+                        class="block px-3 py-2 text-base {{ Route::currentRouteName() == 'beranda' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-600' }} hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200">
                         Beranda
                     </a>
 
                     <!-- Mobile Produk Dropdown -->
                     <div class="relative">
                         <button id="mobile-produk-dropdown-btn"
-                            class="w-full text-left px-3 py-2 text-base text-gray-600 hover:text-brand hover:bg-gray-50 rounded-lg transition-all duration-200 flex items-center justify-between focus:outline-none group">
+                            class="w-full text-left px-3 py-2 text-base {{ Route::currentRouteName() == 'produk' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-600' }} hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 flex items-center justify-between focus:outline-none group">
                             <span>Produk</span>
                             <svg class="w-4 h-4 transition-transform duration-200" fill="currentColor"
                                 viewBox="0 0 20 20">
@@ -132,36 +133,37 @@
                             class="hidden pl-6 space-y-1 bg-gray-50 rounded-lg mt-1 mr-3 transition-all duration-300 overflow-hidden"
                             style="max-height: 0px;">
                             <a href="{{ route('produk') }}?product=gentle-baby"
-                                class="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-brand hover:bg-white rounded-md transition-all duration-200">
+                                class="flex items-center px-3 py-2 text-sm {{ request('product') == 'gentle-baby' ? 'text-blue-600 font-bold bg-white' : 'text-gray-600' }} hover:text-blue-600 hover:bg-white rounded-md transition-all duration-200">
                                 <span>Gentle Baby</span>
                             </a>
                             <a href="{{ route('produk') }}?product=mamina-asi-booster"
-                                class="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-brand hover:bg-white rounded-md transition-all duration-200">
+                                class="flex items-center px-3 py-2 text-sm {{ request('product') == 'mamina-asi-booster' ? 'text-blue-600 font-bold bg-white' : 'text-gray-600' }} hover:text-blue-600 hover:bg-white rounded-md transition-all duration-200">
                                 <span>Mamina ASI Booster</span>
                             </a>
                             <a href="{{ route('produk') }}?product=nyam"
-                                class="flex items-center px-3 py-2 text-sm text-gray-600 hover:text-brand hover:bg-white rounded-md transition-all duration-200">
+                                class="flex items-center px-3 py-2 text-sm {{ request('product') == 'nyam' ? 'text-blue-600 font-bold bg-white' : 'text-gray-600' }} hover:text-blue-600 hover:bg-white rounded-md transition-all duration-200">
                                 <span>Nyam</span>
                             </a>
                         </div>
                     </div>
 
                     <a href=""
-                        class="block px-3 py-2 text-base text-gray-600 hover:text-brand hover:bg-gray-50 rounded-lg transition-all duration-200">
+                        class="block px-3 py-2 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
                         Belanja
                     </a>
                     <a href="{{ route('partner') }}"
-                        class="block px-3 py-2 text-base text-gray-600 hover:text-brand hover:bg-gray-50 rounded-lg transition-all duration-200">
+                        class="block px-3 py-2 text-base {{ Route::currentRouteName() == 'partner' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
                         Partner
                     </a>
                     <a href="{{ route('tentang-kami') }}"
-                        class="block px-3 py-2 text-base text-gray-600 hover:text-brand hover:bg-gray-50 rounded-lg transition-all duration-200">
+                        class="block px-3 py-2 text-base {{ Route::currentRouteName() == 'tentang-kami' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
                         Tentang Kami
                     </a>
                 </nav>
 
                 <div class="pt-4 border-t border-gray-200">
-                    <a href="{{ route('login') }}" class="block mx-3 btn-blue-primary text-center">
+                    <a href="{{ route('login') }}"
+                        class="block mx-3 px-6 py-3 text-center text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out font-nunito font-medium">
                         Login
                     </a>
                 </div>

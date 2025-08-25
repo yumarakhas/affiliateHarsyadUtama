@@ -21,24 +21,36 @@
                         </div>
                     </div>
 
-                    {{-- Main Headline - Mobile Optimized --}}
-                    <div class="space-y-1 sm:space-y-3 lg:space-y-4">
-                        <h1
-                            class="text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-[#EF9F9B] font-fredoka leading-tight">
-                            Therapeutic
-                            <span class="relative">
+                    {{-- Main Headline - Sesuai konsep partner banner --}}
+                    <div class="space-y-2 sm:space-y-4 mb-8">
+                        <h1 class="font-fredoka font-bold leading-tight max-w-md lg:max-w-lg mx-auto lg:mx-0"
+                            style="color: #F4A6A6;">
+                            <span class="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl">
+                                Therapeutic
+                                <span class="text-xl sm:text-3xl md:text-4xl lg:text-5xl">✨</span><br>
                                 Baby Massage Oil
                             </span>
-                            <span class="text-xl sm:text-3xl md:text-4xl lg:text-5xl">✨</span>
+
                         </h1>
                     </div>
 
-                    {{-- Description - Mobile Optimized --}}
-                    <p
-                        class="text-xs sm:text-base lg:text-xl text-[#EF9F9B]/90 leading-relaxed max-w-xs sm:max-w-lg mx-auto lg:mx-0 font-nunito px-1 sm:px-0">
-                        Minyak Bayi Aromaterapi, kombinasi Essential Oil dan Sunflower Seed Oil untuk kesehatan ibu, bayi
-                        dan balita. Khasiat sama dengan kemasan lebih ekonomis
-                    </p>
+                    {{-- Description - Sesuai konsep partner banner --}}
+                    <div class="mb-8">
+                        <p class="font-nunito leading-relaxed max-w-md lg:max-w-lg mx-auto lg:mx-0" style="color: #D4B5A0;">
+                            <span class="text-base sm:text-lg lg:text-xl">
+                                Minyak Bayi Aromaterapi, kombinasi Essential Oil dan Sunflower Seed Oil untuk kesehatan ibu,
+                                bayi dan balita. Khasiat sama dengan kemasan lebih ekonomis
+                            </span>
+                        </p>
+                    </div>
+
+                    {{-- CTA Button - Sesuai konsep partner banner --}}
+                    <div class="mb-8">
+                        <a href="#products"
+                            class="inline-block px-10 py-4 bg-white text-gray-800 font-nunito font-bold rounded-full shadow-lg hover:shadow-2xl hover:bg-gray-100 transform hover:scale-105 hover:-translate-y-1 transition-all duration-300 ease-in-out">
+                            VIEW PRODUCTS
+                        </a>
+                    </div>
                 </div>
 
                 {{-- Image Section - Mobile First --}}
@@ -48,7 +60,7 @@
                         class="relative bg-gradient-to-br from-blue-100/50 via-white/30 to-green-100/50 rounded-xl sm:rounded-3xl overflow-hidden backdrop-blur-sm border border-white/20 h-48 sm:h-80 md:h-96 lg:h-[600px]">
 
                         <img src="{{ asset('images/banner/banner_beranda3.jpg') }}" alt="Gentle Living Products"
-                            class="w-full h-full object-cover">
+                            class="w-full h-full object-cover ">
 
                         {{-- Product Info Card - Mobile Responsive --}}
                         <div
@@ -66,14 +78,11 @@
                                 {{-- Feature List - Mobile Optimized --}}
                                 <div class="space-y-0.5 sm:space-y-1">
                                     <div class="flex items-center">
-                                        <span class="text-green-500 mr-1 sm:mr-2">
-                                            <svg class="w-2.5 sm:w-4 lg:w-5 h-2.5 sm:h-4 lg:h-5" fill="currentColor"
-                                                viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
-                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
+                                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-brand-500 mr-2 sm:mr-3 mt-0.5 flex-shrink-0"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7"></path>
+                                        </svg>
                                         <p
                                             class="text-[10px] sm:text-sm lg:text-base text-gray-800 font-nunito leading-tight flex-1">
                                             100% alami
@@ -81,14 +90,11 @@
                                     </div>
 
                                     <div class="flex items-center">
-                                        <span class="text-green-500 mr-1 sm:mr-2">
-                                            <svg class="w-2.5 sm:w-4 lg:w-5 h-2.5 sm:h-4 lg:h-5" fill="currentColor"
-                                                viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
-                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
+                                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-brand-500 mr-2 sm:mr-3 mt-0.5 flex-shrink-0"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7"></path>
+                                        </svg>
                                         <p
                                             class="text-[10px] sm:text-sm lg:text-base text-gray-800 font-nunito leading-tight flex-1">
                                             BPOM Certified
@@ -96,14 +102,11 @@
                                     </div>
 
                                     <div class="flex items-center">
-                                        <span class="text-green-500 mr-1 sm:mr-2">
-                                            <svg class="w-2.5 sm:w-4 lg:w-5 h-2.5 sm:h-4 lg:h-5" fill="currentColor"
-                                                viewBox="0 0 20 20">
-                                                <path fill-rule="evenodd"
-                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                    clip-rule="evenodd" />
-                                            </svg>
-                                        </span>
+                                        <svg class="w-5 h-5 sm:w-6 sm:h-6 text-brand-500 mr-2 sm:mr-3 mt-0.5 flex-shrink-0"
+                                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M5 13l4 4L19 7"></path>
+                                        </svg>
                                         <p
                                             class="text-[10px] sm:text-sm lg:text-base text-gray-800 font-nunito leading-tight flex-1">
                                             Newborn Friendly
@@ -123,7 +126,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-6 sm:mb-8 lg:mb-12 mt-4 sm:mt-6">
-                <h1 class="font-fredoka text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-2 relative inline-block">
+                <h1 class="font-fredoka text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-2 relative inline-block">
                     Our Best Seller
                 </h1>
                 <p
@@ -253,7 +256,7 @@
                     <!-- Right: Product Details -->
                     <div class="w-full lg:w-2/3">
                         <div class="mb-4 sm:mb-6 text-center lg:text-left">
-                            <h2 class="font-fredoka text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-2 sm:mb-3">Gentle
+                            <h2 class="font-fredoka text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-2 sm:mb-3">Gentle
                                 Baby
                             </h2>
                             <p class="text-base sm:text-lg font-nunito text-gray-600">Minyak pijat aromaterapi untuk si
@@ -263,44 +266,40 @@
                         <div class="bg-white p-4 sm:p-6 rounded-xl shadow-sm border border-gray-100 mb-6 sm:mb-8">
                             <div class="space-y-3 sm:space-y-4 font-nunito text-gray-700">
                                 <div class="flex items-start">
-                                    <div class="rounded-full bg-green-100 p-1.5 flex-shrink-0">
-                                        <svg class="w-3 sm:w-4 h-3 sm:h-4 text-green-600" fill="currentColor"
-                                            viewBox="0 0 20 20">
+                                    <div class="rounded-full bg-green-100 p-1 flex-shrink-0">
+                                        <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
                                     <span class="text-sm sm:text-base ml-2 sm:ml-3">100% bahan alami</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <div class="rounded-full bg-green-100 p-1.5 flex-shrink-0">
-                                        <svg class="w-3 sm:w-4 h-3 sm:h-4 text-green-600" fill="currentColor"
-                                            viewBox="0 0 20 20">
+                                    <div class="rounded-full bg-green-100 p-1 flex-shrink-0">
+                                        <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
                                     <span class="text-sm sm:text-base ml-2 sm:ml-3">Kelembutan sentuhan skin-to-skin</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <div class="rounded-full bg-green-100 p-1.5 flex-shrink-0">
-                                        <svg class="w-3 sm:w-4 h-3 sm:h-4 text-green-600" fill="currentColor"
-                                            viewBox="0 0 20 20">
+                                    <div class="rounded-full bg-green-100 p-1 flex-shrink-0">
+                                        <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
                                     <span class="text-sm sm:text-base ml-2 sm:ml-3">Ramah untuk bayi baru lahir</span>
                                 </div>
                                 <div class="flex items-start">
-                                    <div class="rounded-full bg-green-100 p-1.5 flex-shrink-0">
-                                        <svg class="w-3 sm:w-4 h-3 sm:h-4 text-green-600" fill="currentColor"
-                                            viewBox="0 0 20 20">
+                                    <div class="rounded-full bg-green-100 p-1 flex-shrink-0">
+                                        <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                             <path fill-rule="evenodd"
-                                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                                 clip-rule="evenodd"></path>
                                         </svg>
                                     </div>
@@ -329,7 +328,7 @@
                     <!-- Mobile: Product Details First -->
                     <div class="w-full lg:w-2/3 order-2 lg:order-1">
                         <div class="mb-4 sm:mb-6 text-center lg:text-right">
-                            <h2 class="font-fredoka text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-2 sm:mb-3">
+                            <h2 class="font-fredoka text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-2 sm:mb-3">
                                 Mamina</h2>
                             <p class="text-base sm:text-lg font-nunito text-gray-600">Seduhan Herbal Untuk Ibu</p>
                         </div>
@@ -396,7 +395,7 @@
                     <!-- Right: Product Details -->
                     <div class="w-full lg:w-2/3">
                         <div class="mb-4 sm:mb-6 text-center lg:text-left">
-                            <h2 class="font-fredoka text-2xl sm:text-3xl lg:text-4xl text-gray-800 mb-2 sm:mb-3">Nyam</h2>
+                            <h2 class="font-fredoka text-2xl sm:text-3xl lg:text-4xl text-[#6C63FF] mb-2 sm:mb-3">Nyam</h2>
                             <p class="text-base sm:text-lg font-nunito text-gray-600">Makanan Pendamping ASI berkualitas
                                 tinggi</p>
                         </div>
@@ -412,7 +411,7 @@
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mt-3 sm:mt-4">
                                     <div class="flex items-center">
                                         <div class="rounded-full bg-green-100 p-1 flex-shrink-0">
-                                            <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd"
                                                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                                     clip-rule="evenodd"></path>
@@ -422,7 +421,7 @@
                                     </div>
                                     <div class="flex items-center">
                                         <div class="rounded-full bg-green-100 p-1 flex-shrink-0">
-                                            <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd"
                                                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                                     clip-rule="evenodd"></path>
@@ -432,7 +431,7 @@
                                     </div>
                                     <div class="flex items-center">
                                         <div class="rounded-full bg-green-100 p-1 flex-shrink-0">
-                                            <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd"
                                                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                                     clip-rule="evenodd"></path>
@@ -442,7 +441,7 @@
                                     </div>
                                     <div class="flex items-center">
                                         <div class="rounded-full bg-green-100 p-1 flex-shrink-0">
-                                            <svg class="w-3 h-3 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                                                 <path fill-rule="evenodd"
                                                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
                                                     clip-rule="evenodd"></path>
@@ -473,7 +472,7 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Section Header -->
             <div class="mb-8 sm:mb-12">
-                <h2 class="font-fredoka text-2xl sm:text-3xl text-gray-800 mb-3 sm:mb-4 px-2">
+                <h2 class="font-fredoka text-2xl sm:text-3xl text-[#6C63FF] mb-3 sm:mb-4 px-2">
                     Lebih dari Sekedar Produk, Ini Bentuk Kasih Sayang
                 </h2>
                 <p
@@ -541,8 +540,8 @@
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <!-- Header -->
             <div class="mb-8 sm:mb-12">
-                <h2 class="font-fredoka text-2xl sm:text-3xl text-gray-800 mb-3 sm:mb-4 px-2">
-                    Telah Dipercaya <span class="text-blue-600">30.000+</span> Ibu
+                <h2 class="font-fredoka text-2xl sm:text-3xl text-[#6C63FF] mb-3 sm:mb-4 px-2">
+                    Telah Dipercaya <span class="text-gray-800">30.000+</span> Ibu
                 </h2>
                 <p class="font-nunito text-sm sm:text-base lg:text-lg text-gray-600 mb-6 sm:mb-8 px-4 sm:px-0">
                     Bergabunglah dengan ribuan ibu yang telah merasakan manfaat produk kami
@@ -652,7 +651,7 @@
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <!-- Section Header -->
             <div class="text-center mb-8 sm:mb-12">
-                <h2 class="font-fredoka text-2xl sm:text-3xl text-gray-800 mb-3 sm:mb-4 px-2">
+                <h2 class="font-fredoka text-2xl sm:text-3xl text-[#6C63FF] mb-3 sm:mb-4 px-2">
                     Frequently Asked Questions
                 </h2>
                 <p
