@@ -16,17 +16,17 @@
 
     <!-- Hero Produk Section -->
     <section class="relative bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-            <div class="text-center mb-16">
+        <div class="max-w-7xl mx-auto px-2 sm:px-2 lg:px-2 pt-2">
+            <div class="text-center mb-8">
                 <h1 class="text-3xl lg:text-5xl text-[#6C63FF] font-fredoka mt-4">
                     {{ $productTitle }}
                 </h1>
             </div>
 
             <!-- Product Carousel -->
-            <div class="relative mb-16 px-4 lg:px-8 max-w-7xl mx-auto mt-4">
+            <div class="relative mb-8 px-2 lg:px-8 max-w-7xl mx-auto mt-4">
                 <!-- Carousel Container -->
-                <div class="overflow-hidden rounded-xl bg-white p-6 lg:p-8">
+                <div class="overflow-hidden rounded-xl bg-white p-3 lg:p-4">
                     <div id="productCarousel" class="flex transition-transform duration-500 ease-in-out gap-4">
                         @php
                             if(request('product') == 'mamina' || request('product') == 'mamina-asi-booster') {
