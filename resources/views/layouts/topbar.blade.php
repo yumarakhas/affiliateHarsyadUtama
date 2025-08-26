@@ -84,7 +84,7 @@
                         </div>
                     </div>
 
-                    <a href=""
+                    <a href="{{ route('belanja') }}" target="_blank" rel="noopener noreferrer"
                         class="text-sm xl:text-base text-gray-600 hover:text-blue-600 transition-colors duration-200">
                         Belanja
                     </a>
@@ -147,7 +147,7 @@
                         </div>
                     </div>
 
-                    <a href=""
+                    <a href="{{ route('belanja') }}" target="_blank" rel="noopener noreferrer"
                         class="block px-3 py-2 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
                         Belanja
                     </a>
