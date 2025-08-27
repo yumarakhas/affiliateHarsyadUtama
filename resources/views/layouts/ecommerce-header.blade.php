@@ -22,7 +22,7 @@
                     class="text-sm xl:text-base {{ Route::currentRouteName() == 'belanja.riwayat' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 transition-colors duration-200">
                     Riwayat
                 </a>
-                <a href="{{ route('tentang-kami') }}" target="_blank" rel="noopener noreferrer"
+                <a href="{{ route('tentang-kami') }}"
                     class="text-sm xl:text-base {{ Route::currentRouteName() == 'tentang-kami' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 transition-colors duration-200">
                     Tentang
                 </a>
@@ -111,7 +111,7 @@
                         class="block px-3 py-2 text-base {{ Route::currentRouteName() == 'belanja.riwayat' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-600' }} hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
                         Riwayat
                     </a>
-                    <a href="{{ route('tentang-kami') }}" target="_blank" rel="noopener noreferrer"
+                    <a href="{{ route('tentang-kami') }}"
                         class="block px-3 py-2 text-base {{ Route::currentRouteName() == 'tentang-kami' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-600' }} hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
                         Tentang
                     </a>
