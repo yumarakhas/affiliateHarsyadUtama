@@ -20,12 +20,12 @@
                 <!-- Logo dan Judul -->
                 <div class="text-center mb-4">
                     <img src="{{ asset('images/logo-tab.png') }}" alt="Gentle Living" class="h-16 mx-auto mb-3">
-                    <h2 style="font-family: 'Fredoka One', cursive;" class="text-3xl text-[#6C63FF] mb-2">Login Affiliate
+                    <h2 style="font-family: 'Fredoka One', cursive;" class="text-3xl text-[#6C63FF] mb-2">Login Admin
                     </h2>
                     <p style="font-family: 'Nunito', sans-serif;" class="text-gray-600">Masuk ke dashboard untuk
                         mengelola
                         data
-                        affiliate</p>
+                        admin</p>
                 </div>
 
                 <!-- Form Card -->

@@ -21,16 +21,10 @@
 
 <body>
     {{-- Admin Top Bar --}}
-    <header class="main-content fixed bg-white shadow-md z-50">
-        <div class="max-w-7xl mx-auto py-3 lg:py-4 px-4 lg:px-8">
-            <div class="flex justify-between items-center">
-                <!-- Logo -->
-                <div class="flex-shrink-0 ml-6">
-                    <img src="{{ asset('images/top-bar.png') }}" alt="Gentle Living Logo" class="h-10 sm:h-12">
-                </div>
-            </div>
-        </div>
-    </header>
+    @include('layouts.admin.topbar')
+
+    <!-- Sidebar -->
+    @include('layouts.admin.sidebar')
 
     <!-- Spacer untuk menggantikan ruang yang diambil oleh fixed header -->
     <div class="main-content h-20"></div>
@@ -60,36 +54,14 @@
     @endif
 
     {{-- Main Content --}}
-    <main class="main-content">
+    <main class="main-content lg:ml-64 transition-all duration-300">
         @yield('content')
     </main>
 
     <!-- Footer Section -->
-    <footer class="main-content">
+    <footer class="main-content lg:ml-64 transition-all duration-300">
         @include('layouts.footer')
     </footer>
-
-    @include('layouts.admin.sidebar')
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const sidebar = document.getElementById('sidebar');
-            const mainContents = document.querySelectorAll('.main-content');
-
-            function adjustLayout() {
-                const sidebarWidth = sidebar.classList.contains('sidebar-collapsed') ? '4rem' : '16rem';
-                mainContents.forEach(element => {
-                    element.style.marginLeft = sidebarWidth;
-                });
-            }
-
-            // Adjust layout on sidebar toggle
-            sidebar.addEventListener('transitionend', adjustLayout);
-
-            // Initial adjustment
-            adjustLayout();
-        });
-    </script>
 </body>
 
 </html>
