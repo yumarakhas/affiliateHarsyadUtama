@@ -12,6 +12,8 @@ Route::get('/partner', [LandingController::class, 'partner'])->name('partner');
 Route::get('/produk', [LandingController::class, 'produk'])->name('produk');
 Route::get('/belanja', [LandingController::class, 'belanja'])->name('belanja');
 Route::get('/belanja/produk', [LandingController::class, 'belanjaProduk'])->name('belanja.produk');
+Route::get('/belanja/riwayat', [LandingController::class, 'riwayat'])->name('belanja.riwayat');
+Route::get('/belanja/keranjang', [LandingController::class, 'keranjang'])->name('belanja.keranjang');
 Route::get('/produk/{id}', [LandingController::class, 'produkDetail'])->name('produk.detail');
 Route::get('/tentang-kami', [LandingController::class, 'tentangKami'])->name('tentang-kami');
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class LandingController extends Controller
 {
@@ -129,5 +130,147 @@ class LandingController extends Controller
             ->get();
         
         return view('produk-detail', compact('product', 'similarProducts', 'otherProducts'));
+    }
+    
+    public function riwayat()
+    {
+        // For now, we'll create mock order data
+        // In a real application, this would come from an orders table
+        $orders = collect([
+            [
+                'id' => 1,
+                'products' => [
+                    [
+                        'name' => 'Nama Produk 1',
+                        'variant' => 'Variasi 1',
+                        'quantity' => 1,
+                        'price' => 100000,
+                        'image' => 'products/gentle-baby.png'
+                    ]
+                ],
+                'total' => 100000,
+                'status' => 'selesai',
+                'info' => 'Pesanan telah tiba di alamat tujuan. Diterima oleh Yang Bersangkutan',
+                'date' => '08/08/2025',
+                'payment_method' => 'Bank BRI'
+            ],
+            [
+                'id' => 2,
+                'products' => [
+                    [
+                        'name' => 'Nama Produk 1',
+                        'variant' => 'Variasi 1', 
+                        'quantity' => 1,
+                        'price' => 100000,
+                        'image' => 'products/gentle-baby.png'
+                    ],
+                    [
+                        'name' => 'Nama Produk 2',
+                        'variant' => 'Variasi 2',
+                        'quantity' => 2,
+                        'price' => 200000,
+                        'image' => 'products/mamina.png'
+                    ]
+                ],
+                'total' => 300000,
+                'status' => 'belum-bayar',
+                'info' => 'Bayar sebelum 08/08/2025 23:59 dengan Bank BRI',
+                'date' => '08/08/2025',
+                'payment_method' => 'Bank BRI'
+            ],
+            [
+                'id' => 3,
+                'products' => [
+                    [
+                        'name' => 'Nama Produk 1',
+                        'variant' => 'Variasi 1',
+                        'quantity' => 1,
+                        'price' => 100000,
+                        'image' => 'products/gentle-baby.png'
+                    ]
+                ],
+                'total' => 100000,
+                'status' => 'dikemas',
+                'info' => 'Produk akan dikirimkan sebelum 15/08/2025',
+                'date' => '08/08/2025',
+                'payment_method' => 'Bank BRI'
+            ],
+            [
+                'id' => 4,
+                'products' => [
+                    [
+                        'name' => 'Nama Produk 1',
+                        'variant' => 'Variasi 1',
+                        'quantity' => 1,
+                        'price' => 100000,
+                        'image' => 'products/gentle-baby.png'
+                    ]
+                ],
+                'total' => 100000,
+                'status' => 'dikirim',
+                'info' => 'Pesanan dalam proses pengantaran',
+                'date' => '08/08/2025',
+                'payment_method' => 'Bank BRI'
+            ]
+        ]);
+        
+        return view('belanja-riwayat', compact('orders'));
+    }
+    
+    public function keranjang()
+    {
+        // Mock data untuk keranjang belanja
+        // Dalam aplikasi nyata, ini akan diambil dari session atau database
+        $cartItems = collect([
+            [
+                'id' => 1,
+                'product_id' => 1,
+                'name' => 'Gentle Baby Oil - Minyak Telon Bayi',
+                'variant' => 'Ukuran 100ml',
+                'price' => 85000,
+                'quantity' => 2,
+                'image' => 'products/gentle-baby.png',
+                'stock' => 15,
+                'weight' => 200 // gram
+            ],
+            [
+                'id' => 2,
+                'product_id' => 2,
+                'name' => 'Mamina ASI Booster Tea',
+                'variant' => 'Kemasan 30 sachet',
+                'price' => 120000,
+                'quantity' => 1,
+                'image' => 'products/mamina.png',
+                'stock' => 8,
+                'weight' => 150 // gram
+            ],
+            [
+                'id' => 3,
+                'product_id' => 3,
+                'name' => 'Essential Oil Lavender',
+                'variant' => 'Ukuran 10ml',
+                'price' => 65000,
+                'quantity' => 3,
+                'image' => 'products/essential-oil.png',
+                'stock' => 20,
+                'weight' => 30 // gram
+            ]
+        ]);
+        
+        // Hitung total
+        $subtotal = $cartItems->sum(function($item) {
+            return $item['price'] * $item['quantity'];
+        });
+        
+        $totalWeight = $cartItems->sum(function($item) {
+            return $item['weight'] * $item['quantity'];
+        });
+        
+        // Estimasi ongkos kirim (contoh)
+        $shippingCost = 15000; // Flat rate untuk contoh
+        
+        $total = $subtotal + $shippingCost;
+        
+        return view('belanja-keranjang', compact('cartItems', 'subtotal', 'shippingCost', 'total', 'totalWeight'));
     }
 }
