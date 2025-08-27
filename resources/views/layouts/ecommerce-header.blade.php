@@ -18,8 +18,8 @@
                     class="text-sm xl:text-base {{ Route::currentRouteName() == 'belanja.produk' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 transition-colors duration-200">
                     Produk
                 </a>
-                <a href=""
-                    class="text-sm xl:text-base text-gray-600 hover:text-blue-600 transition-colors duration-200">
+                <a href="{{ route('belanja.riwayat') }}"
+                    class="text-sm xl:text-base {{ Route::currentRouteName() == 'belanja.riwayat' ? 'text-blue-600 font-bold' : 'text-gray-600' }} hover:text-blue-600 transition-colors duration-200">
                     Riwayat
                 </a>
                 <a href="{{ route('tentang-kami') }}" target="_blank" rel="noopener noreferrer"
@@ -54,13 +54,13 @@
                 </a>
 
                 <!-- Cart Icon -->
-                <button class="relative p-2 text-gray-600 hover:text-blue-600 transition-colors duration-200">
+                <a href="{{ route('belanja.keranjang') }}" class="relative p-2 text-gray-600 hover:text-blue-600 transition-colors duration-200">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0L17 18m0 0v3a1 1 0 01-1 1H8a1 1 0 01-1-1v-3m10 0a1 1 0 01-1 1H8a1 1 0 01-1-1"></path>
                     </svg>
                     <!-- Cart badge -->
-                    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                </button>
+                    <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                </a>
             </div>
 
             <!-- Mobile menu button -->
@@ -101,8 +101,8 @@
                         class="block px-3 py-2 text-base {{ Route::currentRouteName() == 'belanja.produk' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-600' }} hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
                         Produk
                     </a>
-                    <a href=""
-                        class="block px-3 py-2 text-base text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
+                    <a href="{{ route('belanja.riwayat') }}"
+                        class="block px-3 py-2 text-base {{ Route::currentRouteName() == 'belanja.riwayat' ? 'text-blue-600 font-bold bg-blue-50' : 'text-gray-600' }} hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all duration-200">
                         Riwayat
                     </a>
                     <a href="{{ route('tentang-kami') }}" target="_blank" rel="noopener noreferrer"
@@ -116,12 +116,12 @@
                         class="flex-1 text-center px-6 py-3 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out font-nunito font-medium">
                         Login
                     </a>
-                    <button class="px-4 py-3 bg-gray-100 rounded-full relative">
+                    <a href="{{ route('belanja.keranjang') }}" class="px-4 py-3 bg-gray-100 rounded-full relative">
                         <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0L17 18m0 0v3a1 1 0 01-1 1H8a1 1 0 01-1-1v-3m10 0a1 1 0 01-1 1H8a1 1 0 01-1-1"></path>
                         </svg>
-                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
-                    </button>
+                        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">3</span>
+                    </a>
                 </div>
             </div>
         </div>
