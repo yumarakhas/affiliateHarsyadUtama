@@ -53,6 +53,12 @@
                     Login
                 </a>
 
+                <!-- Register Button -->
+                <a href="{{ route('register') }}"
+                    class="px-6 py-2 text-sm lg:text-base font-nunito font-medium text-white bg-blue-600 border border-blue-600 rounded-full hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 ease-in-out transform hover:scale-105">
+                    Daftar
+                </a>
+
                 <!-- Cart Icon -->
                 <a href="{{ route('belanja.keranjang') }}" class="relative p-2 text-gray-600 hover:text-blue-600 transition-colors duration-200">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -115,6 +121,10 @@
                     <a href="{{ route('login') }}"
                         class="flex-1 text-center px-6 py-3 text-blue-600 border border-blue-600 rounded-full hover:bg-blue-600 hover:text-white transition-all duration-300 ease-in-out font-nunito font-medium">
                         Login
+                    </a>
+                    <a href="{{ route('register') }}"
+                        class="flex-1 text-center px-6 py-3 text-white bg-blue-600 border border-blue-600 rounded-full hover:bg-blue-700 hover:border-blue-700 transition-all duration-300 ease-in-out font-nunito font-medium">
+                        Daftar
                     </a>
                     <a href="{{ route('belanja.keranjang') }}" class="px-4 py-3 bg-gray-100 rounded-full relative">
                         <svg class="h-6 w-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
