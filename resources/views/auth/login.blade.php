@@ -158,6 +158,16 @@
                                 </button>
                             </div>
                         </form>
+
+                        <!-- Register Link -->
+                        <div class="text-center mt-4 pt-4 border-t border-gray-200">
+                            <p class="text-sm text-gray-600">
+                                Belum punya akun? 
+                                <a href="{{ route('register') }}" class="text-[#6C63FF] hover:underline font-medium">
+                                    Daftar di sini
+                                </a>
+                            </p>
+                        </div>
                     </div>
                 </div>
 
