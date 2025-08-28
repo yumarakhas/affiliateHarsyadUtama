@@ -17,6 +17,7 @@ class AdminSeeder extends Seeder
         Admin::create([
             'name' => 'Super Admin',
             'email' => 'admin@gentleliving.com',
+            'role' => 'admin',
             'email_verified_at' => now(),
             'password' => Hash::make('admin123'),
         ]);
@@ -24,6 +25,7 @@ class AdminSeeder extends Seeder
         Admin::create([
             'name' => 'Admin Gentle Living',
             'email' => 'admin2@gentleliving.com',
+            'role' => 'admin',
             'email_verified_at' => now(),
             'password' => Hash::make('admin123'),
         ]);

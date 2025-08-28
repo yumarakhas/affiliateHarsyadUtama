@@ -19,6 +19,9 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gentleliving.com',
             'email_verified_at' => now(),
             'password' => bcrypt('admin123'),
+            'role' => 'admin',
+            'phone' => '081234567890',
+            'address' => 'Jl. Kebon Jeruk No. 10, Jakarta Barat, DKI Jakarta'
         ]);
 
         // Menjalankan seeder untuk data affiliate dummy
@@ -26,6 +29,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             MasterItemSeeder::class,
             AffiliateWithSocialMediaSeeder::class,
+            CustomerSeeder::class,
         ]);
     }
 }
