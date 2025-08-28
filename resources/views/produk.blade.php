@@ -254,14 +254,17 @@
                             } else {
                                 // Gentle Baby Variants (existing)
                                 $variants = [
-                                    ['name' => 'Cough n Flu', 'image' => 'products/gentle-baby/variants/cough-flu.jpg', 'link' => 'https://shopee.co.id/GENTLE-BABY-Cough-n-Flu-Therapeutic-Oil-10-ml-mengatasi-Batuk-Pilek-pada-Bayi-Balita-Bahan-Alami-i.400631324.23843953090'],
-                                    ['name' => 'Deep Sleep', 'image' => 'products/gentle-baby/variants/deep-sleep.jpg', 'link' => 'https://shopee.co.id/GENTLE-BABY-Deep-Sleep-Therapeutic-Oil-10-ml-Membuat-Bayi-Tidur-Lebih-Nyenyak-Bahan-Alami-i.400631324.23269436550'],
-                                    ['name' => 'Gimme Food', 'image' => 'products/gentle-baby/variants/gimme-food.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-Gimme-Food-Therapeutic-Oil-10-ml-Tingkatkan-Nafsu-Makan-Buah-Hati-Bahan-Alami-i.400631324.16694810325'],
-                                    ['name' => 'Joy', 'image' => 'products/gentle-baby/variants/joy.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-Joy-Therapeutic-Oil-10-ml-Atasi-Pegal-pegal-Nyeri-Otot-pada-Bayi-Bahan-Alami-i.400631324.23343960290'],
-                                    ['name' => 'Tummy Calmer', 'image' => 'products/gentle-baby/variants/tummy-calmer.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-Tummy-Calmer-Therapeutic-Oil-10-ml-Atasi-Masalah-Perut-Kembung-Si-Kecil-Bahan-Alami-i.400631324.18489288812'],
-                                    ['name' => 'LDR Booster', 'image' => 'products/gentle-baby/variants/ldr-booster.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-LDR-Booster-Therapeutic-Oil-10-ml-Untuk-Ibu-Menyusui-Bahan-Alami-i.400631324.19780323108'],
-                                    ['name' => 'Massage Your Baby', 'image' => 'products/gentle-baby/variants/massage-your-baby.jpg', 'link' => 'https://shopee.co.id/Gentle-Baby-Massage-Your-Baby-Therapeutic-Oil-10-ml-Media-untuk-Memijat-Bayi-Balita-Bahan-Alami-i.400631324.21589276883'],
-                                    ['name' => 'Immboost', 'image' => 'products/gentle-baby/variants/immboost.jpg', 'link' => 'https://shopee.co.id/GENTLE-BABY-Therapeutic-Oil-10ML-Minyak-Pijat-Aromaterapi-Bayi-Balita-Usia-0-4-Tahun-Bahan-alami-i.400631324.18077793526']
+                                    ['name' => 'Bye Bugs', 'image' => 'products/gentle-baby/variants/bye-bugs.jpg', 'link' => route('produk.detail', 10)],
+                                    ['name' => 'Cough n Flu', 'image' => 'products/gentle-baby/variants/cough-flu.jpg', 'link' => route('produk.detail', 11)],
+                                    ['name' => 'Deep Sleep', 'image' => 'products/gentle-baby/variants/deep-sleep.jpg', 'link' => route('produk.detail', 12)],
+                                    ['name' => 'Gimme Food', 'image' => 'products/gentle-baby/variants/gimme-food.jpg', 'link' => route('produk.detail', 13)],
+                                    ['name' => 'Immboost', 'image' => 'products/gentle-baby/variants/immboost.jpg', 'link' => route('produk.detail', 14)],
+                                    ['name' => 'Joy', 'image' => 'products/gentle-baby/variants/joy.jpg', 'link' => route('produk.detail', 15)],
+                                    ['name' => 'LDR Booster', 'image' => 'products/gentle-baby/variants/ldr-booster.jpg', 'link' => route('produk.detail', 16)],
+                                    ['name' => 'Massage Your Baby', 'image' => 'products/gentle-baby/variants/massage-your-baby.jpg', 'link' => route('produk.detail', 17)],
+                                    ['name' => 'Tummy Calmer', 'image' => 'products/gentle-baby/variants/tummy-calmer.jpg', 'link' => route('produk.detail', 18)],
+                                    ['name' => 'Travel Pack Cold Common', 'image' => 'products/gentle-baby/variants/TP-CC.jpg', 'link' => route('produk.detail', 19)],
+                                    ['name' => 'Travel Pack NewBorn', 'image' => 'products/gentle-baby/variants/TP-NB.jpg', 'link' => route('produk.detail', 20)],
                                 ];
                             }
                         @endphp
