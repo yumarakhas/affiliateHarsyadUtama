@@ -1,19 +1,96 @@
-@extends('layouts.admin')
+@extends('layouts.admin.app')
 
-@section('title', 'Tambah Produk')
+@section('title', 'Tambah Varian Produk')
 
 @section('content')
 <div class="p-6">
+    <!-- Content Navigation -->
+    <div class="mb-6">
+        <div class="flex items-center justify-between mb-4">
+            <h1 class="text-2xl font-bold text-gray-900" style="font-family: 'Nunito', sans-serif;">
+                Kelola Konten Landing Page
+            </h1>
+            <a href="{{ route('admin.content.index') }}" 
+               class="text-gray-600 hover:text-gray-800 text-sm">
+                <i class="fas fa-arrow-left mr-1"></i> Kembali ke Dashboard
+            </a>
+        </div>
+        
+        <!-- Horizontal Menu Navigation -->
+        <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
+            <div class="flex space-x-1 overflow-x-auto">
+                <!-- Carousel Produk -->
+                <a href="{{ route('admin.content.carousel-produk') }}" 
+                   class="flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap
+                          {{ Request::routeIs('admin.content.carousel-produk*') ? 'bg-blue-500 text-white shadow-md' : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50' }}">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                    </svg>
+                    Carousel Produk
+                </a>
+
+                <!-- Benefits -->
+                <a href="{{ route('admin.content.benefits') }}" 
+                   class="flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap
+                          {{ Request::routeIs('admin.content.benefits*') ? 'bg-green-500 text-white shadow-md' : 'text-gray-600 hover:text-green-600 hover:bg-green-50' }}">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    Benefits
+                </a>
+
+                <!-- Carousel Varian (Active) -->
+                <a href="{{ route('admin.content.carousel-varian') }}" 
+                   class="flex items-center px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 whitespace-nowrap
+                          {{ Request::routeIs('admin.content.carousel-varian*') || Request::routeIs('admin.products*') ? 'bg-purple-500 text-white shadow-md' : 'text-gray-600 hover:text-purple-600 hover:bg-purple-50' }}">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                    </svg>
+                    Carousel Varian
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- Header -->
     <div class="mb-6">
         <div class="flex justify-between items-center">
             <div>
-                <h1 class="text-2xl font-bold text-gray-900" style="font-family: 'Nunito', sans-serif;">
-                    Tambah Produk Baru
-                </h1>
-                <p class="text-gray-600 mt-1">Buat produk baru untuk ditampilkan di halaman produk</p>
+                <h2 class="text-xl font-bold text-gray-900">
+                    Tambah Varian Produk Baru
+                    @if(request('category'))
+                        <span class="text-base font-normal text-gray-600">
+                            - 
+                            @if(request('category') == 'gentle-baby') 
+                                <span class="text-blue-600 font-semibold">Gentle Baby</span>
+                            @elseif(request('category') == 'mamina') 
+                                <span class="text-pink-600 font-semibold">Mamina</span>
+                            @elseif(request('category') == 'nyam') 
+                                <span class="text-orange-600 font-semibold">Nyam! MPASI</span>
+                            @endif
+                        </span>
+                    @endif
+                </h2>
+                <p class="text-gray-600 mt-1">Buat varian produk baru untuk carousel varian di halaman utama</p>
+                
+                @if(request('category'))
+                    <div class="mt-2 inline-flex items-center px-3 py-1 rounded-full text-sm font-medium
+                                {{ request('category') == 'gentle-baby' ? 'bg-blue-100 text-blue-800' : 
+                                   (request('category') == 'mamina' ? 'bg-pink-100 text-pink-800' : 
+                                   (request('category') == 'nyam' ? 'bg-orange-100 text-orange-800' : '')) }}">
+                        <div class="w-2 h-2 rounded-full mr-2 
+                                    {{ request('category') == 'gentle-baby' ? 'bg-blue-400' : 
+                                       (request('category') == 'mamina' ? 'bg-pink-400' : 
+                                       (request('category') == 'nyam' ? 'bg-orange-400' : '')) }}"></div>
+                        Kategori: 
+                        @if(request('category') == 'gentle-baby') Gentle Baby
+                        @elseif(request('category') == 'mamina') Mamina  
+                        @elseif(request('category') == 'nyam') Nyam! MPASI
+                        @endif
+                    </div>
+                @endif
             </div>
-            <a href="{{ route('admin.products.index') }}" 
+            <a href="{{ route('admin.content.carousel-varian') }}{{ request('category') ? '?category=' . request('category') : '' }}" 
                class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:bg-gray-600 transition-colors">
                 <i class="fas fa-arrow-left mr-2"></i>Kembali
             </a>
@@ -22,7 +99,7 @@
 
     <!-- Form -->
     <div class="bg-white rounded-lg shadow p-6">
-        <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.content.carousel-varian.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -61,10 +138,10 @@
                         <select id="category" name="category" 
                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#528B89]" required>
                             <option value="">Pilih Kategori</option>
-                            <option value="gentle-baby" {{ old('category') == 'gentle-baby' ? 'selected' : '' }}>Gentle Baby</option>
-                            <option value="mamina" {{ old('category') == 'mamina' ? 'selected' : '' }}>Mamina</option>
-                            <option value="nyam" {{ old('category') == 'nyam' ? 'selected' : '' }}>Nyam! MPASI</option>
-                            <option value="general" {{ old('category') == 'general' ? 'selected' : '' }}>Umum</option>
+                            <option value="gentle-baby" {{ old('category', request('category')) == 'gentle-baby' ? 'selected' : '' }}>Gentle Baby</option>
+                            <option value="mamina" {{ old('category', request('category')) == 'mamina' ? 'selected' : '' }}>Mamina</option>
+                            <option value="nyam" {{ old('category', request('category')) == 'nyam' ? 'selected' : '' }}>Nyam! MPASI</option>
+                            <option value="general" {{ old('category', request('category')) == 'general' ? 'selected' : '' }}>Umum</option>
                         </select>
                         @error('category')
                             <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
@@ -157,13 +234,13 @@
 
             <!-- Submit Button -->
             <div class="flex justify-end space-x-4 mt-6 pt-6 border-t">
-                <a href="{{ route('admin.products.index') }}" 
+                <a href="{{ route('admin.content.carousel-varian') }}{{ request('category') ? '?category=' . request('category') : '' }}" 
                    class="px-6 py-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50 transition-colors">
                     Batal
                 </a>
                 <button type="submit" 
-                        class="px-6 py-2 bg-brand-500 text-white rounded-md hover:bg-brand-600 transition-colors">
-                    Simpan Produk
+                        class="px-6 py-2 bg-purple-500 text-white rounded-md hover:bg-purple-600 transition-colors">
+                    Simpan Varian Produk
                 </button>
             </div>
         </form>

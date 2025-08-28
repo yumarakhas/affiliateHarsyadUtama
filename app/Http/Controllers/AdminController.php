@@ -505,9 +505,16 @@ class AdminController extends Controller
     /**
      * Show product management page
      */
-    public function manageProducts()
+    public function manageProducts(Request $request)
     {
-        $products = Product::ordered()->get();
+        $query = Product::query();
+        
+        // Filter by category if specified
+        if ($request->has('category') && $request->category) {
+            $query->where('category', $request->category);
+        }
+        
+        $products = $query->ordered()->paginate(10);
         
         return view('admin.products.index', compact('products'));
     }
@@ -627,5 +634,53 @@ class AdminController extends Controller
         $product->delete();
 
         return redirect()->route('admin.products.index')->with('success', 'Produk berhasil dihapus!');
+    }
+
+    /**
+     * Content Management Dashboard
+     */
+    public function contentManagement()
+    {
+        $productsCount = Product::count();
+        $gentleBabyCount = Product::where('category', 'gentle-baby')->count();
+        $maminaCount = Product::where('category', 'mamina')->count();
+        $nyamCount = Product::where('category', 'nyam')->count();
+        
+        return view('admin.content.index', compact(
+            'productsCount', 
+            'gentleBabyCount', 
+            'maminaCount', 
+            'nyamCount'
+        ));
+    }
+
+    /**
+     * Carousel Produk Management  
+     */
+    public function carouselProduk(Request $request)
+    {
+        // For future implementation of main product carousel
+        return view('admin.content.carousel-produk', [
+            'message' => 'Halaman Carousel Produk akan segera tersedia'
+        ]);
+    }
+
+    /**
+     * Benefits Management
+     */
+    public function benefits(Request $request)
+    {
+        // For future implementation of benefits section
+        return view('admin.content.benefits', [
+            'message' => 'Halaman Benefits akan segera tersedia'
+        ]);
+    }
+
+    /**
+     * Carousel Varian Management (alias for manageProducts)
+     */
+    public function carouselVarian(Request $request)
+    {
+        return $this->manageProducts($request);
     }
 }
