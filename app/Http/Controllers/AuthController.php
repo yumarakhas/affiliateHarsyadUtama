@@ -35,7 +35,11 @@ class AuthController extends Controller
             $request->session()->regenerate();
 
             // Langsung arahkan ke view-data
-            return redirect()->intended('/admin/view-data');
+            if (Auth::user()->role == 'admin' || Auth::user()->role == 'super-admin') {
+                return redirect('/admin/view-data');
+            } else {
+                return redirect('/');
+            }
         }
 
         return back()->withErrors([
@@ -91,6 +95,7 @@ class AuthController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'role' => 'user', // Default role for new registrations
             'phone' => $request->phone,
             'address' => $request->address,
         ]);

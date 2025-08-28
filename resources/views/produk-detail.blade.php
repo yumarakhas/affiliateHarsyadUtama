@@ -1,6 +1,6 @@
 @extends('layouts.ecommerce')
 
-@section('title', $product->name . ' - Gentle Living')
+@section('title', $product->name_item . ' - Gentle Living')
 
 @section('content')
 <div class="min-h-screen bg-gray-50">
@@ -10,9 +10,9 @@
             <nav class="flex items-center space-x-2 text-sm text-gray-500 font-nunito">
                 <a href="{{ route('beranda') }}" class="hover:text-blue-600 transition-colors duration-200">Home</a>
                 <span>/</span>
-                <a href="{{ route('belanja', ['category' => $product->category]) }}" class="hover:text-blue-600 transition-colors duration-200">Kategori {{ ucfirst($product->category) }}</a>
+                <a href="{{ route('belanja.produk', ['category' => $product->category->slug]) }}" class="hover:text-blue-600 transition-colors duration-200">{{ $product->category->name }}</a>
                 <span>/</span>
-                <span class="text-gray-800 font-medium">{{ $product->name }}</span>
+                <span class="text-gray-800 font-medium">{{ $product->name_item }}</span>
             </nav>
         </div>
     </div>
@@ -54,19 +54,37 @@
             <!-- Product Info -->
             <div class="space-y-6">
                 <div>
-                    <h1 class="text-3xl font-bold text-gray-900 mb-3 font-nunito">{{ $product->name }}</h1>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-3 font-nunito">{{ $product->name_item }}</h1>
+                    <p class="text-lg text-gray-600 mb-2 font-nunito">{{ $product->category->name }}</p>
+                    <p class="text-sm text-blue-600 font-semibold mb-4 font-nunito">{{ $product->netweight_item }} • {{ $product->unit_item }}</p>
                     
                     <!-- Description -->
                     <div class="mb-6">
                         <h3 class="text-lg font-semibold text-gray-800 mb-2 font-nunito">Deskripsi</h3>
                         <p class="text-gray-600 leading-relaxed font-nunito">
-                            {{ $product->description ?? 'Fusce ipsum dolor, elementum sed molestie a, tempus ullamcorper leo. Ut justo purus, tristique sollicitudin sapien quis, placerat placerat ligula. Nulla pulvinar ac est sed mattis. Mauris maximus laoreet lectus, quis aliquam augue efficitur nec. Nam et maximus leo. Maecenas purus velit, faucibus non libero a, sollicitudin rutrum augue. Suspendisse elementum a ante sit amet finibus.' }}
+                            {{ $product->description_item }}
                         </p>
                     </div>
 
-                    <!-- Variants -->
+                    <!-- Ingredients -->
+                    @if($product->ingredient_item)
                     <div class="mb-6">
-                        <h3 class="text-lg font-semibold text-gray-800 mb-3 font-nunito">Varian</h3>
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2 font-nunito">Komposisi</h3>
+                        <p class="text-gray-600 leading-relaxed font-nunito">
+                            {{ $product->ingredient_item }}
+                        </p>
+                    </div>
+                    @endif
+
+                    <!-- Content -->
+                    @if($product->contain_item)
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-gray-800 mb-2 font-nunito">Isi Kemasan</h3>
+                        <p class="text-gray-600 leading-relaxed font-nunito">
+                            {{ $product->contain_item }}
+                        </p>
+                    </div>
+                    @endif
                         <div class="flex flex-wrap gap-3">
                             @if(isset($product->content['variants']) && is_array($product->content['variants']))
                                 @foreach($product->content['variants'] as $index => $variant)
@@ -91,13 +109,13 @@
                                 <input type="number" id="quantity" value="1" min="1" max="{{ $product->stock }}" class="w-16 text-center border-0 focus:ring-0 font-nunito">
                                 <button class="px-3 py-2 text-gray-600 hover:bg-gray-100 transition-colors duration-200" onclick="increaseQuantity()">+</button>
                             </div>
-                            <span class="text-gray-600 font-nunito">Stok {{ $product->stock }}</span>
+                            <span class="text-gray-600 font-nunito">Stok {{ $product->stock }} {{ $product->unit_item }}</span>
                         </div>
                     </div>
 
                     <!-- Price -->
                     <div class="mb-8">
-                        <p class="text-3xl font-bold text-blue-600 font-nunito">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+                        <p class="text-3xl font-bold text-blue-600 font-nunito">{{ $product->formatted_price }}</p>
                     </div>
 
                     <!-- Action Buttons -->
@@ -250,20 +268,16 @@
                         @foreach($similarProducts as $similarProduct)
                         <div class="border border-gray-200 rounded-lg overflow-hidden">
                             <div class="bg-gray-200 h-48 flex items-center justify-center">
-                                @if($similarProduct->image)
-                                    <img src="{{ asset('images/products/' . $similarProduct->image) }}" 
-                                         alt="{{ $similarProduct->name }}" 
-                                         class="w-full h-full object-cover">
-                                @else
-                                    <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                                <div class="w-16 h-16 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M9 9l6 6"></path>
                                     </svg>
-                                @endif
+                                </div>
                             </div>
                             <div class="p-4">
-                                <h3 class="font-semibold text-gray-800 mb-2 font-nunito">{{ $similarProduct->name }}</h3>
-                                <p class="text-blue-600 font-bold mb-3 font-nunito">Rp{{ number_format($similarProduct->price, 0, ',', '.') }}</p>
-                                <a href="{{ route('produk.detail', $similarProduct->id) }}" class="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-nunito">
+                                <h3 class="font-semibold text-gray-800 mb-2 font-nunito">{{ $similarProduct->name_item }}</h3>
+                                <p class="text-blue-600 font-bold mb-3 font-nunito">{{ $similarProduct->formatted_price }}</p>
+                                <a href="{{ route('produk.detail', $similarProduct->item_id) }}" class="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-nunito">
                                     Lihat Produk
                                 </a>
                             </div>
@@ -284,20 +298,16 @@
                         @foreach($otherProducts as $otherProduct)
                         <div class="border border-gray-200 rounded-lg overflow-hidden">
                             <div class="bg-gray-200 h-48 flex items-center justify-center">
-                                @if($otherProduct->image)
-                                    <img src="{{ asset('images/products/' . $otherProduct->image) }}" 
-                                         alt="{{ $otherProduct->name }}" 
-                                         class="w-full h-full object-cover">
-                                @else
-                                    <svg class="w-16 h-16 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                                <div class="w-16 h-16 bg-gradient-to-br from-green-100 to-green-200 rounded-lg flex items-center justify-center">
+                                    <svg class="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M9 9l6 6"></path>
                                     </svg>
-                                @endif
+                                </div>
                             </div>
                             <div class="p-4">
-                                <h3 class="font-semibold text-gray-800 mb-2 font-nunito">{{ $otherProduct->name }}</h3>
-                                <p class="text-blue-600 font-bold mb-3 font-nunito">Rp{{ number_format($otherProduct->price, 0, ',', '.') }}</p>
-                                <a href="{{ route('produk.detail', $otherProduct->id) }}" class="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-nunito">
+                                <h3 class="font-semibold text-gray-800 mb-2 font-nunito">{{ $otherProduct->name_item }}</h3>
+                                <p class="text-blue-600 font-bold mb-3 font-nunito">{{ $otherProduct->formatted_price }}</p>
+                                <a href="{{ route('produk.detail', $otherProduct->item_id) }}" class="block w-full bg-blue-600 text-white text-center py-2 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-nunito">
                                     Lihat Produk
                                 </a>
                             </div>

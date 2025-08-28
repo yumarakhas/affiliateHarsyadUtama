@@ -40,47 +40,24 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- Kategori 1 -->
-                <a href="{{ route('belanja.produk', ['category' => 'gentle-baby']) }}" class="group">
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
-                        <div class="h-48 bg-gray-200 flex items-center justify-center">
-                            <div class="text-center text-gray-500">
-                                <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                                </svg>
-                                <h3 class="text-lg font-semibold font-nunito group-hover:text-blue-600 transition-colors duration-200">Kategori 1</h3>
+                @php
+                    $categories = App\Models\Category::active()->ordered()->take(3)->get();
+                @endphp
+                
+                @foreach($categories as $category)
+                    <a href="{{ route('belanja.produk', ['category' => $category->slug]) }}" class="group">
+                        <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
+                            <div class="h-48 bg-gray-200 flex items-center justify-center">
+                                <div class="text-center text-gray-500">
+                                    <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                                    </svg>
+                                    <h3 class="text-lg font-semibold font-nunito group-hover:text-blue-600 transition-colors duration-200">{{ $category->name }}</h3>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </a>
-
-                <!-- Kategori 2 -->
-                <a href="{{ route('belanja.produk', ['category' => 'aromatherapy']) }}" class="group">
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
-                        <div class="h-48 bg-gray-200 flex items-center justify-center">
-                            <div class="text-center text-gray-500">
-                                <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                                </svg>
-                                <h3 class="text-lg font-semibold font-nunito group-hover:text-blue-600 transition-colors duration-200">Kategori 2</h3>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Kategori 3 -->
-                <a href="{{ route('belanja.produk', ['category' => 'skincare']) }}" class="group">
-                    <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300">
-                        <div class="h-48 bg-gray-200 flex items-center justify-center">
-                            <div class="text-center text-gray-500">
-                                <svg class="w-16 h-16 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                                </svg>
-                                <h3 class="text-lg font-semibold font-nunito group-hover:text-blue-600 transition-colors duration-200">Kategori 3</h3>
-                            </div>
-                        </div>
-                    </div>
-                </a>
+                    </a>
+                @endforeach
             </div>
         </section>
 
@@ -96,27 +73,22 @@
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group">
                     <!-- Product Image -->
                     <div class="relative bg-gray-100 h-48 flex items-center justify-center">
-                        @if($product->image)
-                            <img src="{{ asset('images/products/' . $product->image) }}" 
-                                 alt="{{ $product->name }}" 
-                                 class="w-full h-full object-cover">
-                        @else
-                            <div class="text-gray-400 text-center">
-                                <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
-                                </svg>
-                                <p class="text-xs">No Image</p>
-                            </div>
-                        @endif
+                        <!-- For now, show placeholder since MasterItem doesn't have image field -->
+                        <div class="text-gray-400 text-center">
+                            <svg class="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd" />
+                            </svg>
+                            <p class="text-xs">{{ $product->category->name }}</p>
+                        </div>
                     </div>
                     
                     <!-- Product Info -->
                     <div class="p-4">
-                        <h3 class="text-lg font-bold text-gray-800 mb-2 font-nunito line-clamp-2">{{ $product->name }}</h3>
-                        <p class="text-xl font-bold text-blue-600 mb-3 font-nunito">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+                        <h3 class="text-lg font-bold text-gray-800 mb-2 font-nunito line-clamp-2">{{ $product->name_item }}</h3>
+                        <p class="text-xl font-bold text-blue-600 mb-3 font-nunito">{{ $product->formatted_price }}</p>
                         
                         <div class="flex space-x-2">
-                            <a href="{{ route('produk.detail', $product->id) }}" class="flex-1 bg-blue-600 text-white text-center py-2 px-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-nunito text-sm">
+                            <a href="{{ route('produk.detail', $product->item_id) }}" class="flex-1 bg-blue-600 text-white text-center py-2 px-3 rounded-lg hover:bg-blue-700 transition-colors duration-200 font-nunito text-sm">
                                 Lihat Produk
                             </a>
                             <button class="bg-gray-100 hover:bg-gray-200 p-2 rounded-lg transition-colors duration-200">

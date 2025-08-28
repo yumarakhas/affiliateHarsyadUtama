@@ -72,7 +72,9 @@
                                 <!-- Quantity Controls & Actions -->
                                 <div class="flex flex-col items-end space-y-4">
                                     <!-- Remove Button -->
-                                    <button class="text-gray-400 hover:text-red-500 transition-colors duration-200">
+                                    <button class="remove-item text-gray-400 hover:text-red-500 transition-colors duration-200" 
+                                            data-item-id="{{ $item['id'] }}" 
+                                            title="Hapus dari keranjang">
                                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
                                         </svg>
@@ -80,8 +82,10 @@
 
                                     <!-- Quantity Controls -->
                                     <div class="flex items-center border border-gray-300 rounded-lg">
-                                        <button class="quantity-btn px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-l-lg transition-colors duration-200"
-                                                data-action="decrease" data-item-id="{{ $item['id'] }}">
+                                        <button class="quantity-btn px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-l-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                                data-action="decrease" 
+                                                data-item-id="{{ $item['id'] }}"
+                                                {{ $item['quantity'] <= 1 ? 'disabled' : '' }}>
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
                                             </svg>
@@ -91,13 +95,21 @@
                                                min="1" 
                                                max="{{ $item['stock'] }}"
                                                class="quantity-input w-16 px-3 py-2 text-center border-0 focus:ring-0 font-nunito"
-                                               data-item-id="{{ $item['id'] }}">
-                                        <button class="quantity-btn px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-r-lg transition-colors duration-200"
-                                                data-action="increase" data-item-id="{{ $item['id'] }}">
+                                               data-item-id="{{ $item['id'] }}"
+                                               data-stock="{{ $item['stock'] }}">
+                                        <button class="quantity-btn px-3 py-2 text-gray-600 hover:bg-gray-100 rounded-r-lg transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                                                data-action="increase" 
+                                                data-item-id="{{ $item['id'] }}"
+                                                {{ $item['quantity'] >= $item['stock'] ? 'disabled' : '' }}>
                                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
                                             </svg>
                                         </button>
+                                    </div>
+
+                                    <!-- Loading Indicator -->
+                                    <div class="loading-indicator hidden">
+                                        <div class="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600"></div>
                                     </div>
 
                                     <!-- Item Total -->
@@ -134,18 +146,10 @@
                                 <span class="text-gray-600 font-nunito">Subtotal Produk</span>
                                 <span class="font-semibold font-nunito" id="selected-subtotal">Rp0</span>
                             </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-600 font-nunito">Total Berat</span>
-                                <span class="font-semibold font-nunito">{{ $totalWeight }}g</span>
-                            </div>
-                            <div class="flex justify-between items-center">
-                                <span class="text-gray-600 font-nunito">Ongkos Kirim</span>
-                                <span class="font-semibold font-nunito">Rp{{ number_format($shippingCost, 0, ',', '.') }}</span>
-                            </div>
                             <hr class="border-gray-200">
                             <div class="flex justify-between items-center text-lg">
                                 <span class="font-bold text-gray-800 font-nunito">Total Pembayaran</span>
-                                <span class="font-bold text-blue-600 font-nunito" id="selected-total">Rp{{ number_format($shippingCost, 0, ',', '.') }}</span>
+                                <span class="font-bold text-blue-600 font-nunito" id="selected-total">Rp0</span>
                             </div>
                         </div>
 
@@ -163,11 +167,11 @@
                         </div>
 
                         <!-- Checkout Button -->
-                        <button id="checkout-btn" 
-                                class="w-full py-3 bg-gray-300 text-gray-500 rounded-lg font-nunito font-medium cursor-not-allowed"
-                                disabled>
+                        <a href="{{ route('belanja.checkout') }}" id="checkout-btn" 
+                                class="block w-full py-3 bg-gray-300 text-gray-500 rounded-lg font-nunito font-medium cursor-not-allowed text-center"
+                                onclick="return false;">
                             Beli Sekarang
-                        </button>
+                        </a>
 
                         <!-- Security Badge -->
                         <div class="mt-4 flex items-center justify-center space-x-2 text-sm text-gray-500">
@@ -212,7 +216,9 @@
                     <div class="p-4">
                         <h3 class="font-semibold text-gray-800 font-nunito mb-2">Produk Rekomendasi {{ $i }}</h3>
                         <p class="text-blue-600 font-bold font-nunito">Rp{{ number_format(rand(50000, 150000), 0, ',', '.') }}</p>
-                        <button class="w-full mt-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-nunito font-medium">
+                        <button class="add-to-cart-btn w-full mt-3 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 font-nunito font-medium"
+                                data-product-id="{{ $i }}"
+                                data-product-name="Produk Rekomendasi {{ $i }}">
                             + Keranjang
                         </button>
                     </div>
@@ -230,9 +236,170 @@ document.addEventListener('DOMContentLoaded', function() {
     const itemCheckboxes = document.querySelectorAll('.item-checkbox');
     const quantityInputs = document.querySelectorAll('.quantity-input');
     const quantityBtns = document.querySelectorAll('.quantity-btn');
+    const removeItemBtns = document.querySelectorAll('.remove-item');
     const checkoutBtn = document.getElementById('checkout-btn');
-    
-    let shippingCost = {{ $shippingCost }};
+
+    // CSRF Token for AJAX requests
+    const csrfToken = document.querySelector('meta[name="csrf-token"]');
+    if (csrfToken) {
+        window.csrfToken = csrfToken.getAttribute('content');
+    }
+
+    // Show toast notification
+    function showToast(message, type = 'success') {
+        // Create toast element
+        const toast = document.createElement('div');
+        toast.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-lg shadow-lg text-white font-nunito transform transition-all duration-300 translate-x-full`;
+        toast.className += type === 'success' ? ' bg-green-500' : ' bg-red-500';
+        toast.textContent = message;
+        
+        document.body.appendChild(toast);
+        
+        // Animate in
+        setTimeout(() => toast.classList.remove('translate-x-full'), 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            toast.classList.add('translate-x-full');
+            setTimeout(() => document.body.removeChild(toast), 300);
+        }, 3000);
+    }
+
+    // Update cart item quantity via AJAX
+    function updateCartQuantity(itemId, quantity) {
+        const cartItem = document.querySelector(`[data-item-id="${itemId}"]`).closest('.cart-item');
+        const loadingIndicator = cartItem.querySelector('.loading-indicator');
+        const quantityInput = cartItem.querySelector('.quantity-input');
+        const quantityButtons = cartItem.querySelectorAll('.quantity-btn');
+        
+        // Show loading
+        loadingIndicator.classList.remove('hidden');
+        quantityInput.disabled = true;
+        quantityButtons.forEach(btn => btn.disabled = true);
+        
+        fetch('/belanja/keranjang/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': window.csrfToken,
+                'Accept': 'application/json',
+            },
+            body: JSON.stringify({
+                item_id: itemId,
+                quantity: quantity
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update checkbox data
+                const checkbox = cartItem.querySelector('.item-checkbox');
+                checkbox.dataset.quantity = quantity;
+                
+                // Update item total display
+                const price = parseInt(checkbox.dataset.price);
+                const itemTotal = cartItem.querySelector('.item-total');
+                itemTotal.textContent = 'Rp' + (price * quantity).toLocaleString('id-ID');
+                
+                // Update button states
+                updateQuantityButtonStates(cartItem, quantity);
+                
+                // Update summary
+                updateSummary();
+                
+                showToast('Keranjang berhasil diperbarui');
+            } else {
+                showToast('Gagal memperbarui keranjang', 'error');
+                // Revert quantity
+                quantityInput.value = quantityInput.dataset.oldValue || 1;
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Terjadi kesalahan', 'error');
+            // Revert quantity
+            quantityInput.value = quantityInput.dataset.oldValue || 1;
+        })
+        .finally(() => {
+            // Hide loading
+            loadingIndicator.classList.add('hidden');
+            quantityInput.disabled = false;
+            quantityButtons.forEach(btn => btn.disabled = false);
+            updateQuantityButtonStates(cartItem, quantity);
+        });
+    }
+
+    // Update quantity button states
+    function updateQuantityButtonStates(cartItem, quantity) {
+        const decreaseBtn = cartItem.querySelector('[data-action="decrease"]');
+        const increaseBtn = cartItem.querySelector('[data-action="increase"]');
+        const quantityInput = cartItem.querySelector('.quantity-input');
+        const stock = parseInt(quantityInput.dataset.stock);
+        
+        decreaseBtn.disabled = quantity <= 1;
+        increaseBtn.disabled = quantity >= stock;
+        
+        if (decreaseBtn.disabled) {
+            decreaseBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        } else {
+            decreaseBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+        
+        if (increaseBtn.disabled) {
+            increaseBtn.classList.add('opacity-50', 'cursor-not-allowed');
+        } else {
+            increaseBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        }
+    }
+
+    // Remove item from cart
+    function removeFromCart(itemId) {
+        if (!confirm('Yakin ingin menghapus produk ini dari keranjang?')) {
+            return;
+        }
+        
+        const cartItem = document.querySelector(`[data-item-id="${itemId}"]`).closest('.cart-item');
+        
+        fetch(`/belanja/keranjang/remove/${itemId}`, {
+            method: 'DELETE',
+            headers: {
+                'X-CSRF-TOKEN': window.csrfToken,
+                'Accept': 'application/json',
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Animate out and remove
+                cartItem.style.transform = 'translateX(100%)';
+                cartItem.style.opacity = '0';
+                setTimeout(() => {
+                    cartItem.remove();
+                    updateSummary();
+                    updateCartCount();
+                }, 300);
+                
+                showToast('Produk berhasil dihapus dari keranjang');
+            } else {
+                showToast('Gagal menghapus produk', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Terjadi kesalahan', 'error');
+        });
+    }
+
+    // Update cart count in header
+    function updateCartCount() {
+        const remainingItems = document.querySelectorAll('.cart-item').length;
+        const cartBadges = document.querySelectorAll('.cart-badge, [class*="cart"] span');
+        cartBadges.forEach(badge => {
+            if (badge.textContent !== undefined) {
+                badge.textContent = remainingItems;
+            }
+        });
+    }
 
     // Update summary when checkboxes change
     function updateSummary() {
@@ -240,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let selectedSubtotal = 0;
         
         itemCheckboxes.forEach(checkbox => {
-            if (checkbox.checked) {
+            if (checkbox.checked && checkbox.closest('.cart-item')) {
                 selectedCount++;
                 const price = parseInt(checkbox.dataset.price);
                 const quantity = parseInt(checkbox.dataset.quantity);
@@ -251,30 +418,33 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('selected-count').textContent = selectedCount;
         document.getElementById('selected-subtotal').textContent = 'Rp' + selectedSubtotal.toLocaleString('id-ID');
         
-        const selectedTotal = selectedCount > 0 ? selectedSubtotal + shippingCost : shippingCost;
+        const selectedTotal = selectedSubtotal;
         document.getElementById('selected-total').textContent = 'Rp' + selectedTotal.toLocaleString('id-ID');
         
         // Enable/disable checkout button
         if (selectedCount > 0) {
-            checkoutBtn.disabled = false;
+            checkoutBtn.onclick = null;
             checkoutBtn.classList.remove('bg-gray-300', 'text-gray-500', 'cursor-not-allowed');
             checkoutBtn.classList.add('bg-blue-600', 'text-white', 'hover:bg-blue-700');
             checkoutBtn.textContent = `Beli Sekarang (${selectedCount})`;
         } else {
-            checkoutBtn.disabled = true;
+            checkoutBtn.onclick = function(e) { e.preventDefault(); return false; };
             checkoutBtn.classList.add('bg-gray-300', 'text-gray-500', 'cursor-not-allowed');
             checkoutBtn.classList.remove('bg-blue-600', 'text-white', 'hover:bg-blue-700');
             checkoutBtn.textContent = 'Beli Sekarang';
         }
         
         // Update select all checkbox
-        selectAllCheckbox.checked = selectedCount === itemCheckboxes.length;
-        selectAllCheckbox.indeterminate = selectedCount > 0 && selectedCount < itemCheckboxes.length;
+        const currentItemCheckboxes = document.querySelectorAll('.item-checkbox');
+        const checkedCount = Array.from(currentItemCheckboxes).filter(cb => cb.checked).length;
+        selectAllCheckbox.checked = checkedCount === currentItemCheckboxes.length && currentItemCheckboxes.length > 0;
+        selectAllCheckbox.indeterminate = checkedCount > 0 && checkedCount < currentItemCheckboxes.length;
     }
 
     // Select all functionality
     selectAllCheckbox.addEventListener('change', function() {
-        itemCheckboxes.forEach(checkbox => {
+        const currentItemCheckboxes = document.querySelectorAll('.item-checkbox');
+        currentItemCheckboxes.forEach(checkbox => {
             checkbox.checked = this.checked;
         });
         updateSummary();
@@ -288,51 +458,123 @@ document.addEventListener('DOMContentLoaded', function() {
     // Quantity controls
     quantityBtns.forEach(btn => {
         btn.addEventListener('click', function() {
+            if (this.disabled) return;
+            
             const action = this.dataset.action;
             const itemId = this.dataset.itemId;
             const input = document.querySelector(`input[data-item-id="${itemId}"]`);
-            const checkbox = this.closest('.cart-item').querySelector('.item-checkbox');
+            const stock = parseInt(input.dataset.stock);
             
             let currentValue = parseInt(input.value);
             let newValue = currentValue;
             
-            if (action === 'increase' && currentValue < parseInt(input.max)) {
+            if (action === 'increase' && currentValue < stock) {
                 newValue = currentValue + 1;
             } else if (action === 'decrease' && currentValue > 1) {
                 newValue = currentValue - 1;
             }
             
             if (newValue !== currentValue) {
+                input.dataset.oldValue = currentValue;
                 input.value = newValue;
-                checkbox.dataset.quantity = newValue;
-                
-                // Update item total display
-                const price = parseInt(checkbox.dataset.price);
-                const itemTotal = this.closest('.cart-item').querySelector('.item-total');
-                itemTotal.textContent = 'Rp' + (price * newValue).toLocaleString('id-ID');
-                
-                updateSummary();
+                updateCartQuantity(itemId, newValue);
             }
         });
     });
 
-    // Direct input change
+    // Direct input change with debouncing
+    let quantityUpdateTimeout;
     quantityInputs.forEach(input => {
-        input.addEventListener('change', function() {
-            const checkbox = this.closest('.cart-item').querySelector('.item-checkbox');
-            checkbox.dataset.quantity = this.value;
+        input.addEventListener('input', function() {
+            const itemId = this.dataset.itemId;
+            const stock = parseInt(this.dataset.stock);
+            let value = parseInt(this.value);
             
-            // Update item total display
-            const price = parseInt(checkbox.dataset.price);
-            const itemTotal = this.closest('.cart-item').querySelector('.item-total');
-            itemTotal.textContent = 'Rp' + (price * parseInt(this.value)).toLocaleString('id-ID');
+            // Validate input
+            if (isNaN(value) || value < 1) {
+                value = 1;
+                this.value = 1;
+            } else if (value > stock) {
+                value = stock;
+                this.value = stock;
+                showToast(`Stok tersedia hanya ${stock} item`, 'error');
+            }
             
-            updateSummary();
+            // Debounce the update
+            clearTimeout(quantityUpdateTimeout);
+            quantityUpdateTimeout = setTimeout(() => {
+                updateCartQuantity(itemId, value);
+            }, 500);
+        });
+        
+        input.addEventListener('blur', function() {
+            const value = parseInt(this.value);
+            if (isNaN(value) || value < 1) {
+                this.value = 1;
+                updateCartQuantity(this.dataset.itemId, 1);
+            }
         });
     });
 
-    // Initialize summary
+    // Remove item buttons
+    removeItemBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const itemId = this.dataset.itemId;
+            removeFromCart(itemId);
+        });
+    });
+
+    // Add to cart buttons (for recommended products)
+    const addToCartBtns = document.querySelectorAll('.add-to-cart-btn');
+    addToCartBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const productId = this.dataset.productId;
+            const productName = this.dataset.productName;
+            
+            // Disable button during request
+            this.disabled = true;
+            this.textContent = 'Menambahkan...';
+            
+            fetch('/belanja/keranjang/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': window.csrfToken,
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({
+                    product_id: productId,
+                    quantity: 1
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showToast(`${productName} berhasil ditambahkan ke keranjang`);
+                    updateCartCount();
+                } else {
+                    showToast('Gagal menambahkan produk', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Terjadi kesalahan', 'error');
+            })
+            .finally(() => {
+                // Re-enable button
+                this.disabled = false;
+                this.textContent = '+ Keranjang';
+            });
+        });
+    });
+
+    // Initialize summary and button states
     updateSummary();
+    document.querySelectorAll('.cart-item').forEach(cartItem => {
+        const quantityInput = cartItem.querySelector('.quantity-input');
+        const quantity = parseInt(quantityInput.value);
+        updateQuantityButtonStates(cartItem, quantity);
+    });
 });
 </script>
 @endsection
