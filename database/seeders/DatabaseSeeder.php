@@ -26,6 +26,15 @@ class DatabaseSeeder extends Seeder
                 'phone' => '081234567890',
                 'address' => 'Jl. Kebon Jeruk No. 10, Jakarta Barat, DKI Jakarta'
             ]);
+            User::create([
+                'name' => 'Test',
+                'email' => 'test@test.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('test1234'),
+                'role' => 'user',
+                'phone' => '081234567890',
+                'address' => 'Jl. Kebon Jeruk No. 10, Jakarta Barat, DKI Jakarta'
+            ]);
         }
 
         // Menjalankan seeder untuk data affiliate dummy
