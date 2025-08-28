@@ -11,12 +11,16 @@
     <!-- Vite CSS & JS (includes Tailwind) -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
+    <!-- Admin Styles -->
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- JavaScript -->
     <script src="{{ asset('js/carousel.js') }}"></script>
+    <script src="{{ asset('js/sidebar.js') }}"></script>
 </head>
 
 <body>
@@ -25,9 +29,6 @@
 
     <!-- Sidebar -->
     @include('layouts.admin.sidebar')
-
-    <!-- Spacer untuk menggantikan ruang yang diambil oleh fixed header -->
-    <div class="main-content h-20"></div>
 
     <!-- Success/Error Messages -->
     @if (session('success'))
@@ -54,12 +55,12 @@
     @endif
 
     {{-- Main Content --}}
-    <main class="main-content lg:ml-64 transition-all duration-300">
+    <main id="main-content" class="main-content transition-all duration-300 ease-in-out pt-20 lg:ml-16">
         @yield('content')
     </main>
 
     <!-- Footer Section -->
-    <footer class="main-content lg:ml-64 transition-all duration-300">
+    <footer id="footer-content" class="main-content transition-all duration-300 ease-in-out lg:ml-16">
         @include('layouts.footer')
     </footer>
 </body>

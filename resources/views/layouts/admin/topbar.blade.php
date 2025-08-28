@@ -1,21 +1,21 @@
-{{-- topbar --}}
+{{-- resources/views/layouts/admin/topbar.blade.php --}}
 <header class="fixed top-0 left-0 right-0 bg-white shadow-md z-50">
     <div class="flex justify-between items-center py-3 lg:py-4">
         <!-- Left Side: Hamburger + Logo -->
         <div class="flex items-center">
-            <!-- Hamburger Button - Aligned with sidebar -->
+            <!-- Modern Hamburger Button - Pilih salah satu style -->
             <div class="w-16 flex justify-center">
-                <button id="hamburger-btn" class="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200">
-                    <div class="hamburger-icon w-5 h-5 flex flex-col justify-center items-center">
-                        <span class="hamburger-line block w-5 h-0.5 bg-gray-600 rounded transition-all duration-300 mb-1"></span>
-                        <span class="hamburger-line block w-5 h-0.5 bg-gray-600 rounded transition-all duration-300 mb-1"></span>
-                        <span class="hamburger-line block w-5 h-0.5 bg-gray-600 rounded transition-all duration-300"></span>
-                    </div>
+
+                <button id="hamburger-btn" 
+                    class="w-12 h-12 bg-brand-500/10 backdrop-blur-xl border border-white/20 rounded-xl cursor-pointer flex flex-col justify-center items-center gap-1 transition-all duration-300 hover:bg-brand-500/20 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-500/25 focus:outline-none focus:ring-2 focus:ring-brand-500/50">
+                    <span class="hamburger-line block w-5 h-0.5 bg-brand-500 rounded-full transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-brand-500 rounded-full transition-all duration-300"></span>
+                    <span class="hamburger-line block w-5 h-0.5 bg-brand-500 rounded-full transition-all duration-300"></span>
                 </button>
             </div>
 
             <!-- Logo -->
-            <div class="flex-shrink-0 ml-2">
+            <div class="flex-shrink-0 ml-3">
                 <a href="#" class="flex items-center">
                     <img src="{{ asset('images/top-bar.png') }}" alt="Gentle Living Logo" class="h-10 sm:h-12">
                 </a>

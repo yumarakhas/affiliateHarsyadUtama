@@ -264,7 +264,12 @@ class MasterItemSeeder extends Seeder
         ];
 
         foreach ($items as $item) {
-            MasterItem::create($item);
+            // Check if item already exists
+            $existingItem = MasterItem::where('item_id', $item['item_id'])->first();
+            
+            if (!$existingItem) {
+                MasterItem::create($item);
+            }
         }
     }
 }
