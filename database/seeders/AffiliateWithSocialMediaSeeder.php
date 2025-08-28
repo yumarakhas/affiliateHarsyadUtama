@@ -71,23 +71,28 @@ class AffiliateWithSocialMediaSeeder extends Seeder
         ];
 
         foreach ($affiliates as $affiliateData) {
-            // Create affiliate registration
-            $affiliate = AffiliateRegistration::create([
-                'email' => $affiliateData['email'],
-                'nama_lengkap' => $affiliateData['nama_lengkap'],
-                'kontak_whatsapp' => $affiliateData['kontak_whatsapp'],
-                'kota_domisili' => $affiliateData['kota_domisili'],
-                'profesi_kesibukan' => $affiliateData['profesi_kesibukan'],
-                'info_darimana' => $affiliateData['info_darimana'],
-                'status' => $affiliateData['status']
-            ]);
+            // Check if affiliate already exists
+            $existingAffiliate = AffiliateRegistration::where('email', $affiliateData['email'])->first();
+            
+            if (!$existingAffiliate) {
+                // Create affiliate registration
+                $affiliate = AffiliateRegistration::create([
+                    'email' => $affiliateData['email'],
+                    'nama_lengkap' => $affiliateData['nama_lengkap'],
+                    'kontak_whatsapp' => $affiliateData['kontak_whatsapp'],
+                    'kota_domisili' => $affiliateData['kota_domisili'],
+                    'profesi_kesibukan' => $affiliateData['profesi_kesibukan'],
+                    'info_darimana' => $affiliateData['info_darimana'],
+                    'status' => $affiliateData['status']
+                ]);
 
-            // Create affiliate info with social media
-            AffiliateInfo::create([
-                'affiliate_registration_id' => $affiliate->id,
-                'akun_instagram' => $affiliateData['social_media']['akun_instagram'],
-                'akun_tiktok' => $affiliateData['social_media']['akun_tiktok']
-            ]);
+                // Create affiliate info with social media
+                AffiliateInfo::create([
+                    'affiliate_registration_id' => $affiliate->id,
+                    'akun_instagram' => $affiliateData['social_media']['akun_instagram'],
+                    'akun_tiktok' => $affiliateData['social_media']['akun_tiktok']
+                ]);
+            }
         }
 
         $this->command->info('Successfully created ' . count($affiliates) . ' affiliates with social media data!');

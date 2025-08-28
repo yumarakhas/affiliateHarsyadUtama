@@ -317,7 +317,7 @@ class AdminController extends Controller
 
             return response()->json([
                 'success' => false,
-                'message' => 'Data tidak valid: ' . implode(', ', array_flatten($e->errors())),
+                'message' => 'Data tidak valid: ' . implode(', ', \Illuminate\Support\Arr::flatten($e->errors())),
                 'errors' => $e->errors()
             ], 422);
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
