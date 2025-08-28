@@ -14,6 +14,11 @@ Route::get('/belanja', [LandingController::class, 'belanja'])->name('belanja');
 Route::get('/belanja/produk', [LandingController::class, 'belanjaProduk'])->name('belanja.produk');
 Route::get('/belanja/riwayat', [LandingController::class, 'riwayat'])->name('belanja.riwayat');
 Route::get('/belanja/keranjang', [LandingController::class, 'keranjang'])->name('belanja.keranjang');
+Route::post('/belanja/keranjang/update', [LandingController::class, 'updateCart'])->name('belanja.keranjang.update');
+Route::delete('/belanja/keranjang/remove/{id}', [LandingController::class, 'removeFromCart'])->name('belanja.keranjang.remove');
+Route::post('/belanja/keranjang/add', [LandingController::class, 'addToCart'])->name('belanja.keranjang.add');
+Route::get('/belanja/checkout', [LandingController::class, 'checkout'])->name('belanja.checkout');
+Route::post('/belanja/checkout/process', [LandingController::class, 'processCheckout'])->name('belanja.checkout.process');
 Route::get('/produk/{id}', [LandingController::class, 'produkDetail'])->name('produk.detail');
 Route::get('/tentang-kami', [LandingController::class, 'tentangKami'])->name('tentang-kami');
 
@@ -30,7 +35,7 @@ Route::post('/register', [AuthController::class, 'register'])->name('register.po
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 // Admin Routes (Protected)
-Route::middleware('auth')->prefix('admin')->group(function () {
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->group(function () {
     Route::get('/view-data', [AdminController::class, 'viewData'])->name('admin.view-data');
     Route::get('/affiliate/{id}/details', [AdminController::class, 'getDetails'])->name('admin.affiliate.details');
     Route::put('/affiliate/{id}', [AdminController::class, 'update'])->name('admin.affiliate.update');
@@ -39,7 +44,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::post('/affiliate/{id}/update-status', [AdminController::class, 'updateStatus'])->name('admin.affiliate.update-status');
     Route::get('/affiliate/export', [AdminController::class, 'export'])->name('admin.affiliate.export');
     Route::get('/export-excel', [AdminController::class, 'exportExcel'])->name('admin.export-excel');
-    
+
     // Product Management Routes
     Route::get('/products', [AdminController::class, 'manageProducts'])->name('admin.products.index');
     Route::get('/products/create', [AdminController::class, 'createProduct'])->name('admin.products.create');

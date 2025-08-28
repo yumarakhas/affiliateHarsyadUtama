@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
 
         // Menjalankan seeder untuk data affiliate dummy
         $this->call([
+            CategorySeeder::class,
+            MasterItemSeeder::class,
             AffiliateWithSocialMediaSeeder::class,
         ]);
     }
